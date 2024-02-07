@@ -7,3 +7,5 @@
 abcd
 
 [>>操作指南](guide)
+
+[>>网课资料](online_courses/cs61a/cs61a.md)
