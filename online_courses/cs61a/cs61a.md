@@ -16,4 +16,4 @@ Berkeley的计算概论课，涉及函数、递归、数据封装、面向对象
 
 ## 我的上课资料
 
-[>> all discussions for cs61a (2023 fall)](disc/discussions.pdf)
+[>> all discussions for cs61a (2023 fall)](online_courses/cs61a/disc/discussions.pdf)
