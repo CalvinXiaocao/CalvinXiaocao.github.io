@@ -19,3 +19,5 @@ Berkeley的计算概论课，涉及函数、递归、数据封装、面向对象
 [>> all discussions for cs61a (2023 fall)](https://calvinxiaocao.github.io/online_courses/cs61a/disc/discussions.pdf)
 
 [>> discussion solutions (2023 fall)](online_courses/cs61a/disc/answer)
+
+All my labs and homework solutions are on **Github**. *Click [here](https://github.com/CalvinXiaocao/CalvinXiaocao.github.io/tree/main/online_courses/cs61a)*
