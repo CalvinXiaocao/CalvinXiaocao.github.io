@@ -2,6 +2,12 @@
 
 >这是一个测试网页。
 
+## 新春快乐！
+
+[>> 烟花版](https://calvinxiaocao.github.io/fireworks.html)
+
+[>> 高考版](https://calvinxiaocao.github.io/gaokao2024.html)
+
 ## 个人信息
 
 草鱼正在编辑中……
