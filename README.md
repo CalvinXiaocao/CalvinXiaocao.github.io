@@ -8,6 +8,8 @@
 
 [>> 高考版](https://calvinxiaocao.github.io/gaokao2024.html)
 
+*注：以上内容改编自网络～*
+
 ## 个人信息
 
 草鱼正在编辑中……
