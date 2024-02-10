@@ -28,3 +28,5 @@
 |17-18|[期末考试](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/2022final.pdf)||
 
 *注：大练习内容大多数来源于同济版教材，由草鱼本人整理*
+
+[<<返回](online_courses)
