@@ -1,6 +1,6 @@
 # 课程资料
 
->以下内容由草鱼整理自网络或由草鱼原创，仅供学习交流使用
+>以下内容由草鱼整理自网络或由草鱼原创，**仅供学习交流使用**
 
 |semester|math course 1|math course 2|cs course 1|cs course 2|politics 1|politics 2|others 1|others 2|others 3|
 |----|----|----|----|----|----|----|----|----|----|
