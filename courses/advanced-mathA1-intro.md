@@ -17,7 +17,7 @@
 | 6    | 积分、微积分基本定理                 | [大练习3](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/3.pdf)、[4](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/4.pdf)、[5](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/5.pdf) |
 | 7    | 换元积分法、分部积分法               | [大练习1](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/1.pdf)|
 | 8    | 有理式的不定积分、积分的应用         | [大练习6](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/6.pdf)       |
-| 9    | 微分中值定理、**期中考试**           | [大练习7](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/7.pdf)       |
+| 9    | 微分中值定理、**期中考试**           | [大练习7](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/7midterm.pdf) ｜[答案](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/7answer.pdf)        |
 | 10   | 微分中值定理、洛必达法则、泰勒公式   | [大练习8](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/8.pdf)、[9](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/9.pdf)    |
 | 11   | 泰勒公式、极值问题                   | [大练习10](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/10.pdf)      |
 | 12   | 函数凹凸性、向量代数与空间几何       | [大练习11](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/11.pdf)      |
