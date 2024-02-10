@@ -26,3 +26,5 @@
 | 15   | 隐函数存在定理、极值问题      |   [大练习14](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/14.pdf)、[15](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/15.pdf)   |
 | 16   | 复习周              |[大练习16](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/16.pdf)    |
 |17-18|[期末考试](https://calvinxiaocao.github.io/courses/advanced-mathA1/exercise/2022final.pdf)||
+
+*注：大练习内容大多数来源于同济版教材，由草鱼本人整理*
