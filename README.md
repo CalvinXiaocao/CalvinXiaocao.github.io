@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
->这是一个测试网页。
+>📢 2024 Spring **Week 0** [Announcements](/24sp/week0)
 
 ## 🎉 新春快乐！
 
@@ -13,6 +13,8 @@
 ## 个人信息
 
 草鱼正在编辑中……
+
+个人邮箱：calvincao@stu.pku.edu.cn
 
 [吉聚燕园｜曹彧：成为暗夜中的璀璨烟花](https://mp.weixin.qq.com/s/zs2K9cgmLi-b9N5gp6V9Jg)
 
