@@ -2,8 +2,8 @@
 * 学期：2023 fall
 * 教师：[周珍楠](http://faculty.bicmr.pku.edu.cn/~zhennan/chinese.html)（极力推荐！！）
 * 课时：每周2节正课+每周习题课
-* 教材：[《高等数学》李忠等（北大版）上册](https://calvinxiaocao.github.io/courses/advanced-mathA1/textbook/Li.pdf)
-* 补充教材：[《高等数学》同济版上册](https://calvinxiaocao.github.io/courses/advanced-mathA1/textbook/up.pdf)
+* 教材：《高等数学》李忠等（北大版）上册
+* 补充教材：《高等数学》同济版上册
 
 ## 日程
 

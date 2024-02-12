@@ -29,13 +29,7 @@
 
 ## 其他资料
 
-[线性代数习题课讲义](https://calvinxiaocao.github.io/courses/linear-algebraA1/discussion.pdf)（拓展内容较多）
-
 [The Art Of Linear Algebra](https://calvinxiaocao.github.io/courses/linear-algebraA1/The-Art-of-Linear-Algebra.pdf)（从图形的角度理解矩阵的多种分解方式）
-
-[2021线性代数B期末试题](https://calvinxiaocao.github.io/courses/linear-algebraA1/exercise/21Bfinal.pdf)｜[答案](https://calvinxiaocao.github.io/courses/linear-algebraA1/exercise/21BfinalAnswer.pdf)
-
-[2022线性代数B期末试题](https://calvinxiaocao.github.io/courses/linear-algebraA1/exercise/22Bfinal.pdf)
 
 推荐观看网红博主3Blue1Brown的视频～
 

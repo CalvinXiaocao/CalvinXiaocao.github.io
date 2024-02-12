@@ -1,8 +1,8 @@
 # 信息科学中的物理学（上）
 * 学期：2023 fall
-* 教师：唐克超、王润声
+* 教师：[唐克超](https://ic.pku.edu.cn/szdw/zzjs/jcwndzx1/tkc/index.htm)、[王润声](http://www.ai.pku.edu.cn/info/1170/1230.htm)
 * 课时：每周2节正课，无习题课
-* 教材：[普通物理学-第六版（上册）](https://calvinxiaocao.github.io/courses/physics/up.pdf)（注：加载可能需要一段时间……）
+* 教材：普通物理学-第六版（上册）
 
 ## 日程
 
@@ -27,7 +27,5 @@
 [热学部分考试公式页](https://calvinxiaocao.github.io/courses/physics/formula.pdf)
 
 [热学部分知识点整理版](https://calvinxiaocao.github.io/courses/physics/7.pdf)
-
-[2022年期末考试试题](https://calvinxiaocao.github.io/courses/physics/22final.pdf)
 
 [<<返回](university_courses)

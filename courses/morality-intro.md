@@ -2,7 +2,7 @@
 * 学期：2023 fall
 * 教师：信科思修教学组
 * 课时：每周1节正课
-* 教材：[思想道德与法治2023版（注意教材的版本～）](https://calvinxiaocao.github.io/courses/morality/textbook.pdf)
+* 教材：思想道德与法治2023版（注意教材的版本～）
 
 ## 资源
 
