@@ -1,6 +1,6 @@
 # Berkeley Data 8
 
-![图片](/online_courses/data8/welcome.jpg)（超可爱的两只小熊～😍）
+![图片](/data8/welcome.jpg)（超可爱的两只小熊～😍）
 
 Berkeley数据科学的入门课，内容相较CS 61A更为简单，但它是后续Data 100的先修课，会介绍一些数据科学的基本概念。
 
