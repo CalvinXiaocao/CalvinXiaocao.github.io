@@ -6,4 +6,6 @@
 | --------- | --------------------------------------------- | --------------- | --------------- | -------------- | 
 | 23 fall   | [Berkeley CS 61A](online_courses/cs61a/cs61a) | Berkeley Data 8 |                                | Berkeley Math 54 |
 | 24 winter | Berkeley CS 61A| Berkeley Data 8 | Berkeley CS 188 | Berkeley CS 70 |                  |
-| 24 spring |
+| 24 spring |Berkeley CS 61B|Berkeley Data 100|Berkeley CS 188|Berkeley CS 70|
+
+[返回](/)
