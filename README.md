@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## 📢 2024 Spring **Week 0** [Announcements!](/24sp/week0)
+## 📢[ Announcements!](/24sp/week0) 2024 Spring **Week 0** 
 
 *Click '**Announcements**' to learn more* ⬆️
 
