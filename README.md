@@ -1,6 +1,12 @@
 # Welcome to Calvin's world!
 
->📢 2024 Spring **Week 0** [Announcements](/24sp/week0)
+## 📢 2024 Spring **Week 0** [Announcements!](/24sp/week0)
+
+*Click '**Announcements**' to learn more* ⬆️
+
+> ⚠️ **注意！！** 今日选课预选阶段将截止，请确认已完成预选及投点！
+
+> 草鱼的[期初练习](/24sp/exam0)即将发布～调整心态，迎接新学期🤗
 
 ## 🎉 新春快乐！
 
