@@ -1,6 +1,8 @@
 # Welcome to Calvin's world!
 
-## 📢[ Announcements!](/24sp/week0) 2024 Spring **Week 0** 
+## 📢[ Announcements!](/24sp/week0) 
+
+**Week 0**, 2024 Spring
 
 *Click '**Announcements**' to learn more* ⬆️
 
@@ -18,11 +20,13 @@
 
 ## 个人信息
 
-草鱼正在编辑中……
+Undergraduate Student
 
-个人邮箱：calvincao@stu.pku.edu.cn
+[School of Electronics Engineering and Computer Science](https://eecs.pku.edu.cn)
 
-[吉聚燕园｜曹彧：成为暗夜中的璀璨烟花](https://mp.weixin.qq.com/s/zs2K9cgmLi-b9N5gp6V9Jg)
+[Peking University](https://www.pku.edu.cn/)
+
+**Email**: calvincao@stu.pku.edu.cn
 
 ## 学习篇
 
@@ -33,3 +37,7 @@
 [>> 高考备考锦囊](gaokao)
 
 *注：由于版权等问题，暂不提供教材等电子版资料。更多学习资源、学习心得交流等内容，可通过邮箱联系作者获取。*
+
+## 文娱篇
+
+[吉聚燕园｜曹彧：成为暗夜中的璀璨烟花](https://mp.weixin.qq.com/s/zs2K9cgmLi-b9N5gp6V9Jg)
