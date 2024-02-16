@@ -6,17 +6,13 @@
 
 *Click '**Announcements**' to learn more* ⬆️
 
-> ⚠️ **注意！！** 今日选课预选阶段将截止，请确认已完成预选及投点！
+> ⚠️ **注意！！** 2月17日上午10:00选课补退选第一阶段将截止，请确认完成选课！
 
 > 草鱼的[期初练习](/24sp/exam0)即将发布～调整心态，迎接新学期🤗
 
-## 🎉 新春快乐！
+## 🎉 新学期快乐！
 
-[>> 烟花版](https://calvinxiaocao.github.io/fireworks.html)
-
-[>> 高考版](https://calvinxiaocao.github.io/gaokao2024.html)
-
-*注：以上内容改编自网络～*
+[点击这里查看草鱼的课表](/schedule/24sp)
 
 ## 个人信息
 
@@ -35,6 +31,8 @@ Undergraduate Student
 [>> 网课资料](online_course)（目前只有CS 61A的一小部分……正在更新中）
 
 [>> 高考备考锦囊](gaokao)
+
+[>> 其他各种链接](links)
 
 *注：由于版权等问题，暂不提供教材等电子版资料。更多学习资源、学习心得交流等内容，可通过邮箱联系作者获取。*
 
