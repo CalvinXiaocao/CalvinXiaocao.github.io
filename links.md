@@ -14,4 +14,6 @@
 
 [docsify教程](https://docsify.js.org)（这个网站就是用docsify制作的）
 
+[musicpy介绍](https://github.com/Rainbow-Dreamer/musicpy/wiki)（用python写歌）
+
 [<<返回](/)
