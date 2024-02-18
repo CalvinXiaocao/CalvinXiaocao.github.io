@@ -8,4 +8,4 @@
 | 24 winter | Berkeley CS 61A| Berkeley Data 8 | Berkeley CS 188 | [Berkeley CS 70](/online_courses/cs70_intro) |                  |
 | 24 spring |Berkeley CS 61B|Berkeley Data 100|Berkeley CS 188|Berkeley CS 70|
 
-[返回](/)
+[返回](/public)

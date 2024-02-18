@@ -16,4 +16,4 @@
 
 [musicpy介绍](https://github.com/Rainbow-Dreamer/musicpy/wiki)（用python写歌）
 
-[<<返回](/)
+[<<返回](/public)
