@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## [19.2.2024 Sun](/schedule/24sp-mon)
+## Today:[ 19.2.2024 Sun](/schedule/24sp-mon)
 今日天气：多云☁️🧊 5°C/-5°C
 
 ## 📢[ Announcements!](/24sp/week1) 
@@ -24,7 +24,7 @@
 
 ### [>> 高考备考锦囊](gaokao)
 
-### [>> 其他有用的链接](links)
+### [>> 其他实用链接](links)
 
 *注：由于版权等问题，暂不提供教材等电子版资料。更多学习资源、学习心得交流等内容，可通过邮箱联系作者获取。*
 
