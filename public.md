@@ -1,11 +1,11 @@
 # Welcome to Calvin's world!
 
-## [18.2.2024 Sun]()
-今日天气：小雨转多云☔️ 9°C/3°C
+## [19.2.2024 Sun](/schedule/24sp-mon)
+今日天气：多云☁️🧊 5°C/-5°C
 
-## 📢[ Announcements!](/24sp/week0) 
+## 📢[ Announcements!](/24sp/week1) 
 
-### **Week 0**, 2024 Spring
+### **Week 1**, 2024 Spring
 
 *Click '**Announcements**' to learn more* ⬆️
 
