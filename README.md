@@ -6,12 +6,11 @@
 
 *Click '**Announcements**' to learn more* ⬆️
 
-> ⚠️ **注意！！** 2月17日上午10:00选课补退选第一阶段将截止，请确认完成选课！
-
 > 草鱼的[期初练习](/24sp/exam0)即将发布～调整心态，迎接新学期🤗
 
 ## 🎉 新学期快乐！
 
+![happy 新学期!](/24sp/newsemester.jpg)
 [点击这里查看草鱼的课表](/schedule/24sp)
 
 ## 个人信息
