@@ -1,5 +1,8 @@
 # Welcome to Calvin's world!
 
+## [18.2.2024 Sun]()
+今日天气：小雨转多云☔️ 9°C/3°C
+
 ## 📢[ Announcements!](/24sp/week0) 
 
 **Week 0**, 2024 Spring
@@ -27,7 +30,7 @@ Undergraduate Student
 
 [>> 大学课程资料](university_courses)
 
-[>> 网课资料](online_course)（目前只有CS 61A的一小部分……正在更新中）
+[>> 网课资料](online_course)
 
 [>> 高考备考锦囊](gaokao)
 
