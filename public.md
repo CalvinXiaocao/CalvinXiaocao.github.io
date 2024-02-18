@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ 19.2.2024 Sun](/schedule/24sp-mon)
+## Today:[ 19.2.2024 Mon](/schedule/24sp-mon)
 今日天气：多云☁️🧊 5°C/-5°C
 
 ## 📢[ Announcements!](/24sp/week1) 
