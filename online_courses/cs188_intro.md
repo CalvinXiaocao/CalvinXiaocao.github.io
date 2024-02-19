@@ -14,4 +14,6 @@ Berkeley的人工智能引论课，和学校新版人工智能引论课的重合
 
 ## 课程资源
 
-[课程官网(23fall)](https://inst.eecs.berkeley.edu/~cs188/fa23/)
+[>> 课程官网(23fall)](https://inst.eecs.berkeley.edu/~cs188/fa23/)
+
+[返回](/online_course)
