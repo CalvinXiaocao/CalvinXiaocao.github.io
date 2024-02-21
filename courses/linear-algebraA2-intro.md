@@ -36,9 +36,10 @@ zhaoyufeng@math.pku.edu.cn
 
 ## 日程
 
-| 周数 | 讲授内容 | 补充练习 |
-| ---- | -------- | -------- |
-|1|多项式、带余除法、公因式||
+| 周数 |节数| 讲授内容 | 补充练习 |
+| ---- |----| -------- | -------- |
+|1|1|多项式、带余除法、公因式||
+|1|2|最大公因数、最小公倍式|[大练习1](https://calvinxiaocao.github.io/courses/linear-algebraA2/exercise/1.pdf)|
 
 ## 其他资料
 [>> 高等代数（II）](/courses/advanced-algebra-intro)
