@@ -17,9 +17,11 @@
 
 ## 日程
 
-| 周数 | 讲授内容 | 补充练习 |
-| ---- | -------- | -------- |
-|1|[intro to AI & math prerequests](/courses/ai/lec1)||
+| 周数 |节数| 讲授内容 | 补充练习 |
+| ---- |----| -------- | -------- |
+|1|1|[intro to AI & math prerequests](/courses/ai/lec1)||
+|1|2|[math prerequests](https://calvinxiaocao.github.io/courses/ai/lec2.html)||
+
 
 ## 其他资料
 
