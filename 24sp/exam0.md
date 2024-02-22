@@ -9,7 +9,7 @@
 | 高等数学 | 2.20 20:40-22:30 | 上学期的内容 | [戳这里](https://calvinxiaocao.github.io/24sp/start/math.pdf)|
 | CS 70    | 2.21 18:00-20:00 | midterm 1 (to RSA)|[戳这里](https://calvinxiaocao.github.io/24sp/start/cs70.pdf)|
 | CS 61A |2.21 20:30-22:30|all contents|[戳这里](https://calvinxiaocao.github.io/24sp/start/cs61a.pdf)|
-|Data 8| 2.23 18:00-20:00|midterm (to causality)|*2.23 12:30发布*|
+|Data 8| 2.23 18:00-20:00|midterm (to causality)|延后|
 |English CET6|2.23 20:10-22:30|CET6 difficulty|*2.23 12:30发布*|
 
 [返回](/24sp/week0)
