@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ 22.2.2024 Thu](/schedule/24sp-thu)
-今日天气：多云转晴☀️🧊 2°C/-5°C
+## Today:[ 23.2.2024 Fri](/schedule/24sp-fri)
+今日天气：晴转多云☀️🧊 2°C/-6°C
 
 ## 📢[ Announcements!](/24sp/week1) 
 
@@ -10,6 +10,8 @@
 *Click '**Announcements**' to learn more* ⬆️
 
 > 草鱼的[期初练习](/24sp/exam0)正在发布～调整心态，迎接新学期🤗
+
+> 四六级成绩将于2月27日6时公布！
 
 ## 🎉 新学期快乐！
 
