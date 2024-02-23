@@ -21,6 +21,7 @@
 | 周数 |节数| 讲授内容 | 补充练习 |
 | ---- |----| -------- | -------- |
 |1|1|[课程介绍、c++补充知识](https://calvinxiaocao.github.io/courses/practice-of-programming/lec1.html)||
+|1|2|[c++补充知识、面向对象OOP](https://calvinxiaocao.github.io/courses/practice-of-programming/lec2.html)||
 
 ## 其他资料
 
