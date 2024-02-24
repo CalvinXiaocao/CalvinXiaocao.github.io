@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ 24.2.2024 Sat 元宵节🎉](/schedule/24sp-weekend)
-今日天气：晴☀️🧊 6°C/-4°C
+## Today:[ 25.2.2024 Sun](/schedule/24sp-weekend)
+今日天气：晴☀️🧊 9°C/-3°C
 
 ## 📢[ Announcements!](/24sp/week1) 
 
