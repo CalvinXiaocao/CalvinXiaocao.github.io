@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ 23.2.2024 Fri](/schedule/24sp-fri)
-今日天气：晴转多云☀️🧊 2°C/-6°C
+## Today:[ 24.2.2024 Sat 元宵节🎉](/schedule/24sp-weekend)
+今日天气：晴☀️🧊 6°C/-4°C
 
 ## 📢[ Announcements!](/24sp/week1) 
 
@@ -9,16 +9,13 @@
 
 *Click '**Announcements**' to learn more* ⬆️
 
-> 草鱼的[期初练习](/24sp/exam0)正在发布～调整心态，迎接新学期🤗
-
 > 四六级成绩将于2月27日6时公布！
 
 > 《程序设计实习》上课地点改变为二教411！
 
-## 🎉 新学期快乐！
+## 🎉 元宵节快乐！
 
-![happy 新学期!](/24sp/newsemester.jpg)
-[点击这里查看草鱼的课表](/schedule/24sp)
+![happy 元宵节!](/24sp/lantern.png)
 
 ## 学习篇
 

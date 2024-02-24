@@ -29,6 +29,7 @@ openjudge程序填空（已完成）
 ## Berkeley
 
 ### CS 61B
+完成project 2048
 
 ### Data 8
 听3节课
@@ -38,3 +39,5 @@ openjudge程序填空（已完成）
 
 ### CS 188
 习题
+
+[返回主页](/public)
