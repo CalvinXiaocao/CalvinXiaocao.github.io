@@ -13,9 +13,9 @@
 
 > 《程序设计实习》上课地点改变为二教411！
 
-## 🎉 元宵节快乐！
+## 🎵 音乐推荐
 
-![happy 元宵节!](/24sp/lantern.png)
+![happy 元宵节!](/24sp/song/guangmang.jpg)
 
 ## 学习篇
 
