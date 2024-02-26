@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 1, 2024 Spring (2.19-2.25)*
+*Week 2, 2024 Spring (2.26-3.3)*
 
 > 作业见微信群！
 
@@ -40,6 +40,8 @@ zhaoyufeng@math.pku.edu.cn
 | ---- |----| -------- | -------- |
 |1|1|多项式、带余除法、公因式||
 |1|2|最大公因数、最小公倍式|[大练习1](https://calvinxiaocao.github.io/courses/linear-algebraA2/exercise/1.pdf)|
+|2|3|唯一分解定理、lambda矩阵及标准型||
+|2|*1*|习题课：多项式||
 
 ## 其他资料
 [>> 高等代数（II）](/courses/advanced-algebra-intro)
