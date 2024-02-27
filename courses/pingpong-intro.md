@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 1, 2024 Spring (2.19-2.25)*
+*Week 2, 2024 Spring (2.26-3.3)*
 
 > 
 
