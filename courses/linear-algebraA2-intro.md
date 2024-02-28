@@ -42,6 +42,7 @@ zhaoyufeng@math.pku.edu.cn
 |1|2|最大公因数、最小公倍式|[大练习1](https://calvinxiaocao.github.io/courses/linear-algebraA2/exercise/1.pdf)|
 |2|3|唯一分解定理、lambda矩阵及标准型||
 |2|*1*|习题课：多项式||
+|2|4|行列式因子、不变因子、矩阵相似的充要条件||
 
 ## 其他资料
 [>> 高等代数（II）](/courses/advanced-algebra-intro)

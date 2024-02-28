@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 1, 2024 Spring (2.19-2.25)*
+*Week 2, 2024 Spring (2.26-3.3)*
 
 > 上机课从第三周开始，安排在周末
 
@@ -22,6 +22,7 @@
 | ---- |----| -------- | -------- |
 |1|1|[课程介绍、c++补充知识](https://calvinxiaocao.github.io/courses/practice-of-programming/lec1.html)||
 |1|2|[c++补充知识、面向对象OOP](https://calvinxiaocao.github.io/courses/practice-of-programming/lec2.html)||
+|2|3|[面向对象OOP(2)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec3.html)||
 
 ## 其他资料
 
