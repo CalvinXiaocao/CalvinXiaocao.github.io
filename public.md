@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ 2.3.2024 Sat](/schedule/24sp-weekend)
-今日天气：晴☀️🧊 6°C/-3°C
+## Today:[ 3.3.2024 Sun](/schedule/24sp-weekend)
+今日天气：晴☀️🧊 12°C/-3°C
 
 `走自己的路，让别人说去吧～`
 
@@ -9,9 +9,7 @@
 
 ### **Week 2**, 2024 Spring
 
-*Click '**Announcements**' to learn more* ⬆️
-
-> 百团大战：3.1-3.2 10am-5pm
+> 课外锻炼将于3.4开始！！
 
 ## 🎵 音乐推荐
 
