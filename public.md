@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ 1.3.2024 Fri](/schedule/24sp-fri)
+## Today:[ 2.3.2024 Sat](/schedule/24sp-weekend)
 今日天气：晴☀️🧊 6°C/-3°C
 
 `走自己的路，让别人说去吧～`
