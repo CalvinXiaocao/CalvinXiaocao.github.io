@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 4, 2024 Mon](/schedule/24sp-mon)
-**今日天气：阴转雨夹雪🌧️❄️ 8°C/0°C**
+## Today:[ Mar 5, 2024 Mon](/schedule/24sp-mon)
+**今日天气：雨夹雪转阴🌧️❄️ 3°C/0°C**
 
 `走自己的路，让别人说去吧～`
 
@@ -9,7 +9,7 @@
 
 ### **Week 3**, 2024 Spring
 
-> 课外锻炼将于3.4开始！！
+> 课外锻炼已经开始！！
 
 ## 🎵 音乐推荐
 
