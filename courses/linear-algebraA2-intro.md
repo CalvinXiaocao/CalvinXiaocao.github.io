@@ -43,6 +43,7 @@ zhaoyufeng@math.pku.edu.cn
 |2|3|唯一分解定理、lambda矩阵及标准型||
 |2|*1*|习题课：多项式||
 |2|4|行列式因子、不变因子、矩阵相似的充要条件||
+|3|5|Jordan标准型||
 
 ## 其他资料
 [>> 高等代数（II）](/courses/advanced-algebra-intro)

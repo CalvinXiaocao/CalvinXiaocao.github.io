@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 2, 2024 Spring (2.26-3.3)*
+*Week 3, 2024 Spring (2.26-3.3)*
 
 > 与课程有关的信息全部在选课网上，注意关注
 
@@ -24,6 +24,7 @@
 |1|1|[intro to AI & math prerequests](/courses/ai/lec1)||
 |1|2|[math prerequests](https://calvinxiaocao.github.io/courses/ai/lec2.html)||
 |2|3|[python intro & search](https://calvinxiaocao.github.io/courses/ai/lec3.html)|CS188 discussion 1|
+|3|4|[UCS & informed search](https://calvinxiaocao.github.io/courses/ai/lec4.html)|CS188 discussion 2|
 
 
 ## 其他资料
