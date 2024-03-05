@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 5, 2024 Mon](/schedule/24sp-mon)
+## Today:[ Mar 5, 2024 Tue](/schedule/24sp-tue)
 **今日天气：雨夹雪转阴🌧️❄️ 3°C/0°C**
 
 `走自己的路，让别人说去吧～`
