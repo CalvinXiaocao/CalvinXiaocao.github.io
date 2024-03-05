@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 2, 2024 Spring (2.26-3.3)*
+*Week 3, 2024 Spring (3.4-3.10)*
 
 > 作业见微信群！
 
@@ -39,10 +39,10 @@ zhaoyufeng@math.pku.edu.cn
 | 周数 |节数| 讲授内容 | 补充练习 |
 | ---- |----| -------- | -------- |
 |1|1|多项式、带余除法、公因式||
-|1|2|最大公因数、最小公倍式|[大练习1](https://calvinxiaocao.github.io/courses/linear-algebraA2/exercise/1.pdf)|
+||2|最大公因数、最小公倍式|[大练习1](https://calvinxiaocao.github.io/courses/linear-algebraA2/exercise/1.pdf)|
 |2|3|唯一分解定理、lambda矩阵及标准型||
-|2|*1*|习题课：多项式||
-|2|4|行列式因子、不变因子、矩阵相似的充要条件||
+||*1*|习题课：多项式||
+||4|行列式因子、不变因子、矩阵相似的充要条件||
 |3|5|Jordan标准型||
 
 ## 其他资料
