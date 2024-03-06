@@ -9,11 +9,17 @@
 
 ## 📢 Announcements
 
-*Week 2, 2024 Spring (2.26-3.3)*
+*Week 3, 2024 Spring (3.4-3.10)*
 
-> 上机课从第三周开始，安排在周末
+> 上机课从第三周开始，安排在周日18:30-20:30，在老地方：1235（有考勤分！！）
+
+> POJ改名！
+
+> 助教分布已经放到教学网里，我的助教：匡浩玮
 
 > 完成作业！在openjudge上
+
+> 魔兽来了！！（提供调试数据）
 
 ## 日程
 (戳链接，查看课堂笔记)
@@ -23,6 +29,7 @@
 |1|1|[课程介绍、c++补充知识](https://calvinxiaocao.github.io/courses/practice-of-programming/lec1.html)||
 ||2|[c++补充知识、面向对象OOP](https://calvinxiaocao.github.io/courses/practice-of-programming/lec2.html)||
 |2|3|[面向对象OOP(2)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec3.html)||
+|3|4|[面向对象OOP(3)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec4.html)||
 
 ## 其他资料
 
