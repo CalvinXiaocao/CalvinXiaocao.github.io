@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 7, 2024 Thu](/schedule/24sp-thu)
-**今日天气：多云☁️ 13°C/-2°C**
+## Today:[ Mar 8, 2024 Fri](/schedule/24sp-fri)
+**今日天气：晴☀️ 12°C/-2°C**
 
 `走自己的路，让别人说去吧～`
 
