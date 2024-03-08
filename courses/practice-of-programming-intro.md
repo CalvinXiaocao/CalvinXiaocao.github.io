@@ -30,6 +30,7 @@
 ||2|[c++补充知识、面向对象OOP](https://calvinxiaocao.github.io/courses/practice-of-programming/lec2.html)||
 |2|3|[面向对象OOP(2)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec3.html)||
 |3|4|[面向对象OOP(3)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec4.html)||
+||5|[运算符重载](https://calvinxiaocao.github.io/courses/practice-of-programming/lec5.html)||
 
 ## 其他资料
 
