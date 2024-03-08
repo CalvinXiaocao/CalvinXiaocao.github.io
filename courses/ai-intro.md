@@ -15,7 +15,7 @@
 
 > 周六有统一指导时间
 
-> 本周任务：完成编程网格作业
+> Proj 1 (Part 1) has been released!!
 
 ## 日程
 
@@ -25,6 +25,7 @@
 ||2|[math prerequests](https://calvinxiaocao.github.io/courses/ai/lec2.html)||
 |2|3|[python intro & search](https://calvinxiaocao.github.io/courses/ai/lec3.html)|[CS188 discussion 1: Uninformed Search](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 |3|4|[UCS & informed search](https://calvinxiaocao.github.io/courses/ai/lec4.html)|[CS188 discussion 2: Informed Search](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
+||5|[CSP](https://calvinxiaocao.github.io/courses/ai/lec5.html)|[CS188 discussion 3: CSP](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 
 
 ## 其他资料
