@@ -44,6 +44,7 @@ zhaoyufeng@math.pku.edu.cn
 ||*1*|习题课：多项式||
 ||4|行列式因子、不变因子、矩阵相似的充要条件||
 |3|5|Jordan标准型||
+||6|Hamilton-Cayley定理、矩阵的极小多项式||
 
 ## 其他资料
 [>> 高等代数（II）](/courses/advanced-algebra-intro)
