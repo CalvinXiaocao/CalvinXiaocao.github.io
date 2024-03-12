@@ -9,13 +9,15 @@
 
 ## 📢 Announcements
 
-*Week 3, 2024 Spring (3.4-3.10)*
+*Week 4, 2024 Spring (3.11-3.17)*
 
 > 与课程有关的信息全部在选课网上，注意关注
 
 > 周六有统一指导时间
 
 > Proj 1 (Part 1) has been released!!
+
+> 纸质作业已经发布
 
 ## 日程
 
@@ -26,7 +28,7 @@
 |2|3|[python intro & search](https://calvinxiaocao.github.io/courses/ai/lec3.html)|[CS188 discussion 1: Uninformed Search](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 |3|4|[UCS & informed search](https://calvinxiaocao.github.io/courses/ai/lec4.html)|[CS188 discussion 2: Informed Search](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 ||5|[CSP](https://calvinxiaocao.github.io/courses/ai/lec5.html)|[CS188 discussion 3: CSP](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
-
+|4|6|[minimax & alpha-beta prunning](https://calvinxiaocao.github.io/courses/ai/lec6.html)|[CS188 discussion 4: Games](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 
 ## 其他资料
 

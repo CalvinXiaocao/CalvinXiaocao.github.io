@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 3, 2024 Spring (3.4-3.10)*
+*Week 4, 2024 Spring (3.11-3.17)*
 
 > 课外锻炼已开始，记得打卡！
 
