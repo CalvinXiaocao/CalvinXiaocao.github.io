@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 14, 2024 Thu](/schedule/24sp-thu)
+## Today:[ Mar 15, 2024 Fri](/schedule/24sp-fri)
 **今日天气：晴 22°C/4°C**
 
 `走自己的路，让别人说去吧～`
