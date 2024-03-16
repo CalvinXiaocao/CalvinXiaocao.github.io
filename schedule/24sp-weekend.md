@@ -12,7 +12,7 @@
 大练习2: lambda矩阵（2h）
 
 ## ai引论
-hw2 (0.5h)
+hw2 (0.5h) `今天晚上做`
 
 ## 程设
 *openjudge程序填空（已完成）*
@@ -37,8 +37,6 @@ openjudge程序题（part 3）(1h)
 听一节课（2h）
 
 完成discussions（1h）
-
-**project 1**
 
 ### CS 70
 习题（1h）
