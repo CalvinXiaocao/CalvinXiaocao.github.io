@@ -1,13 +1,13 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 17, 2024 Sun](/schedule/24sp-weekend)
-**今日天气：晴 15°C/1°C**
+## Today:[ Mar 18, 2024 Mon](/schedule/24sp-mon)
+**今日天气：晴 18°C/2°C**
 
-`走自己的路，让别人说去吧～`
+`当下你所偷的每一个懒，未来都会要你加倍偿还。`
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 4**, 2024 Spring
+### **Week 5**, 2024 Spring
 
 > 课外锻炼已经开始！！
 
