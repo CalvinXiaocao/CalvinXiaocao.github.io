@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 4, 2024 Spring (3.11-3.17)*
+*Week 5, 2024 Spring (3.18-3.24)*
 
 > 与课程有关的信息全部在选课网上，注意关注
 
@@ -29,6 +29,7 @@
 |3|4|[UCS & informed search](https://calvinxiaocao.github.io/courses/ai/lec4.html)|[CS188 discussion 2: Informed Search](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 ||5|[CSP](https://calvinxiaocao.github.io/courses/ai/lec5.html)|[CS188 discussion 3: CSP](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 |4|6|[minimax & alpha-beta prunning](https://calvinxiaocao.github.io/courses/ai/lec6.html)|[CS188 discussion 4: Games](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
+|5|7|[MCTS](https://calvinxiaocao.github.io/courses/ai/lec7.html)||
 
 ## 其他资料
 
