@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 3, 2024 Spring (3.4-3.10)*
+*Week 5, 2024 Spring (3.18-3.24)*
 
 > 上机课从第三周开始，安排在周日18:30-20:30，在老地方：1235（有考勤分！！）
 
@@ -19,7 +19,7 @@
 
 > 完成作业！在openjudge上
 
-> 魔兽来了！！（提供调试数据）
+> 魔兽来了！！已经发布part 3（提供调试数据）
 
 ## 日程
 (戳链接，查看课堂笔记)
@@ -31,6 +31,9 @@
 |2|3|[面向对象OOP(2)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec3.html)||
 |3|4|[面向对象OOP(3)](https://calvinxiaocao.github.io/courses/practice-of-programming/lec4.html)||
 ||5|[运算符重载](https://calvinxiaocao.github.io/courses/practice-of-programming/lec5.html)||
+|4|6|[继承](https://calvinxiaocao.github.io/courses/practice-of-programming/lec6.html)||
+|5|7|[多态](https://calvinxiaocao.github.io/courses/practice-of-programming/lec7.html)||
+||8|[文件读写、输入输出、泛型程序设计](https://calvinxiaocao.github.io/courses/practice-of-programming/lec8.html)||
 
 ## 其他资料
 

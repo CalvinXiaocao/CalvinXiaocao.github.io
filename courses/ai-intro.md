@@ -15,9 +15,7 @@
 
 > 周六有统一指导时间
 
-> Proj 1 (Part 1) has been released!!
-
-> 纸质作业已经发布
+> Proj 1 (Part 2) has been released!!
 
 ## 日程
 
@@ -30,6 +28,7 @@
 ||5|[CSP](https://calvinxiaocao.github.io/courses/ai/lec5.html)|[CS188 discussion 3: CSP](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 |4|6|[minimax & alpha-beta prunning](https://calvinxiaocao.github.io/courses/ai/lec6.html)|[CS188 discussion 4: Games](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 |5|7|[MCTS](https://calvinxiaocao.github.io/courses/ai/lec7.html)||
+||8|[ML: Basics & Linear Regression](https://calvinxiaocao.github.io/courses/ai/lec8.html)||
 
 ## 其他资料
 
