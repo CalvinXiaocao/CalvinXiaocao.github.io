@@ -9,15 +9,13 @@
 
 ## 📢 Announcements
 
-*Week 5, 2024 Spring (3.18-3.24)*
+*Week 6, 2024 Spring (3.25-3.31)*
 
 > 与课程有关的信息全部在选课网上，注意关注
 
-> 考试：4.22 周一
+> 期中考试：4.22 周一
 
-> Proj 1 (Part 2) has been released!!
-
-## 日程
+## Schedule
 
 | 周数 |节数| 讲授内容 | 补充练习 |
 | ---- |----| -------- | -------- |
@@ -29,6 +27,9 @@
 |4|6|[minimax & alpha-beta prunning](https://calvinxiaocao.github.io/courses/ai/lec6.html)|[CS188 discussion 4: Games](https://inst.eecs.berkeley.edu/~cs188/fa23/)|
 |5|7|[MCTS](https://calvinxiaocao.github.io/courses/ai/lec7.html)||
 ||8|[ML: Basics & Linear Regression](https://calvinxiaocao.github.io/courses/ai/lec8.html)||
+|6|9|[ML: Classification & Logistic Regression](https://calvinxiaocao.github.io/courses/ai/lec9.html)||
+|||...||
+|10||**Midterm 4.22**|
 
 ## 其他资料
 

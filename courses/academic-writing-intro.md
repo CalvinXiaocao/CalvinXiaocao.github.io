@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 5, 2024 Spring (3.18-3.24)*
+*Week 6, 2024 Spring (3.25-3.31)*
 
 > 注意选课、确认上课时间和地点～
 

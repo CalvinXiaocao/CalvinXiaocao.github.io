@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 5, 2024 Spring (3.18-3.24)*
+*Week 6, 2024 Spring (3.25-3.31)*
 
 > 上机课从第三周开始，安排在周日18:30-20:30，在老地方：1235（有考勤分！！）
 
@@ -34,6 +34,7 @@
 |4|6|[继承](https://calvinxiaocao.github.io/courses/practice-of-programming/lec6.html)||
 |5|7|[多态](https://calvinxiaocao.github.io/courses/practice-of-programming/lec7.html)||
 ||8|[文件读写、输入输出、泛型程序设计](https://calvinxiaocao.github.io/courses/practice-of-programming/lec8.html)||
+|6|9|[泛型程序设计、string类](https://calvinxiaocao.github.io/courses/practice-of-programming/lec9.html)||
 
 ## 其他资料
 

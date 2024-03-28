@@ -9,9 +9,8 @@
 
 ## 📢 Announcements
 
-*Week 1, 2024 Spring (2.19-2.25)*
+*Week 6, 2024 Spring (3.25-3.31)*
 
-> 买教材！
 
 ## 日程
 
