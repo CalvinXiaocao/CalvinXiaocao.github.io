@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 28, 2024 Thu](/schedule/24sp-thu)
-**今日天气：扬沙转雾 18°C/6°C**
+## Today:[ Mar 29, 2024 Fri](/schedule/24sp-fri)
+**今日天气：晴 19°C/4°C**
 
 `当下你所偷的每一个懒，未来都会要你加倍偿还。`
 
