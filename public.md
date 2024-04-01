@@ -1,13 +1,15 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 30, 2024 Sat](/schedule/24sp-weekend)
-**今日天气：晴 21°C/7°C**
+## Today:[ Apr 1, 2024 Mon](/schedule/24sp-mon)
+**今日天气：晴 16°C/7°C**
+
+`TODO list >>` [Here](/schedule/24sp-todo)
 
 `当下你所偷的每一个懒，未来都会要你加倍偿还。`
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 6**, 2024 Spring
+### **Week 7**, 2024 Spring
 
 > 课外锻炼已经开始！！体测通知已发布
 
