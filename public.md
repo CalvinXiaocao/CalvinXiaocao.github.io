@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Apr 2, 2024 Mon](/schedule/24sp-tue)
+## Today:[ Apr 3, 2024 Wed](/schedule/24sp-wed)
 **今日天气：晴 20°C/11°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
@@ -13,9 +13,7 @@
 
 > 课外锻炼已经开始！！体测通知已发布
 
-> 四六级报名即将结束⏰
-
-> 周日(3.31)晚20:15在理科教学楼108教室召开信科年级大会！
+> 中期退课通知已发布！退课于第九周周五截止
 
 ## 🎵 音乐推荐
 
