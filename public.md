@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Apr 5, 2024 Fri](/schedule/24sp-weekend)
+## Today:[ Apr 6, 2024 Sat](/schedule/24sp-weekend)
 **今日天气：晴 22°C/7°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
