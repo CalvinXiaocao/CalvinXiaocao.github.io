@@ -35,6 +35,8 @@
 |5|7|[多态](https://calvinxiaocao.github.io/courses/practice-of-programming/lec7.html)||
 ||8|[文件读写、输入输出、泛型程序设计](https://calvinxiaocao.github.io/courses/practice-of-programming/lec8.html)||
 |6|9|[泛型程序设计、string类](https://calvinxiaocao.github.io/courses/practice-of-programming/lec9.html)||
+|7|10|[STL 1](https://calvinxiaocao.github.io/courses/practice-of-programming/lec10.html)||
+||11|[STL 2](https://calvinxiaocao.github.io/courses/practice-of-programming/lec11.html)||
 
 ## 其他资料
 

@@ -9,7 +9,7 @@
 
 ## 📢 Announcements
 
-*Week 6, 2024 Spring (3.25-3.31)*
+*Week 7, 2024 Spring (4.1-4.7)*
 
 > 与课程有关的信息全部在选课网上，注意关注
 
@@ -28,6 +28,8 @@
 |5|7|[MCTS](https://calvinxiaocao.github.io/courses/ai/lec7.html)||
 ||8|[ML: Basics & Linear Regression](https://calvinxiaocao.github.io/courses/ai/lec8.html)||
 |6|9|[ML: Classification & Logistic Regression](https://calvinxiaocao.github.io/courses/ai/lec9.html)||
+|7|10|[ML: Decision Tree & Random Forest](https://calvinxiaocao.github.io/courses/ai/lec10.html)||
+||*|[Midterm Review (by TA)](https://calvinxiaocao.github.io/courses/ai/review1.html)||
 |||...||
 |10||**Midterm 4.22**|
 

@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Apr 7, 2024 Sun](/schedule/24sp-fri)
+## Today:[ Apr 8, 2024 Mon](/schedule/24sp-mon)
 **今日天气：晴 22°C/7°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
@@ -11,7 +11,7 @@
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 7**, 2024 Spring
+### **Week 8**, 2024 Spring
 
 > 课外锻炼已经开始！！体测通知已发布
 
