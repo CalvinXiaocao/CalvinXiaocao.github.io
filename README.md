@@ -27,7 +27,7 @@
   </div>
   <div style="flex: 1; border: 3px solid #;">
     
-<img src="me2024.jpg" width="250.8" height="341.2" alt="描述文字">
+<img src="me2024.jpg" width="301" height="409.44" alt="描述文字">
   </div>
 </div>
 
