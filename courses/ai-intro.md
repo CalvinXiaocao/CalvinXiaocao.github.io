@@ -9,11 +9,13 @@
 
 ## 📢 Announcements
 
-*Week 7, 2024 Spring (4.1-4.7)*
+*Week 8, 2024 Spring (4.8-4.14)*
 
 > 与课程有关的信息全部在选课网上，注意关注
 
 > 期中考试：4.22 周一
+
+> lab 2 即将release！
 
 ## Schedule
 
@@ -30,6 +32,7 @@
 |6|9|[ML: Classification & Logistic Regression](https://calvinxiaocao.github.io/courses/ai/lec9.html)||
 |7|10|[ML: Decision Tree & Random Forest](https://calvinxiaocao.github.io/courses/ai/lec10.html)||
 ||*|[Midterm Review (by TA)](https://calvinxiaocao.github.io/courses/ai/review1.html)||
+|8|11|[ML: Neural Network](https://calvinxiaocao.github.io/courses/ai/lec11.html)||
 |||...||
 |10||**Midterm 4.22**|
 
