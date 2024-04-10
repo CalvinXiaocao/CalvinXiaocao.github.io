@@ -1,13 +1,13 @@
 # Welcome to Calvin's world!
 
-## Today:[ Apr 8, 2024 Mon](/schedule/24sp-mon)
+## Today:[ Apr 11, 2024 Thu](/schedule/24sp-thu)
 **今日天气：晴 22°C/7°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
 
-> 今日串上周五的课！
+> 高数期中考试顺利！！
 
-`当下你所偷的每一个懒，未来都会要你加倍偿还。`
+`没问题的！别担心，一切都会好起来的～`
 
 ## 📢[ Announcements!](/public) 
 
