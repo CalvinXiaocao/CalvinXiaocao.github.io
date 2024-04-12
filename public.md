@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ Apr 12, 2024 Fri](/schedule/24sp-fri)
-**今日天气：晴 22°C/7°C**
+## Today:[ Apr 13, 2024 Sat](/schedule/24sp-weekend)
+**今日天气：多云 27°C/15°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
 
