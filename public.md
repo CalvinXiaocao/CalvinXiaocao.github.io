@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
-## Today:[ Apr 13, 2024 Sat](/schedule/24sp-weekend)
-**今日天气：多云 27°C/15°C**
+## Today:[ Apr 15, 2024 Mon](/schedule/24sp-mon)
+**今日天气：扬沙 24°C/10°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
 
@@ -9,9 +9,9 @@
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 8**, 2024 Spring
+### **Week 9**, 2024 Spring
 
-> 课外锻炼已经开始！！体测通知已发布
+> 课外锻炼已经开始！！体测即将结束
 
 > 中期退课通知已发布！退课于第九周周五截止
 
