@@ -8,7 +8,7 @@ course website: <https://cs61a.org>
 
 Berkeley的计算概论课，涉及函数、递归、数据封装、面向对象等知识。
 
-详细介绍见csdiy：<https://csdiy.wiki/编程入门/CS61A/>
+详细介绍见csdiy：<https://csdiy.wiki/编程入门/Python/CS61A/>
 
 **编程语言：** Python，后半部分会介绍Scheme和SQL
 
