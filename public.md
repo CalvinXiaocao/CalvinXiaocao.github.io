@@ -1,7 +1,7 @@
 # Welcome to Calvin's world!
 
 ## Today:[ Apr 15, 2024 Mon](/schedule/24sp-mon)
-**今日天气：扬沙 24°C/10°C**
+**今日天气：北京 扬沙 24°C/10°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
 
