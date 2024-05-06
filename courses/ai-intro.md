@@ -33,8 +33,12 @@
 |7|10|[ML: Decision Tree & Random Forest](https://calvinxiaocao.github.io/courses/ai/lec10.html)||
 ||*|[Midterm Review (by TA)](https://calvinxiaocao.github.io/courses/ai/review1.html)||
 |8|11|[ML: Neural Network](https://calvinxiaocao.github.io/courses/ai/lec11.html)||
-|||...||
-|10||**Midterm 4.22**|
+|9|12|[ML: More Neural Network & applications](https://calvinxiaocao.github.io/courses/ai/lec12.html)||
+||13|[CV: Intro](https://calvinxiaocao.github.io/courses/ai/lec13.html)||
+|10||**Midterm 4.22**||
+|11||*Spring Break*||
+|12|14|[CV: 2D to 3D & ](https://calvinxiaocao.github.io/courses/ai/lec13.html)||
+
 
 ## 其他资料
 

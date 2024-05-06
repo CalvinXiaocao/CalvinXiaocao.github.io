@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Mar 6, 2024 Mon](/schedule/24sp-mon)
+## Today:[ Mar 7, 2024 Tue](/schedule/24sp-mon)
 **今日天气：北京 晴 25°C/9°C**
 
 `TODO list >>` [Here](/schedule/24sp-todo)
