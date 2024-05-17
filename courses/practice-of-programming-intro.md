@@ -38,6 +38,11 @@
 |7|10|[STL 1](https://calvinxiaocao.github.io/courses/practice-of-programming/lec10.html)||
 ||11|[STL 2](https://calvinxiaocao.github.io/courses/practice-of-programming/lec11.html)||
 |8|12|[C++11新特性](https://calvinxiaocao.github.io/courses/practice-of-programming/lec12.html)||
+|9|13|QT Intro||
+||14|[More C++11](https://calvinxiaocao.github.io/courses/practice-of-programming/lec14.html)||
+|10||**Midterm**||
+|11||*Spring Break*||
+|12|15|[算法：枚举和二分](https://calvinxiaocao.github.io/courses/practice-of-programming/lec15.html)||
 
 ## 其他资料
 

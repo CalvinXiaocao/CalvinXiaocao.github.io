@@ -37,7 +37,8 @@
 ||13|[CV: Intro](https://calvinxiaocao.github.io/courses/ai/lec13.html)||
 |10||**Midterm 4.22**||
 |11||*Spring Break*||
-|12|14|[CV: 2D to 3D & ](https://calvinxiaocao.github.io/courses/ai/lec13.html)||
+|12|14|[CV: 2D to 3D & NLP: preview](https://calvinxiaocao.github.io/courses/ai/lec14.html)||
+|13|15|[More NLP](https://calvinxiaocao.github.io/courses/ai/lec15.html)||
 
 
 ## 其他资料
