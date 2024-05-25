@@ -1,15 +1,15 @@
 # Welcome to Calvin's world!
 
-## Today:[ May 17, 2024 Fri](/schedule/24sp-fri)
+## Today:[ May 25, 2024 Sat](/schedule/24sp-fri)
 **今日天气：北京 晴 25°C/9°C**
 
-`TODO list >>` [Here](/schedule/24sp-todo)
+`EXAM list >>` [Here](/schedule/24sp-exam)
 
 `没问题的！别担心，一切都会好起来的～`
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 13**, 2024 Spring
+### **Week 14**, 2024 Spring
 
 > 调整状态，整装待发！
 
