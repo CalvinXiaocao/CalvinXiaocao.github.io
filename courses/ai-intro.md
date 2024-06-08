@@ -35,7 +35,7 @@
 ||19|[Multiagent & Games]||
 |16|20|[Emulation]||
 
-
 ## 其他资料
+课程内容大部分参考Berkeley cs188
 
 [<<返回](university_courses)

@@ -43,6 +43,7 @@
 |10||**Midterm**||
 |11||*Spring Break*||
 |12|15|[算法：枚举和二分](https://calvinxiaocao.github.io/courses/practice-of-programming/lec15.html)||
+|13-16||算法：递归，动态规划，深搜，广搜，Qt大作业汇报||
 
 ## 其他资料
 

@@ -8,9 +8,7 @@
 * 上课地点：理教309
 
 ## 📢 Announcements
-
-*Week 6, 2024 Spring (3.25-3.31)*
-
+准备考试！
 
 ## 大练习
 *以下内容全部为草鱼2024春季整理*
@@ -20,6 +18,8 @@
 |1|[序言：马克思主义中国化时代化新的飞跃](https://calvinxiaocao.github.io/courses/xi/xi-ex1.pdf)|[>>](https://calvinxiaocao.github.io/courses/xi/xi-ex1-ans.pdf)|
 |2|[第一章：坚持和发展中国特色社会主义](https://calvinxiaocao.github.io/courses/xi/xi-ex2.pdf)|[>>](https://calvinxiaocao.github.io/courses/xi/xi-ex2-ans.pdf)|
 |3|[第二章：以中国式现代化全面推进中华民族伟大复兴](https://calvinxiaocao.github.io/courses/xi/xi-ex3.pdf)|[>>](https://calvinxiaocao.github.io/courses/xi/xi-ex3-ans.pdf)|
+|4|[坚持党的全面领导、坚持以人民为中心](https://calvinxiaocao.github.io/courses/xi/xi-ex4.pdf)|[>>](https://calvinxiaocao.github.io/courses/xi/xi-ex4-ans.pdf)|
+
 
 ## 其他资料
 
