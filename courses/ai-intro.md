@@ -7,16 +7,6 @@
 * 上课时间：每周一13:00-14:50，单周周四15:10-17:00
 * 上课地点：三教507
 
-## 📢 Announcements
-
-*Week 8, 2024 Spring (4.8-4.14)*
-
-> 与课程有关的信息全部在选课网上，注意关注
-
-> 期中考试：4.22 周一
-
-> lab 2 即将release！
-
 ## Schedule
 
 | 周数 |节数| 讲授内容 | 补充练习 |
@@ -39,6 +29,11 @@
 |11||*Spring Break*||
 |12|14|[CV: 2D to 3D & NLP: preview](https://calvinxiaocao.github.io/courses/ai/lec14.html)||
 |13|15|[More NLP](https://calvinxiaocao.github.io/courses/ai/lec15.html)||
+||16|[Transformer Review & Knowledge representation]||
+|14|17|[Robots & particle filtering & RRT & PID]||
+|15|18|[Reinforcement Learning]||
+||19|[Multiagent & Games]||
+|16|20|[Emulation]||
 
 
 ## 其他资料
