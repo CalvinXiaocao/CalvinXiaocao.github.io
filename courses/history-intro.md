@@ -13,11 +13,8 @@
 
 > 注意选课、确认上课时间和地点～
 
-## 日程
-
-| 周数 | 讲授内容 | 补充练习 |
-| ---- | -------- | -------- |
-
 ## 其他资料
+[史纲大练习(知识点整理)](https://calvinxiaocao.github.io/courses/history/his.pdf)
+
 
 [<<返回](university_courses)
