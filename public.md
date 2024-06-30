@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Jun 29, 2024 Fri](/schedule/24sp-fri)
+## Today:[ Jun 30, 2024 Sat](/public) 
 
 `24SU Schedule >>` [Here](/24su/schedule)
 
@@ -22,11 +22,9 @@
 
 ### [>> 网课资料](online_course)
 
-### [>> 高考备考锦囊](gaokao)
-
 ### [>> 其他实用链接](links)
 
-*注：由于版权等问题，暂不提供教材等电子版资料。更多学习资源、学习心得交流等内容，可通过邮箱联系作者获取。*
+*注：由于版权等问题，暂不提供教材等电子版资料。更多学习资源、学习心得交流等内容，可通过邮箱等方式联系作者获取。*
 
 ## 文娱篇
 
