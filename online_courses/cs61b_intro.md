@@ -2,6 +2,11 @@
 
 Berkeley数据结构与算法课，在csdiy中有收录。
 
+## Tasks to finish
+Jul 9
+* Discussion
+* Lecture 25 (Jul 10)
+
 ## 资源汇总
 
 [课程官网 2021 Spring](https://sp21.datastructur.es)

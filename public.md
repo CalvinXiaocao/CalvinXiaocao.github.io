@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-## Today:[ Jul 7, 2024 Sun](/public) 
+## Today:[ Jul 9, 2024 Tue](/public) 
 
 `24SU Schedule >>` [Here](/24su/schedule)
 
@@ -8,7 +8,7 @@
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 1**, 2024 Summer
+### **Week 2**, 2024 Summer
 
 > 调整状态，整装待发！
 

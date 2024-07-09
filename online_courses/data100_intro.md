@@ -9,4 +9,8 @@ Berkeley数据科学进阶课，在csdiy中有收录。
 
 [discussions(22 spring整理)](https://calvinxiaocao.github.io/online_courses/data100/data100_disc.pdf)
 
+## Tasks to finish
+Jul 9
+* Lecture 9 (7.10)
+
 [返回](/online_course)
