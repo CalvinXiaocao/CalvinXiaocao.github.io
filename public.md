@@ -14,6 +14,7 @@
 
 ## 欢迎新燕！！
 ![北大西门](ximen.png)
+
 `玩转P大信息世界 >>` [Here](portal_instructions)
 
 [学校官网](https://www.pku.edu.cn)
