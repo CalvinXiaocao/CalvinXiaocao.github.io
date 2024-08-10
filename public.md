@@ -1,20 +1,29 @@
 # Welcome to Calvin's world!
 
-## Today:[ Jul 9, 2024 Tue](/public) 
-
 `24SU Schedule >>` [Here](/24su/schedule)
 
-`没问题的！别担心，一切都会好起来的～`
+`不必害怕，因为这岛上众生喧哗。`
 
 ## 📢[ Announcements!](/public) 
 
-### **Week 2**, 2024 Summer
+### Happy Summer Holiday! Woohoo~
 
 > 调整状态，整装待发！
 
+> 24 fall 上课时间：Sep 9, 2024
+
+## 欢迎新燕！！
+![北大西门](ximen.png)
+`玩转P大信息世界 >>` [Here](portal_instructions)
+
+[学校官网](https://www.pku.edu.cn)
+
+[校内信息门户](https://portal.pku.edu.cn)
+
+
 ## 🎵 音乐推荐
 
-![happy 元宵节!](/24sp/song/guangmang.jpg)
+![光芒](/24sp/song/guangmang.jpg)
 
 ## 学习篇
 
