@@ -1,5 +1,7 @@
 # Welcome to Calvin's world!
 
+*This Site is still under construction. Latest update: Aug 12, 2024*
+
 `24SU Schedule >>` [Here](/24su/schedule)
 
 `不必害怕，因为这岛上众生喧哗。`
