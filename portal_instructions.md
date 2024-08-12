@@ -144,3 +144,5 @@ elective.pku.edu.cn进入选课界面（这里对选课不做详细介绍，各�
 * [未名bbs](https://bbs.pku.edu.cn)
 
 *其他网址待补充……*
+
+[<<返回首页](/public)

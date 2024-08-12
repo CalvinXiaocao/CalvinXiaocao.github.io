@@ -21,6 +21,9 @@
 
 [校内信息门户](https://portal.pku.edu.cn)
 
+> 以下内容来自数学科学学院学生会公众号
+
+[【萌新攻略】宿舍篇](https://mp.weixin.qq.com/s/jJTZ9TzVRkocgRhdUGrGtw)
 
 ## 🎵 音乐推荐
 
