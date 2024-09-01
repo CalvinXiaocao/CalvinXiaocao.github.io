@@ -1,46 +1,25 @@
 # Welcome to Calvin's world!
 
-*This Site is still under construction. Latest update: Aug 18, 2024*
-
-`24SU Schedule >>` [Here](/24su/schedule)
+*This Site is still under construction. Latest update: Aug 31, 2024*
 
 `不必害怕，因为这岛上众生喧哗。`
 
 ## 📢[ Announcements!](/public) 
 
-### Happy Summer Holiday! Woohoo~
+### Week 0, 2024 Autumn
 
 > 调整状态，整装待发！
 
 > 24 fall 上课时间：Sep 9, 2024
 
+> 选课截止时间：预选 9.6 10a.m.
+
 [2024-2025校历](https://calvinxiaocao.github.io/2425cal.pdf)
 
-## 欢迎新燕！！
+## [欢迎新燕！！](/welcome)
 ![北大西门](ximen.png)
 
-`玩转P大信息世界 >>` [Here](portal_instructions)
-
-[学校官网](https://www.pku.edu.cn)
-
-[校内信息门户](https://portal.pku.edu.cn)
-
-> 以下内容来自北大餐饮中心官方咨询公众号
-[寻味燕园丨新学期与你相“食”，这份用餐指南请收好](https://mp.weixin.qq.com/s/sif4k9sNAGyKDs4oT9gwnA)
-
-> 以下内容来自数学科学学院学生会公众号，整理较为全面，可供参考~
-
-[【萌新攻略】宿舍篇](https://mp.weixin.qq.com/s/jJTZ9TzVRkocgRhdUGrGtw)
-
-[【萌新攻略】校内出行篇](https://mp.weixin.qq.com/s/1UoNTCfik3_OwZLLa5Jw0g)
-
-[【萌新攻略】学习篇（上）](https://mp.weixin.qq.com/s/r73oI8AbQuUxUJZMCxQhwA)
-
-[【萌新攻略】学习篇（下）](https://mp.weixin.qq.com/s/AZA5XXQCmA1nNfKHWaEsmw)
-
-[【萌新攻略】体育篇](https://mp.weixin.qq.com/s/3yxuedSRaPdX_DdGajmKHQ)
-
-[【萌新攻略】吃喝玩乐篇](https://mp.weixin.qq.com/s/eVGUXGrKcrZZ0DneMApAfA)
+[一些萌新攻略](/welcome)
 
 ## 🎵 音乐推荐
 
