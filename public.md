@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-*This Site is still under construction. Latest update: Aug 31, 2024*
+*This Site is still under construction. Latest update: Sep 1, 2024*
 
 `不必害怕，因为这岛上众生喧哗。`
 
@@ -15,6 +15,8 @@
 > 选课截止时间：预选 9.6 10a.m.
 
 [2024-2025校历](https://calvinxiaocao.github.io/2425cal.pdf)
+
+![开学啦！](24sp/newsemester.jpg)
 
 ## [欢迎新燕！！](/welcome)
 ![北大西门](ximen.png)
