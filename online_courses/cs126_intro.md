@@ -5,8 +5,7 @@ Probability & Random Process
 
 ## Tasks To Finish
 Jul 9
-* Homework 1 (DDL: 7.9)
-* Discussion 1 (DDL: 7.9)
+* Homework 1 (DDL: 7.9) 
 * Discussion 2 (DDL: 7.10)
 * Lab 1 (DDL: 7.10)
 * Lecture (7.11)
