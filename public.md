@@ -6,17 +6,13 @@
 
 ## 📢[ Announcements!](/public) 
 
-### Week 1, 2024 Fall
+### Week 2, 2024 Fall
 
 [草鱼的24 Fa课表](/schedule/24fa-courses)
 
 [草鱼的Week 1日程](/schedule/24fa-w0)
 
-> 调整状态，整装待发！
-
-> 24 fall 上课时间：Sep 9, 2024
-
-> 完成注册工作，注意选课补退选第二、第三阶段
+> 四六级报考即将截止，还未报考的同学抓紧时间！
 
 [2024-2025校历](https://calvinxiaocao.github.io/2425cal.pdf)
 
