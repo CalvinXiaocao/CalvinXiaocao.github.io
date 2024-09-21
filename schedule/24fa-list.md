@@ -5,14 +5,14 @@ Last update: Sep 19
 
 |Work|DSA|ICS|AI math|AI programming|CV|VCI|Discrete|CSstat|
 |---|---|---|---|---|---|---|---|---|
-|W1|Mooc Chap.3|CSAPP Chap 3 HW|||HW 1 (Programming)||Finish Auditing Chap.1||
-|**Due Time**|**Oct 13**|**Sep 23**|||**Oct 2**|
-|W2|Mooc Course Discussion Reply|Discussion Worksheet 1
-|**Due Time**|/|**Sep 20**|
-|W3|Mooc Chap.4|DataLab|
-|**Due Time**|**Oct 27**|**Sep 28**|
-|W4|Openjudge Exercise|Discussion Preparation
-|**Due Time**|**Oct 13**|**Sep 24**|
+|W1|Mooc Chap.3|Read Materials|||HW 1 (Programming)||Finish Auditing Chap.1||
+|**Due Time**|**Oct 13**|/|||**Oct 2**|
+|W2|HW on paper|Discussion Worksheet 1
+|**Due Time**|**Sep 28****|**Sep 20**|
+|W3|Mooc Chap.4||
+|**Due Time**|**Oct 27**||
+|W4|Openjudge Exercise||
+|**Due Time**|**Oct 13**||
 
 ## Auditing Courses
 |Work|CS 61B|CS 61C|
