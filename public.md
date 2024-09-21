@@ -10,7 +10,7 @@
 
 [草鱼的24 Fa课表](/schedule/24fa-courses)
 
-[草鱼的Week 1日程](/schedule/24fa-w0)
+[草鱼的Current TODO List](/schedule/24fa-list)
 
 > 四六级报考即将截止，还未报考的同学抓紧时间！
 
