@@ -5,14 +5,14 @@ Last update: Sep 19
 
 |Work|DSA|ICS|AI math|AI programming|CV|VCI|Discrete|CSstat|
 |---|---|---|---|---|---|---|---|---|
-|W1|Mooc Chap.4|Read Materials|HW on paper (129页  1 2 3 4 5 6 9 11 12题)|Project 1|HW 1 (Programming)|Project 1|Finish Auditing Chap.1||
-|**Due Time**|**Oct 27**|/|**Oct 10**|**Oct 7**|**Oct 2**|**Oct 21**|
+|W1|Mooc Chap.4|Read Materials||Project 1||Project 1|Finish Auditing Chap.1||
+|**Due Time**|**Oct 27**|/||**Oct 7**||**Oct 21**|
 |W2|HW on paper|Discussion Worksheet 1 Judge
-|**Due Time**|**Oct 5**|**Sep 20**|
+|**Due Time**|**Oct 13**|**Sep 20**|
 |W3||Paper HW|
 |**Due Time**||**Oct 8**|
-|W4|Openjudge Exercise|Bomb lab|
-|**Due Time**|**Oct 27**|?|
+|W4|Openjudge Exercise||
+|**Due Time**|**Oct 27**||
 
 ## Auditing Courses
 |Work|CS 61B|CS 61C|
