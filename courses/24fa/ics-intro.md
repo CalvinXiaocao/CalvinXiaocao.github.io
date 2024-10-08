@@ -7,20 +7,23 @@
 * 上课时间：周一5-6，周四5-6，周三10-11（讨论班）
 * 上课地点：一教201，小班：地学楼106
 
+## > Current Work
+#### Finish Exercise 1, 2, 3
+#### Lab 2 (Before Oct 13) (Finished!)
 
 ## 日程
 
-| 周数 |节数|日期|讲授内容                             | 备注      |
+| 周数 |节数|日期|讲授内容                             | Labs & Homeworks      |
 | ---- |---|---|------------------------------------ | ------------- |
 |**1**|1|Sep 9|[Syllabus & Overview](/courses/24fa/ics/1)|
 ||2|Sep 12|[Bits and Bytes/Integers](courses/24fa/ics/2)|
-|**2**|3|Sep 14|[Floating Point](courses/24fa/ics/3)
-||4|Sep 19|[Machine Prog: Basics](courses/24fa/ics/4)
+|**2**|3|Sep 14|[Floating Point](courses/24fa/ics/3)|HW3 Release, Due:/|
+||4|Sep 19|[Machine Prog: Basics](courses/24fa/ics/4)|HW4 Release, Due: **Sep 24**|
 |||||**L1 (Datalab) Release**|
-|**3**|5|Sep 23|[Machine Prog: Control]|
+|**3**|5|Sep 23|[Machine Prog: Control]|HW5 Release, Due: **Oct 8**|
 ||6|Sep 26|[Machine Prog: Procedures](courses/24fa/ics/4)|
 |||Sep 29||**L1 (Datalab) Due Time**|
-|**4**|7|Sep 30|[Machine Prog: Data]||
+|**4**|7|Sep 30|[Machine Prog: Data]|HW6-7 Release, Due: **Oct 8**|
 |||||**L2 (Bomblab) Release**|
 ||||*National Holiday!*||
 |**5**|||||
