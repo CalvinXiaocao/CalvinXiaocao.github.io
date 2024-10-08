@@ -16,7 +16,7 @@
 | ---- | ----|--------|------------------------ | ------------- |
 |1|1|Sep 10|[Intro & Syllabus](https://calvinxiaocao.github.io/courses/24fa/phi/Syllabus.pdf)||
 |2|||*Mid-Autumn Break*||
-|3|2|Sep 24|[Epistemology: The Analysis of Knowledge](https://calvinxiaocao.github.io/courses/24fa/phi/The-Analysis-of-Knowledge.pdf)|
+|3|2|Sep 24|[Epistemology: The Analysis of Knowledge](https://calvinxiaocao.github.io/courses/24fa/phi/The-Analysis-Of-Knowledge.pdf)|
 |4|||*National Day Break*||
 |**> 5**|3|Oct 8|[Epistemology: Epistemic Justification](https://calvinxiaocao.github.io/courses/24fa/phi/Epistemic-Justification.pdf)|Goldman, McGrath. Epistemology: A Contemporary Introduction, **Chap 1-2**|
 |6|4|||Feldman. Epistemology, **Chapter 6**|
