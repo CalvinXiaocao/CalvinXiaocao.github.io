@@ -11,7 +11,7 @@
 #### Finish Exercise 1, 2, 3, 4
 #### Lab 2 (Before Oct 13) (Finished!)
 
-## 日程
+## Schedule 日程
 
 | 周数 |节数|日期|讲授内容                             | Labs & Homeworks      |
 | ---- |---|---|------------------------------------ | ------------- |
@@ -29,7 +29,7 @@
 |**5**|||||
 |||Oct 13||**L2 (Bomblab) Due Time**|
 
-## Exercise (大练习)
+## Exercise 大练习
 |No.|Release Date|Exercise|
 |---|----|---|
 |1|Sep 18|[Exercise 1 & Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/1.pdf)|
@@ -41,5 +41,6 @@
 * ICS 论坛平台 https://ics.huh.moe/
 * Autograder https://autolab.pku.edu.cn
 * Class Machine https://clab.pku.edu.cn
+* gcc等编译器 https://godbolt.org/
 
 [<<返回](university_courses)
