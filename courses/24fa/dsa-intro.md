@@ -27,7 +27,7 @@
 |||**Sep 29**||**Paper HW1 & 2 Due**|
 |4|||*National Day Break*||
 |||**Oct 6**||**Paper HW3 Due**|
-|5|
+|5|7|Oct 9|[String](courses/24fa/dsi/7)|OJ Chap.5 Release|
 |||**Oct 13**||**Paper HW4 Due, MOOC Test 1-3 Due, OJ 1-3 Due**|
 
 ## 其他资料
