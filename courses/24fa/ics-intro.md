@@ -34,7 +34,7 @@
 |---|----|---|
 |1|Sep 18|[Exercise 1 & Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/1.pdf)|
 |2|Oct 1|[Exercise 2](https://calvinxiaocao.github.io/courses/24fa/ics/disc/2.pdf) & [Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/2a.pdf)|
-|3|Oct 1|[Exercise 3 & Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/1.pdf)|
+|3|Oct 1|[Exercise 3 & Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/3.pdf)|
 |4|Oct 9|[Exercise 4](https://calvinxiaocao.github.io/courses/24fa/ics/disc/4.pdf) & [Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/4a.pdf)|
 
 ## 可用链接
