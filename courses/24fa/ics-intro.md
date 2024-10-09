@@ -8,7 +8,7 @@
 * 上课地点：一教201，小班：地学楼106
 
 ## > Current Work
-#### Finish Exercise 1, 2, 3
+#### Finish Exercise 1, 2, 3, 4
 #### Lab 2 (Before Oct 13) (Finished!)
 
 ## 日程
@@ -28,6 +28,14 @@
 ||||*National Holiday!*||
 |**5**|||||
 |||Oct 13||**L2 (Bomblab) Due Time**|
+
+## Exercise (大练习)
+|No.|Release Date|Exercise|
+|---|----|---|
+|1|Sep 18|[Exercise 1 & Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/1.pdf)|
+|2|Oct 1|[Exercise 2](https://calvinxiaocao.github.io/courses/24fa/ics/disc/2.pdf) & [Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/2a.pdf)|
+|3|Oct 1|[Exercise 3 & Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/1.pdf)|
+|4|Oct 9|[Exercise 4](https://calvinxiaocao.github.io/courses/24fa/ics/disc/4.pdf) & [Answer](https://calvinxiaocao.github.io/courses/24fa/ics/disc/4a.pdf)|
 
 ## 可用链接
 * ICS 论坛平台 https://ics.huh.moe/

@@ -14,13 +14,14 @@
 
 | 周数 |节数|日期|讲授内容                             | Labs & Homeworks      |
 | ---- | -----|---------|---------------------- | ------------- |
-|1|1|**Sep 11**|Introduction||
-||2|**Sep 12**|Parallel Programming|
-|2|3|**Sep 19**|Parallel Communication|
-|3|4|**Sep 25**|Parallel Algorithms|
-||5|**Sep 26**|Parallel Algorithms|
+|1|1|Sep 11|Introduction||
+||2|Sep 12|Parallel Programming|
+|2|3|Sep 19|Parallel Communication|
+|3|4|Sep 25|Parallel Algorithms|
+||5|Sep 26|Parallel Algorithms|
 |4|||*National Day Break*|
 |5||**Oct 8**||**Lab 1 Due**|
+||6|Oct 9|Matrix Multiplication||
 
 ## 其他资料
 [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_73072_1&handle=announcements_entry&mode=view)
