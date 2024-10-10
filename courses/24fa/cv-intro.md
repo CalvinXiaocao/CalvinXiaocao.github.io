@@ -19,7 +19,7 @@
 |3|3|Sep 26|[Image Processing](courses/24fa/cv/3)||
 |4|||*National Day Break*||
 |||**Oct 3**||**Lab 1 Due**|
-|5|
+|5|4|Oct 110|[Image Processing (Continue)](courses/24fa/cv/4)||
 
 ## 其他资料
 [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_73072_1&handle=announcements_entry&mode=view)
