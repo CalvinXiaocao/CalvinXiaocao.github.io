@@ -22,12 +22,12 @@
 |||||**L1 (Datalab) Release**|
 |**3**|5|Sep 23|[Machine Prog: Control]|HW5 Release, Due: **Oct 8**|
 ||6|Sep 26|[Machine Prog: Procedures](courses/24fa/ics/4)|
-|||Sep 29||**L1 (Datalab) Due Time**|
+|||**Sep 29**||**L1 (Datalab) Due Time**|
 |**4**|7|Sep 30|[Machine Prog: Data]|HW6-7 Release, Due: **Oct 8**|
 |||||**L2 (Bomblab) Release**|
 ||||*National Holiday!*||
-|**5**|||||
-|||Oct 13||**L2 (Bomblab) Due Time**|
+|**5**|8|Oct 10|[Machine Prog: Advanced]||
+|||**Oct 13**||**L2 (Bomblab) Due Time**|
 
 ## Exercise 大练习
 |No.|Release Date|Exercise|
