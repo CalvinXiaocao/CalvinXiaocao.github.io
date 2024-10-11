@@ -9,9 +9,9 @@
 
 ## > Current Work
 #### Openjudge Exercise Chap.1-3 (Before Oct 13) (Finished!)
-#### Paper HW Chap.4 (Before Oct 13)
+#### Paper HW Chap.4 (Before Oct 13) (Finished!)
 #### Test on Mooc Chap.1-3 (Before Oct 13) (Finished!)
-#### Openjudge Exercise Chap.4 (Before Oct 27)
+#### Openjudge Exercise Chap.4 (Before Oct 27) (Finished!)
 #### Test on Mooc Chap.4 (Before Oct 27)
 
 ## 日程
@@ -28,10 +28,11 @@
 |4|||*National Day Break*||
 |||**Oct 6**||**Paper HW3 Due**|
 |5|7|Oct 9|[String](courses/24fa/dsi/7)|OJ Chap.5 Release|
+||8|Oct 11|[Binary Trees](courses/24fa/dsi/8)|
 |||**Oct 13**||**Paper HW4 Due, MOOC Test 1-3 Due, OJ 1-3 Due**|
 
 ## 其他资料
-[教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_72859_1&handle=announcements_entry&mode=view)
-[慕课 Mooc](https://www.icourse163.org/course/PKU-1002534001)
+* [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_72859_1&handle=announcements_entry&mode=view)
+* [慕课 Mooc](https://www.icourse163.org/course/PKU-1002534001)
 
 [<<返回](university_courses)
