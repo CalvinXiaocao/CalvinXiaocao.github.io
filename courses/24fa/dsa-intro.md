@@ -8,11 +8,9 @@
 * 上课地点：理教106
 
 ## > Current Work
-#### Openjudge Exercise Chap.1-3 (Before Oct 13) (Finished!)
-#### Paper HW Chap.4 (Before Oct 13) (Finished!)
-#### Test on Mooc Chap.1-3 (Before Oct 13) (Finished!)
-#### Openjudge Exercise Chap.4 (Before Oct 27) (Finished!)
-#### Test on Mooc Chap.4 (Before Oct 27)
+> Openjudge Exercise Chap.4 (Before Oct 27) (Finished!)
+> 
+> Test on Mooc Chap.4 (Before Oct 27)
 
 ## 日程
 

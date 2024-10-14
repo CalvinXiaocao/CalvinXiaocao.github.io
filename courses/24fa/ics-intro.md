@@ -8,8 +8,7 @@
 * 上课地点：一教201，小班：地学楼106
 
 ## > Current Work
-#### Finish Exercise 1, 2, 3, 4
-#### Lab 2 (Before Oct 13) (Finished!)
+> Finish Exercise 3, 4
 
 ## Schedule 日程
 
@@ -28,6 +27,7 @@
 ||||*National Holiday!*||
 |**5**|8|Oct 10|[Machine Prog: Advanced]||
 |||**Oct 13**||**L2 (Bomblab) Due Time**|
+|**6**|9|Oct 14|[Processor Architecture I: ISA & Logic Design]|
 
 ## Exercise 大练习
 |No.|Release Date|Exercise|
