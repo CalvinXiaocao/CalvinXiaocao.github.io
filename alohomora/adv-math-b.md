@@ -3,7 +3,7 @@
 ## 上学期期中
 |年份|题目|
 |---|---|
-|2019|treehole #4254962，解答：treehole #4255209|
+|2019|Treehole **#4254962**，解答：Treehole **#4255209**|
 |2021 xyt模拟版|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021midprac.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021midprac-answer.pdf)|
 |2021|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021mid.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021mid-answer.pdf)|
 |2022|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022mid.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022mid-answer.pdf)|
@@ -15,7 +15,7 @@
 -----
 
 ## 版权声明
-以上内容转载自Arthals的Blog及Github，由本人整理，为方便无法使用Github的同学下载、学习。**仅供学习交流使用**。在这里对Arthals表示感谢！
+以上内容转载自**Arthals**的Blog及Github，由本人整理，为方便无法使用Github的同学下载、学习。**仅供学习交流使用**。在这里对**Arthals**表示感谢！
 * Arthals的个人主页：https://arthals.ink
 * blog原网址：https://arthals.ink/blog/advanced-mathematics
 * 原网址：https://github.com/zhuozhiyongde/Advanced-Mathematics-B-2022-PKU
