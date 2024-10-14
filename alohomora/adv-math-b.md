@@ -4,8 +4,8 @@
 |年份|题目|
 |---|---|
 |2019|Treehole **#4254962**，解答：Treehole **#4255209**|
-|2021 xyt模拟版|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021midprac.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021midprac-answer.pdf)|
 |2021|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021mid.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021mid-answer.pdf)|
+|2022 xyt模拟版|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021midprac.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021midprac-answer.pdf)|
 |2022|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022mid.pdf)｜[答案](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022mid-answer.pdf)|
 
 ## 上学期期末
