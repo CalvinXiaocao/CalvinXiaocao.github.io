@@ -17,6 +17,8 @@
 |3|3|Sep 27|[Random Variables](courses/24fa/statineecs/3)|**HW1 Due, HW2 Release**|
 |4|||*National Day Break*||
 |5|4|Oct 11|[Expectation & Variance](courses/24fa/statineecs/4)||
+|6|5|Oct 15|
+|9||**Nov 8**|**Midterm**||
 
 ## 其他资料
 [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_73095_1&handle=announcements_entry&mode=view)

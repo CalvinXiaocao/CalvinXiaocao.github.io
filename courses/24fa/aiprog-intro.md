@@ -8,6 +8,7 @@
 * 上课地点：二教309
 
 ## > Current Work
+> **Lab 2, Due Nov 12**
 
 
 ## 日程
@@ -22,6 +23,9 @@
 |4|||*National Day Break*|
 |5||**Oct 8**||**Lab 1 Due**|
 ||6|Oct 9|[Matrix Multiplication](courses/24fa/aiprog/6)||
+|||||**Lab 2 Release**|
+|10||**Nov 12**||**Lab 2 DUE**|
+
 
 ## 其他资料
 [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_73074_1&handle=announcements_entry&mode=view)

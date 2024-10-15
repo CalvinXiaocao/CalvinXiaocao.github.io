@@ -19,7 +19,7 @@
 |3|2|Sep 24|[Epistemology: The Analysis of Knowledge](https://calvinxiaocao.github.io/courses/24fa/phi/The-Analysis-Of-Knowledge.pdf)|
 |4|||*National Day Break*||
 |5|3|Oct 8|[Epistemology: Epistemic Justification](https://calvinxiaocao.github.io/courses/24fa/phi/Epistemic-Justification.pdf)|Goldman, McGrath. Epistemology: A Contemporary Introduction, **Chap 1-2**|
-|> **6**|4|Oct 15||Feldman. Epistemology, **Chapter 6**|
+|> **6**|4|Oct 15|[Epistemology: Skepticism](https://calvinxiaocao.github.io/courses/24fa/phi/Skepticism.pdf)|Feldman. Epistemology, **Chapter 6**|
 |7||Oct 22||**Midterm Handout Release**|
 |10||**Nov 12**||**Midterm Due**|
 |...|
