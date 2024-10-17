@@ -24,6 +24,8 @@
 |5||**Oct 8**||**Lab 1 Due**|
 ||6|Oct 9|[Matrix Multiplication](courses/24fa/aiprog/6)||
 |||||**Lab 2 Release**|
+||7|Oct 10|[Convolution & Pooling](courses/24fa/aiprog/7)||
+|6|8|Oct 17|[Pybind & Unit Test](courses/24fa/aiprog/7)
 |10||**Nov 12**||**Lab 2 DUE**|
 
 

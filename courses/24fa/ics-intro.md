@@ -27,7 +27,10 @@
 ||||*National Holiday!*||
 |**5**|8|Oct 10|[Machine Prog: Advanced]||
 |||**Oct 13**||**L2 (Bomblab) Due Time**|
-|**6**|9|Oct 14|[Processor Architecture I: ISA & Logic Design]|
+|**6**|9|Oct 14|Processor Arch: ISA & Logic Design|
+||10|Oct 17|Processor Arch: Sequential|
+|**9**||**Nov 4**|**Midterm**||
+|**Test W1**||**Dec 30**|**Final**|
 
 ## Exercise 大练习
 |No.|Release Date|Exercise|

@@ -1,6 +1,6 @@
 # Welcome to Calvin's world!
 
-*This Site is still under construction. Latest update: Oct 14, 2024*
+*This Site is still under construction. Latest update: Oct 18, 2024*
 
 `不必害怕，因为这岛上众生喧哗。`
 

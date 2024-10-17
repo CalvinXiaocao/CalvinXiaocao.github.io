@@ -28,6 +28,9 @@
 |5|7|Oct 9|[String](courses/24fa/dsi/7)|OJ Chap.5 Release|
 ||8|Oct 11|[Binary Trees](courses/24fa/dsi/8)|
 |||**Oct 13**||**Paper HW4 Due, MOOC Test 1-3 Due, OJ 1-3 Due**|
+|6|9|Oct 16|[Binary Tree Traversal & Binary Search Tree]||
+|||Oct 20||**Paper HW5 Due**|
+|9||**Nov 6**|**Midterm**||
 
 ## 其他资料
 * [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_72859_1&handle=announcements_entry&mode=view)
