@@ -18,6 +18,7 @@
 |4|||*National Day Break*||
 |5|4|Oct 11|[Expectation & Variance](courses/24fa/statineecs/4)||
 |6|5|Oct 15|
+||6|Oct 18|
 |9||**Nov 8**|**Midterm**||
 
 ## 其他资料
