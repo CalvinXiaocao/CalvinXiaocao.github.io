@@ -29,6 +29,7 @@
 |||**Oct 13**||**L2 (Bomblab) Due Time**|
 |**6**|9|Oct 14|Processor Arch: ISA & Logic Design|
 ||10|Oct 17|Processor Arch: Sequential|
+|**7**|11|Oct 21|Processor Arch: Pipelined|
 |**9**||**Nov 4**|**Midterm**||
 |**Test W1**||**Dec 30**|**Final**|
 

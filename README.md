@@ -2,7 +2,7 @@
 
 > **Nice to meet you! 😄**
 
-## 个人简介
+## About Me
 ### 曹彧
 **北京大学信息科学技术学院 本科生**
 
@@ -30,6 +30,8 @@
 <img src="me2024.jpg" width="301" height="409.44" alt="描述文字">
   </div>
 </div>
+
+
 
 
 ## **Public** Page: click [***HERE***](/public)
