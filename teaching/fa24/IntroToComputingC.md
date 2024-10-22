@@ -19,4 +19,4 @@
 活动开始前将会上传课程讲义。
 
 ## 信心行动-计概C微信群
-![计概C](/teaching/fa24/wechat.jpg)
+![计概C](wechat.jpg)
