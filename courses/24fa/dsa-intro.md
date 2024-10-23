@@ -31,7 +31,7 @@
 |6|9|Oct 16|[Binary Tree Traversal & Binary Search Tree]||
 ||10|Oct 18|Heap & Huffman Tree||
 |||Oct 20||**Paper HW5 Due**|
-|7||||
+|7|11|Oct 23|*TA session*|
 |||**Oct 27**||**OJ & Mooc Chap4 Due**|
 |9||**Nov 6**|**Midterm**||
 
