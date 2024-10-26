@@ -10,7 +10,7 @@
 [“信”心行动 | 信科青协X北大算协：期中学业辅导](https://mp.weixin.qq.com/s/9XohYUh9gdcGNKx_qSiaAQ)
 
 ## Announcements 📢
-* 本次活动暂定时间和地点已经公布
+* 本次活动讲义及ppt已经发布，再次感谢大家的支持！
 * 本次活动[答疑平台](https://app.sli.do/event/8WnVernm3k9u66KofLQYjj)已经建立，欢迎同学们来提问或畅所欲言！（Passcode见微信群）
 
 ## Welcome！ 🎉
