@@ -1,13 +1,3 @@
-def score(id, point):
-    if id[0:2] == "23":
-        return point + 15
-    elif id[0:2] == "22":
-        return point + 25
-    elif id[0:2] == "21":
-        return point + 50
-    else:
-        return point + 75
-
 friend_id = input()
 friend_score = 0
 score_list = []
@@ -17,9 +7,17 @@ while True:
         break
     input_list = input_str.split(",")
     id, point = input_list[0], int(input_list[1])
-    current_score = score(id, point)
-    # if haven't learn function yet, just delete line 20 and insert line 2-9 here.
-    # replace all the "return"s with "current_score = "
+    
+    if id[0:2] == "23":
+        current_score = point + 15
+    elif id[0:2] == "22":
+        current_score = point + 25
+    elif id[0:2] == "21":
+        current_score = point + 50
+    else:
+        current_score = point + 75
+
+
     if id == friend_id:
         friend_score = current_score
     score_list.append(current_score)

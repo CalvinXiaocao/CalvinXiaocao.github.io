@@ -21,10 +21,13 @@
 本次活动旨在通过两小时时间，带领大家回顾计算概论C前半学期的主要内容，同时以若干编程题目为例讲解解题思路。由于计概C各班级进度不尽相同，本次活动会考虑尽力照顾大多数同学。
 
 ## 课程讲义及代码
-* [讲义](calvinxiaocao.github.io/teaching/fa24/outline.pdf)
-* [PPT](calvinxiaocao.github.io/teaching/fa24/ppt.pdf)
-* [music-demo.py](calvinxiaocao.github.io/teaching/fa24/music_demo.py)
-
+* [讲义](https://calvinxiaocao.github.io/teaching/fa24/outline.pdf)
+* [PPT](https://calvinxiaocao.github.io/teaching/fa24/ppt.pdf)
+* [music-demo.py](https://calvinxiaocao.github.io/teaching/fa24/music_demo.py)
+* [answer1.py](https://calvinxiaocao.github.io/teaching/fa24/answer1.py)
+* [answer2.py](https://calvinxiaocao.github.io/teaching/fa24/answer2.py)
+* [answer3.py](https://calvinxiaocao.github.io/teaching/fa24/answer3.py)
+* [answer4.py](https://calvinxiaocao.github.io/teaching/fa24/answer4.py)
 
 ## 信心行动-计概C微信群
 ![计概C](wechat.jpg)
