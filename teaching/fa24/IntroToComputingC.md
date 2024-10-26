@@ -21,7 +21,10 @@
 本次活动旨在通过两小时时间，带领大家回顾计算概论C前半学期的主要内容，同时以若干编程题目为例讲解解题思路。由于计概C各班级进度不尽相同，本次活动会考虑尽力照顾大多数同学。
 
 ## 课程讲义及代码
-活动开始前将会上传课程讲义。
+* [讲义](calvinxiaocao.github.io/teaching/fa24/outline.pdf)
+* [PPT](calvinxiaocao.github.io/teaching/fa24/ppt.pdf)
+* [music-demo.py](calvinxiaocao.github.io/teaching/fa24/music_demo.py)
+
 
 ## 信心行动-计概C微信群
 ![计概C](wechat.jpg)
