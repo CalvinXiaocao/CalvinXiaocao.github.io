@@ -30,7 +30,11 @@
 |**6**|9|Oct 14|Processor Arch: ISA & Logic Design|
 ||10|Oct 17|Processor Arch: Sequential|
 |**7**|11|Oct 21|Processor Arch: Pipelined|
+|||||**L3 (Attacklab) Release**|
+||12|Oct 24|Memory Hierarchy|
+|**8**|13|Oct 28|Cache Memory|
 |**9**||**Nov 4**|**Midterm**||
+|||**Nov 8**||**L3 (Attacklab) Due Time**|
 |**Test W1**||**Dec 30**|**Final**|
 
 ## Exercise 大练习

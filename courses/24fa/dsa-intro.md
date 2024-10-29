@@ -33,7 +33,11 @@
 |||Oct 20||**Paper HW5 Due**|
 |7|11|Oct 23|*TA session*|
 |||**Oct 27**||**OJ & Mooc Chap4 Due**|
+|8|
+|||**Nov 3**||**Mooc Chap5.1 Due, Paper HW 6 Due**|
 |9||**Nov 6**|**Midterm**||
+|||**Nov 10**||**Mooc Chap5.2 Due, OJ 5 Due**|
+
 
 ## 其他资料
 * [教学网 Course Website](https://course.pku.edu.cn/webapps/blackboard/execute/announcement?method=search&context=course_entry&course_id=_72859_1&handle=announcements_entry&mode=view)

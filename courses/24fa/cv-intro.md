@@ -20,7 +20,11 @@
 |4|||*National Day Break*||
 |||**Oct 3**||**Lab 1 Due**|
 |5|4|Oct 10|[Image Processing (Continue)](courses/24fa/cv/4)||
-|6|5|Oct 16|[Feature Detection]||
+|6|5|Oct 15|[Feature Detection]||
+||6|Oct 17|[Image Stitching]||
+|7|7|Oct 24|[3D Vision and Camera Calibration]||
+|8|
+|||**Oct 31**||**Lab 2 Due**|
 
 
 
