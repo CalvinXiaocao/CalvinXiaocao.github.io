@@ -6,6 +6,8 @@
 |2022|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-a/a1-midterm.pdf)|[答案](https://calvinxiaocao.github.io/alohomora/adv-math-a/a1-midterm-ans.pdf)|
 |2023|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-a/a1-2023-midterm.pdf)|[答案](https://calvinxiaocao.github.io/alohomora/adv-math-a/a1-2023-midterm-ans.pdf)|
 
+2022年以前使用的是数分教材，题目不具有参考性，可以参考高数B往年题目。
+
 ## 上学期期末
 
 待更新……
