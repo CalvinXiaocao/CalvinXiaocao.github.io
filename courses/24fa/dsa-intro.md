@@ -32,8 +32,10 @@
 ||10|Oct 18|Heap & Huffman Tree||
 |||Oct 20||**Paper HW5 Due**|
 |7|11|Oct 23|*TA session*|
+||12|Oct 25|Tree 1|
 |||**Oct 27**||**OJ & Mooc Chap4 Due**|
-|8|
+|8|13|Oct 30|Tree 2|
+||14|Nov 1|Graph 1|
 |||**Nov 3**||**Mooc Chap5.1 Due, Paper HW 6 Due**|
 |9||**Nov 6**|**Midterm**||
 |||**Nov 10**||**Mooc Chap5.2 Due, OJ 5 Due**|

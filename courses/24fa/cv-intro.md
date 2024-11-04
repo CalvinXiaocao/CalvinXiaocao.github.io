@@ -23,8 +23,10 @@
 |6|5|Oct 15|[Feature Detection]||
 ||6|Oct 17|[Image Stitching]||
 |7|7|Oct 24|[3D Vision and Camera Calibration]||
-|8|
+|8|8|Oct 29|[Epipolar Geometry]|
+||9|Oct 31|[Two-View Stereo]|
 |||**Oct 31**||**Lab 2 Due**|
+|||||**Lab 3 Release**|
 
 
 

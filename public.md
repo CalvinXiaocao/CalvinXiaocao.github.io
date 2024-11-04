@@ -6,7 +6,7 @@
 
 ## 📢[ Announcements!](/public) 
 
-### Week 8, 2024 Fall
+### Week 9, 2024 Fall
 
 [草鱼的24 Fa课表](/schedule/24fa-courses)
 

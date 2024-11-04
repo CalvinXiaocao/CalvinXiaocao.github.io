@@ -33,8 +33,12 @@
 |||||**L3 (Attacklab) Release**|
 ||12|Oct 24|Memory Hierarchy|
 |**8**|13|Oct 28|Cache Memory|
+|||||**L4 (Archlab) Release**|
+||14|Oct 31|Program Optimization|
 |**9**||**Nov 4**|**Midterm**||
 |||**Nov 8**||**L3 (Attacklab) Due Time**|
+|**10**|
+|||**Nov 13**||**L4 (Archlab) Due Time**|
 |**Test W1**||**Dec 30**|**Final**|
 
 ## Exercise 大练习
