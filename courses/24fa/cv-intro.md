@@ -27,6 +27,8 @@
 ||9|Oct 31|[Two-View Stereo]|
 |||**Oct 31**||**Lab 2 Due**|
 |||||**Lab 3 Release**|
+|9|10|Nov 7|Structure From Motion||
+|10||**Nov 17**||**Lab 3 Due**|
 
 
 

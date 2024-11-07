@@ -30,6 +30,8 @@
 ||10|Oct 24|[Computational Graph]|
 |||||**Lab 3 Release**|
 |8|11|Oct 31|[Compiler Frontend]|
+|9|12|Nov 6|[Compiler Frontend (Continue)]|
+|||||**Lab 4 Release**|
 |10||**Nov 12**||**Lab 2 DUE**|
 |12||**Nov 26**||**Lab 3 DUE**|
 
