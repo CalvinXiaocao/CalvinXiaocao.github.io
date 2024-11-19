@@ -38,7 +38,8 @@
 |**9**||**Nov 4**|**Midterm**||
 |||**Nov 8**||**L3 (Attacklab) Due Time**|
 |**10**|
-|||**Nov 13**||**L4 (Archlab) Due Time**|
+|||**Nov 17**||**L4 (Archlab) Due Time**|
+|||**Nov 24**||**L5 (Cachelab) Due Time**|
 |**Test W1**||**Dec 30**|**Final**|
 
 ## Exercise 大练习

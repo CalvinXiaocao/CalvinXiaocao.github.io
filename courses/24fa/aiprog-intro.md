@@ -32,7 +32,9 @@
 |8|11|Oct 31|[Compiler Frontend]|
 |9|12|Nov 6|[Compiler Frontend (Continue)]|
 |||||**Lab 4 Release**|
+||13|Nov 7|Optimization|
 |10||**Nov 12**||**Lab 2 DUE**|
+||14|Nov 14|Compiler Backend||
 |12||**Nov 26**||**Lab 3 DUE**|
 |||**Dec 1**||**Lab 4 DUE**|
 

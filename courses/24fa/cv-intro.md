@@ -28,7 +28,11 @@
 |||**Oct 31**||**Lab 2 Due**|
 |||||**Lab 3 Release**|
 |9|10|Nov 7|Structure From Motion||
-|10||**Nov 17**||**Lab 3 Due**|
+|10|11|Nov 12|Multiview Stereo|
+||12|Nov 14|Photometric Stereo|
+|||||**Lab 4 Release**|
+|||**Nov 17**||**Lab 3 Due**|
+|12||**Nov 29**||**Lab 4 Due**|
 
 
 

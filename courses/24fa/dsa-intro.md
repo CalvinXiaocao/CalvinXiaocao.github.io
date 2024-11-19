@@ -38,7 +38,13 @@
 ||14|Nov 1|Graph 1|
 |||**Nov 3**||**Mooc Chap5.1 Due, Paper HW 6 Due**|
 |9||**Nov 6**|**Midterm**||
+||15|Nov 7|Graph 2|
 |||**Nov 10**||**Mooc Chap5.2 Due, OJ 5 Due**|
+|10|16|Nov 13|Sort 1|
+||17|Nov 15|Sort 2|
+|||**Nov 17**||**Mooc Chap6 Due, OJ 6 Due, Paper HW 7 Due**|
+|||**Nov 24**||**Mooc Chap7 (Graph) Due, OJ 7 Due**|
+|||**Dec 13**||**Mooc Midterm Due**|
 
 
 ## 其他资料
