@@ -1,12 +1,12 @@
 # Welcome to Calvin's world!
 
-*This Site is still under construction. Latest update: Oct 21, 2024*
+*This Site is still under construction. Latest update: Dec 7, 2024*
 
 `不必害怕，因为这岛上众生喧哗。`
 
 ## 📢[ Announcements!](/public) 
 
-### Week 12, 2024 Fall
+### Week 14, 2024 Fall
 
 [草鱼的24 Fa课表](/schedule/24fa-courses)
 
