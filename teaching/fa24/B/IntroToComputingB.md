@@ -21,7 +21,9 @@
 本次活动旨在通过两小时时间，带领大家回顾计算概论B的主要内容，同时以若干编程题目为例讲解解题思路。由于资源有限，本次活动会**兼顾选修c和python语言的同学**，涉及到的所有题解的代码都会发布Python和c两种版本。Python和c的底层思想逻辑（如递归、枚举、二分、动态规划等）是相通的，同学们无需担心。
 
 ## 课程讲义及代码
-活动结束后会上传讲义和所有涉及的代码（C version & Python version)
+[PPT](https://calvinxiaocao.github.io/teaching/fa24/B/slides.pdf)
+
+活动结束后会上传讲义和所有涉及的代码(C version & Python version)
 
 ## 联合辅导-计概B微信群
 微信群尚未创建。
