@@ -44,3 +44,5 @@ From xyt助教（转引自https://github.com/zhuozhiyongde/Advanced-Mathematics-
 >
 > 希望大家摆脱卷摆相间的 emo 怪圈：“迷茫的时候就要行动起来，没有任何事情是徒劳无功的！”
 
+*From [https://calvinxiaocao.github.io](https://calvinxiaocao.github.io). All rights reserved.*
+
