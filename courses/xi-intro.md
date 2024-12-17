@@ -14,7 +14,7 @@
 [见这里！（来源：树洞、赛艇等）](https://calvinxiaocao.github.io/courses/xi/exam.pdf)
 
 ## 大练习
-*以下内容全部为草鱼2024春季整理*
+*以下内容全部为草鱼2024春季整理，仅供学习交流使用*
 
 | 序号 | 内容 | 答案 |
 | ---- | -------- | -------- |
@@ -33,3 +33,6 @@
 ## 其他资料
 
 [<<返回](university_courses)
+
+*From [https://calvinxiaocao.github.io](https://calvinxiaocao.github.io). All rights reserved.*
+
