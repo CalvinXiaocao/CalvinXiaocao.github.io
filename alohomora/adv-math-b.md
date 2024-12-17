@@ -10,7 +10,14 @@
 
 ## 上学期期末
 
-待更新……
+|年份|题目|
+|---|---|
+|2020|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2020final.pdf)｜[官方解答（二元泰勒系数有误）](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2020final-answer.pdf)｜[Arthals的个人解答](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2020final-arthals.pdf)|
+|2021|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021final.pdf)｜[官方解答（极限题目有误）](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021final-answer.pdf)｜[Arthals的个人解答](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2021final-arthals.pdf)|
+|2022 **A卷**|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022final.pdf)｜[Arthals的个人解答](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022final-arthals.pdf)|
+|2022 **B卷**|[题目(暂无答案)](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022b.pdf)|
+|2022 xyt模拟版|[题目](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022xyt.pdf)｜[官方解答](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022xyt-answer.pdf)｜[Arthals的个人解答](https://calvinxiaocao.github.io/alohomora/adv-math-b/b1-2022xyt-arthals.pdf)|
+
 
 -----
 
