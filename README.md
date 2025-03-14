@@ -37,6 +37,9 @@
 
 ## **Public** Page: click [***HERE***](/public)
 
+> 💡 Like this plugin? Check out [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable) for your site theme, [docsify-plugin-ethicalads](https://jhildenbiddle.github.io/docsify-plugin-ethicalads/) for EthicalAds integration, and [docsify-plugin-runkit](https://jhildenbiddle.github.io/docsify-plugin-runkit/) for live JavaScript REPLs!
+
+
 <!-- tabs:start -->
 
 #### **English**
