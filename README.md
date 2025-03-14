@@ -2,6 +2,8 @@
 
 > **Nice to meet you! 😄**
 
+?> 目前网页正在更新中……
+
 ## About Me
 ### 曹彧 · Yu (Calvin) Cao
 **北京大学信息科学技术学院 本科生**
@@ -37,10 +39,10 @@
 
 ## **Public** Page: click [***HERE***](/public)
 
-?> 💡 Like this plugin? Check out [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable) for your site theme, [docsify-plugin-ethicalads](https://jhildenbiddle.github.io/docsify-plugin-ethicalads/) for EthicalAds integration, and [docsify-plugin-runkit](https://jhildenbiddle.github.io/docsify-plugin-runkit/) for live JavaScript REPLs!
-
-
 <!-- tabs:start -->
+
+#### **Chinese**
+你好！
 
 #### **English**
 
