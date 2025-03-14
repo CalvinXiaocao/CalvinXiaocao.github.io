@@ -36,3 +36,19 @@
 
 
 ## **Public** Page: click [***HERE***](/public)
+
+<!-- tabs:start -->
+
+#### **English**
+
+Hello!
+
+#### **French**
+
+Bonjour!
+
+#### **Italian**
+
+Ciao!
+
+<!-- tabs:end -->
