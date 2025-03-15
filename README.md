@@ -34,6 +34,15 @@
 ### 🎵 Music Editor: [Doremi](https://github.com/program-practice-doremi/DoReMi)
 2024春季程序设计实习大作业，使用C++和Midi库设计的多音轨音乐编辑器，可以实现对音乐的自由创作、编辑、播放，也可以进行文件存储和导入。
 
+### Improved Diffusion Illusions
+2024秋计算机视觉大作业，改进Diffusion Illusions操作，引入ControlNet实现在图像和文字控制下生成“视错觉”图片
+
+### MyTorch
+2024秋人工智能中的编程大作业，使用cuda和python编程实现迷你版pytorch的代码复现
+
+### WordCloud
+2024秋可视计算与交互概论大作业，使用c++和课程lab框架复现词云图算法
+
 ### 💡 More on progress...
 
 
