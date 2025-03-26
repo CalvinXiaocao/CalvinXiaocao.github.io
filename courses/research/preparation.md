@@ -255,4 +255,138 @@ $$
    
    最终样本 $\boldsymbol{x}_T$ 将收敛于真实分布 $p(\boldsymbol{x})$ 的采样结果。
 
+下图展示了几个随机粒子游走的情况。他们趋向于向概率密度函数的峰值前进。
+
+![alt text](image-36.png ':size=70%')
+
+---
+### Score Matching
+那么，如何去训练这样的一个 score-based model 呢？我们可以去最小化 Fisher 散度。
+
+
+$$
+\mathbb{E}_{p(\boldsymbol{x})} \left[ \| \nabla_{\boldsymbol{x}} \log p(\boldsymbol{x}) - s_\theta(\boldsymbol{x}) \|_2^2 \right]
+$$
+实际中替换为数据分布：
+$$
+\mathbb{E}_{p_{data}(\boldsymbol{x})} \left[ \| \nabla_{\boldsymbol{x}} \log p_{data}(\boldsymbol{x}) - s_\theta(\boldsymbol{x}) \|_2^2 \right]
+$$
+
+**核心问题**
+
+真实数据分布的分数 $\nabla_{\boldsymbol{x}} \log p_{data}(\boldsymbol{x})$ 未知，需推导可计算的替代目标。
+
+
+通过分部积分可得等价目标（忽略常数项）：
+$$
+\mathcal{J}(\theta) = \mathbb{E}_{p(\boldsymbol{x})} \left[ \text{tr}\left( \frac{\partial s_\theta(\boldsymbol{x})}{\partial \boldsymbol{x}} \right) + \frac{1}{2} \| s_\theta(\boldsymbol{x}) \|_2^2 \right]
+$$
+其中：
+- $\text{tr}\left( \frac{\partial s_\theta(\boldsymbol{x})}{\partial \boldsymbol{x}} \right)$ 是分数函数Jacobian矩阵的迹
+- $\| \cdot \|_2^2$ 为L2范数平方
+
+**计算瓶颈**
+
+对维度$D$的输入$\boldsymbol{x}$，需计算$D \times D$矩阵的迹：
+$$
+\text{tr}\left( \frac{\partial s_\theta(\boldsymbol{x})}{\partial \boldsymbol{x}} \right) = \sum_{i=1}^D \frac{\partial [s_\theta(\boldsymbol{x})]_i}{\partial x_i}
+$$
+每项需一次反向传播，总成本为$O(D)$。
+
+---
+
+### Improvement of Score Matching
+**Sliced Score Matching**
+
+引入随机向量$\boldsymbol{v} \sim \mathcal{N}(0, \boldsymbol{I})$，通过蒙特卡洛近似：
+$$
+\text{tr}\left( \frac{\partial s_\theta}{\partial \boldsymbol{x}} \right) \approx \mathbb{E}_{\boldsymbol{v}} \left[ \boldsymbol{v}^T \frac{\partial s_\theta}{\partial \boldsymbol{x}} \boldsymbol{v} \right]
+$$
+仅需一次向量-Jacobian乘积计算（现代自动微分框架支持高效实现）。
+
+**去噪分数匹配（Denoising Score Matching）**
+
+若数据添加噪声$\sigma$，目标转化为：
+$$
+\mathbb{E}_{p_\sigma(\tilde{\boldsymbol{x}}|\boldsymbol{x})} \left[ \| s_\theta(\tilde{\boldsymbol{x}}) - \nabla_{\tilde{\boldsymbol{x}}} \log p_\sigma(\tilde{\boldsymbol{x}}|\boldsymbol{x}) \|^2 \right]
+$$
+其中$\nabla_{\tilde{\boldsymbol{x}}} \log p_\sigma(\tilde{\boldsymbol{x}}|\boldsymbol{x}) = \frac{\boldsymbol{x} - \tilde{\boldsymbol{x}}}{\sigma^2}$可直接计算，不用再计算梯度了！
+
+> 有没有发现，$\boldsymbol{x} - \tilde{\boldsymbol{x}}$ 和 DDPM 中给图片加噪的噪声很像？而且损失函数都是同一个形式？后面会阐明他们的相关性。
+
+**DSM 仍然存在的问题**
+
+在概率密度较低的区域，给 MSE 赋予的权重也就相应较低。因此对于概率较低的地方，模型的估计并不准确。
+
+![alt text](image-37.png 'size=70%')
+
+因此就有了下面这篇工作：Noise Conditional Score Networks。
+
+### Noise Conditional Score Network
+
+NCSN 的主要思路是：向原始的概率密度函数加不同级别的 noise，然后训练一个加权的分数网络。这个网络输入数据 x 和 步数 i，输出对分数的预测。
+
+核心思想：训练噪声条件分数模型。
+$$
+s_\theta(\boldsymbol{x}, i) \approx \nabla_{\boldsymbol{x}} \log p_{\sigma_i}(\boldsymbol{x})
+$$
+噪声尺度满足 $\sigma_1 < \dots < \sigma_L$。
+
+**训练目标**
+
+加权多尺度分数匹配：
+$$
+\mathcal{L}(\theta) = \sum_{i=1}^L \sigma_i^2 \mathbb{E}_{p_{\sigma_i}(\boldsymbol{x})} \left[ \| s_\theta(\boldsymbol{x}, i) + \frac{\boldsymbol{z}}{\sigma_i} \|_2^2 \right]
+$$
+其中 $\boldsymbol{x} = \boldsymbol{y} + \sigma_i \boldsymbol{z}$。
+
+**采样方法（退火朗之万动力学）**
+
+在 NCSN 中，作者改进了原先的采样方法，引入了退火朗之万动力学。
+1. 从大噪声尺度开始：$\boldsymbol{x}_0 \sim \mathcal{N}(0, \sigma_L^2 \boldsymbol{I})$
+2. 逐步降噪更新：
+$$
+\boldsymbol{x}_{i+1} = \boldsymbol{x}_i + \alpha_i s_\theta(\boldsymbol{x}_i, k) + \sqrt{2\alpha_i} \boldsymbol{z}_i
+$$
+
+![alt text](image-38.png ':size=60%')
+
+采样的示意图如下。可以看到，在尺度较大的时候，粒子的运动还是比较不规则的。尺度变小，粒子逐渐向原先的数据分布方向收敛。
+
+![alt text](img.gif ':size=70%')
+
+---
+
+## The Unification of DDPM and NCSN
+DDPM 和 NCSN 长得如此之像，于是 Yang Song et al. 尝试去将二者进行统一。
+
+实际上，加噪声的干扰是一个连续的随机过程。扩散过程可用随机微分方程 (SDE) 描述：
+$$
+d\boldsymbol{x} = f(\boldsymbol{x},t)dt + g(t)d\boldsymbol{w}
+$$
+其中$\boldsymbol{w}$为标准布朗运动。
+- 正向SDE：逐步添加噪声
+- 逆向SDE：从噪声生成数据
+  $$
+  d\boldsymbol{x} = [f(\boldsymbol{x},t) - g(t)^2\nabla_{\boldsymbol{x}}\log p_t(\boldsymbol{x})]dt + g(t)d\boldsymbol{w}
+  $$
+
+这里的数学推导过程较为复杂。不过可以得出，DDPM 和 NCSN 无非是同一个方程中对 $f(x, t)$ 和 $g(t)$ 的不同定义。
+
+**DDPM (Variance Preserving)**
+$$
+\begin{aligned}
+f(\boldsymbol{x}_t,t) &= -\frac{1}{2}\beta(t)\boldsymbol{x}_t \\
+g(t) &= \sqrt{\beta(t)}
+\end{aligned}
+$$
+
+**NCSN (Variance Exploding)**
+$$
+\begin{aligned}
+f(\boldsymbol{x}_t,t) &= 0 \\
+g(t) &= \sqrt{\frac{d}{dt}\sigma_t^2}
+\end{aligned}
+$$
+
 
