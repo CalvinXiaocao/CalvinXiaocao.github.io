@@ -87,4 +87,172 @@ HVAE 将多层级的 VAE 叠加起来，假定生成 image 的 latent 是由高�
 Diffusion Model 可以理解成一个特殊的 MHVAE，外加对其的三条特殊限制：
 
 1. 数据的维度和隐变量的维度相同。
-2. 
+2. 编码器不是学习到的，而是预先定义成了 linear Gaussian。这一条件和1联系起来，可以形象地理解成：向图片中添加噪声。
+3. 最后一个隐变量的分布服从标准高斯分布。
+
+![alt text](image-32.png ':size=70%')
+
+条件 2 需要再进行细化。我们定义加噪的方式如下。为什么要这么定义呢？是因为我们想保证每一步 latent 的方差都在一个相同的尺度上。
+
+![alt text](image-33.png ':size=70%')
+
+$x_t = k_t x_{t-1} + \beta_t \epsilon_t$
+
+$= k_t (k_{t-1} x_{t-2} + \beta_{t-1} \epsilon_{t-1}) + \beta_t \epsilon_t$
+
+$= \bar{k_t} x_0 + (k_t k_{t-1} \dots k_2 \beta_1 \epsilon_1) + (k_t k_{t-1} \dots k_3 \beta_2 \epsilon_2) + \beta_t \epsilon_t$
+
+假如我们让 $k_t^2 + \beta_t^2 = 1$, 上式可以简化成:
+
+$\mathbf{x_t} = \bar{k_t} \mathbf{x_0} + \sqrt{1 - \bar{k_t}^2} \epsilon$
+
+其中 $\bar{k_t} = \Pi_{i=1}^{t}k_i$
+
+这里有两个 Intuition：一是多步加噪的过程可以简化成一步到位；二是因为 $k_i < 1$，因此当 $t\to+\infty$的时候，$x_t$ 近似服从标准正态分布，这也正是我们想要的！
+
+---
+
+### Training Diffusion Models
+我们来看损失函数。它的形式和 VLE 几乎是一模一样的，我们也想要最大化 ELBO。不过现在 ELBO 可以被拆解为三项：重构项，先验匹配项，还有去噪匹配项。
+![alt text](image-35.png ':size=80%')
+
+DDPM 论文的第三部分对这三项分别进行了阐述。下面我们也分别来讲一下这三部分。
+
+---
+**Term 1 (prior matching term)**
+
+第一项，$D_{KL}(q(\boldsymbol{x}_T | \boldsymbol{x}_0) \parallel p(\boldsymbol{x}_T))$。在 DDPM 中，$\sqrt{\beta_t}$是预定义好的，不对其做训练，因此它是个常数。
+
+---
+
+**Term 2 (denoising matching term)**
+
+$$
+\sum_{t=2}^T \mathbb{E}_{q(\boldsymbol{x}_t | \boldsymbol{x}_0)} \left[ D_{KL} \big( q(\boldsymbol{x}_{t-1} | \boldsymbol{x}_t, \boldsymbol{x}_0) \parallel p_\theta (\boldsymbol{x}_{t-1} | \boldsymbol{x}_t) \big) \right]
+$$
+
+通过一系列的推算，我们可以推出：前向过程的后验分布服从高斯分布：
+
+$$
+q(\boldsymbol{x}_{t-1} | \boldsymbol{x}_t, \boldsymbol{x}_0) \sim \mathcal{N} \left( \boldsymbol{x}_{t-1}; \tilde{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0), \tilde{\beta}_t \boldsymbol{I} \right)
+$$
+
+其中参数定义为：
+
+$$
+\tilde{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) = \frac{\sqrt{\bar{\alpha}_{t-1}} \beta_t}{1 - \bar{\alpha}_t} \boldsymbol{x}_0 + \frac{\sqrt{\alpha_t} (1 - \bar{\alpha}_{t-1})}{1 - \bar{\alpha}_t} \boldsymbol{x}_t
+$$
+
+$$
+\tilde{\beta}_t = \frac{1 - \bar{\alpha}_{t-1}}{1 - \bar{\alpha}_t} \beta_t
+$$
+
+我们希望让 KL 散度项最小，那自然想要把  $p_\theta$ 定义成高斯分布了。在 DDPM 的定义中，我们把这个高斯分布的方差作为一个固定项，而去学习这个高斯分布的均值。
+
+$$
+p_\theta (\boldsymbol{x}_{t-1} | \boldsymbol{x}_t) = \mathcal{N} \left( \boldsymbol{x}_{t-1}; \mu_\theta (\boldsymbol{x}_t, t), \sigma_t^2 \boldsymbol{I} \right)
+$$
+
+实际应用中两种方差选择效果相似：
+- $\sigma_t^2 = \beta_t$ （原始方差）
+- $\sigma_t^2 = \tilde{\beta}_t$ （修正方差）
+
+$t-1$时刻的损失项可简化为：
+
+$$
+L_{t-1} = \mathbb{E}_q \left[ \frac{1}{2\sigma_t^2} \| \tilde{\mu}_t(\boldsymbol{x}_t, \boldsymbol{x}_0) - \mu_\theta (\boldsymbol{x}_t, t) \|^2 \right] + C \quad (1)
+$$
+
+其中$C$为与$\theta$无关的常数。
+
+数学推理到这里就可以结束了，这就已经可以用来学习了。不过还有一种等价的方式：预测噪声。
+
+**完整形式**：
+$$
+L_{t-1}^{noise} = \mathbb{E}_{x_0, \epsilon} \left[ \frac{\beta_t^2}{2\sigma_t^2 \alpha_t (1-\bar{\alpha_t})} \| \epsilon - \epsilon_\theta(x_t, t) \|^2 \right] + C \quad (2)
+$$
+
+**简化形式（DDPM采用）**：
+$$
+L_{simplified} = \mathbb{E}_{t,x_0,\epsilon} \left[ \| \epsilon - \epsilon_\theta(x_t, t) \|^2 \right] + C \quad (3)
+$$
+
+这一项简化看似直接砍掉了前面的系数，但实际上是有道理的。前面的这一项随着 t 的增加而减小，我们把这一项抹去，相当于放大了 t 较大时刻的 loss，使得模型关注于 t 较大时更难的训练目标。
+
+DDPM 在实验部分对几种方法的 IS 和 FID 都进行了比较，发现训练简化损失函数（3）的 IS 最高，FID 最低。
+
+---
+
+**Term 3 (reconstruction term)**
+还有一项落了单：去噪匹配项只考虑了 $t>1$ 时候的结果，而当 $t=1$ 的时候，还有这一特殊的项需要考虑：
+
+$$
+\mathbb{E}_{q(\boldsymbol{x}_1 | \boldsymbol{x}_0)} \left[ \log p_\theta (\boldsymbol{x}_0 | \boldsymbol{x}_1) \right]
+$$
+
+DDPM 中是这样实现的：
+1. **输入预处理**  
+   图像像素值线性缩放至 $[-1, 1]$ 区间。
+2. **离散化解码器**  
+   逆向过程的最后一步使用独立离散解码器：  
+   $$
+   p_\theta(\boldsymbol{x}_0 | \boldsymbol{x}_1) = \prod_{i=1}^D \int_{\delta_-(\boldsymbol{x}_0^i)}^{\delta_+(\boldsymbol{x}_0^i)} \mathcal{N}(x; \mu_\theta^i(\boldsymbol{x}_1, 1), \sigma_1^2) dx
+   $$  
+   其中：
+   - $D$ 为图像维度
+   - $\delta_+/\delta_-$ 为像素值分箱边界
+3. **实际训练**
+   实际训练时，我们使用近似，将连续的积分离散化。
+   $$
+    \log p_\theta (\boldsymbol{x}_0 | \boldsymbol{x}_1) = -\frac{1}{2\sigma_t^2} \| \boldsymbol{x}_0 - \boldsymbol{\mu}_\theta(\boldsymbol{x}_1, 1) \|^2 + C
+    $$
+    它和2有着相同的形式，因此直接融为一体训练即可。
+
+---
+
+以上就是从概率的角度对 Diffusion Model 的理解。下面我们来讲基于得分 Score 的理解。
+
+---
+
+## Score-based Interpretation
+我们之前提到，生成模型是对概率进行建模。我们换一种表示 $p_\theta(x)$ 的方式：
+
+$$
+p_\theta(x)=\frac{1}{Z_\theta}e^{-f_\theta(x)}
+$$
+
+可如果这么建模的话，问题就来了：如果要是算归一化系数太难了！那么如何避免概率的归一化呢？取对数，之后去计算它的导数，就可以了。
+
+$$
+s_\theta(\boldsymbol{x}) = \nabla_{\boldsymbol{x}} \log p_\theta(\boldsymbol{x}) = -\nabla_{\boldsymbol{x}} f_\theta(\boldsymbol{x})
+$$
+
+我们把概率取对数后计算得到的梯度叫做“分数”。如果我们学好了 $s_\theta(x)$，那就可以采样后沿着梯度的方向按一定步长去走，最终就可以拟合原先的概率分布了。
+
+---
+
+### Langevin Dynamics
+现在把“走”的过程再细化一些：假设我们已经学好了我们的 score-based model，我们该如何采样呢？我们采取一种迭代的策略，称为“朗之万动力学”：
+
+1. **初始化**：
+   $$
+   \boldsymbol{x}_0 \sim \pi(\boldsymbol{x}) \quad \text{（通常为简单分布，如均匀分布或高斯分布）}
+   $$
+
+2. **迭代更新**（$i=0,1,...,T-1$）：
+   $$
+   \boldsymbol{x}_{i+1} = \boldsymbol{x}_i + \epsilon \nabla_{\boldsymbol{x}} \log p_\theta(\boldsymbol{x}_i) + \sqrt{2\epsilon} \boldsymbol{z}_i
+   $$
+   其中：
+   - $\epsilon > 0$：步长（step size）
+   - $\boldsymbol{z}_i \sim \mathcal{N}(0, \boldsymbol{I})$：随机噪声
+   - $T$：总迭代次数
+
+3. **收敛性**：
+   当满足以下条件时：
+   - $\epsilon \to 0$
+   - $T \to \infty$
+   
+   最终样本 $\boldsymbol{x}_T$ 将收敛于真实分布 $p(\boldsymbol{x})$ 的采样结果。
+
+
