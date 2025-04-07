@@ -1,6 +1,6 @@
 # Learned Image Compression
 
-*图像压缩系列笔记01*
+*图像压缩系列笔记 01*
 
 ?> 这是 2018 年 Picture Coding Symposium 上 Johannes Ballé 做的一篇报告，对 **Learned Image Compression** 做的一个 overview talk。他是论文 **Variational Image Compression With a Scale Hyperprior** 的一作，下篇笔记将去详细分析这篇论文，它建立起端到端图像压缩的基本框架。我们从这次 talk 开始学起，进入图像压缩的世界。
 
@@ -77,5 +77,78 @@ $$
 
 ![alt text](image-11.png ':size=60%')
 
- 
+### Compress a Laplacian Source
+
+在压缩图像之前，我们首先尝试去对 Laplacian Source Distribution 进行压缩。我们使用神经网络，它学到了两个特性：指出了中间区域的 dead zone，而且把数据的表示放到了 conditional mean 的附近（如图）。
+
+![alt text](image-12.png ':size=60%')
+
+我们现在把它拓展到二维，让机器来学习 “banana” source。如果只用线性的变换，那么效果如下。可以看出它尝试去拟合，但效果一般。
+
+![alt text](image-13.png ':size=60%')
+
+如果用非线性的模型，那么压缩的效果更好，cost有显著的降低。
+
+![alt text](image-14.png ':size=60%')
+
+如果用 rate-constrained vector quantization，分数并没有比 nonlinear transform coding 显著下降。
+![alt text](image-15.png ':size=60%')
+
+下面我们来到图像。我们加入了卷积，而不仅是线性的模型。
+
+![alt text](image-16.png ':size=60%')
+
+### Visualization Result
+
+下面我们来看一组效果的对比。
+
+![alt text](image-18.png ':size=60%')
+
+![alt text](image-19.png ':size=60%')
+
+![alt text](image-17.png ':size=60%')
+
+![alt text](image-20.png ':size=60%')
+
+![alt text](image-21.png ':size=80%')
+
+## From Transform Coding to Representation Learning
+下面我们尝试对 nonlinear transform 做进一步的拓展。
+
+![alt text](image-22.png ':size=60%')
+
+### AutoEncoders
+
+![alt text](image-25.png ':size=70%')
+
+### Variational AutoEncoders
+
+![alt text](image-26.png ':size=70%')
+
+![alt text](image-27.png ':size=70%')
+
+### New Interpretation of NTC as Bayesian Model
+
+$$
+L = \mathbb{E} \left[ -\log p_{\hat{y}} (\hat{\mathbf{y}}) - \log p_{\mathbf{x} | \hat{y}} (\mathbf{x} \mid \hat{\mathbf{y}}) \right]
+$$
+
+这个损失函数和之前讲的 rate distortion 形式上就很像了。第一项是 rate，第二项是 distortion。
+
+当然，还有其他种表达。比如 PixelCNN，GAN 等等。
+
+## Learned Image Compression Mini-FAQ
+
+### How good is it? Numbers?
+有很多人会问：Learned Image Compression 有多好？Presenter 展示了他们的研究成果，是他们先前发表在 ICLR 上的 **Variational Image Compression With a Scale Hyperprior**，当时的 State-of-the-art。他们的架构大致如下：扩展了原先的 Variational AutoEncoder，加入了 hyperprior，扩展成了一个多层的 Bayesian Model。
+
+![alt text](image-28.png ':size=70%')
+
+评估效果是当时的 State-of-the-art。
+
+从效果图来看，optimized for MSE 和 optimized for MS-SSIM 中，后者的效果更好，会分配更多 bits 给纹理多的区域。但是，MS-SSIM 有的时候效果不如前者。比如一个印有文字的飞机，MS-SSIM 会给草地分更多 bits，从而文字变模糊。但是我们想看的是文字部分。
+
+### Is it computationally expensive?
+如果用 CPU，确实。很多当时的研究在想如何加速计算。同时 GPU 的使用也可以使过程加速。
+
 
