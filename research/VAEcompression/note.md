@@ -1,4 +1,4 @@
-# Paper Reading: Variational Image Compression With A Scale Hyperscale
+# Paper Reading: Variational Image Compression With A Scale Hyperprior
 
 *图像压缩系列笔记 02*
 
