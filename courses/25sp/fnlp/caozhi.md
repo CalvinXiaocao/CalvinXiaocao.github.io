@@ -1,115 +1,134 @@
-好的！我们用一个更复杂的例子，**扩展特征为 bag-of-words**（不再限制窗口大小），并允许词在句子中重复出现，使得计数（Count）不恒为 1。  
-仍以 **"bank"** 为目标词，词义为：  
-- \( s_1 \): 金融机构（financial institution）  
-- \( s_2 \): 河岸（river bank）  
+### TF-IDF 计算示例
 
----
+假设我们有以下三个文档组成的语料库：
 
-### **1. 训练数据**
-假设训练数据如下（标注了 "bank" 的词义）：
+- **文档1**: "The cat sat on the mat"
+- **文档2**: "The dog sat on the log"
+- **文档3**: "The cat and the dog are friends"
 
-| 句子（上下文 \( C \)）                                     | 词义 \( s_k \)   |
-|-----------------------------------------------------------|------------------|
-| "deposit money bank cash deposit"                         | \( s_1 \)        |
-| "river bank water flows river"                             | \( s_2 \)        |
-| "bank loan interest bank"                                  | \( s_1 \)        |
-| "fish bank river sand"                                     | \( s_2 \)        |
+#### 第一步：计算词频（TF）
 
-#### **Bag-of-Words 特征提取**
-统计每个句子中所有词的频率（忽略大小写和标点）：
+词频（Term Frequency, TF）表示一个词在文档中出现的频率。这里我们使用对数化的公式：
 
-| 词义 \( s_k \) | 句子ID | 词频（Bag-of-Words）                          |
-|----------------|--------|-----------------------------------------------|
-| \( s_1 \)      | 1      | {"deposit":2, "money":1, "bank":1, "cash":1} |
-| \( s_1 \)      | 3      | {"bank":2, "loan":1, "interest":1}           |
-| \( s_2 \)      | 2      | {"river":2, "bank":1, "water":1, "flows":1}   |
-| \( s_2 \)      | 4      | {"fish":1, "bank":1, "river":1, "sand":1}    |
+$$
+TF_{t, d} = \begin{cases}1 + \log_{10} count(t, d) &\text{if } count(t, d) > 0 \\ 0 & \text{otherwise}\end{cases}
+$$
 
----
+以文档1 "The cat sat on the mat" 为例：
 
-### **2. 概率估计**
-#### **统计词义和特征的全局出现次数**
-- **词义先验概率 \( P(s_k) \)**：
-  - \( \text{Count}(s_1) = 2 \)（句子1和3）
-  - \( \text{Count}(s_2) = 2 \)（句子2和4）
-  - \( P(s_1) = P(s_2) = \frac{2}{4} = 0.5 \)。
+- 分词结果：["the", "cat", "sat", "on", "the", "mat"]
+- 词频统计：
+  - the: 2
+  - cat: 1
+  - sat: 1
+  - on: 1
+  - mat: 1
 
-- **条件概率 \( P(v_x \| s_k) \)**：
-  统计每个词义下所有句子的词频总和（注意：同一个词在不同句子中的频次累加）：
+计算 TF：
 
-  - **\( s_1 \) 的词频统计**：
-    - "deposit":2, "money":1, "bank":3（句子1中1次 + 句子3中2次）, "cash":1, "loan":1, "interest":1  
-    - 总词数 \( \text{Count}(s_1) = 2+1+3+1+1+1 = 9 \)
+- the: \(1 + \log_{10}(2) \approx 1 + 0.301 = 1.301\)
+- cat: \(1 + \log_{10}(1) = 1 + 0 = 1\)
+- sat: 1
+- on: 1
+- mat: 1
 
-  - **\( s_2 \) 的词频统计**：
-    - "river":3（句子2中2次 + 句子4中1次）, "bank":2, "water":1, "flows":1, "fish":1, "sand":1  
-    - 总词数 \( \text{Count}(s_2) = 3+2+1+1+1+1 = 9 \)
+#### 第二步：计算逆文档频率（IDF）
 
-  - 计算条件概率（使用拉普拉斯平滑，\( \alpha=1 \)，词汇表大小 \( |V|=10 \)）：
-    - 例如：  
-      \( P(\text{river} \| s_1) = \frac{0 + 1}{9 + 10} = \frac{1}{19} \)（"river" 未在 \( s_1 \) 中出现过）  
-      \( P(\text{bank} \| s_1) = \frac{3 + 1}{9 + 10} = \frac{4}{19} \)  
-      \( P(\text{river} \| s_2) = \frac{3 + 1}{9 + 10} = \frac{4}{19} \)
+逆文档频率（Inverse Document Frequency, IDF）衡量一个词的普遍重要性。公式为：
 
----
+$$
+IDF_t = \log_{10} \left( \frac{N}{DF_t} \right)
+$$
 
-### **3. 测试阶段**
-测试句子：  
-**"river bank interest deposit"**  
-提取 Bag-of-Words 特征：  
-\( C' = \{\text{river}:1, \text{bank}:1, \text{interest}:1, \text{deposit}:1\} \)
+其中：
+- \(N\) 是文档总数（这里是3）
+- \(DF_t\) 是包含词 \(t\) 的文档数量
 
-#### **计算后验概率**
-1. **对于 \( s_1 \)**：
-   \[
-   P(s_1 \| C') \propto P(s_1) \cdot \prod_{v_x \in C'} P(v_x \| s_1)  
-   = 0.5 \cdot P(\text{river} \| s_1) \cdot P(\text{bank} \| s_1) \cdot P(\text{interest} \| s_1) \cdot P(\text{deposit} \| s_1)  
-   = 0.5 \cdot \frac{1}{19} \cdot \frac{4}{19} \cdot \frac{2}{19} \cdot \frac{3}{19}  
-   \approx 0.5 \cdot 0.00035 \approx 0.000175
-   \]
+首先统计每个词的 DF：
 
-2. **对于 \( s_2 \)**：
-   \[
-   P(s_2 \| C') \propto P(s_2) \cdot \prod_{v_x \in C'} P(v_x \| s_2)  
-   = 0.5 \cdot P(\text{river} \| s_2) \cdot P(\text{bank} \| s_2) \cdot P(\text{interest} \| s_2) \cdot P(\text{deposit} \| s_2)  
-   = 0.5 \cdot \frac{4}{19} \cdot \frac{3}{19} \cdot \frac{1}{19} \cdot \frac{1}{19}  
-   \approx 0.5 \cdot 0.00017 \approx 0.000085
-   \]
+- the: 出现在所有3个文档 → DF=3
+- cat: 出现在文档1和文档3 → DF=2
+- sat: 出现在文档1和文档2 → DF=2
+- on: 出现在文档1和文档2 → DF=2
+- mat: 只在文档1出现 → DF=1
+- dog: 出现在文档2和文档3 → DF=2
+- log: 只在文档2出现 → DF=1
+- and: 只在文档3出现 → DF=1
+- are: 只在文档3出现 → DF=1
+- friends: 只在文档3出现 → DF=1
 
-#### **选择最优词义**
-比较后验概率：
-- \( P(s_1 \| C') \approx 0.000175 \)
-- \( P(s_2 \| C') \approx 0.000085 \)
+计算 IDF：
 
-因为 \( 0.000175 > 0.000085 \)，预测词义为 \( s_1 \)（金融机构）。  
-**分析**：虽然 "river" 更倾向于 \( s_2 \)，但 "interest" 和 "deposit" 对 \( s_1 \) 的贡献更大，最终结果符合金融场景。
+- the: \(\log_{10}(3/3) = \log_{10}(1) = 0\)
+- cat: \(\log_{10}(3/2) \approx \log_{10}(1.5) \approx 0.176\)
+- sat: \(\log_{10}(3/2) \approx 0.176\)
+- on: \(\log_{10}(3/2) \approx 0.176\)
+- mat: \(\log_{10}(3/1) \approx \log_{10}(3) \approx 0.477\)
+- dog: \(\log_{10}(3/2) \approx 0.176\)
+- log: \(\log_{10}(3/1) \approx 0.477\)
+- and: \(\log_{10}(3/1) \approx 0.477\)
+- are: \(\log_{10}(3/1) \approx 0.477\)
+- friends: \(\log_{10}(3/1) \approx 0.477\)
 
----
+#### 第三步：计算 TF-IDF
 
-### **4. 对数概率计算（数值稳定性优化）**
-实际中，连乘会导致浮点数下溢，通常取对数：  
-\[
-s^* = \arg\max_{s_k} \left( \log P(s_k) + \sum_{v_x \in C'} \log P(v_x \| s_k) \right)
-\]
+TF-IDF 是 TF 和 IDF 的乘积：
 
-- **\( s_1 \)**：
-  \[
-  \log 0.5 + \log \frac{1}{19} + \log \frac{4}{19} + \log \frac{2}{19} + \log \frac{3}{19} \approx -0.69 - 2.94 - 1.39 - 2.25 - 1.74 \approx -9.01
-  \]
+$$
+\text{TF-IDF}_{t,d} = TF_{t,d} \times IDF_t
+$$
 
-- **\( s_2 \)**：
-  \[
-  \log 0.5 + \log \frac{4}{19} + \log \frac{3}{19} + \log \frac{1}{19} + \log \frac{1}{19} \approx -0.69 - 1.39 - 1.74 - 2.94 - 2.94 \approx -9.70
-  \]
+以文档1中的 "cat" 为例：
 
-仍选择 \( s_1 \)（因为 -9.01 > -9.70）。
+- TF("cat", 文档1) = 1
+- IDF("cat") ≈ 0.176
+- TF-IDF = \(1 \times 0.176 = 0.176\)
 
----
+再以文档1中的 "mat" 为例：
 
-### **关键点总结**
-1. **Bag-of-Words 特征**：考虑所有词的频率，而不仅是相邻词。  
-2. **重复词处理**：同一个词在句子中的多次出现会被累加统计。  
-3. **平滑技术**：避免零概率问题（如未登录词 "interest" 在 \( s_2 \) 中的概率）。  
-4. **对数空间**：将连乘转换为累加，提升数值稳定性。  
+- TF("mat", 文档1) = 1
+- IDF("mat") ≈ 0.477
+- TF-IDF = \(1 \times 0.477 = 0.477\)
 
-通过这个例子，可以看到朴素贝叶斯如何利用词频和全局统计信息进行消歧，尽管独立性假设较强，但在实际中仍有一定效果。
+#### 完整示例：文档1的 TF-IDF 向量
+
+文档1 "The cat sat on the mat" 的词和 TF-IDF 值：
+
+- the: \(1.301 \times 0 = 0\) （"the" 在所有文档中出现，IDF=0，因此 TF-IDF=0）
+- cat: \(1 \times 0.176 = 0.176\)
+- sat: \(1 \times 0.176 = 0.176\)
+- on: \(1 \times 0.176 = 0.176\)
+- mat: \(1 \times 0.477 = 0.477\)
+
+其他词的 TF-IDF 为 0（因为未出现在文档1中）。
+
+#### 文档2的 TF-IDF 示例
+
+文档2 "The dog sat on the log"：
+
+- the: \(1.301 \times 0 = 0\)
+- dog: \(1 \times 0.176 = 0.176\)
+- sat: \(1 \times 0.176 = 0.176\)
+- on: \(1 \times 0.176 = 0.176\)
+- log: \(1 \times 0.477 = 0.477\)
+
+#### 文档3的 TF-IDF 示例
+
+文档3 "The cat and the dog are friends"：
+
+- the: \(1.301 \times 0 = 0\)
+- cat: \(1 \times 0.176 = 0.176\)
+- dog: \(1 \times 0.176 = 0.176\)
+- and: \(1 \times 0.477 = 0.477\)
+- are: \(1 \times 0.477 = 0.477\)
+- friends: \(1 \times 0.477 = 0.477\)
+
+### 总结
+
+- **TF**：衡量词在文档中的频率（对数化后）。
+- **IDF**：衡量词在整个语料库中的稀有程度。
+- **TF-IDF**：高值表示词在当前文档中重要且在其他文档中不常见。
+
+例如：
+- "mat" 在文档1中的 TF-IDF 较高（0.477），因为它是文档1独有的。
+- "the" 的 TF-IDF 为 0，因为它出现在所有文档中，没有区分能力。
