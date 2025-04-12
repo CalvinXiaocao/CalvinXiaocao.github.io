@@ -1,134 +1,91 @@
-### TF-IDF 计算示例
+### 困惑度（Perplexity）计算示例
 
-假设我们有以下三个文档组成的语料库：
+困惑度（Perplexity）是评估语言模型性能的重要指标，衡量模型对测试数据的预测能力。值越低，说明模型对数据的建模越好。下面通过一个具体例子说明如何计算。
 
-- **文档1**: "The cat sat on the mat"
-- **文档2**: "The dog sat on the log"
-- **文档3**: "The cat and the dog are friends"
+---
 
-#### 第一步：计算词频（TF）
+#### **1. 问题设定**
+假设：
+- **训练好的语言模型**：是一个简单的Bigram模型，其概率分布如下：
+  - \( P(\text{the} \mid \text{<s>}) = 0.5 \)
+  - \( P(\text{dog} \mid \text{the}) = 0.3 \)
+  - \( P(\text{barks} \mid \text{dog}) = 0.6 \)
+  - \( P(\text{</s>} \mid \text{barks}) = 0.9 \)
+  - 其他未列出的Bigram概率为0（简化假设）。
 
-词频（Term Frequency, TF）表示一个词在文档中出现的频率。这里我们使用对数化的公式：
+- **测试集 \( S \)**：包含1个句子  
+  \( s = \text{"<s> the dog barks </s>"} \)  
+  总词数 \( M = 4 \)（不包括起始符`<s>`，但包括结束符`</s>`）。
 
+---
+
+#### **2. 计算句子概率 \( p(s) \)**
+Bigram模型的句子概率为各Bigram概率的乘积：
 $$
-TF_{t, d} = \begin{cases}1 + \log_{10} count(t, d) &\text{if } count(t, d) > 0 \\ 0 & \text{otherwise}\end{cases}
-$$
-
-以文档1 "The cat sat on the mat" 为例：
-
-- 分词结果：["the", "cat", "sat", "on", "the", "mat"]
-- 词频统计：
-  - the: 2
-  - cat: 1
-  - sat: 1
-  - on: 1
-  - mat: 1
-
-计算 TF：
-
-- the: \(1 + \log_{10}(2) \approx 1 + 0.301 = 1.301\)
-- cat: \(1 + \log_{10}(1) = 1 + 0 = 1\)
-- sat: 1
-- on: 1
-- mat: 1
-
-#### 第二步：计算逆文档频率（IDF）
-
-逆文档频率（Inverse Document Frequency, IDF）衡量一个词的普遍重要性。公式为：
-
-$$
-IDF_t = \log_{10} \left( \frac{N}{DF_t} \right)
+p(s) = P(\text{the} \mid \text{<s>}) \cdot P(\text{dog} \mid \text{the}) \cdot P(\text{barks} \mid \text{dog}) \cdot P(\text{</s>} \mid \text{barks})
 $$
 
-其中：
-- \(N\) 是文档总数（这里是3）
-- \(DF_t\) 是包含词 \(t\) 的文档数量
-
-首先统计每个词的 DF：
-
-- the: 出现在所有3个文档 → DF=3
-- cat: 出现在文档1和文档3 → DF=2
-- sat: 出现在文档1和文档2 → DF=2
-- on: 出现在文档1和文档2 → DF=2
-- mat: 只在文档1出现 → DF=1
-- dog: 出现在文档2和文档3 → DF=2
-- log: 只在文档2出现 → DF=1
-- and: 只在文档3出现 → DF=1
-- are: 只在文档3出现 → DF=1
-- friends: 只在文档3出现 → DF=1
-
-计算 IDF：
-
-- the: \(\log_{10}(3/3) = \log_{10}(1) = 0\)
-- cat: \(\log_{10}(3/2) \approx \log_{10}(1.5) \approx 0.176\)
-- sat: \(\log_{10}(3/2) \approx 0.176\)
-- on: \(\log_{10}(3/2) \approx 0.176\)
-- mat: \(\log_{10}(3/1) \approx \log_{10}(3) \approx 0.477\)
-- dog: \(\log_{10}(3/2) \approx 0.176\)
-- log: \(\log_{10}(3/1) \approx 0.477\)
-- and: \(\log_{10}(3/1) \approx 0.477\)
-- are: \(\log_{10}(3/1) \approx 0.477\)
-- friends: \(\log_{10}(3/1) \approx 0.477\)
-
-#### 第三步：计算 TF-IDF
-
-TF-IDF 是 TF 和 IDF 的乘积：
-
+代入数值：
 $$
-\text{TF-IDF}_{t,d} = TF_{t,d} \times IDF_t
+p(s) = 0.5 \times 0.3 \times 0.6 \times 0.9 = 0.081
 $$
 
-以文档1中的 "cat" 为例：
+---
 
-- TF("cat", 文档1) = 1
-- IDF("cat") ≈ 0.176
-- TF-IDF = \(1 \times 0.176 = 0.176\)
+#### **3. 计算对数概率**
+取对数（以2为底，与困惑度定义一致）：
+$$
+\log_2 p(s) = \log_2(0.081) \approx -3.63
+$$
 
-再以文档1中的 "mat" 为例：
+---
 
-- TF("mat", 文档1) = 1
-- IDF("mat") ≈ 0.477
-- TF-IDF = \(1 \times 0.477 = 0.477\)
+#### **4. 计算困惑度**
+根据公式：
+$$
+\text{Perplexity}(S) = 2^{-\frac{1}{M} \sum_{s \in S} \log_2 p(s)}
+$$
 
-#### 完整示例：文档1的 TF-IDF 向量
+由于测试集只有1个句子（\( S = \{s\} \)），且 \( M = 4 \)：
+$$
+\text{Perplexity}(S) = 2^{-\frac{1}{4} \times (-3.63)} \approx 2^{0.907} \approx 1.87
+$$
 
-文档1 "The cat sat on the mat" 的词和 TF-IDF 值：
+---
 
-- the: \(1.301 \times 0 = 0\) （"the" 在所有文档中出现，IDF=0，因此 TF-IDF=0）
-- cat: \(1 \times 0.176 = 0.176\)
-- sat: \(1 \times 0.176 = 0.176\)
-- on: \(1 \times 0.176 = 0.176\)
-- mat: \(1 \times 0.477 = 0.477\)
+#### **5. 结果分析**
+- **困惑度 ≈ 1.87**：接近1，说明模型对测试句子的预测非常准确。
+- **对比极端情况**：
+  - 若模型对所有词预测概率为1，困惑度=1（完美）。
+  - 若模型对所有词预测概率为0，困惑度=\( +\infty \)（最差）。
 
-其他词的 TF-IDF 为 0（因为未出现在文档1中）。
+---
 
-#### 文档2的 TF-IDF 示例
+#### **6. 更复杂的例子**
+假设测试集有2个句子：
+1. \( s_1 = \text{"<s> the dog barks </s>"} \) （\( p(s_1)=0.081 \)）
+2. \( s_2 = \text{"<s> the cat meows </s>"} \)  
+   - 假设 \( P(\text{cat} \mid \text{the}) = 0.2 \), \( P(\text{meows} \mid \text{cat}) = 0.4 \), \( P(\text{</s>} \mid \text{meows}) = 0.8 \)  
+   - \( p(s_2) = 0.5 \times 0.2 \times 0.4 \times 0.8 = 0.032 \)
 
-文档2 "The dog sat on the log"：
+总词数 \( M = 4 + 4 = 8 \)。
 
-- the: \(1.301 \times 0 = 0\)
-- dog: \(1 \times 0.176 = 0.176\)
-- sat: \(1 \times 0.176 = 0.176\)
-- on: \(1 \times 0.176 = 0.176\)
-- log: \(1 \times 0.477 = 0.477\)
+计算对数概率和：
+$$
+\sum_{s \in S} \log_2 p(s) = \log_2(0.081) + \log_2(0.032) \approx -3.63 + (-4.97) = -8.6
+$$
 
-#### 文档3的 TF-IDF 示例
+困惑度：
+$$
+\text{Perplexity}(S) = 2^{-\frac{1}{8} \times (-8.6)}} \approx 2^{1.075} \approx 2.10
+$$
 
-文档3 "The cat and the dog are friends"：
+---
 
-- the: \(1.301 \times 0 = 0\)
-- cat: \(1 \times 0.176 = 0.176\)
-- dog: \(1 \times 0.176 = 0.176\)
-- and: \(1 \times 0.477 = 0.477\)
-- are: \(1 \times 0.477 = 0.477\)
-- friends: \(1 \times 0.477 = 0.477\)
+### **关键点总结**
+1. **概率计算**：语言模型为测试句子分配概率 \( p(s) \)（如Bigram的连乘）。
+2. **对数转换**：将概率转换为对数形式，避免数值下溢。
+3. **归一化**：按总词数 \( M \) 平均，消除句子长度影响。
+4. **指数还原**：将平均对数概率转换为困惑度，直观反映模型的不确定性。
 
-### 总结
-
-- **TF**：衡量词在文档中的频率（对数化后）。
-- **IDF**：衡量词在整个语料库中的稀有程度。
-- **TF-IDF**：高值表示词在当前文档中重要且在其他文档中不常见。
-
-例如：
-- "mat" 在文档1中的 TF-IDF 较高（0.477），因为它是文档1独有的。
-- "the" 的 TF-IDF 为 0，因为它出现在所有文档中，没有区分能力。
+通过具体例子可以看出，困惑度越低，模型对数据的建模越准确。实际应用中，困惑度常用于比较不同语言模型的性能。
