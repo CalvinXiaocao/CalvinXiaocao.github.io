@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>生日快乐～</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    background: 
+        radial-gradient(circle at center, #fff8dc, #ffd700),
+        linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, 
+            rgba(255,255,255,0.1) 50%, transparent 50%);
+    background-size: 100% 100%, 20px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 添加闪烁的星星 */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: gold;
+    border-radius: 50%;
+    /* 增强发光效果 */
+    box-shadow: 0 0 8px gold, 0 0 15px gold;
+    animation: twinkle 1.5s infinite alternate;
+    z-index: 2;
+}
+
+@keyframes twinkle {
+    0% { 
+        opacity: 0.3; 
+        transform: scale(0.8); 
+        box-shadow: 0 0 8px gold, 0 0 15px gold;
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1.2);
+        box-shadow: 0 0 15px gold, 0 0 25px gold;
+    }
+}
+
+    h1 {
+    text-align: center;
+    font-size: 5em;
+    color: #d4af37;
+    text-shadow: 0 0 15px gold, 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 1.5em;
+    font-family: 'Brush Script MT', 'STKaiti', cursive;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+  @keyframes glow {
+      from {
+          text-shadow: 0 0 15px gold, 2px 2px 4px rgba(0,0,0,0.2);
+      }
+      to {
+          text-shadow: 0 0 25px #ffd700, 2px 2px 4px rgba(0,0,0,0.3);
+      }
+  }
+
+    .typewriter {
+      width: 80%;
+      max-width: 800px;
+      margin: 1em auto;
+      text-align: center;
+      font-size: 2em;
+      color: #a67c00;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid rgba(255,255,255,0.75);
+      animation: typing 10s steps(50, end), blink .75s step-end infinite;
+    }
+
+    .dedication {
+      position: fixed;
+      top: 15px;
+      left: 30px;
+      font-family: 'Brush Script MT', 'STKaiti', cursive;
+      font-size: 4em;
+      color: #d4af37;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transform: rotate(-5deg);
+      margin-top: 0.5em;
+      margin-left: 1.5em;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: rgba(255,255,255,0.75); }
+    }
+
+    .cake {
+      font-size: 6em;
+      text-align: center;
+      animation: flicker 1s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { text-shadow: 0 0 10px orange; }
+      100% { text-shadow: 0 0 20px red, 0 0 30px yellow; }
+    }
+
+    .gifts {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 3em;
+      flex-wrap: wrap;
+    }
+
+    .gift {
+      font-size: 3em;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gift:hover {
+      transform: scale(1.2);
+    }
+
+    #message {
+      margin-top: 1em;
+      text-align: center;
+      min-height: 3em;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.7; /* 添加透明度，让背景显示出来 */
+    }
+
+    .final-message {
+      text-align: center;
+      font-size: 3.5em;
+      color: #ff1493;
+      font-family: 'Brush Script MT', cursive;
+      opacity: 0;
+      transition: opacity 2s;
+      margin-top: 0;
+      width: 100%;
+        white-space: nowrap;
+        overflow: visible;
+        line-height: 1.2;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .show {
+      opacity: 1 !important;
+    }
+
+    /* 添加一个包裹所有内容的容器样式 */
+    .content-wrapper {
+    position: relative;
+    z-index: 100; /* 确保内容在最上层 */
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 2em; /* 添加底部间距 */
+    }
+
+    .balloon-container {
+  position: fixed;
+  bottom: -150px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.balloon {
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  animation: float 15s ease-in-out infinite; /* 增加动画时间到15秒 */
+  opacity: 0.9;
+  bottom: -100px;
+}
+
+
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #666;
+}
+
+.red { background: #ff4d4d; left: 10%; animation-delay: 0s; }
+.blue { background: #4da6ff; left: 30%; animation-delay: 1s; }
+.yellow { background: #ffff66; left: 50%; animation-delay: 2s; }
+.pink { background: #ff99cc; left: 70%; animation-delay: 3s; }
+.purple { background: #e066ff; left: 90%; animation-delay: 4s; }
+.balloon:nth-child(n+6) {
+  animation-delay: 7.5s;
+}
+@keyframes float {
+    0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-70vh) scale(1.1);
+  }
+  100% {
+    transform: translateY(-120vh) scale(1);
+    opacity: 0.9;
+  }
+}
+
+    .gift-hint {
+      text-align: center;
+      font-size: 1.5em;
+      color: #d4af37;
+      margin-top: 0.8em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      font-family: 'STKaiti', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+    <div class="content-wrapper">
+    <div class="dedication">To Zihan：</div>
+
+  <h1>Happy Birthday! 🎉</h1>
+
+  <div class="cake">🎂</div>
+
+  <div class="gifts">
+    <div class="gift" onclick="showWish(0)">🎁</div>
+    <div class="gift" onclick="showWish(1)">🧧</div>
+    <div class="gift" onclick="showWish(2)">🎀</div>
+    <div class="gift" onclick="showWish(3)">💝</div>
+  </div>
+  <div class="gift-hint">（点上面的四个礼物，会有惊喜哦~）</div>
+
+  <div id="message">
+    <div class="typewriter" id="typewriter"></div>
+  </div>
+
+  <div class="final-message" id="finalMsg">forever & always</div>
+
+</div>
+
+  <audio id="music" autoplay loop>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/8P2KviyMtwEcBeptgbvyKiYCXjVuUfyaSp8mJcmZ.mp3" type="audio/mpeg">
+  </audio>
+
+  <canvas id="fireworks" style="z-index: 1;"></canvas>
+
+  <script>
+
+    const wishes = [
+      "∀x (Happy(x) → Birthday(你)) ！！",
+      "for i in range(+inf): print('生日快乐！')",
+      "前路浩荡，万事可期，每一个明天都会比今天更精彩✌️",
+      "forever & always"
+    ];
+
+    let used = [false, false, false, false];
+
+    function showWish(index) {
+      if (used[index]) return;
+      used[index] = true;
+      const typewriter = document.getElementById('typewriter');
+      const finalMsg = document.getElementById('finalMsg');
+
+      typewriter.innerHTML = '';
+      typewriter.style.animation = 'none';
+      void typewriter.offsetWidth; // reset animation
+
+      const text = wishes[index];
+      let i = 0;
+      const speed = 80;
+
+      function type() {
+        if (i < text.length) {
+          typewriter.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else if (index === 3) {
+          finalMsg.classList.add('show');
+        }
+      }
+      type();
+    }
+
+    // Audio autoplay fallback
+    const audio = document.getElementById('music');
+    audio.play().catch(() => {
+      document.body.addEventListener('click', () => audio.play(), { once: true });
+    });
+
+    // Fireworks!
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.vx = (Math.random() - 0.5) * 8; // 增加速度
+            this.vy = (Math.random() - 0.5) * 8;
+            this.alpha = 1;
+            this.size = Math.random() * 4 + 2; // 随机大小
+            this.color = `hsl(${Math.random() * 360}, 100%, ${Math.random() * 30 + 70}%)`; // 更亮的颜色
+        }
+  
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vy += 0.15; // 增加重力
+    this.alpha *= 0.98; // 降低透明度衰减速度
+  }
+  
+  draw() {
+    ctx.globalAlpha = this.alpha;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+}
+
+class Firework {
+  constructor() {
+    this.reset();
+  }
+  
+  reset() {
+    this.x = Math.random() * w;
+    this.y = h;
+    this.tx = Math.random() * w;
+    this.ty = Math.random() * (h * 0.5);
+    this.speed = 0.9;
+    this.exploded = false;
+    this.particles = [];
+  }
+
+  update() {
+    if (!this.exploded) {
+      this.x += (this.tx - this.x) * this.speed;
+      this.y += (this.ty - this.y) * this.speed;
+      if (Math.abs(this.x - this.tx) < 5 && Math.abs(this.y - this.ty) < 5) {
+        this.exploded = true;
+        for (let i = 0; i < 50; i++) { // 增加粒子数量
+          this.particles.push(new Particle(this.tx, this.ty));
+        }
+      }
+    } else {
+      this.particles.forEach(p => p.update());
+      this.particles = this.particles.filter(p => p.alpha > 0.1);
+      if (this.particles.length === 0) {
+        this.reset();
+      }
+    }
+  }
+  draw() {
+    if (!this.exploded) {
+      // 绘制上升的烟花
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2, 0, 2 * Math.PI);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+    } else {
+      // 绘制爆炸的粒子
+      this.particles.forEach(p => p.draw());
+    }
+  }
+}
+
+    const fireworks = Array.from({ length: 8 }, () => new Firework());
+
+    function animate() {
+      // 降低清除矩形的透明度，创造拖尾效果
+  ctx.fillStyle = 'rgba(255, 248, 220, 0.2)';
+  ctx.fillRect(0, 0, w, h);
+      fireworks.forEach(f => {
+        f.update();
+        f.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+<div class="balloon-container">
+    <div class="balloon red"></div>
+  <div class="balloon blue"></div>
+  <div class="balloon yellow"></div>
+  <div class="balloon pink"></div>
+  <div class="balloon purple"></div>
+  <!-- 复制多组气球以增加数量 -->
+  <div class="balloon red" style="animation-delay: 7s;"></div>
+  <div class="balloon blue" style="animation-delay: 9s;"></div>
+  <div class="balloon yellow" style="animation-delay: 11s;"></div>
+  <div class="balloon pink" style="animation-delay: 13s;"></div>
+  <div class="balloon purple" style="animation-delay: 15s;"></div>
+  </div>
+
+    
+    <script>
+    // 添加创建星星的函数
+    function createStars() {
+      const starsContainer = document.querySelector('.stars');
+    const starCount = 150;  // 增加星星数量
+    
+    // 清除现有的星星
+    starsContainer.innerHTML = '';
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        // 增加星星大小范围
+        star.style.width = Math.random() * 4 + 2 + 'px';
+        star.style.height = star.style.width;
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        // 随机设置星星颜色
+        const colors = ['gold', '#ffd700', '#ffdf00', '#fff8dc'];
+        star.style.background = colors[Math.floor(Math.random() * colors.length)];
+        starsContainer.appendChild(star);
+    }
+    }
+    createStars();
+    // 页面加载完成后创建星星
+    window.addEventListener('DOMContentLoaded', createStars);
+
+    </script>
+</body>
+</html>
