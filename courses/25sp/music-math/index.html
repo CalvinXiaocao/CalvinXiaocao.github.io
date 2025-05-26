@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music & Math Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a1a2e; /* Deep Indigo */
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --text-color: #e0e0e0;
+            --accent-gold: #ffd700;
+            --accent-cyan: #00cyan; /* Using a common name for cyan, browser will interpret */
+            --accent-magenta: #ff00ff;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Prevent horizontal scroll from background elements */
+        }
+
+        /* --- Background Elements --- */
+        body::before { /* Faint Staves/Waves */
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            background-image: 
+                /* Gentle wave for music */
+                radial-gradient(circle at 20% 30%, var(--accent-cyan), transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--accent-magenta), transparent 40%),
+                /* Subtle grid for math - very faint */
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px; /* Control grid size */
+            opacity: 0.3;
+            filter: blur(5px);
+            animation: subtleMovement 60s linear infinite alternate;
+        }
+
+        body::after { /* Scattered Symbols - could be an SVG or more pseudo-elements */
+            content: '♪ π ≈ ∫ Φ ∞ Σ α β γ'; /* Example symbols */
+            font-family: 'Times New Roman', Times, serif; /* For math symbols */
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            color: var(--accent-gold);
+            font-size: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0; /* Start hidden, fade in */
+            animation: fadeInSymbols 5s ease-out forwards, scatterSymbols 120s linear infinite alternate;
+            pointer-events: none; /* So they don't interfere with clicks */
+            padding: 5%; /* Keep symbols from edges */
+        }
+        
+        /* A more dynamic way to scatter symbols (example) */
+        /* You'd need to create many such elements with JS for true randomness */
+        /* For simplicity, the above ::after uses text. For more control, SVGs or individual spans are better. */
+
+
+        @keyframes subtleMovement {
+            from { background-position: 0% 0%, 0% 0%, 0px 0px, 0px 0px; }
+            to { background-position: 10% -10%, -10% 10%, 50px 50px, 50px 50px; }
+        }
+
+        @keyframes fadeInSymbols {
+            to { opacity: 0.07; }
+        }
+
+        @keyframes scatterSymbols {
+            0% { transform: translate(0,0) rotate(0deg); }
+            25% { transform: translate(5px, 8px) rotate(5deg); }
+            50% { transform: translate(-3px, -6px) rotate(-3deg); }
+            75% { transform: translate(-6px, 4px) rotate(2deg); }
+            100% { transform: translate(0,0) rotate(0deg); }
+        }
+
+
+        /* --- Header --- */
+        .main-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .main-header h1 {
+            font-family: var(--font-heading);
+            font-size: 3em;
+            color: var(--accent-gold);
+            margin-bottom: 0.2em;
+            text-shadow: 0 0 10px var(--accent-gold), 0 0 20px var(--accent-gold);
+        }
+
+        .main-header p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* --- Notes Grid --- */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .note-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3); /* Cyan glow */
+        }
+
+        .note-card h2 {
+            font-family: var(--font-heading);
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--accent-gold); /* Or cycle through accent colors */
+        }
+        
+        .note-card .card-icon { /* Placeholder for icons */
+            font-size: 2em; /* Adjust as needed */
+            margin-bottom: 10px;
+            text-align: center;
+            /* Example: if you use font icons or emojis */
+            /* color: var(--accent-magenta); */
+        }
+
+
+        .note-card p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            opacity: 0.85;
+            flex-grow: 1; /* Pushes footer down if card content is short */
+        }
+        
+        .note-card-footer {
+            margin-top: auto; /* Pushes to bottom */
+            padding-top: 10px;
+            font-size: 0.8em;
+            opacity: 0.6;
+            text-align: right;
+        }
+
+
+        /* --- Footer --- */
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2.2em;
+            }
+            .notes-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Music & Math</h1>
+        <p>An Exploration of Harmony, Rhythm, and Pattern</p>
+    </header>
+
+    <main class="notes-grid">
+        <a href="https://calvinxiaocao.github.io/#/courses/25sp/music-math/chapter1" class="note-card">
+            <!-- You can use Font Awesome or SVG icons here -->
+            <!-- <div class="card-icon">🎵</div> Example emoji icon -->
+            <div class="card-icon">🎵</div>
+            <h2>Chapter 1: Basic Concepts in Music</h2>
+            <p>Unveiling the mathematical foundations of musical pulse, meter, and the proportional relationships that create rhythmic complexity.</p>
+            <div class="note-card-footer">声音，五线谱，音程</div>
+        </a>
+
+        <a href="notes/chapter2.html" class="note-card">
+            <!-- <div class="card-icon">📈</div> -->
+            <h2>Chapter 2: Harmony & Frequencies</h2>
+            <p>Exploring the physics of sound, overtone series, and the mathematical ratios that define consonant and dissonant intervals.</p>
+            <div class="note-card-footer">Key Concepts: Intervals, Chords</div>
+        </a>
+
+        <a href="notes/chapter3.html" class="note-card">
+            <!-- <div class="card-icon">🌀</div> -->
+            <h2>Chapter 3: Scales & Tuning Systems</h2>
+            <p>A journey through different ways to divide the octave, from Pythagorean tuning to equal temperament, and their mathematical underpinnings.</p>
+            <div class="note-card-footer">Focus: Temperament</div>
+        </a>
+        
+        <a href="notes/project1.html" class="note-card">
+            <!-- <div class="card-icon">🎹</div> -->
+            <h2>Project: The Fibonacci Sequence in Music</h2>
+            <p>Investigating occurrences of the Fibonacci sequence and Golden Ratio in musical form, composition, and instrument design.</p>
+            <div class="note-card-footer">Creative Application</div>
+        </a>
+
+        <a href="notes/topic-waveforms.html" class="note-card">
+            <h2>Topic: Waveforms & Synthesis</h2>
+            <p>Understanding sound waves (sine, square, sawtooth, triangle) and the basics of how synthesizers use math to create timbres.</p>
+             <div class="note-card-footer">Sound Design</div>
+        </a>
+
+        <a href="notes/extra-symmetry.html" class="note-card">
+            <h2>Extra: Symmetry in Music & Math</h2>
+            <p>Exploring concepts of symmetry, from palindromic musical phrases to group theory in musical transformations.</p>
+            <div class="note-card-footer">Advanced Topic</div>
+        </a>
+        <!-- Add more cards as needed -->
+    </main>
+
+    <footer class="page-footer">
+        <p>© 2023 [Your Name] - Music & Math Notes Collection</p>
+    </footer>
+
+</body>
+</html>
