@@ -1,5 +1,5 @@
 # 一维振动方程
-Music In Math, 2025 Spring
+Music And Math, 2025 Spring
 
 ## One-Dimensional Wave Equation
 
@@ -8,22 +8,24 @@ Music In Math, 2025 Spring
 
 按照震动体分类：气鸣乐器（边棱、唇鸣、簧鸣）、弦鸣乐器（弓弦、弹拨、击打）、膜鸣乐器（鼓、kazoo）、电鸣乐器、体鸣乐器。
 
+下面的推导简要了解即可
+
 ### 抽象化
 * 一个假设：给定**均匀细弦**
 * 三个参数：长度$L$，张力$T$，线密度$\rho$
 
 ?> **线密度**：单位长度的质量。
 
-![alt text](image.png)
+![alt text](image.png ":size=70%")
 
 ?> **牛顿第二定律**：$F=ma$
 
 弦受到的张力为$T$ ，其线密度（单位长度的质量）为$\rho$ . 因此 $PQ$ 受到的力 $F=T_Q -T_P \approx T（\tan \beta-\tan \beta）$， 质量 $m= \rho \Delta x$.
 
-![alt text](image-1.png)
+![alt text](image-1.png ":size=70%")
 
-### 一维震动方程
-![alt text](image-2.png)
+### 一维振动方程
+![alt text](image-2.png ":size=70%")
 
 同时必须满足边值条件：
 
@@ -33,7 +35,7 @@ $$
 
 ![alt text](image-3.png)
 
-`即使是一根弦，它的震动也是无限震动的叠加。`
+`即使是一根弦，它的振动也是无限振动的叠加。`
 
 ![alt text](image-4.png)
 
@@ -41,21 +43,23 @@ $$
 
 ![](image-5.png)
 
-## 震动模态与泛音
-### 震动模态
+## 振动模态与泛音
+### 振动模态
 弦的振动并非简单的单一频率运动，而是无穷多个正弦振动的叠加。
 
 $$
 u_n(x,t) = \sqrt{a_n^2 + b_n^2}  \sin (\omega_n t + \theta_n) \sin \left( \frac{n \pi x}{L} \right) 
 $$
 
-称为第n个震动模态。
+称为第n个振动模态。
 
 $$
 \omega_n = \frac{n \pi c}{L}
 $$
 
 ![alt text](image-6.png)
+
+### 梅森定律
 
 ![alt text](image-7.png)
 
@@ -65,26 +69,28 @@ $$
 
 ?> Intuition: 频率和长度成反比，和张力的平方根成正比，和线密度的平方根成反比。
 
+!> 考点：梅森定律及利用梅森定律推导比例关系
+
 ### 泛音
 弦的振动频率组成的序列称为弦的固有频率。$f_1$ 称为基频，对应的音称为基音。$f_2, f_3, \cdots$ 对应的音称为泛音。特别的，$f_2$ 称为第一泛音，$f_3$ 称为第二泛音，以此类推。
+
+!> 第一泛音对应的是$f_2$！
 
 记基频$f_1=f$，则固有频率的序列为：$f, 2f, 3f, \cdots$ 音乐上把其称为泛音列。
 
 ### 波节与波腹
 ![alt text](image-8.png)
 
-### 赫尔姆霍兹的饿协和音程泛音列重合理论
+### 赫尔姆霍兹的协和音程泛音列重合理论
 八度音程：
-$$f, 2f, 3f, 4f,\cdots$$
-
-$$2f, 4f, 6f, 8f,\cdots$$
+- 根音：$$f, 2f, 3f, 4f,\cdots$$
+- 冠音：$$2f, 4f, 6f, 8f,\cdots$$
 
 纯五度音程：
-$$f, 2f, 3f, 4f,\cdots$$
+- 根音：$$f, 2f, 3f, 4f,\cdots$$
+- 冠音：$$\frac{3}{2}f, 3f, \frac{9}{2}f, 6f,\cdots$$
 
-$$\frac{3}{2}f, 3f, \frac{9}{2}f, 6f,\cdots$$
-
-大二度音程就不和谐了，因为两个的重合度不高
+可以看到八度音程和纯五度音程有多个重合，因此听起来比较和谐。大二度音程就不和谐了，因为两个的重合度不高。
 
 ![alt text](image-9.png)
 
@@ -114,6 +120,8 @@ $$\frac{3}{2}f, 3f, \frac{9}{2}f, 6f,\cdots$$
 ![alt text](image-19.png)
 
 ### 拨弦的泛音列
+在弦的中点拨弦只有奇频。
+
 ![alt text](image-20.png)
 
 ## 管乐器
