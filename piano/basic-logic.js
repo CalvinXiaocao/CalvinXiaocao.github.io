@@ -91,10 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             pianoSampler = new Tone.Sampler({
                 urls: {
-                    "C1": "C1.mp3",
-                    "D#1": "Ds1.mp3",
-                    "F#1": "Fs1.mp3",
-                    "A1": "A1.mp3",
                     "C2": "C2.mp3",
                     "D#2": "Ds2.mp3",
                     "F#2": "Fs2.mp3",
@@ -220,57 +216,92 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-    for (let curEvent of ["mousedown", "touchstart"]) {
     // --- 钢琴键事件处理 ---
-        pianoContainer.addEventListener(curEvent, (event) => {
-            const clickedKey = event.target.closest('.key');
-            if (clickedKey && pianoSynth && Tone.context.state === 'running') {
-                const note = clickedKey.dataset.note;
-                // 对于模拟点击，我们可以使用一个固定的或随机的力度
-                // 假设一个中等力度，或者你可以通过UI添加力度控制
-                let velocity = 0.7; // 默认中等力度
+    function handleKeyDown(keyElement, event) {
+        if (pianoSynth && Tone.context.state === 'running') {
+            const note = keyElement.dataset.note;
+            let velocity = 0.7; // 默认中等力度
 
-                // 如果你想根据用户点击的Y轴位置模拟力度
-                const keyRect = clickedKey.getBoundingClientRect();
-                const clickY = event.clientY - keyRect.top; // 点击位置相对于琴键顶部
-                velocity = (clickY / keyRect.height); // 越往下点击力度越大，反之越小
-                velocity = Math.max(0.1, Math.min(1.0, velocity)); // 限制在 0.1 到 1.0 之间
-
-                pianoSynth.triggerAttack(note, Tone.now(), velocity); // 传入力度参数
-                clickedKey.classList.add('active');
-                console.log(`按下琴键: ${note}, 力度: ${velocity.toFixed(2)}`);
-
-                // TODO: 上面的都有用吗？？？
+            // 计算力度（适用于鼠标和触摸事件）
+            const keyRect = keyElement.getBoundingClientRect();
+            let clickY;
+            
+            if (event.type.includes('touch')) {
+                // 触摸事件
+                const touch = event.touches[0] || event.changedTouches[0];
+                clickY = touch.clientY - keyRect.top;
+            } else {
+                // 鼠标事件
+                clickY = event.clientY - keyRect.top;
             }
-        });
+            
+            velocity = (clickY / keyRect.height); // 越往下点击力度越大，反之越小
+            velocity = Math.max(0.1, Math.min(1.0, velocity)); // 限制在 0.1 到 1.0 之间
+
+            pianoSynth.triggerAttack(note, Tone.now(), velocity);
+            keyElement.classList.add('active');
+            console.log(`按下琴键: ${note}, 力度: ${velocity.toFixed(2)}`);
+        }
     }
 
-    for (let curEvent of ["mouseup", "touchend"]) {
-        pianoContainer.addEventListener(curEvent, (event) => {
-            const clickedKey = event.target.closest('.key');
-            if (clickedKey && pianoSynth) {
-                const note = clickedKey.dataset.note;
-                console.log(`松开琴键: ${note}`);
-                pianoSynth.triggerRelease(note); // 停止音符
-                clickedKey.classList.remove('active'); // 移除按下时的视觉效果
-            }
-        });
+    function handleKeyUp(keyElement) {
+        if (pianoSynth && keyElement) {
+            const note = keyElement.dataset.note;
+            console.log(`松开琴键: ${note}`);
+            pianoSynth.triggerRelease(note);
+            keyElement.classList.remove('active');
+        }
     }
 
-    for (let curEvent of ["mouseleave", "touchleave"]) {
-        // 如果鼠标从琴键上滑开，也停止声音
-        pianoContainer.addEventListener(curEvent, (event) => {
-            const activeKeys = pianoContainer.querySelectorAll('.key.active');
-            activeKeys.forEach(key => {
-                if (pianoSynth) {
-                    pianoSynth.triggerRelease(key.dataset.note);
-                }
-                key.classList.remove('active');
-            });
-        });
-    }
+    // 鼠标事件
+    pianoContainer.addEventListener('mousedown', (event) => {
+        const clickedKey = event.target.closest('.key');
+        if (clickedKey) {
+            handleKeyDown(clickedKey, event);
+        }
+    });
 
+    pianoContainer.addEventListener('mouseup', (event) => {
+        const clickedKey = event.target.closest('.key');
+        handleKeyUp(clickedKey);
+    });
+
+    // 触摸事件
+    pianoContainer.addEventListener('touchstart', (event) => {
+        // 阻止默认行为以避免触摸时页面滚动
+        event.preventDefault();
+        const touchedKey = document.elementFromPoint(
+            event.touches[0].clientX,
+            event.touches[0].clientY
+        ).closest('.key');
+        if (touchedKey) {
+            handleKeyDown(touchedKey, event);
+        }
+    }, { passive: false }); // 设置为非passive以允许preventDefault
+
+    pianoContainer.addEventListener('touchend', (event) => {
+        // 查找所有活动的琴键
+        const activeKeys = pianoContainer.querySelectorAll('.key.active');
+        activeKeys.forEach(key => {
+            handleKeyUp(key);
+        });
+    });
+
+    // 处理触摸移出琴键区域的情况
+    pianoContainer.addEventListener('touchcancel', (event) => {
+        const activeKeys = pianoContainer.querySelectorAll('.key.active');
+        activeKeys.forEach(key => {
+            handleKeyUp(key);
+        });
+    });
+
+    // 如果鼠标/触摸从琴键上滑开，也停止声音
+    pianoContainer.addEventListener('mouseleave', (event) => {
+        const activeKeys = pianoContainer.querySelectorAll('.key.active');
+        activeKeys.forEach(key => {
+            handleKeyUp(key);
+        });
+    });
 
     // --- 音量控制 ---
     volumeSlider.addEventListener('input', (event) => {
