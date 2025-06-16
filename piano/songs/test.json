@@ -8,7 +8,7 @@
     "copyright": "公共领域",
     "difficulty": "简单"
   },
-  "notes": [
+  "notes": {"righthand": [
     [
       {
         "pitches": ["C4"],
@@ -103,7 +103,8 @@
       null,
       null
     ]
-  ],
+  ], "lefthand":[[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]]},
   "pedals": [
     {
       "measure": 0,
