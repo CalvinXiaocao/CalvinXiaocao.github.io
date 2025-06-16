@@ -1,6 +1,6 @@
 // Basic-logic.js
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const pianoContainer = document.getElementById('piano-container');
     const volumeSlider = document.getElementById('volume-slider');
     // const playSongBtn = document.getElementById('play-song-btn');
@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const octaveUpBtn = document.getElementById('octave-up-btn');
     const currentOctaveLabel = document.getElementById('current-octave-label');
 
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+    const stopBtn = document.getElementById('stop-btn');
+    const loopBtn = document.getElementById('loop-btn');
+    const progressBar = document.getElementById('progress-bar');
+    const timeDisplay = document.getElementById('time-display');
+    const nowPlaying = document.getElementById('now-playing');
+    const nowLyric = document.getElementById('now-lyric');
+
+    // 后续将在这里绑定 MusicPlayer 的实例
+    let activePlayer = null; 
+
     let pianoSynth; // Tone.js 合成器实例
     let isRecording = false; // 录制状态
     let metronomeInterval; // 节拍器定时器
@@ -27,6 +39,218 @@ document.addEventListener('DOMContentLoaded', () => {
     let minOctave = 1; // 最小八度限制
     let maxOctave = 7; // 最大八度限制
 
+    // 在全局添加高亮状态跟踪
+    const activeHighlights = new Map(); // 存储 {note: {element, releaseTime}}
+
+
+    /****************************/
+    /*          Songs           */
+    /****************************/
+
+    // Below is definition for song class.
+    class Song {
+        /**
+         * 增强版乐曲类
+         * @param {string} title - 歌曲标题
+         * @param {number} bpm - 节拍速度
+         * @param {string} timeSignature - 拍号
+         * @param {Array<Array<NoteEvent>>} notes - 音符事件序列
+         * @param {Array<PedalEvent>} pedals - 踏板事件序列
+         * @param {Array<LyricEvent>} lyrics - 歌词事件序列
+         * @param {Object} metadata - 元数据
+         */
+        constructor(title, bpm, timeSignature, notes = [], pedals = [], lyrics = [], metadata = {}) {
+            this.title = title;
+            this.bpm = bpm;
+            this.timeSignature = timeSignature;
+            this.notes = notes;
+            this.pedals = pedals;
+            this.lyrics = lyrics;
+            this.metadata = {
+                composer: metadata.composer || 'Unknown',
+                arranger: metadata.arranger || '',
+                copyright: metadata.copyright || '',
+                description: metadata.description || '',
+                ...metadata
+            };
+        }
+
+        /**
+         * 验证乐曲数据
+         */
+        validate() {
+            const [beats, beatUnit] = this.timeSignature.split('/').map(Number);
+            const divisionsPerMeasure = beats * (16 / beatUnit); // 每小节的16分音符数
+            
+            // 验证音符
+            this.notes.forEach((measure, measureIdx) => {
+                if (measure.length !== divisionsPerMeasure) {
+                    console.warn(`Measure ${measureIdx + 1} has incorrect length (${measure.length}), expected ${divisionsPerMeasure}`);
+                }
+                
+                measure.forEach((noteEvent, divisionIdx) => {
+                    if (noteEvent && !this._validateNoteEvent(noteEvent)) {
+                        console.warn(`Invalid note event at measure ${measureIdx + 1}, division ${divisionIdx}`);
+                    }
+                });
+            });
+            
+            // 验证踏板
+            this.pedals.forEach(pedal => {
+                if (!this._validatePedalEvent(pedal)) {
+                    console.warn(`Invalid pedal event: ${JSON.stringify(pedal)}`);
+                }
+            });
+            
+            // 验证歌词
+            this.lyrics.forEach(lyric => {
+                if (!this._validateLyricEvent(lyric)) {
+                    console.warn(`Invalid lyric event: ${JSON.stringify(lyric)}`);
+                }
+            });
+            
+            return true;
+        }
+
+        // 私有验证方法
+        _validateNoteEvent(noteEvent) {
+            return noteEvent.pitches && 
+                Array.isArray(noteEvent.pitches) &&
+                noteEvent.duration &&
+                (noteEvent.velocity === undefined || (noteEvent.velocity >= 0 && noteEvent.velocity <= 1)) &&
+                (noteEvent.articulation === undefined || ['legato', 'staccato', 'accent', 'tenuto', 'marcato'].includes(noteEvent.articulation));
+        }
+
+        _validatePedalEvent(pedal) {
+            return pedal.measure !== undefined &&
+                pedal.position !== undefined &&
+                ['down', 'up'].includes(pedal.action) &&
+                (pedal.type === undefined || ['sustain', 'sostenuto', 'soft'].includes(pedal.type)) &&
+                (pedal.intensity === undefined || (pedal.intensity >= 0 && pedal.intensity <= 1));
+        }
+
+        _validateLyricEvent(lyric) {
+            return lyric.measure !== undefined &&
+                lyric.position !== undefined &&
+                lyric.text !== undefined &&
+                lyric.duration !== undefined;
+        }
+
+        /**
+         * 从JSON创建EnhancedSong实例
+         */
+        static fromJSON(json) {
+            return new Song(
+                json.title,
+                json.bpm,
+                json.timeSignature,
+                json.notes,
+                json.pedals || [],
+                json.lyrics || [],
+                json.metadata || {}
+            );
+        }
+
+        /**
+         * 转换为JSON
+         */
+        toJSON() {
+            return {
+                title: this.title,
+                bpm: this.bpm,
+                timeSignature: this.timeSignature,
+                notes: this.notes,
+                pedals: this.pedals,
+                lyrics: this.lyrics,
+                metadata: this.metadata
+            };
+        }
+
+        /**
+         * 获取总时长(以小节为单位)
+         */
+        get totalMeasures() {
+            return this.notes.length;
+        }
+
+        /**
+         * 获取指定位置的音符事件
+         */
+        getNote(measure, division) {
+            if (measure < 0 || measure >= this.notes.length) return null;
+            const measureData = this.notes[measure];
+            if (division < 0 || division >= measureData.length) return null;
+            return measureData[division];
+        }
+    }
+
+    /**
+     * 从JSON文件加载乐曲
+     * @param {string|File} file - 文件路径或File对象
+     * @returns {Promise<Song>}
+     */
+    async function loadSongFromJSON(file) {
+        try {
+            let jsonData;
+            
+            if (typeof file === 'string') {
+                // 从URL加载
+                const response = await fetch(file);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                jsonData = await response.json();
+            } else if (file instanceof File) {
+                // 从用户上传的文件加载
+                jsonData = JSON.parse(await file.text());
+            } else {
+                throw new Error('Invalid file parameter');
+            }
+            
+            const song = Song.fromJSON(jsonData);
+            if (song.validate()) {
+                console.log(`Successfully loaded song: ${song.title}`);
+                return song;
+            }
+            throw new Error('Song validation failed');
+        } catch (error) {
+            console.error('Failed to load song:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * 保存乐曲为JSON文件
+     * @param {Song} song - 乐曲实例
+     * @param {string} filename - 保存的文件名
+     */
+    function saveSongToJSON(song, filename = 'song.json') {
+        const jsonStr = JSON.stringify(song.toJSON(), null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 0);
+    }
+
+
+    /****************************/
+    /*      Piano on Web        */
+    /****************************/
+    
+    function clearAllHighlights() {
+        activeHighlights.forEach(({element}) => {
+            element.classList.remove('active');
+        });
+        activeHighlights.clear();
+    }
+ 
     // --- 动态生成钢琴键 ---
     // 定义需要生成的音符范围，例如从 C3 到 C5 (两个八度)
     const notes = [
@@ -173,8 +397,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { once: true }); // 只执行一次，避免重复监听
 
+
+    // 高亮琴键的函数, only used in MusicPlayer
+    function highlightKey(note, duration) {
+        // 1. 检查当前音域是否包含该音符
+        const currentNotes = getCurrentNotes(currentOctave);
+        if (!currentNotes.includes(note)) return;
+
+        // 2. 查找对应的琴键元素
+        const keyElement = [...pianoContainer.children].find(
+            key => key.dataset.note === note
+        );
+        if (!keyElement) return;
+
+        // 3. 清除已有高亮（如果存在）
+        if (activeHighlights.has(note)) {
+            clearTimeout(activeHighlights.get(note).timeout);
+            keyElement.classList.remove('active');
+        }
+
+        // 4. 添加高亮样式
+        keyElement.classList.add('active');
+
+        // 5. 设置自动取消高亮
+        const releaseTime = Tone.now() + duration;
+        const timeout = setTimeout(() => {
+            keyElement.classList.remove('active');
+            activeHighlights.delete(note);
+        }, duration * 1000);
+
+        // 6. 存储引用
+        activeHighlights.set(note, {
+            element: keyElement,
+            releaseTime,
+            timeout
+        });
+    }
+
+
     // --- 八度调整功能 ---
     octaveDownBtn.addEventListener('click', () => {
+        clearAllHighlights();
         if (currentOctave > minOctave) {
             currentOctave--;
             let currentNotes = getCurrentNotes(currentOctave);
@@ -196,6 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     octaveUpBtn.addEventListener('click', () => {
+        clearAllHighlights();
         if (currentOctave + octaveSpan < maxOctave) {
             currentOctave++;
             let currentNotes = getCurrentNotes(currentOctave);
@@ -335,6 +599,343 @@ document.addEventListener('DOMContentLoaded', () => {
     //     }
     // });
 
+
+    /****************************/
+    /*      MusicPlayer         */
+    /****************************/
+
+    class MusicPlayer {
+        /**
+         * @param {Tone.Sampler} sampler - 音源采样器
+         */
+        constructor(song, sampler) {
+            this.song = song;
+            this.sampler = sampler;
+            this.isPlaying = false;
+            this.currentMeasure = 0;
+            this.currentDivision = 0;
+            this.playbackSpeed = 1.0;
+            this.loopRange = null; // [startMeasure, endMeasure]
+            
+            // 播放状态回调
+            this.onPlay = null;
+            this.onStop = null;
+            this.onProgress = null;
+            this.onLyric = null;
+            
+            // 初始化Tone.js Transport
+            this._setupTransport();
+        }
+
+        _setupTransport() {
+            // 设置初始BPM
+            Tone.Transport.bpm.value = this.song.bpm;
+            
+            // 计算每个16分音符的时长(秒)
+            this._divisionDuration = 60 / (this.song.bpm * 4);
+            
+            // 创建主循环
+            this._playbackLoop = new Tone.Loop((time) => {
+                this._playCurrentDivision(time);
+                this._advancePlayhead();
+            }, "16n").start(0);
+        }
+
+        _playCurrentDivision(time) {
+            // 1. 播放当前音符
+            const noteEvent = this.song.getNote(this.currentMeasure, this.currentDivision);
+            if (noteEvent) {
+                this.sampler.triggerAttackRelease(
+                    noteEvent.pitches,
+                    noteEvent.duration,
+                    time,
+                    noteEvent.velocity || 0.8
+                );
+
+                const durationInSeconds = Tone.Time(noteEvent.duration).toSeconds() - 0.1;
+
+                // 高亮对应的琴键
+                noteEvent.pitches.forEach(pitch => {
+                    highlightKey(pitch, (durationInSeconds > 0.1 ? durationInSeconds : 0.1));
+                });
+            }
+            
+            // 2. 处理踏板事件
+            this._processPedalEvents(time);
+            
+            // 3. 处理歌词事件
+            this._processLyricEvents();
+            
+            // 4. 触发进度回调
+            if (this.onProgress) {
+                this.onProgress({
+                    measure: this.currentMeasure,
+                    division: this.currentDivision,
+                    progress: this._calculateProgress(),
+                    time: Tone.Transport.seconds
+                });
+            }
+        }
+
+        _processPedalEvents(time) {
+            // 获取当前时间点的踏板事件
+            const currentPedals = this.song.pedals.filter(p => 
+                p.measure === this.currentMeasure && 
+                p.position === this.currentDivision
+            );
+            
+            currentPedals.forEach(pedal => {
+                // TODO: 这里需要实现实际的踏板控制逻辑
+                console.log(`Pedal ${pedal.action} at measure ${pedal.measure}`);
+                // 实际项目中这里会控制音效的延音等参数
+            });
+        }
+        
+        _processLyricEvents() {
+            // 获取当前时间点的歌词
+            const currentLyrics = this.song.lyrics.filter(l => 
+                l.measure === this.currentMeasure && 
+                l.position === this.currentDivision
+            );
+            
+            if (currentLyrics.length > 0 && this.onLyric) {
+                this.onLyric(currentLyrics);
+            }
+        }
+        
+        _advancePlayhead() {
+            // 前进到下一个16分音符位置
+            this.currentDivision++;
+            
+            const divisionsPerMeasure = this._getDivisionsPerMeasure();
+            if (this.currentDivision >= divisionsPerMeasure) {
+                this.currentDivision = 0;
+                this.currentMeasure++;
+                
+                // 检查循环或结束
+                if (this.loopRange && this.currentMeasure > this.loopRange[1]) {
+                    this.currentMeasure = this.loopRange[0];
+                } else if (this.currentMeasure >= this.song.totalMeasures) {
+                    this.stop();
+                }
+            }
+        }
+        
+        _getDivisionsPerMeasure() {
+            const [beats, beatUnit] = this.song.timeSignature.split('/').map(Number);
+            return beats * (16 / beatUnit);
+        }
+        
+        _calculateProgress() {
+            const totalDivisions = this.song.totalMeasures * this._getDivisionsPerMeasure();
+            const currentDivision = this.currentMeasure * this._getDivisionsPerMeasure() + this.currentDivision;
+            return currentDivision / totalDivisions;
+        }
+        
+        // Public Methods
+        play() {
+            if (!this.isPlaying) {
+                Tone.Transport.start();
+                this.isPlaying = true;
+                if (this.onPlay) this.onPlay();
+            }
+        }
+        
+        pause() {
+            if (this.isPlaying) {
+                Tone.Transport.pause();
+                this.isPlaying = false;
+            }
+        }
+        
+        stop() {
+            Tone.Transport.stop();
+            // Tone.Transport.cancel();
+            this.isPlaying = false;
+            this.currentMeasure = 0;
+            this.currentDivision = 0;
+            if (this.onStop) this.onStop();
+            if (this.onProgress) this.onProgress({ progress: 0 }); // 重置进度
+        }
+        
+        seek(measure, division = 0) {
+            if (measure >= 0 && measure < this.song.totalMeasures) {
+                this.currentMeasure = measure;
+                this.currentDivision = division;
+                
+                // 计算对应的Transport位置
+                const divisionsPerMeasure = this._getDivisionsPerMeasure();
+                const absolutePosition = measure * divisionsPerMeasure + division;
+                Tone.Transport.seconds = absolutePosition * this._divisionDuration;
+            }
+        }
+        
+        setPlaybackSpeed(speed) {
+            this.playbackSpeed = Math.max(0.1, Math.min(2.0, speed));
+            Tone.Transport.playbackRate = this.playbackSpeed;
+        }
+        
+        setLoop(startMeasure, endMeasure) {
+            if (startMeasure >= 0 && endMeasure < this.song.totalMeasures && startMeasure <= endMeasure) {
+                this.loopRange = [startMeasure, endMeasure];
+            } else {
+                this.loopRange = null;
+            }
+        }
+        
+        dispose() {
+            this.stop();
+            this._playbackLoop.dispose();
+        }
+    }
+
+
+    // 获取所有播放按钮并添加事件监听
+    document.querySelectorAll('.play-btn').forEach(btn => {
+        btn.addEventListener('click', async (event) => {
+            // 阻止事件冒泡到卡片
+            event.stopPropagation(); 
+            
+            // 获取关联的JSON URL
+            const songCard = event.target.closest('.song-card');
+            const jsonUrl = songCard.dataset.jsonUrl;
+            
+            // 显示加载状态
+            nowPlaying.textContent = "加载中...";
+            nowLyric.textContent = "--";
+            messageArea.textContent = `正在加载: ${songCard.querySelector('h3').textContent}`;
+            
+            try {
+                // 1. 加载歌曲数据
+                const song = await loadSongFromJSON(jsonUrl);
+                
+                // 2. 停止现有播放器
+                if (activePlayer) {
+                    activePlayer.dispose();
+                }
+
+                if (!pianoSynth) {
+                    initializeInstrument()
+                }
+                
+                // 3. 创建新播放器实例
+                activePlayer = new MusicPlayer(song, pianoSynth);
+                
+                // 4. 设置播放器回调
+                activePlayer.onPlay = () => {
+                    playBtn.disabled = true;
+                    pauseBtn.disabled = false;
+                    stopBtn.disabled = false;
+                    messageArea.textContent = `正在播放: ${song.title}`;
+                };
+                
+                activePlayer.onProgress = ({ progress }) => {
+                    progressBar.value = progress * 100;
+                    updateTimeDisplay(song, progress);
+                };
+                
+                activePlayer.onLyric = (lyrics) => {
+                    nowLyric.textContent = lyrics.map(l => l.text).join(' ');
+                };
+
+                activePlayer.onStop = () => {
+                    playBtn.disabled = false;
+                    pauseBtn.disabled = true;
+                    stopBtn.disabled = true;
+                    messageArea.textContent = `${song.title} 播放完成`;
+                };
+                
+                // 5. 更新UI显示
+                nowPlaying.textContent = `${song.title} - ${song.metadata.composer || '未知作者'}`;
+                progressBar.max = 100;
+                
+                // 6. 启用控制按钮
+                playBtn.disabled = false;
+                pauseBtn.disabled = true;
+                stopBtn.disabled = true;
+                
+                // 7. 自动开始播放（可选）
+                // activePlayer.play();
+                
+            } catch (error) {
+                console.error("加载失败:", error);
+                messageArea.textContent = `加载失败: ${error.message}`;
+                nowPlaying.textContent = "加载错误";
+            }
+
+            messageArea.textContent = `${songCard.querySelector('h3').textContent} 加载完成！`;
+        });
+    });
+
+    // 辅助函数：更新时间显示
+    function updateTimeDisplay(song, progress) {
+        const totalSeconds = song.totalMeasures * (60 / song.bpm) * parseInt(song.timeSignature.split('/')[0]);
+        const currentSeconds = totalSeconds * progress;
+        
+        timeDisplay.textContent = 
+            `${formatTime(currentSeconds)} / ${formatTime(totalSeconds)}`;
+    }
+
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // 播放按钮
+    playBtn.addEventListener('click', () => {
+        if (activePlayer) {
+            activePlayer.play();
+            playBtn.disabled = true;
+            pauseBtn.disabled = false;
+        }
+    });
+
+    // 暂停按钮
+    pauseBtn.addEventListener('click', () => {
+        if (activePlayer) {
+            activePlayer.pause();
+            pauseBtn.disabled = true;
+            playBtn.disabled = false;
+        }
+    });
+
+    // 停止按钮
+    stopBtn.addEventListener('click', () => {
+        if (activePlayer) {
+            activePlayer.stop();
+            playBtn.disabled = false;
+            pauseBtn.disabled = true;
+            progressBar.value = 0;
+            updateTimeDisplay(activePlayer.song, 0);
+        }
+    });
+
+    // 循环按钮
+    let isLooping = false;
+    loopBtn.addEventListener('click', () => {
+        isLooping = !isLooping;
+        if (activePlayer) {
+            activePlayer.setLoop(isLooping ? 0 : null);
+        }
+        loopBtn.style.backgroundColor = isLooping ? '#e3f2fd' : '';
+    });
+
+    // 进度条
+    progressBar.addEventListener('input', (e) => {
+        if (!activePlayer) return;
+        
+        const percent = e.target.value / 100;
+        const targetMeasure = Math.floor(percent * activePlayer.song.totalMeasures);
+        
+        activePlayer.seek(targetMeasure);
+    });
+
+
+    /****************************/
+    /*       Recording          */
+    /****************************/
+
     // --- 创作/录制功能 ---
     recordBtn.addEventListener('click', () => {
         if (!isRecording) {
@@ -367,6 +968,11 @@ document.addEventListener('DOMContentLoaded', () => {
         messageArea.textContent = '正在保存乐曲...';
         // TODO: 在这里实现保存创作的逻辑，例如将录制的 MIDI 数据导出为文件
     });
+
+
+    /****************************/
+    /*       Metronome          */
+    /****************************/
 
     // --- 节拍器功能 ---
     let isMetronomeOn = false;
@@ -420,4 +1026,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 初始时禁用停止录制和保存按钮
     stopRecordBtn.disabled = true;
     saveSongBtn.disabled = true;
+
+    // testings
+
+    let song;
+    
+    try {
+        song = await loadSongFromJSON("https://calvinxiaocao.github.io/piano/songs/test.json");
+        console.log("Successfully loaded!");
+    } catch (error) {
+        alert("load error.");
+    }
 });

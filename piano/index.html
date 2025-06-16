@@ -61,7 +61,7 @@
             margin-right: 0;
         }
 
-        .white-key:active {
+        .white-key.active {
             background-color: #eee;
             transform: translateY(2px);
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -87,7 +87,7 @@
             box-sizing: border-box;
         }
 
-        .black-key:active {
+        .black-key.active {
             background-color: #444;
             transform: translateY(2px);
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -228,6 +228,63 @@
             max-width: 600px;
         }
 
+        /* Player Controls. */
+        #player-controls {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .player-info {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        #now-playing {
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+        }
+
+        #now-lyric {
+            color: #7f8c8d;
+            min-height: 1.2em;
+        }
+
+        .player-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .player-buttons button {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        .player-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #progress-bar {
+            flex-grow: 1;
+            height: 6px;
+            cursor: pointer;
+        }
+
+        #time-display {
+            font-size: 12px;
+            color: #7f8c8d;
+            min-width: 80px;
+            text-align: right;
+        }
+
         /* songs below. */
         #song-selection {
             margin-top: 40px;
@@ -359,11 +416,30 @@
         准备就绪。
     </div>
 
+    <div id="player-controls">
+        <div class="player-info">
+            <h3 id="now-playing">未选择歌曲</h3>
+            <p id="now-lyric">--</p>
+        </div>
+        
+        <div class="player-buttons">
+            <button id="play-btn" disabled>▶ 播放</button>
+            <button id="pause-btn" disabled>⏸ 暂停</button>
+            <button id="stop-btn" disabled>⏹ 停止</button>
+            <button id="loop-btn">🔁 循环</button>
+        </div>
+        
+        <div class="player-progress">
+            <input type="range" id="progress-bar" min="0" max="100" value="0">
+            <span id="time-display">0:00 / 0:00</span>
+        </div>
+    </div>
+
     <div id="song-selection">
         <h2>选择歌曲</h2>
         <div class="song-grid">
             <!-- 歌曲卡片1 -->
-            <div class="song-card">
+            <div class="song-card" data-json-url="https://calvinxiaocao.github.io/piano/songs/test.json">
                 <h3>小星星</h3>
                 <p>经典儿童歌曲</p>
                 <div class="song-meta">
@@ -373,7 +449,7 @@
             </div>
 
             <!-- 歌曲卡片1 -->
-            <div class="song-card">
+            <div class="song-card" data-json-url="https://calvinxiaocao.github.io/piano/songs/test.json">
                 <h3>小星星</h3>
                 <p>经典儿童歌曲</p>
                 <div class="song-meta">
@@ -383,7 +459,7 @@
             </div>
 
             <!-- 歌曲卡片1 -->
-            <div class="song-card">
+            <div class="song-card" data-json-url="https://calvinxiaocao.github.io/piano/songs/test.json">
                 <h3>小星星</h3>
                 <p>经典儿童歌曲</p>
                 <div class="song-meta">
@@ -393,7 +469,7 @@
             </div>
 
             <!-- 歌曲卡片1 -->
-            <div class="song-card">
+            <div class="song-card" data-json-url="https://calvinxiaocao.github.io/piano/songs/test.json">
                 <h3>小星星</h3>
                 <p>经典儿童歌曲</p>
                 <div class="song-meta">
