@@ -1,12 +1,12 @@
 {
-  "title": "月光奏鸣曲",
+  "title": "小星星",
   "bpm": 76,
   "timeSignature": "4/4",
   "metadata": {
-    "composer": "贝多芬",
+    "composer": "儿歌",
     "arranger": "数字钢琴版",
     "copyright": "公共领域",
-    "difficulty": "高级"
+    "difficulty": "简单"
   },
   "notes": [
     [
@@ -18,20 +18,87 @@
       },
       null,
       {
+        "pitches": ["C4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
+      null,
+      {
+        "pitches": ["G4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
+      null,
+      {
+        "pitches": ["G4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
+      null,
+      {
+        "pitches": ["A4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
+      null,
+      {
+        "pitches": ["A4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
+      null,
+      {
+        "pitches": ["G4"],
+        "duration": "4n",
+        "velocity": 0.7
+      },
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "pitches": ["F4"],
+        "duration": "8n",
+        "velocity": 0.7,
+        "articulation": "legato"
+      },
+      null,
+      {
+        "pitches": ["F4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
+      null,
+      {
         "pitches": ["E4"],
         "duration": "8n",
         "velocity": 0.7
       },
       null,
+      {
+        "pitches": ["E4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
       null,
+      {
+        "pitches": ["D4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
       null,
+      {
+        "pitches": ["D4"],
+        "duration": "8n",
+        "velocity": 0.7
+      },
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
+      {
+        "pitches": ["C4"],
+        "duration": "4n",
+        "velocity": 0.7
+      },
       null,
       null,
       null
@@ -51,7 +118,13 @@
     {
       "measure": 0,
       "position": 0,
-      "text": "月",
+      "text": "一闪一闪亮晶晶",
+      "duration": 4
+    },
+    {
+      "measure": 1,
+      "position": 0,
+      "text": "漫天都是小星星",
       "duration": 4
     }
   ]
