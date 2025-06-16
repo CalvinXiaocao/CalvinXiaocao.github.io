@@ -168,7 +168,23 @@
         "duration": "16n",
         "velocity": 0.5
       }],
-  [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]]},
+  [{
+        "pitches": ["G2", "D3", "F3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null, {
+        "pitches": ["G2", "C3", "E3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null, {
+        "pitches": ["G2", "D3", "F3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null, {
+        "pitches": ["C3", "E3", "G3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null]]},
   "pedals": [
     {
       "measure": 0,
