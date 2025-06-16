@@ -8,7 +8,7 @@
     "copyright": "公共领域",
     "difficulty": "简单"
   },
-  "notes": [
+  "notes": {"righthand": [
     [
       {
         "pitches": ["C4"],
@@ -103,7 +103,88 @@
       null,
       null
     ]
-  ],
+  ], "lefthand":[[{
+        "pitches": ["C3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["G3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["E3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["G3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["C3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["G3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["E3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["G3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["C3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["A3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["F3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["A3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["C3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["G3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["E3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }, {
+        "pitches": ["G3"],
+        "duration": "16n",
+        "velocity": 0.5
+      }],
+  [{
+        "pitches": ["G2", "D3", "F3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null, {
+        "pitches": ["G2", "C3", "E3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null, {
+        "pitches": ["G2", "D3", "F3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null, {
+        "pitches": ["C3", "E3", "G3"],
+        "duration": "4n",
+        "velocity": 0.5
+      }, null, null, null]]},
   "pedals": [
     {
       "measure": 0,
