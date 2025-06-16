@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', async () => {
          * @param {string} title - 歌曲标题
          * @param {number} bpm - 节拍速度
          * @param {string} timeSignature - 拍号
-         * @param {Array<Array<NoteEvent>>} notes - 音符事件序列
+         * @param {Object} notes - 音符事件序列
          * @param {Array<PedalEvent>} pedals - 踏板事件序列
          * @param {Array<LyricEvent>} lyrics - 歌词事件序列
          * @param {Object} metadata - 元数据
          */
-        constructor(title, bpm, timeSignature, notes = [], pedals = [], lyrics = [], metadata = {}) {
+        constructor(title, bpm, timeSignature, notes = {}, pedals = [], lyrics = [], metadata = {}) {
             this.title = title;
             this.bpm = bpm;
             this.timeSignature = timeSignature;
@@ -83,7 +83,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             const divisionsPerMeasure = beats * (16 / beatUnit); // 每小节的16分音符数
             
             // 验证音符
-            this.notes.forEach((measure, measureIdx) => {
+            this.notes["lefthand"].forEach((measure, measureIdx) => {
+                if (measure.length !== divisionsPerMeasure) {
+                    console.warn(`Measure ${measureIdx + 1} has incorrect length (${measure.length}), expected ${divisionsPerMeasure}`);
+                }
+                
+                measure.forEach((noteEvent, divisionIdx) => {
+                    if (noteEvent && !this._validateNoteEvent(noteEvent)) {
+                        console.warn(`Invalid note event at measure ${measureIdx + 1}, division ${divisionIdx}`);
+                    }
+                });
+            });
+
+            // 验证音符
+            this.notes["righthand"].forEach((measure, measureIdx) => {
                 if (measure.length !== divisionsPerMeasure) {
                     console.warn(`Measure ${measureIdx + 1} has incorrect length (${measure.length}), expected ${divisionsPerMeasure}`);
                 }
@@ -170,15 +183,15 @@ document.addEventListener('DOMContentLoaded', async () => {
          * 获取总时长(以小节为单位)
          */
         get totalMeasures() {
-            return this.notes.length;
+            return Math.max(this.notes["lefthand"].length, this.notes["righthand"].length);
         }
 
         /**
          * 获取指定位置的音符事件
          */
-        getNote(measure, division) {
+        getNote(hand, measure, division) {
             if (measure < 0 || measure >= this.notes.length) return null;
-            const measureData = this.notes[measure];
+            const measureData = this.notes[hand][measure];
             if (division < 0 || division >= measureData.length) return null;
             return measureData[division];
         }
@@ -643,21 +656,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         _playCurrentDivision(time) {
             // 1. 播放当前音符
-            const noteEvent = this.song.getNote(this.currentMeasure, this.currentDivision);
-            if (noteEvent) {
-                this.sampler.triggerAttackRelease(
-                    noteEvent.pitches,
-                    noteEvent.duration,
-                    time,
-                    noteEvent.velocity || 0.8
-                );
+            for (let hand of ["lefthand", "righthand"]) {
+                const noteEvent = this.song.getNote(hand, this.currentMeasure, this.currentDivision);
+                if (noteEvent) {
+                    this.sampler.triggerAttackRelease(
+                        noteEvent.pitches,
+                        noteEvent.duration,
+                        time,
+                        noteEvent.velocity || 0.8
+                    );
 
-                const durationInSeconds = Tone.Time(noteEvent.duration).toSeconds() - 0.1;
+                    const durationInSeconds = Tone.Time(noteEvent.duration).toSeconds() - 0.1;
 
-                // 高亮对应的琴键
-                noteEvent.pitches.forEach(pitch => {
-                    highlightKey(pitch, (durationInSeconds > 0.1 ? durationInSeconds : 0.1));
-                });
+                    // 高亮对应的琴键
+                    noteEvent.pitches.forEach(pitch => {
+                        highlightKey(pitch, (durationInSeconds > 0.1 ? durationInSeconds : 0.1));
+                    });
+                }
             }
             
             // 2. 处理踏板事件
