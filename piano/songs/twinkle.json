@@ -1,0 +1,301 @@
+{
+  "title": "é¢ç´",
+  "bpm": 70,
+  "timeSignature": "4/4",
+  "notes": {
+    "lefthand": [
+      [
+        {
+          "pitches": [
+            "C3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "E3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "C3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "E3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "C3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "A3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "F3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "A3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "C3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "E3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        }
+      ],
+      [
+        {
+          "pitches": [
+            "G2",
+            "D3",
+            "F3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "G2",
+            "C3",
+            "E3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "G2",
+            "D3",
+            "F3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C3",
+            "E3",
+            "G3"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null
+      ]
+    ],
+    "righthand": [
+      [
+        {
+          "pitches": [
+            "C4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "C4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "G4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "G4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "A4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "A4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "G4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "F4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "F4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "E4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "E4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "D4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "D4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "C4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null
+      ]
+    ]
+  },
+  "metadata": {
+    "composer": "未知",
+    "arranger": "MIDI转换版",
+    "copyright": "",
+    "difficulty": "中等"
+  }
+}
