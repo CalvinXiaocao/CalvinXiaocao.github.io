@@ -1,0 +1,2728 @@
+{
+  "title": "打上花火",
+  "bpm": 100,
+  "timeSignature": "4/4",
+  "notes": {
+    "lefthand": [
+      [
+        {
+          "pitches": [
+            "B3",
+            "F#4",
+            "A#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4",
+            "G#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#4",
+            "A#4",
+            "C#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "C#4",
+            "F#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B3",
+            "F#4",
+            "A#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4",
+            "G#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#4",
+            "A#4",
+            "C#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "C#4",
+            "F#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B2",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.4645669291338583
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5118110236220472
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#2",
+            "C#3",
+            "F#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.3543307086614173
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B2",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#2",
+            "C#3",
+            "F#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.5669291338582677
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B2",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#3",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B2",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#3",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.31496062992125984
+        },
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B2",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#3",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B2",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#3",
+            "F#3",
+            "A#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B1",
+            "F#2",
+            "B2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "B2"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "C#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#2",
+            "A#2",
+            "D#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "D#3"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B1",
+            "F#2",
+            "B2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "B2"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F3",
+            "G#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "C#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#2",
+            "A#2",
+            "D#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "D#3"
+          ],
+          "duration": "16n",
+          "velocity": 0.25984251968503935
+        },
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "16n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B1",
+            "F#2",
+            "B2"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "C#2",
+            "G#2",
+            "C#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#2",
+            "A#2",
+            "D#3"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.6929133858267716
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.6614173228346457
+        },
+        null,
+        null,
+        {
+          "pitches": [
+            "F#2",
+            "C#3",
+            "F#3"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "B3",
+            "F#4",
+            "A#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.6062992125984252
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5590551181102362
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.5669291338582677
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.5984251968503937
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.6299212598425197
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.6614173228346457
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.6929133858267716
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.7244094488188977
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.7559055118110236
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.7874015748031497
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.8188976377952756
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "16n",
+          "velocity": 0.8503937007874016
+        },
+        {
+          "pitches": [
+            "F#1",
+            "F#2"
+          ],
+          "duration": "4n",
+          "velocity": 0.8818897637795275
+        },
+        null,
+        null,
+        null
+      ]
+    ],
+    "righthand": [
+      [
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3228346456692913
+        },
+        null,
+        {
+          "pitches": [
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "D#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.44881889763779526
+        },
+        null,
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5118110236220472
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.44881889763779526
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.41732283464566927
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.41732283464566927
+        },
+        null,
+        {
+          "pitches": [
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.44881889763779526
+        },
+        null,
+        {
+          "pitches": [
+            "D#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5118110236220472
+        },
+        null,
+        {
+          "pitches": [
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.44881889763779526
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.41732283464566927
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.4015748031496063
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.41732283464566927
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.4330708661417323
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.44881889763779526
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.4645669291338583
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.49606299212598426
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "G#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5118110236220472
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.48031496062992124
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.44881889763779526
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "D#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.41732283464566927
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3858267716535433
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3543307086614173
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.3228346456692913
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.29133858267716534
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "G#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.31496062992125984
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "C#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "D#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.4409448818897638
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5669291338582677
+        },
+        null,
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "B4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null
+      ],
+      [
+        null,
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.31496062992125984
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.4409448818897638
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4",
+            "D#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "G#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "B4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null
+      ],
+      [
+        null,
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "C#5",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "C#5",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        {
+          "pitches": [
+            "C#5",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "C#5",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "D#5",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "C#5",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "B4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4",
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "B4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "C#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "F#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        null,
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.25984251968503935
+        },
+        null,
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.3779527559055118
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "A#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        {
+          "pitches": [
+            "G#4"
+          ],
+          "duration": "8n",
+          "velocity": 0.7559055118110236
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7401574803149606
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "D#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.7165354330708661
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "F5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6929133858267716
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "F#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6771653543307087
+        },
+        null,
+        {
+          "pitches": [
+            "G#4",
+            "G#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6535433070866141
+        },
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "B5",
+            "B6"
+          ],
+          "duration": "4n",
+          "velocity": 0.7559055118110236
+        },
+        null
+      ],
+      [
+        null,
+        null,
+        {
+          "pitches": [
+            "F#5",
+            "F#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.6299212598425197
+        },
+        null,
+        {
+          "pitches": [
+            "F#5",
+            "F#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.6062992125984252
+        },
+        null,
+        {
+          "pitches": [
+            "A#5",
+            "A#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.5826771653543307
+        },
+        null,
+        {
+          "pitches": [
+            "G#5",
+            "G#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.5590551181102362
+        },
+        null,
+        {
+          "pitches": [
+            "F#5",
+            "F#6"
+          ],
+          "duration": "8n",
+          "velocity": 0.5354330708661418
+        },
+        null,
+        {
+          "pitches": [
+            "F#5",
+            "F#6"
+          ],
+          "duration": "4n",
+          "velocity": 0.5039370078740157
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "8n",
+          "velocity": 0.8818897637795275
+        },
+        null,
+        {
+          "pitches": [
+            "C#5",
+            "C#6"
+          ],
+          "duration": "16n",
+          "velocity": 0.8818897637795275
+        },
+        {
+          "pitches": [
+            "A#4",
+            "A#5"
+          ],
+          "duration": "16n",
+          "velocity": 0.8818897637795275
+        }
+      ]
+    ]
+  },
+  "metadata": {
+    "composer": "未知",
+    "arranger": "MIDI转换版",
+    "copyright": "",
+    "difficulty": "中等"
+  },
+  "lyrics": [
+    {
+      "measure": 8,
+      "position": 3,
+      "text": "あの日見渡した渚を 那天所眺望的海岸",
+      "duration": 4
+    },
+    {
+      "measure": 9,
+      "position": 12,
+      "text": "今も思い出すんだ 直至今日仍能想起",
+      "duration": 4
+    }
+  ]
+}
