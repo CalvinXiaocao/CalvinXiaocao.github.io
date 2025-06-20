@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             this.bpm = bpm;
             this.timeSignature = timeSignature;
             this.notes = notes;
-            this.pedals = pedals;
+            this.pedals = pedals; // TODO: 踏板类
             this.lyrics = lyrics;
             this.metadata = {
                 composer: metadata.composer || 'Unknown',
@@ -656,13 +656,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         _playCurrentDivision(time) {
             // 1. 播放当前音符
+            // TODO: 加上踏板的效果
             for (let hand of ["lefthand", "righthand"]) {
                 const noteEvent = this.song.getNote(hand, this.currentMeasure, this.currentDivision);
                 if (noteEvent) {
                     this.sampler.triggerAttackRelease(
                         noteEvent.pitches,
                         noteEvent.duration,
-                        time,
+                        time,  // TODO: How to change time?
                         noteEvent.velocity || 0.8
                     );
 
