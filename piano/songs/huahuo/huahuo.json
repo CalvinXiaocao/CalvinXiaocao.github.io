@@ -2705,6 +2705,40 @@
       ]
     ]
   },
+  "pedals": [
+    {
+      "measure": 0,
+      "position": 0,
+      "action": "down",
+      "type": "sustain",
+      "intensity": 0.8,
+      "duration": 16
+    },
+    {
+      "measure": 1,
+      "position": 0,
+      "action": "down",
+      "type": "sustain",
+      "intensity": 0.8,
+      "duration": 16
+    },
+    {
+      "measure": 2,
+      "position": 0,
+      "action": "down",
+      "type": "sustain",
+      "intensity": 0.8,
+      "duration": 16
+    },
+    {
+      "measure": 3,
+      "position": 0,
+      "action": "down",
+      "type": "sustain",
+      "intensity": 0.8,
+      "duration": 16
+    }
+  ],
   "metadata": {
     "composer": "未知",
     "arranger": "MIDI转换版",
