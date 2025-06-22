@@ -629,7 +629,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             this.currentDivision = 0;
             this.playbackSpeed = 1.0;
             this.loopRange = null; // [startMeasure, endMeasure]
-            //踏板
+            // 踏板
             this.isSustainPedalDown = true;
             this.sustainedNotes = new Set(); // 用于跟踪被延音的音符
             
@@ -720,7 +720,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             );
             console.log(`当前踏板事件: ${JSON.stringify(currentPedals)}`);
             currentPedals.forEach(pedal => {
-                // TODO: 这里需要实现实际的踏板控制逻辑
                 if (pedal.type === 'sustain' || !pedal.type) { // 默认处理延音踏板
                     if (pedal.action === 'down') {
                         this.isSustainPedalDown = true;

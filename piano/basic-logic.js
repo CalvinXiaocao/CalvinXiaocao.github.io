@@ -629,6 +629,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             this.currentDivision = 0;
             this.playbackSpeed = 1.0;
             this.loopRange = null; // [startMeasure, endMeasure]
+            // 踏板
+            this.isSustainPedalDown = true;
+            this.sustainedNotes = new Set(); // 用于跟踪被延音的音符
             
             // 播放状态回调
             this.onPlay = null;
@@ -655,18 +658,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         _playCurrentDivision(time) {
-            // 1. 播放当前音符
-            // TODO: 加上踏板的效果
+            // 1. 处理踏板事件
+            this._processPedalEvents(time);
+
+            // 2. 播放当前音符
             for (let hand of ["lefthand", "righthand"]) {
                 const noteEvent = this.song.getNote(hand, this.currentMeasure, this.currentDivision);
                 if (noteEvent) {
-                    this.sampler.triggerAttackRelease(
-                        noteEvent.pitches,
-                        noteEvent.duration,
-                        time,  // TODO: How to change time?
-                        noteEvent.velocity || 0.8
-                    );
-
+                    if (this.isSustainPedalDown) {
+                        // 只triggerAttack，不release
+                        this.sampler.triggerAttack(
+                            noteEvent.pitches,
+                            time,
+                            noteEvent.velocity || 0.8
+                        )
+                        noteEvent.pitches.forEach(pitch => {
+                            this.sustainedNotes.add(pitch);
+                        });
+                    }
+                    else {
+                        this.sampler.triggerAttackRelease(
+                            noteEvent.pitches,
+                            noteEvent.duration,
+                            time,  // TODO: How to change time?
+                            noteEvent.velocity || 0.8
+                        );
+                    }
+                    
                     const durationInSeconds = Tone.Time(noteEvent.duration).toSeconds() - 0.1;
 
                     // 高亮对应的琴键
@@ -674,10 +692,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         highlightKey(pitch, (durationInSeconds > 0.1 ? durationInSeconds : 0.1));
                     });
                 }
-            }
-            
-            // 2. 处理踏板事件
-            this._processPedalEvents(time);
+            }  
             
             // 3. 处理歌词事件
             this._processLyricEvents();
@@ -699,11 +714,30 @@ document.addEventListener('DOMContentLoaded', async () => {
                 p.measure === this.currentMeasure && 
                 p.position === this.currentDivision
             );
-            
+            console.log(`当前踏板事件: ${JSON.stringify(currentPedals)}`);
             currentPedals.forEach(pedal => {
-                // TODO: 这里需要实现实际的踏板控制逻辑
-                console.log(`Pedal ${pedal.action} at measure ${pedal.measure}`);
-                // 实际项目中这里会控制音效的延音等参数
+                if (pedal.type === 'sustain' || !pedal.type) { // 默认处理延音踏板
+                    if (pedal.action === 'down') {
+                        // 如果前一个是down而不是up，也要先抬起踏板来，再按下
+                        // TODO: 加动画效果
+                        if (this.isSustainPedalDown) {
+                            this.sustainedNotes.forEach(note => {
+                                this.sampler.triggerRelease(note, time);
+                            });
+                            this.sustainedNotes.clear();
+                        }
+                        this.isSustainPedalDown = true;
+                        console.log('延音踏板按下');
+                    } else if (pedal.action === 'up') {
+                        this.isSustainPedalDown = false;
+                        // 释放所有被延音的音符
+                        this.sustainedNotes.forEach(note => {
+                            this.sampler.triggerRelease(note, time);
+                        });
+                        this.sustainedNotes.clear();
+                        console.log('延音踏板释放');
+                    }
+                }            
             });
         }
         
@@ -759,12 +793,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         pause() {
             if (this.isPlaying) {
+                // 清空踏板状态
+                this.isSustainPedalDown = false;
+                this.sustainedNotes.forEach(note => {
+                    this.sampler.triggerRelease(note);
+                });
+                this.sustainedNotes.clear();
                 Tone.Transport.pause();
                 this.isPlaying = false;
             }
         }
         
         stop() {
+            // 清空踏板状态
+            this.isSustainPedalDown = false;
+            this.sustainedNotes.forEach(note => {
+                this.sampler.triggerRelease(note);
+            });
+            this.sustainedNotes.clear();
             Tone.Transport.stop();
             // Tone.Transport.cancel();
             this.isPlaying = false;
