@@ -22,6 +22,40 @@
             margin-bottom: 30px;
         }
 
+        /* 顶部控制栏样式 */
+        .top-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        /* 更新切换按钮样式 */
+        .toggle-btn {
+            padding: 8px 16px;
+            background: linear-gradient(to bottom, #6c757d, #5a6268);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .toggle-btn:hover {
+            background: linear-gradient(to bottom, #5a6268, #495056);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 7px rgba(0,0,0,0.15);
+        }
+
+        .toggle-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
         #piano-container {
             display: flex;
             position: relative; /* 允许黑键定位 */
@@ -107,6 +141,66 @@
             color: #ccc;
         }
 
+        /* 更新踏板指示器样式 */
+        .pedal-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pedal {
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(to bottom, #555, #333);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 1px 3px rgba(0,0,0,0.4),
+                0 2px 5px rgba(0,0,0,0.2);
+            cursor: default;
+            transition: all 0.2s ease;
+        }
+
+        .pedal-head {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #888, #666);
+            border-radius: 15px;
+            transition: all 0.2s ease;
+            box-shadow: 
+                inset 0 -2px 5px rgba(0,0,0,0.3),
+                inset 0 2px 2px rgba(255,255,255,0.1);
+        }
+
+        /* 踏板按下状态 */
+        .pedal.pressed .pedal-head {
+            background: linear-gradient(to bottom, #6bd16f, #4CAF50);
+            box-shadow: 
+                inset 0 2px 5px rgba(0,0,0,0.3),
+                inset 0 -2px 2px rgba(255,255,255,0.1);
+            transform: translateY(2px);
+        }
+
+        .pedal.pressed {
+            box-shadow: 
+                inset 0 1px 3px rgba(0,0,0,0.4),
+                0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .pedal-status {
+            font-size: 14px;
+            color: #555;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+            transition: color 0.2s ease;
+        }
+
+        .pedal.pressed ~ .pedal-status {
+            color: #4CAF50;
+        }
+
         /* 控制区样式 */
         #controls {
             display: flex;
@@ -117,6 +211,18 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 添加过渡效果 */
+            transform-origin: top;
+        }
+
+        .controls-hidden {
+            transform: scaleY(0);
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            pointer-events: none;
         }
 
         .control-group {
@@ -125,6 +231,10 @@
             align-items: center;
             gap: 12px;
             min-width: 150px; /* 确保每个控制组有最小宽度 */
+        }
+
+        #recording-controls {
+            display: none;
         }
 
         button, input[type="range"], input[type="file"] {
@@ -226,6 +336,11 @@
             width: 80%;
             text-align: center;
             max-width: 600px;
+            transition: margin-top 0.3s ease; /* 添加过渡效果 */
+        }
+
+        .controls-hidden + #message-area {
+            margin-top: 0px; /* 缩小与控制面板按钮的间距 */
         }
 
         /* Player Controls. */
@@ -340,6 +455,52 @@
             color: #e74c3c;
         }
 
+        /* 搜索框样式 */
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 2px 12px rgba(0,123,255,0.2);
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 15px;
+            top: 25%;
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 5px;
+            display: none;
+        }
+
+        .search-clear-btn:hover {
+            color: #666;
+        }
+
+        /* 添加歌曲隐藏时的样式 */
+        .song-card.hidden {
+            display: none;
+        }
+
         /* 按钮组容器 */
         .button-group {
             display: inline-flex;
@@ -380,6 +541,10 @@
 
         .group-btn.sheet-btn:hover {
             background-color: #2d9246;
+        }
+
+        #loop-btn {
+            display: none;
         }
 
         /* 按钮间分隔线 */
@@ -425,6 +590,17 @@
     <div id="piano-container">
         </div>
 
+    
+    <div class="top-controls">
+        <button id="toggle-controls-btn" class="toggle-btn">隐藏控制面板 ▼</button>
+        <div class="pedal-indicator">
+            <div class="pedal" id="sustain-pedal">
+                <div class="pedal-head"></div>
+            </div>
+            <div class="pedal-status" id="pedal-status">延音踏板</div>
+        </div>
+    </div>
+
     <div id="controls">
         <div class="control-group">
             <label for="volume-slider">音量控制</label>
@@ -438,18 +614,20 @@
         </div> -->
         
         <div class="control-group">
+            <label>音域调整</label>
             <button id="octave-down-btn">降低八度</button>
             <button id="octave-up-btn">升高八度</button>
             <label id="current-octave-label">当前音域: C3-C5</label>
         </div>
 
-        <div class="control-group">
+        <div class="control-group" id="recording-controls">
             <button id="record-btn">开始录制</button>
             <button id="stop-record-btn" disabled>停止录制</button>
             <button id="save-song-btn" disabled>保存创作</button>
         </div>
 
         <div class="control-group">
+            <label>节拍处理</label>
             <button id="metronome-btn">节拍器</button>
             <input type="range" id="tempo-slider" min="60" max="240" step="1" value="120">
             <label for="tempo-slider">速度 (BPM)</label>
@@ -481,6 +659,10 @@
 
     <div id="song-selection">
         <h2>选择歌曲</h2>
+        <div class="search-container">
+            <input type="text" id="song-search" placeholder="搜索歌曲名称..." class="search-input">
+            <button id="clear-search" class="search-clear-btn">×</button>
+        </div>
         <div class="song-grid">
             <!-- 歌曲卡片1 -->
             <div class="song-card" data-json-url="https://calvinxiaocao.github.io/piano/songs/test.json">

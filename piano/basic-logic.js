@@ -25,6 +25,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const nowPlaying = document.getElementById('now-playing');
     const nowLyric = document.getElementById('now-lyric');
 
+    const toggleControlsBtn = document.getElementById('toggle-controls-btn');
+    const controls = document.getElementById('controls');
+
+    const songSearch = document.getElementById('song-search');
+    const clearSearch = document.getElementById('clear-search');
+    const songCards = document.querySelectorAll('.song-card');
+
+    const sustainPedal = document.getElementById('sustain-pedal');
+    const pedalStatus = document.getElementById('pedal-status');
+
+
     // 后续将在这里绑定 MusicPlayer 的实例
     let activePlayer = null; 
 
@@ -39,8 +50,83 @@ document.addEventListener('DOMContentLoaded', async () => {
     let minOctave = 1; // 最小八度限制
     let maxOctave = 7; // 最大八度限制
 
+    let controlsVisible = true;
+
     // 在全局添加高亮状态跟踪
     const activeHighlights = new Map(); // 存储 {note: {element, releaseTime}}
+
+    // 切换控制面板显示/隐藏
+    toggleControlsBtn.addEventListener('click', function() {
+        controlsVisible = !controlsVisible;
+        
+        if (controlsVisible) {
+            controls.classList.remove('controls-hidden');
+            toggleControlsBtn.textContent = '隐藏控制面板 ▼';
+        } else {
+            controls.classList.add('controls-hidden');
+            toggleControlsBtn.textContent = '显示控制面板 ▲';
+        }
+    });
+
+    function setPedalState(isPressed) {
+        if (isPressed) {
+            sustainPedal.classList.add('pressed');
+            pedalStatus.textContent = '踩下';
+        } else {
+            sustainPedal.classList.remove('pressed');
+            pedalStatus.textContent = '释放';
+        }
+    }
+
+    function blinkPedal() {
+        setPedalState(false);
+        setTimeout(() => setPedalState(true), 100); // 100ms后恢复亮起
+    }
+
+    /****************************/
+    /*         Search           */
+    /****************************/
+
+    // 搜索功能
+    songSearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        let hasResults = false;
+        
+        songCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const description = card.querySelector('p').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm)) {
+                card.classList.remove('hidden');
+                hasResults = true;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+        
+        // 显示/隐藏清除按钮
+        if (this.value.length > 0) {
+            clearSearch.style.display = 'block';
+        } else {
+            clearSearch.style.display = 'none';
+        }
+    });
+
+    // 清除搜索
+    clearSearch.addEventListener('click', function() {
+        songSearch.value = '';
+        songSearch.dispatchEvent(new Event('input'));
+        this.style.display = 'none';
+    });
+
+    // 按回车键也可以清除搜索
+    songSearch.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            songSearch.value = '';
+            songSearch.dispatchEvent(new Event('input'));
+            clearSearch.style.display = 'none';
+        }
+    });
 
 
     /****************************/
@@ -591,7 +677,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         messageArea.textContent = `音量: ${Math.round(volume * 100)}%`;
     });
 
-    // TODO: 下面的部分待完成
+    // TODO: 下面的部分待完成……如果完不成，把按钮藏起来就行了x
 
     // // --- 乐曲播放功能 ---
     // playSongBtn.addEventListener('click', () => {
@@ -630,7 +716,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             this.playbackSpeed = 1.0;
             this.loopRange = null; // [startMeasure, endMeasure]
             // 踏板
-            this.isSustainPedalDown = true;
+            this.isSustainPedalDown = false;
             this.sustainedNotes = new Set(); // 用于跟踪被延音的音符
             
             // 播放状态回调
@@ -724,7 +810,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                             this.sustainedNotes.forEach(note => {
                                 this.sampler.triggerRelease(note, time);
                             });
+                            blinkPedal();
                             this.sustainedNotes.clear();
+                        }
+                        else {
+                            setPedalState(1);
                         }
                         this.isSustainPedalDown = true;
                         console.log('延音踏板按下');
@@ -735,6 +825,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             this.sampler.triggerRelease(note, time);
                         });
                         this.sustainedNotes.clear();
+                        setPedalState(0);
                         console.log('延音踏板释放');
                     }
                 }            
@@ -799,6 +890,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     this.sampler.triggerRelease(note);
                 });
                 this.sustainedNotes.clear();
+                setPedalState(0);
                 Tone.Transport.pause();
                 this.isPlaying = false;
             }
@@ -811,6 +903,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 this.sampler.triggerRelease(note);
             });
             this.sustainedNotes.clear();
+            setPedalState(0);
             Tone.Transport.stop();
             // Tone.Transport.cancel();
             this.isPlaying = false;
