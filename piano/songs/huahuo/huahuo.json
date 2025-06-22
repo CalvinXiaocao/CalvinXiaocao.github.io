@@ -2710,65 +2710,49 @@
       "measure": 0,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 1,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 2,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 3,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 4,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 5,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 6,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 7,
       "position": 0,
       "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 16
+      "type": "sustain"
     },
     {
       "measure": 7,
@@ -2778,7 +2762,7 @@
     }
   ],
   "metadata": {
-    "composer": "未知",
+    "composer": "DAOKO * Kenshi Yonezu",
     "arranger": "MIDI转换版",
     "copyright": "",
     "difficulty": "中等"
