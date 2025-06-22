@@ -2771,15 +2771,7 @@
       "duration": 16
     },
     {
-      "measure": 8,
-      "position": 0,
-      "action": "down",
-      "type": "sustain",
-      "intensity": 0.8,
-      "duration": 12
-    },
-    {
-      "measure": 8,
+      "measure": 7,
       "position": 12,
       "action": "up",
       "type": "sustain"

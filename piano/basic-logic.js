@@ -680,7 +680,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         this.sampler.triggerAttackRelease(
                             noteEvent.pitches,
                             noteEvent.duration,
-                            time,  // TODO: How to change time?
+                            time,
                             noteEvent.velocity || 0.8
                         );
                     }
