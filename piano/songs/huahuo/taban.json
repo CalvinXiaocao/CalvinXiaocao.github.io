@@ -1,0 +1,78 @@
+{
+    "pedals": [
+    {
+      "measure": 0,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 1,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 2,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 3,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 4,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 5,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 6,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 7,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 7,
+      "position": 12,
+      "action": "up",
+      "type": "sustain"
+    }
+  ],
+  "metadata": {
+    "composer": "DAOKO * Kenshi Yonezu",
+    "arranger": "MIDI转换版",
+    "copyright": "",
+    "difficulty": "困难"
+  },
+  "lyrics": [
+    {
+      "measure": 8,
+      "position": 3,
+      "text": "あの日見渡した渚を 那天所眺望的海岸",
+      "duration": 4
+    },
+    {
+      "measure": 9,
+      "position": 12,
+      "text": "今も思い出すんだ 直至今日仍能想起",
+      "duration": 4
+    }
+  ]
+}
