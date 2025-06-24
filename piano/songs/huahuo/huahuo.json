@@ -15309,6 +15309,102 @@
       "position": 12,
       "action": "up",
       "type": "sustain"
+    },
+    {
+      "measure": 8,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 9,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 10,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 11,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 12,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 12,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 12,
+      "position": 11,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 13,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 13,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 13,
+      "position": 11,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 14,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 14,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 14,
+      "position": 11,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 15,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 15,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 15,
+      "position": 11,
+      "action": "up",
+      "type": "sustain"
     }
   ],
   "metadata": {
