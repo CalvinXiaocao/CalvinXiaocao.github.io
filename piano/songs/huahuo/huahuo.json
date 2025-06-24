@@ -15457,7 +15457,181 @@
     {
       "measure": 24,
       "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 24,
+      "position": 4,
       "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 24,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 25,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 25,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 25,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 26,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 26,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 26,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 27,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 27,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 27,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 28,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 28,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 28,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 29,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 29,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 29,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 30,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 30,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 30,
+      "position": 7,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 31,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 31,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 32,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 33,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 34,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 35,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 36,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 36,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 36,
+      "position": 10,
+      "action": "down",
       "type": "sustain"
     }
   ],
@@ -15544,6 +15718,48 @@
       "measure": 29,
       "position": 12,
       "text": "この夜が 続いて欲しかった 愿今夜永不结束",
+      "duration": 4
+    },
+    {
+      "measure": 35,
+      "position": 14,
+      "text": "「あと何度君と同じ花火を 还能与你一起看几次",
+      "duration": 4
+    },
+    {
+      "measure": 36,
+      "position": 14,
+      "text": "见られるかな」って 同样的烟花呢",
+      "duration": 4
+    },
+    {
+      "measure": 37,
+      "position": 12,
+      "text": "笑う颜に何ができるだろうか 面对你的笑容 我又能做些什么呢",
+      "duration": 4
+    },
+    {
+      "measure": 39,
+      "position": 14,
+      "text": "「伤つくこと 喜ぶこと 受伤亦或是喜悦",
+      "duration": 4
+    },
+    {
+      "measure": 40,
+      "position": 14,
+      "text": "缲り返す波と情动 浪来浪去与情动",
+      "duration": 4
+    },
+    {
+      "measure": 41,
+      "position": 12,
+      "text": "焦燥 最终列车の音 焦躁 响起了末班列车的声音",
+      "duration": 4
+    },
+    {
+      "measure": 44,
+      "position": 0,
+      "text": "何度でも 言叶にして君を呼ぶよ 无数次用言语呼唤着你",
       "duration": 4
     }
   ]
