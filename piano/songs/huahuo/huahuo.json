@@ -15427,6 +15427,36 @@
     {
       "measure": 19,
       "position": 11,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 20,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 21,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 22,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 23,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 24,
+      "position": 0,
       "action": "up",
       "type": "sustain"
     }
@@ -15484,6 +15514,36 @@
       "measure": 21,
       "position": 0,
       "text": "日暮れだけが通り过ぎて行く 只有黄昏悄悄地流逝",
+      "duration": 4
+    },
+    {
+      "measure": 23,
+      "position": 12,
+      "text": "パッと光って咲いた 光芒怦然绽放",
+      "duration": 4
+    },
+    {
+      "measure": 24,
+      "position": 12,
+      "text": "花火を见ていた 烟花映入眼帘",
+      "duration": 4
+    },
+    {
+      "measure": 25,
+      "position": 12,
+      "text": "きっとまだ 终わらない夏が 一定是夏天还未结束",
+      "duration": 4
+    },
+    {
+      "measure": 27,
+      "position": 12,
+      "text": "暧昧な心を 解かして繋いだ 将暧昧的心结解开再紧紧相连",
+      "duration": 4
+    },
+    {
+      "measure": 29,
+      "position": 12,
+      "text": "この夜が 続いて欲しかった 愿今夜永不结束",
       "duration": 4
     }
   ]
