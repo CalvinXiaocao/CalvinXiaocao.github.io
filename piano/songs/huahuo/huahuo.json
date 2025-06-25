@@ -15633,6 +15633,114 @@
       "position": 10,
       "action": "down",
       "type": "sustain"
+    },
+    {
+      "measure": 37,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 37,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 37,
+      "position": 10,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 38,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 38,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 38,
+      "position": 10,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 39,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 40,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 40,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 41,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 41,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 42,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 42,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 43,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 44,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 45,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 46,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 47,
+      "position": 0,
+      "action": "up",
+      "type": "sustain"
     }
   ],
   "metadata": {
@@ -15760,6 +15868,60 @@
       "measure": 44,
       "position": 0,
       "text": "何度でも 言叶にして君を呼ぶよ 无数次用言语呼唤着你",
+      "duration": 4
+    },
+    {
+      "measure": 44,
+      "position": 0,
+      "text": "何度でも 言叶にして君を呼ぶよ 无数次用言语呼唤着你",
+      "duration": 4
+    },
+    {
+      "measure": 45,
+      "position": 12,
+      "text": "波间を选び もう一度... 向着海浪 再一次",
+      "duration": 4
+    },
+    {
+      "measure": 48,
+      "position": 0,
+      "text": "もう二度と悲しまずに済むように 祈祷不再感受那份悲伤",
+      "duration": 4
+    },
+    {
+      "measure": 54,
+      "position": 12,
+      "text": "はっと息を饮めば 呼吸骤然停滞",
+      "duration": 4
+    },
+    {
+      "measure": 55,
+      "position": 12,
+      "text": "消えちゃいそうな光が 那快要消失的光芒",
+      "duration": 4
+    },
+    {
+      "measure": 56,
+      "position": 12,
+      "text": "きっとまだ 胸に住んでいた 一定仍留存在心中",
+      "duration": 4
+    },
+    {
+      "measure": 58,
+      "position": 12,
+      "text": "手を伸ばせば触れた 伸出手就能触及",
+      "duration": 4
+    },
+    {
+      "measure": 59,
+      "position": 12,
+      "text": "あったかい未来は 那温暖的未来",
+      "duration": 4
+    },
+    {
+      "measure": 60,
+      "position": 12,
+      "text": "ひそかに二人を见ていた 默默地守望着两人",
       "duration": 4
     }
   ]
