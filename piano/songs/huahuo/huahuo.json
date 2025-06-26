@@ -15859,8 +15859,194 @@
     {
       "measure": 55,
       "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 55,
+      "position": 4,
       "action": "up",
       "type": "sustain"
+    },
+    {
+      "measure": 55,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 56,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 56,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 56,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 57,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 57,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 57,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 58,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 58,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 58,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 59,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 59,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 59,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 60,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 60,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 60,
+      "position": 9,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 61,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 61,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 61,
+      "position": 9,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 62,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 62,
+      "position": 8,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 63,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 64,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 65,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 66,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 67,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 68,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 69,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 70,
+      "position": 0,
+      "action": "down",
+      "ype": "sustain"
+    },
+    {
+      "measure": 70,
+      "position": 14,
+      "action": "up",
+      "ype": "sustain"
     }
   ],
   "metadata": {
@@ -15991,12 +16177,6 @@
       "duration": 4
     },
     {
-      "measure": 44,
-      "position": 0,
-      "text": "何度でも 言叶にして君を呼ぶよ 无数次用言语呼唤着你",
-      "duration": 4
-    },
-    {
       "measure": 45,
       "position": 12,
       "text": "波间を选び もう一度... 向着海浪 再一次",
@@ -16042,6 +16222,54 @@
       "measure": 60,
       "position": 12,
       "text": "ひそかに二人を见ていた 默默地守望着两人",
+      "duration": 4
+    },
+    {
+      "measure": 63,
+      "position": 0,
+      "text": "パッと花火が 怦然绽放的烟花",
+      "duration": 4
+    },
+    {
+      "measure": 64,
+      "position": 0,
+      "text": "夜に咲いた 在夜空中绽放后",
+      "duration": 4
+    },
+    {
+      "measure": 65,
+      "position": 0,
+      "text": "夜に咲いて 在夜空中绽放后",
+      "duration": 4
+    },
+    {
+      "measure": 66,
+      "position": 0,
+      "text": "静かに消えた 又静静地消失",
+      "duration": 4
+    },
+    {
+      "measure": 67,
+      "position": 0,
+      "text": "离さないで 请不要离开",
+      "duration": 4
+    },
+    {
+      "measure": 68,
+      "position": 0,
+      "text": "もう少しだけ 再给一点点时间",
+      "duration": 4
+    },
+    {
+      "measure": 69,
+      "position": 0,
+      "text": "もう少しだけ 再给一点点时间",
+      "duration": 4
+    },
+    {
+      "measure": 69,
+      "position": 10,
+      "text": "このままで 就这样一直",
       "duration": 4
     }
   ]
