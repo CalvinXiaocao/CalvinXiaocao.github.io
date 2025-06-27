@@ -15980,73 +15980,475 @@
       "measure": 61,
       "position": 9,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 62,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 62,
       "position": 8,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 63,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 64,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 65,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 66,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 67,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 68,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 69,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 70,
       "position": 0,
       "action": "down",
-      "ype": "sustain"
+      "type": "sustain"
     },
     {
       "measure": 70,
       "position": 14,
       "action": "up",
-      "ype": "sustain"
+      "type": "sustain"
+    },
+    {
+      "measure": 71,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 72,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 73,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 74,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 75,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 75,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 76,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 77,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 77,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 78,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 79,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 79,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 80,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 81,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 81,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 82,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 82,
+      "position": 12,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 83,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 84,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 85,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 86,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 87,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 88,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 89,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 89,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 89,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 90,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 90,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 91,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 91,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 91,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 92,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 92,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 92,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 93,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 93,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 93,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 94,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 94,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 94,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 95,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 95,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 95,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 96,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 96,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 96,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 97,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 97,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 97,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 98,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 98,
+      "position": 10,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 102,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 103,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 103,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 103,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 104,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 104,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 104,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 105,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 105,
+      "position": 4,
+      "action": "up",
+      "type": "sustain"
+    },
+    {
+      "measure": 105,
+      "position": 9,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 106,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 107,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 108,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 109,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 110,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 111,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
     }
   ],
   "metadata": {
@@ -16270,6 +16672,60 @@
       "measure": 69,
       "position": 10,
       "text": "このままで 就这样一直",
+      "duration": 4
+    },
+    {
+      "measure": 74,
+      "position": 11,
+      "text": "あの日见渡した渚を 那天所眺望的海岸",
+      "duration": 4
+    },
+    {
+      "measure": 76,
+      "position": 11,
+      "text": "今も思い出すんだ 直至今日仍能想起",
+      "duration": 4
+    },
+    {
+      "measure": 78,
+      "position": 11,
+      "text": "砂の上に刻んだ言叶 在沙滩上刻下的话语",
+      "duration": 4
+    },
+    {
+      "measure": 80,
+      "position": 11,
+      "text": "君の後ろ姿 和你的背影",
+      "duration": 4
+    },
+    {
+      "measure": 82,
+      "position": 11,
+      "text": "パッと光って咲いた 光芒怦然绽放",
+      "duration": 4
+    },
+    {
+      "measure": 83,
+      "position": 11,
+      "text": "花火を见ていた 烟花映入眼帘",
+      "duration": 4
+    },
+    {
+      "measure": 84,
+      "position": 11,
+      "text": "きっとまだ 终わらない夏が 还未结束的夏天 一定会将",
+      "duration": 4
+    },
+    {
+      "measure": 86,
+      "position": 11,
+      "text": "暧昧な心を 解かして繋いだ 暧昧的心结融化相连在一起",
+      "duration": 4
+    },
+    {
+      "measure": 88,
+      "position": 11,
+      "text": "この夜が 続いて欲しかった 愿今夜永不结束",
       "duration": 4
     }
   ]
