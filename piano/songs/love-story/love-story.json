@@ -9115,6 +9115,284 @@
       "position": 0,
       "action": "down",
       "type": "sustain"
+    },
+    {
+      "measure": 53,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    }
+  ],
+  "lyrics": [
+    {
+      "measure": 4,
+      "position": 0,
+      "text": "We were both young when I first saw you",
+      "duration": 4
+    },
+    {
+      "measure": 4,
+      "position": 15,
+      "text": "I closed my eyes and the flashback starts",
+      "duration": 4
+    },
+    {
+      "measure": 5,
+      "position": 13,
+      "text": "I'm standing there on a balcony in summer air",
+      "duration": 4
+    },
+    {
+      "measure": 8,
+      "position": 0,
+      "text": "See the lights, see the party, the ball gowns",
+      "duration": 4
+    },
+    {
+      "measure": 9,
+      "position": 0,
+      "text": "See you make your way through the crowd to say hello",
+      "duration": 4
+    },
+    {
+      "measure": 10,
+      "position": 12,
+      "text": "Little did I know",
+      "duration": 2
+    },
+    {
+      "measure": 11,
+      "position": 15,
+      "text": "'Cause you were Romeo, you were throwing pebbles",
+      "duration": 4
+    },
+    {
+      "measure": 12,
+      "position": 13,
+      "text": "And my daddy said, \"Stay away from Juliet\"",
+      "duration": 4
+    },
+    {
+      "measure": 13,
+      "position": 12,
+      "text": "And I was crying on the staircase",
+      "duration": 4
+    },
+    {
+      "measure": 14,
+      "position": 8,
+      "text": "Begging you, \"Please don't go\"",
+      "duration": 2
+    },
+    {
+      "measure": 15,
+      "position": 9,
+      "text": "And I said",
+      "duration": 1
+    },
+    {
+      "measure": 16,
+      "position": 0,
+      "text": "Romeo, take me somewhere we can be alone",
+      "duration": 4
+    },
+    {
+      "measure": 17,
+      "position": 0,
+      "text": "I'll be waiting, all that's left to do is run",
+      "duration": 4
+    },
+    {
+      "measure": 18,
+      "position": 0,
+      "text": "You'll be the prince and I'll be the princess",
+      "duration": 4
+    },
+    {
+      "measure": 19,
+      "position": 0,
+      "text": "It's a love story, baby, just say, \"Yes\"",
+      "duration": 4
+    },
+    {
+      "measure": 20,
+      "position": 14,
+      "text": "So I sneak out to the garden to see you",
+      "duration": 4
+    },
+    {
+      "measure": 22,
+      "position": 0,
+      "text": "We keep quiet 'cause we're dead if they knew",
+      "duration": 4
+    },
+    {
+      "measure": 22,
+      "position": 12,
+      "text": "So close your eyes, escape this town for a little while",
+      "duration": 4
+    },
+    {
+      "measure": 24,
+      "position": 14,
+      "text": "Cause you were Romeo, you were throwing pebbles",
+      "duration": 4
+    },
+    {
+      "measure": 25,
+      "position": 14,
+      "text": "And my daddy said, \"Stay away from Juliet\"",
+      "duration": 4
+    },
+    {
+      "measure": 26,
+      "position": 14,
+      "text": "But you were everything to me",
+      "duration": 4
+    },
+    {
+      "measure": 27,
+      "position": 6,
+      "text": "I was Begging you, \"Please don't go\"",
+      "duration": 2
+    },
+    {
+      "measure": 28,
+      "position": 8,
+      "text": "And I said",
+      "duration": 1
+    },
+    {
+      "measure": 29,
+      "position": 0,
+      "text": "Romeo, take me somewhere we can be alone",
+      "duration": 4
+    },
+    {
+      "measure": 30,
+      "position": 0,
+      "text": "I'll be waiting, all that's left to do is run",
+      "duration": 4
+    },
+    {
+      "measure": 31,
+      "position": 0,
+      "text": "You'll be the prince and I'll be the princess",
+      "duration": 4
+    },
+    {
+      "measure": 32,
+      "position": 0,
+      "text": "It's a love story, baby, just say, \"Yes\"",
+      "duration": 4
+    },
+    {
+      "measure": 33,
+      "position": 0,
+      "text": "Romeo save me, they try to tell me how I feel",
+      "duration": 4
+    },
+    {
+      "measure": 34,
+      "position": 0,
+      "text": "This love is difficult but it's real",
+      "duration": 4
+    },
+    {
+      "measure": 35,
+      "position": 0,
+      "text": "Don't be afraid we'll make it out of this mess",
+      "duration": 4
+    },
+    {
+      "measure": 36,
+      "position": 0,
+      "text": "It's a love story, baby, just say, \"Yes\"",
+      "duration": 4
+    },
+    {
+      "measure": 36,
+      "position": 12,
+      "text": "I got tired of waiting",
+      "duration": 4
+    },
+    {
+      "measure": 37,
+      "position": 12,
+      "text": "Wondering if you were ever coming around",
+      "duration": 4
+    },
+    {
+      "measure": 38,
+      "position": 12,
+      "text": "My faith in you was fading",
+      "duration": 4
+    },
+    {
+      "measure": 39,
+      "position": 12,
+      "text": "When I met you on the outskirts of town",
+      "duration": 4
+    },
+    {
+      "measure": 40,
+      "position": 11,
+      "text": "And I said",
+      "duration": 4
+    },
+    {
+      "measure": 41,
+      "position": 0,
+      "text": "Romeo save me, I've been feeling so alone",
+      "duration": 4
+    },
+    {
+      "measure": 42,
+      "position": 0,
+      "text": "I keep waiting for you but you never come",
+      "duration": 4
+    },
+    {
+      "measure": 42,
+      "position": 15,
+      "text": "Is this in my head, I don't know what to think",
+      "duration": 4
+    },
+    {
+      "measure": 43,
+      "position": 14,
+      "text": "He knelt to the ground and pulled out a ring and said",
+      "duration": 4
+    },
+    {
+      "measure": 45,
+      "position": 0,
+      "text": "Marry me Juliet you'll never have to be alone",
+      "duration": 4
+    },
+    {
+      "measure": 46,
+      "position": 0,
+      "text": "I love you and that's all I really know",
+      "duration": 4
+    },
+    {
+      "measure": 46,
+      "position": 15,
+      "text": "I talked to your dad, go pick out a white dress",
+      "duration": 4
+    },
+    {
+      "measure": 48,
+      "position": 0,
+      "text": "It's a love story, baby, just say, \"Yes\"",
+      "duration": 4
+    },
+    {
+      "measure": 51,
+      "position": 15,
+      "text": "'Cause we were both young when I first saw you",
+      "duration": 4
     }
   ],
   "metadata": {
