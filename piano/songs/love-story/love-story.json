@@ -8689,6 +8689,434 @@
       ]
     ]
   },
+  "pedals": [
+    {
+      "measure": 0,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 1,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 2,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 3,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 4,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 5,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 6,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 7,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 8,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 9,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 10,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 11,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 12,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 12,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 13,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 13,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 14,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 14,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 15,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 15,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 15,
+      "position": 12,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 16,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 17,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 18,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 19,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 19,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 20,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 21,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 22,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 23,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 24,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 25,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 25,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 26,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 26,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 27,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 27,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 28,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 28,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 29,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 30,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 31,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 32,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 32,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 33,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 34,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 35,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 36,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 36,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 37,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 37,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 38,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 38,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 39,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 39,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 40,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 40,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 41,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 42,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 43,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 44,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 44,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 45,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 46,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 47,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 48,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 48,
+      "position": 8,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 49,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 50,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 51,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    },
+    {
+      "measure": 52,
+      "position": 0,
+      "action": "down",
+      "type": "sustain"
+    }
+  ],
   "metadata": {
     "composer": "Taylor Swift",
     "arranger": "草鱼",
