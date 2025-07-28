@@ -12,7 +12,7 @@
             overflow: hidden;
         }
         
-        /* 全屏封面容器 */
+        /* 全屏封面容器 - 默认显示横版图 */
         .cover-container {
             height: 100vh;
             width: 100vw;
@@ -27,6 +27,15 @@
             color: white;
             padding: 20px;
             box-sizing: border-box;
+        }
+        
+        /* 移动端竖版图 */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .cover-container {
+                background: 
+                    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+                    url('https://assets.dmi.umgapps.com/assets/taylor-swift/landing-images/1678544276252-2-v2.jpg') center/cover no-repeat;
+            }
         }
         
         /* 标题样式 */
