@@ -104,11 +104,21 @@
             width: 100%;
         }
 
+        /* 电脑端显示完整内容 */
+        .full-text { display: block; }
+        .short-text { display: none; }
+
+        /* 手机端显示精简内容 */
+        @media (max-width: 768px) {
+        .full-text { display: none; }
+        .short-text { display: block; }
+        }
+
 
         @media (min-width: 769px) {
             .intro-container {
-                margin-left: 10%;
-                margin-right: 10%;
+                margin-left: 10% auto;
+                margin-right: 10% auto;
             }
         }
 
@@ -133,6 +143,7 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             max-width: 70ch; /* 从默认约30em增加到38em（约60字符/行） */
+            min-width: 30em;
         }
         
         
@@ -158,9 +169,14 @@
                 order: 2;
                 padding: 20px 0;
             }
+
+            .intro-content p {
+                min-width: none;
+            }
             
             .intro-image img {
-                max-height: 50vh; /* 手机端适当缩小图片 */
+                margin: 0 auto;
+                max-width: 50%; /* 手机端适当缩小图片 */
             }
             
             .intro-content h2 {
@@ -195,10 +211,12 @@
         <div class="intro-container">
             <div class="intro-content">
                 <h2>Introduction</h2>
-                <p>泰勒·斯威夫特 (Taylor Swift) 是21世纪最具影响力的音乐人之一，拥有11张录音室专辑，全球销量超过2亿张。她的音乐跨越乡村、流行、民谣等多种风格，获得12座格莱美奖，创下多项音乐行业纪录。</p>
-                <p>2025年5月，Taylor Swift 以3.6亿美元的价格成功回购了她前六张专辑的母带版权，结束了与 Big Machine 公司长达六年的版权斗争。这一举动标志着她重新获得了对自己全部音乐作品的控制权，成为艺术家自主权的里程碑事件。</p>
-                <p>她的"Eras Tour"巡演成为史上最成功的商业巡演，总收入超过20.77亿美元，远超此前纪录保持者。最新专辑《The Tortured Poets Department》（苦难诗社）于2024年发行后继续打破多项销售纪录。</p>
-                <p>下面，让我们一起来走进这场 Eras Tour on Data，探索 Taylor Swift 从乡村音乐少女到流行天后的蜕变历程，用数据揭示她音乐宇宙中的创作密码与时代印记。</p>
+                <p class="full-text">泰勒·斯威夫特 (Taylor Swift) 是21世纪最具影响力的音乐人之一，拥有11张录音室专辑，全球销量超过2亿张。她的音乐跨越乡村、流行、民谣等多种风格，获得12座格莱美奖，创下多项音乐行业纪录。</p>
+                <p class="full-text">2025年5月，Taylor Swift 以3.6亿美元的价格成功回购了她前六张专辑的母带版权，结束了与 Big Machine 公司长达六年的版权斗争。这一举动标志着她重新获得了对自己全部音乐作品的控制权，成为艺术家自主权的里程碑事件。</p>
+                <p class="full-text">她的"Eras Tour"巡演成为史上最成功的商业巡演，总收入超过20.77亿美元，远超此前纪录保持者。最新专辑《The Tortured Poets Department》（苦难诗社）于2024年发行后继续打破多项销售纪录。</p>
+                <p class="full-text">下面，让我们一起来走进这场 Eras Tour on Data，探索 Taylor Swift 从乡村音乐少女到流行天后的蜕变历程，用数据揭示她音乐宇宙中的创作密码与时代印记。</p>
+                <p class="short-text">Taylor Swift 是21世纪最具影响力的音乐人之一，拥有11张录音室专辑，全球销量超过2亿张。她的音乐跨越乡村、流行、民谣等多种风格，获得12座格莱美奖，创下多项音乐行业纪录。</p>
+                <p class="short-text">下面，让我们一起来走进这场 Eras Tour on Data，探索 Taylor Swift 从乡村音乐少女到流行天后的蜕变历程，用数据揭示她音乐宇宙中的创作密码与时代印记。</p>
             </div>
             <div class="intro-image">
                 <!-- 替换为你的图片路径 -->
