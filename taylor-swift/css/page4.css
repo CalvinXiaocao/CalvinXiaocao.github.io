@@ -1,0 +1,45 @@
+/* 第四页 - 数据可视化 */
+.screen-overview {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    padding: 40px;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.overview-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2C3E50;
+}
+
+.overview-title h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.visualization-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.chart {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .visualization-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .overview-title h2 {
+        font-size: 2rem;
+    }
+}

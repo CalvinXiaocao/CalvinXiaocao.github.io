@@ -21,7 +21,8 @@
         /* 修改所有screen类为滚动吸附点 */
         .cover-container,
         .screen-intro,
-        .screen-albums {
+        .screen-albums,
+        .screen-overview {
             height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
@@ -94,6 +95,8 @@
     </style>
     <style>@import url("css/page2.css");</style>
     <style>@import url("css/page3.css");</style>
+    <style>@import url("css/page4.css");</style>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <div class="scroll-wrapper">
@@ -395,6 +398,18 @@
         </div>
     </section>
 
+    <section class="screen-overview">
+        <div class="overview-title">
+            <h2>Overall Glance</h2>
+            <p>专辑歌曲数量分布</p>
+        </div>
+        
+        <div class="visualization-container">
+            <div id="pie-chart" class="chart"></div>
+            <div id="bar-chart" class="chart"></div>
+        </div>
+    </section>
+
     </div>
 
     <script>
@@ -423,6 +438,189 @@
                 this.classList.toggle('flipped');
             });
         });
+    </script>
+
+
+    <script>
+        // 在现有script后添加
+document.addEventListener('DOMContentLoaded', function() {
+    // 加载数据
+    d3.tsv("https://calvinxiaocao.github.io/taylor-swift/data/cots-album-details.tsv").then(function(data) {
+        // 过滤掉"Other Songs"
+        const albumData = data.filter(d => d.Title !== "Other Songs");
+        
+        // 转换数据类型
+        albumData.forEach(d => {
+            d.Songs = +d.Songs;
+            d.Lines = +d.Lines;
+            d.Words = +d.Words;
+        });
+        
+        // 按歌曲数量排序
+        albumData.sort((a, b) => b.Songs - a.Songs);
+        
+        // 创建饼图
+        createPieChart(albumData);
+        
+        // 创建柱状图
+        createBarChart(albumData);
+    });
+});
+
+function createPieChart(data) {
+    const width = 400;
+    const height = 400;
+    const radius = Math.min(width, height) / 2;
+    
+    const svg = d3.select("#pie-chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", `translate(${width/2},${height/2})`);
+    
+    // 颜色比例尺
+    const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.Title))
+        .range(d3.schemeTableau10);
+    
+    // 饼图生成器
+    const pie = d3.pie()
+        .value(d => d.Songs)
+        .sort(null);
+    
+    // 弧生成器
+    const arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+    
+    // 创建弧
+    const arcs = svg.selectAll("arc")
+        .data(pie(data))
+        .enter()
+        .append("g")
+        .attr("class", "arc");
+    
+    // 添加路径
+    arcs.append("path")
+        .attr("d", arc)
+        .attr("fill", d => color(d.data.Title))
+        .attr("stroke", "white")
+        .attr("stroke-width", 2)
+        .transition()
+        .duration(1000)
+        .attrTween("d", function(d) {
+            const interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+            return function(t) {
+                return arc(interpolate(t));
+            };
+        });
+    
+    // 添加标签
+    arcs.append("text")
+        .attr("transform", d => `translate(${arc.centroid(d)})`)
+        .attr("dy", "0.35em")
+        .text(d => d.data.Songs)
+        .style("text-anchor", "middle")
+        .style("font-size", "12px")
+        .style("font-weight", "bold")
+        .style("fill", "white");
+    
+    // 添加图例
+    const legend = d3.select("#pie-chart")
+        .append("div")
+        .attr("class", "legend")
+        .style("display", "grid")
+        .style("grid-template-columns", "repeat(2, 1fr)")
+        .style("gap", "8px")
+        .style("margin-top", "20px");
+    
+    const legendItems = legend.selectAll(".legend-item")
+        .data(data)
+        .enter()
+        .append("div")
+        .attr("class", "legend-item")
+        .style("display", "flex")
+        .style("align-items", "center")
+        .style("font-size", "12px");
+    
+    legendItems.append("div")
+        .style("width", "12px")
+        .style("height", "12px")
+        .style("background-color", d => color(d.Title))
+        .style("margin-right", "5px");
+    
+    legendItems.append("div")
+        .text(d => `${d.Title} (${d.Songs})`);
+}
+
+function createBarChart(data) {
+    const margin = {top: 20, right: 30, bottom: 40, left: 90};
+    const width = 500 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
+    
+    const svg = d3.select("#bar-chart")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+    
+    // 颜色比例尺
+    const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.Title))
+        .range(d3.schemeTableau10);
+    
+    // X轴比例尺
+    const x = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.Songs)])
+        .range([0, width]);
+    
+    // Y轴比例尺
+    const y = d3.scaleBand()
+        .domain(data.map(d => d.Title))
+        .range([0, height])
+        .padding(0.2);
+    
+    // 添加条形
+    svg.selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("y", d => y(d.Title))
+        .attr("width", 0)
+        .attr("height", y.bandwidth())
+        .attr("fill", d => color(d.Title))
+        .transition()
+        .duration(1000)
+        .attr("width", d => x(d.Songs));
+    
+    // 添加数值标签
+    svg.selectAll(".label")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr("class", "label")
+        .attr("x", d => x(d.Songs) + 5)
+        .attr("y", d => y(d.Title) + y.bandwidth()/2)
+        .attr("dy", "0.35em")
+        .text(d => d.Songs)
+        .style("font-size", "12px")
+        .style("fill", "#333");
+    
+    // 添加Y轴
+    svg.append("g")
+        .call(d3.axisLeft(y).tickSize(0))
+        .selectAll("text")
+        .style("font-size", "12px");
+    
+    // 添加X轴
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x).ticks(5))
+        .selectAll("text")
+        .style("font-size", "12px");
+}
     </script>
 </body>
 </html>
