@@ -414,6 +414,18 @@
 
     <script>
         
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("padding", "8px")
+        .style("background", "rgba(0,0,0,0.8)")
+        .style("color", "white")
+        .style("border-radius", "4px")
+        .style("pointer-events", "none")
+        .style("font-size", "14px")
+        .style("z-index", "10");
+    
     // 添加IntersectionObserver监听
     const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -443,11 +455,37 @@
 
     <script>
         // 在现有script后添加
+const albumColors = {
+    "Taylor Swift": "#1D4737", // 首专红
+    "Fearless": "#CBA863",    // 金色
+    "Speak Now": "#833C63",   // 紫色
+    "Red": "#A91E47",         // 正红
+    "1989": "#846578",        // 道奇蓝
+    "Reputation": "#2C2C2C",  // 黑色
+    "Lover": "#EBBED3",       // 浅粉
+    "Folklore": "#949494",    // 灰色
+    "Evermore": "#421E18",    // 马鞍棕
+    "Fearless (TV)": "#624324", // 同Fearless
+    "Red (TV)": "#731803",      // 同Red
+    "Midnights": "#5A658B",    // 午夜蓝
+    "Speak Now (TV)": "#4a2454", // 同Speak Now
+    "1989 (TV)": "#8BB5D2",     // 同1989
+    "TTPD": "#1C160F"          // 勃艮第红
+};
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // 加载数据
     d3.tsv("https://calvinxiaocao.github.io/taylor-swift/data/cots-album-details.tsv").then(function(data) {
+            data.forEach(d => {
+            if(d.Title === "The Tortured Poets Department") {
+                d.Title = "TTPD";
+            }
+        });
         // 过滤掉"Other Songs"
         const albumData = data.filter(d => d.Title !== "Other Songs");
+
         
         // 转换数据类型
         albumData.forEach(d => {
@@ -468,8 +506,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function createPieChart(data) {
-    const width = 400;
-    const height = 400;
+    const width = window.innerWidth < 768 ? 200 : 400;
+    const height = window.innerWidth < 768 ? 250 : 400;
     const radius = Math.min(width, height) / 2;
     
     const svg = d3.select("#pie-chart")
@@ -479,10 +517,10 @@ function createPieChart(data) {
         .append("g")
         .attr("transform", `translate(${width/2},${height/2})`);
     
-    // 颜色比例尺
+
     const color = d3.scaleOrdinal()
-        .domain(data.map(d => d.Title))
-        .range(d3.schemeTableau10);
+    .domain(data.map(d => d.Title))
+    .range(data.map(d => albumColors[d.Title] || "#999999"));
     
     // 饼图生成器
     const pie = d3.pie()
@@ -507,14 +545,32 @@ function createPieChart(data) {
         .attr("fill", d => color(d.data.Title))
         .attr("stroke", "white")
         .attr("stroke-width", 2)
-        .transition()
-        .duration(1000)
-        .attrTween("d", function(d) {
-            const interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
-            return function(t) {
-                return arc(interpolate(t));
-            };
+        // .attrTween("d", function(d) {
+        //     const interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+        //     return function(t) {
+        //         return arc(interpolate(t));
+        //     };
+        // })
+        .on("mouseover", function(event, d) {
+            d3.select(this)
+                .attr("stroke-width", 4)
+                .attr("stroke", "#333");
+            
+            tooltip.html(`${d.data.Title}<br>${d.data.Songs}首`)
+                .style("visibility", "visible");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("top", `${event.pageY - 10}px`)
+                .style("left", `${event.pageX + 10}px`);
+        })
+        .on("mouseout", function() {
+            d3.select(this)
+                .attr("stroke-width", 2)
+                .attr("stroke", "white");
+            
+            tooltip.style("visibility", "hidden");
         });
+        
     
     // 添加标签
     arcs.append("text")
@@ -528,12 +584,17 @@ function createPieChart(data) {
     
     // 添加图例
     const legend = d3.select("#pie-chart")
-        .append("div")
-        .attr("class", "legend")
-        .style("display", "grid")
-        .style("grid-template-columns", "repeat(2, 1fr)")
-        .style("gap", "8px")
-        .style("margin-top", "20px");
+    .append("div")
+    .attr("class", "legend")
+    .style("display", "grid")
+    .style("grid-template-columns", "repeat(3, 1fr)") // 改为3列
+    .style("gap", "6px") // 缩小间隙
+    // .style("margin-top", "20px")
+    .style("position", "absolute") // 新增
+    .style("bottom", "20px") // 新增 - 放到底部
+    .style("left", "0") // 新增
+    .style("right", "0") // 新增
+    .style("padding", "0 20px"); // 新增 - 左右留白
     
     const legendItems = legend.selectAll(".legend-item")
         .data(data)
@@ -555,9 +616,15 @@ function createPieChart(data) {
 }
 
 function createBarChart(data) {
-    const margin = {top: 20, right: 30, bottom: 40, left: 90};
-    const width = 500 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    let margin = {top: 20, right: 30, bottom: 40, left: 90};
+    let width = 500 - margin.left - margin.right;
+    let height = 400 - margin.top - margin.bottom;
+
+    if (window.innerWidth < 768) {
+        width = width / 2;
+        height = height / 2;
+        margin = {top: 8, right: 8, bottom: 8, left: 90};
+    }
     
     const svg = d3.select("#bar-chart")
         .append("svg")
@@ -568,8 +635,8 @@ function createBarChart(data) {
     
     // 颜色比例尺
     const color = d3.scaleOrdinal()
-        .domain(data.map(d => d.Title))
-        .range(d3.schemeTableau10);
+    .domain(data.map(d => d.Title))
+    .range(data.map(d => albumColors[d.Title] || "#999999"));
     
     // X轴比例尺
     const x = d3.scaleLinear()
@@ -591,9 +658,22 @@ function createBarChart(data) {
         .attr("width", 0)
         .attr("height", y.bandwidth())
         .attr("fill", d => color(d.Title))
-        .transition()
-        .duration(1000)
-        .attr("width", d => x(d.Songs));
+        // .transition()
+        // .duration(1000)
+        .attr("width", d => x(d.Songs))
+        .on("mouseover", function(event, d) {
+            d3.select(this).attr("opacity", 0.8);
+            tooltip.html(`${d.Title}<br>${d.Songs}首`)
+                .style("visibility", "visible");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("top", `${event.pageY - 10}px`)
+                .style("left", `${event.pageX + 10}px`);
+        })
+        .on("mouseout", function() {
+            d3.select(this).attr("opacity", 1);
+            tooltip.style("visibility", "hidden");
+        });
     
     // 添加数值标签
     svg.selectAll(".label")
@@ -620,6 +700,14 @@ function createBarChart(data) {
         .call(d3.axisBottom(x).ticks(5))
         .selectAll("text")
         .style("font-size", "12px");
+
+    svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", height + margin.bottom - 2)  // 放在X轴下方
+    .attr("text-anchor", "middle")
+    .style("font-size", "18px")
+    .style("font-weight", "bold")
+    .text(`共 ${d3.sum(data, d => d.Songs)} 首歌曲`);
 }
     </script>
 </body>

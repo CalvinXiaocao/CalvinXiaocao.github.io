@@ -32,14 +32,68 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* 响应式布局 */
+
+
+#pie-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* 可选，增加内边距 */
+    position: relative; /* 为图例绝对定位提供参照 */
+    padding-bottom: 100px; /* 为底部图例留出空间 */
+}
+
+#pie-chart svg {
+    display: block; /* 消除SVG默认的inline间隙 */
+}
+
+/* 手机端样式调整 */
 @media (max-width: 768px) {
     .visualization-container {
         flex-direction: column;
         gap: 20px;
     }
     
-    .overview-title h2 {
-        font-size: 2rem;
+    /* 调整图表大小 */
+    #pie-chart, #bar-chart {
+        transform: scale(0.85); /* 缩小到85% */
+        transform-origin: top center;
+        margin: -30px 0; /* 抵消缩放产生的空白 */
     }
+
+    .overview-title p {
+        display: none;
+    }
+
+    #pie-chart svg {
+        margin-top: 0;
+    }
+    
+    /* 调整图例位置 */
+    #pie-chart .legend {
+        position: relative;
+        bottom: auto;
+        margin-top: 0;
+        grid-template-columns: repeat(2, 1fr); /* 改为2列 */
+    }
+    
+    /* 调整柱状图布局 */
+    #bar-chart svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* 添加到CSS中 */
+.tooltip {
+    position: absolute;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 14px;
+    z-index: 10;
+    visibility: hidden;
 }
