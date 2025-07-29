@@ -9,9 +9,23 @@
             margin: 0;
             padding: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            overflow: hidden;
         }
         
+        /* 新增全页面滚动容器 */
+        .scroll-wrapper {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+        
+        /* 修改所有screen类为滚动吸附点 */
+        .cover-container,
+        .screen-intro {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+        }
+
         /* 全屏封面容器 - 默认显示横版图 */
         .cover-container {
             height: 100vh;
@@ -69,17 +83,129 @@
             40% {transform: translateY(-20px);}
             60% {transform: translateY(-10px);}
         }
+
+
+        /* 第二页容器 */
+        .screen-intro {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            background: linear-gradient(135deg, #eeede9 0%, #edece8 100%); /* 土金渐变 */
+            color: #2C3E50; /* 深蓝灰色文字 */
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        /* 内容容器 */
+        .intro-container {
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            width: 100%;
+        }
+
+
+        @media (min-width: 769px) {
+            .intro-container {
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
+
+        
+        /* 文字内容 */
+        .intro-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        /* Introduction 标题字体 */
+        .intro-content h2 {
+            font-family: 'Helvetica Neue', 'Times New Roman', serif; /* 更典雅的字体 */
+            font-size: 2.8rem; /* 稍大字号 */
+            letter-spacing: 1px; /* 字间距 */
+            margin-bottom: 2rem; /* 增加下边距 */
+            color: #34495E; /* 深灰色标题 */
+        }
+        
+        .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            max-width: 70ch; /* 从默认约30em增加到38em（约60字符/行） */
+        }
+        
+        
+        .intro-image img {
+            max-width: 90%;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: transparent;
+        }
+        
+        /* 移动端布局 */
+        @media (max-width: 768px) {
+            .screen-intro {
+                padding: 20px;
+            }
+            
+            .intro-container {
+                flex-direction: column;
+            }
+            
+            .intro-content {
+                order: 2;
+                padding: 20px 0;
+            }
+            
+            .intro-image img {
+                max-height: 50vh; /* 手机端适当缩小图片 */
+            }
+            
+            .intro-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* 电脑端图文间距 */
+        @media (min-width: 769px) {
+            .intro-container {
+                gap: 60px; /* 新增：图文间距 */
+            }
+            .intro-content {
+                padding-right: 60px; /* 文字区域右间距 */
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="scroll-wrapper">
     <div class="cover-container">
         <div class="cover-title">
-            <h1>The Era's Tour on Data</h1>
+            <h1>The Eras Tour on Data</h1>
             <p>用数据穿越 Taylor Swift 的音乐纪元</p>
         </div>
         <div class="scroll-hint">
             ↓ 向下滚动 ↓
         </div>
+    </div>
+
+    <section class="screen-intro">
+        <div class="intro-container">
+            <div class="intro-content">
+                <h2>Introduction</h2>
+                <p>泰勒·斯威夫特 (Taylor Swift) 是21世纪最具影响力的音乐人之一，拥有11张录音室专辑，全球销量超过2亿张。她的音乐跨越乡村、流行、民谣等多种风格，获得12座格莱美奖，创下多项音乐行业纪录。</p>
+                <p>2025年5月，Taylor Swift 以3.6亿美元的价格成功回购了她前六张专辑的母带版权，结束了与 Big Machine 公司长达六年的版权斗争。这一举动标志着她重新获得了对自己全部音乐作品的控制权，成为艺术家自主权的里程碑事件。</p>
+                <p>她的"Eras Tour"巡演成为史上最成功的商业巡演，总收入超过20.77亿美元，远超此前纪录保持者。最新专辑《The Tortured Poets Department》（苦难诗社）于2024年发行后继续打破多项销售纪录。</p>
+                <p>下面，让我们一起来走进这场 Eras Tour on Data，探索 Taylor Swift 从乡村音乐少女到流行天后的蜕变历程，用数据揭示她音乐宇宙中的创作密码与时代印记。</p>
+            </div>
+            <div class="intro-image">
+                <!-- 替换为你的图片路径 -->
+                <img src="https://www.taylorswift.com/wp-content/uploads/sites/2529/2025/06/tletter1-768x768.png" alt="Taylor Swift">
+            </div>
+        </div>
+    </section>
     </div>
 </body>
 </html>
