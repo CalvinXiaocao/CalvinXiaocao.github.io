@@ -408,7 +408,9 @@
         
         <div class="visualization-container">
             <div id="pie-chart" class="chart"></div>
-            <div id="bar-chart" class="chart"></div>
+            <div id="bar-chart" class="chart">
+                <p>共计 230 首歌曲，其中 TTPD 专辑歌曲数目最多（包含黑胶专辑）</p>
+            </div>
         </div>
     </section>
 
@@ -735,6 +737,9 @@ function createBarChart(data) {
 }
 
 function drawStreamsChart(data) {
+
+const albumIndexMap = new Map(data.map((d, i) => [d.Code, i]));
+
   // 1. 设置图表尺寸和边距
   const margin = {top: 40, right: 40, bottom: 60, left: 60};
   const width = 800 - margin.left - margin.right;
@@ -750,7 +755,7 @@ function drawStreamsChart(data) {
 
   // 3. 定义比例尺（注意：x轴使用索引保持原始顺序）
 const x = d3.scaleBand()
-  .domain(data.map((d, i) => i)) // 直接使用专辑名
+  .domain(data.map((d, i) => d.Code)) // 直接使用专辑名
   .range([0, width])
   .padding(0.2);
 
@@ -782,6 +787,14 @@ const yAxis = g => g
 svg.append("g").call(xAxis);
 svg.append("g").call(yAxis);
 
+//   svg.append("g")
+//     .attr("transform", `translate(0,${height})`)
+//     .call(d3.axisBottom(x).tickSize(0)) // 先隐藏默认标签
+//     .selectAll(".tick text")
+//     .text((d, i) => data[i].Album) // 自定义标签
+//     .style("font-size", "10px")
+//     .attr("transform", "rotate(-40)")
+//     .attr("text-anchor", "end");
 // 3.3 添加坐标轴标题
 svg.append("text")
     .attr("x", width / 2)
@@ -799,7 +812,7 @@ svg.append("text")
 
   // 4. 绘制折线
   const line = d3.line()
-    .x((d, i) => x(i) + x.bandwidth() / 2)
+    .x(d => x(d.Code) + x.bandwidth() / 2)
     .y(d => y(d.Streams));
 
   svg.append("path")
@@ -824,7 +837,7 @@ svg.selectAll(".dot")
     .enter()
     .append("circle")
     .attr("class", "dot")
-    .attr("cx", (d, i) => x(i) + x.bandwidth() / 2)
+    .attr("cx", d => x(d.Code) + x.bandwidth() / 2)
     .attr("cy", d => y(d.Streams))
     .attr("r", 6)
     .attr("fill", "#FF8C00")
