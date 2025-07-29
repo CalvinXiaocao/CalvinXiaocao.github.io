@@ -167,16 +167,21 @@
             
             .intro-content {
                 order: 2;
-                padding: 20px 0;
+                padding: 0;
+                width: 100%;
             }
 
             .intro-content p {
-                min-width: none;
+                width: 100% auto;
+                min-width: 0;
+                max-width: 100%;
+                padding: 0 15px; /* 添加左右内边距 */
+                box-sizing: border-box;
             }
             
             .intro-image img {
                 margin: 0 auto;
-                max-width: 50%; /* 手机端适当缩小图片 */
+                max-width: 60%; /* 手机端适当缩小图片 */
                 display: table-cell;
             }
             
