@@ -22,7 +22,8 @@
         .cover-container,
         .screen-intro,
         .screen-albums,
-        .screen-overview {
+        .screen-overview,
+        .screen-streams {
             height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
@@ -96,6 +97,7 @@
     <style>@import url("css/page2.css");</style>
     <style>@import url("css/page3.css");</style>
     <style>@import url("css/page4.css");</style>
+    <style>@import url("css/page5.css");</style>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
@@ -410,6 +412,26 @@
         </div>
     </section>
 
+    <section class="screen-streams" id="streams-chart-section">
+    <div class="chart-container">
+        <h2>Streams of Albums</h2>
+        <p>鼠标悬停查看详细数据</p>
+        <div class="chart-wrapper">
+        <svg id="streams-chart"></svg>
+        </div>
+        <p class="chart-note">数据来源：Spotify (2025年4月11日统计)，将Taylor's Version与原版合并</p>
+        <div class="chart-analysis">
+        <h3>数据解读</h3>
+        <ul>
+            <li><strong>1989</strong>：转型流行音乐后的巅峰之作，单日最高播放量达1.2亿次</li>
+            <li><strong>Folklore/Evermore</strong>：疫情期另类风格获得艺术突破</li>
+            <li><strong>Red (TV)</strong>：重录版发行后流量暴涨300%</li>
+        </ul>
+        </div>
+    </div>
+    
+    </section>
+
     </div>
 
     <script>
@@ -485,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         // 过滤掉"Other Songs"
         const albumData = data.filter(d => d.Title !== "Other Songs");
-
+        const originData = data.filter(d => d.Title !== "Other Songs");
         
         // 转换数据类型
         albumData.forEach(d => {
@@ -502,6 +524,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 创建柱状图
         createBarChart(albumData);
+
+        drawStreamsChart(originData);
     });
 });
 
@@ -708,6 +732,122 @@ function createBarChart(data) {
     .style("font-size", "18px")
     .style("font-weight", "bold")
     .text(`共 ${d3.sum(data, d => d.Songs)} 首歌曲`);
+}
+
+function drawStreamsChart(data) {
+  // 1. 设置图表尺寸和边距
+  const margin = {top: 40, right: 40, bottom: 60, left: 60};
+  const width = 800 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
+
+  // 2. 创建SVG画布
+  const svg = d3.select("#streams-chart")
+    .attr("width", "100%") // 响应式宽度
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // 3. 定义比例尺（注意：x轴使用索引保持原始顺序）
+const x = d3.scaleBand()
+  .domain(data.map((d, i) => i)) // 直接使用专辑名
+  .range([0, width])
+  .padding(0.2);
+
+const y = d3.scaleLinear()
+  .domain([0, d3.max(data, d => d.Streams) * 1.6])
+  .range([height, 0]);
+
+const xAxis = g => g
+  .attr("transform", `translate(0,${height})`)
+  .call(d3.axisBottom(x))
+  .call(g => g.select(".domain").remove())
+  .call(g => g.selectAll("text")
+    .attr("transform", "rotate(-40)")
+    .style("text-anchor", "end")
+    .attr("dx", "-0.5em")
+    .attr("dy", "0.5em")
+    .style("font-size", "10px")); // 统一字号
+
+const yAxis = g => g
+  .call(d3.axisLeft(y)
+    .tickFormat(d => `${d}亿次`)
+    .tickSizeOuter(0))
+  .call(g => g.select(".domain").remove())
+  .call(g => g.selectAll(".tick text")
+    .style("text-anchor", "end") // 右对齐
+    .style("font-size", "12px"));
+
+// 3.2 绘制坐标轴
+svg.append("g").call(xAxis);
+svg.append("g").call(yAxis);
+
+// 3.3 添加坐标轴标题
+svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", height + margin.bottom - 10)
+    .attr("text-anchor", "middle")
+    .text("专辑发行顺序");
+
+svg.append("text")
+    .attr("x", -margin.left)  // 更靠左
+    .attr("y", -15)           // 上方偏移量
+    .attr("text-anchor", "start")  // 左对齐
+    .style("font-size", "13px")
+    .style("font-weight", "bold")
+    .text("Spotify播放量（亿次）");
+
+  // 4. 绘制折线
+  const line = d3.line()
+    .x((d, i) => x(i) + x.bandwidth() / 2)
+    .y(d => y(d.Streams));
+
+  svg.append("path")
+    .datum(data)
+    .attr("fill", "none")
+    .attr("stroke", "#FF8C00")
+    .attr("stroke-width", 3)
+    .attr("d", line);
+
+  // 5. 添加坐标轴（示例代码，需完整实现）
+  // ... (x轴显示专辑名称，y轴显示"亿次")
+
+const tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute") // 新增
+    .style("z-index", "9999") // 新增
+    .style("opacity", 0);
+
+// 4.1 绘制圆形交互点
+svg.selectAll(".dot")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("class", "dot")
+    .attr("cx", (d, i) => x(i) + x.bandwidth() / 2)
+    .attr("cy", d => y(d.Streams))
+    .attr("r", 6)
+    .attr("fill", "#FF8C00")
+    .attr("stroke", "white")
+    .attr("stroke-width", 2)
+    .on("mouseover", function(event, d) {
+        tooltip
+            .html(`
+                <div class="tooltip-title">${d.Title}</div>
+                <div>播放量: <strong>${d.Streams}亿次</strong></div>
+                <div>发行年: ${d.ReleaseDate?.split("-")[0] || d.Year}</div>
+            `)
+            .style("left", `${event.pageX + 15}px`)
+            .style("top", `${event.pageY - 45}px`)
+            .transition()
+            .duration(100)
+            .style("opacity", 1);
+    })
+    .on("mouseout", function() {
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+    });
 }
     </script>
 </body>

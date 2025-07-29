@@ -1,17 +1,41 @@
 /* 新增样式 */
 #streams-chart-section {
   background: linear-gradient(to right, #f5f7fa 0%, #e4e8eb 100%);
+  min-height: 100vh; /* 确保撑满屏幕高度 */
+}
+
+.chart-wrapper {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 移动端调整 */
+@media (max-width: 768px) {
+  .chart-wrapper {
+    padding: 10px;
+  }
 }
 
 .chart-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 新增 */
+}
+
+.chart-container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
 }
 
 #streams-chart {
-  width: 100%;
-  height: 500px;
+  display: block;
+  margin: 0 auto; /* 新增 */
 }
 
 .chart-note {
@@ -23,4 +47,63 @@
 /* 移动端适配 */
 @media (max-width: 768px) {
   #streams-chart { height: 300px; }
+  .chart-container {
+    aspect-ratio: 20/9;
+    padding: 0;
+    width: 90%;
+  }
+}
+
+.tooltip {
+    background: rgba(0,0,0,0.85);
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    pointer-events: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    max-width: 200px;
+    display: block !important; /* 覆盖所有潜在隐藏设置 */
+    visibility: visible;
+}
+
+.chart-wrapper, #streams-chart {
+    overflow: visible !important;
+}
+
+.tooltip-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #FFD700;
+}
+
+
+.chart-analysis {
+  max-width: 800px;
+  margin: 10px auto 0;
+  /* padding: 20px; */
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+
+.chart-analysis h3 {
+  color: #846578;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.chart-analysis ul {
+  padding-left: 20px;
+}
+
+.chart-analysis li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .chart-analysis {
+    padding: 15px;
+    margin-top: 20px;
+  }
 }
