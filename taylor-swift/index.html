@@ -20,7 +20,8 @@
         
         /* 修改所有screen类为滚动吸附点 */
         .cover-container,
-        .screen-intro {
+        .screen-intro,
+        .screen-albums {
             height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
@@ -77,6 +78,12 @@
             bottom: 30px;
             animation: bounce 2s infinite;
         }
+
+        /* 当页面滚动到第二页时 */
+        body.scrolled .scroll-hint {
+        color: black;
+        text-shadow: 0 1px 3px rgba(255,255,255,0.3);
+        }
         
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
@@ -84,122 +91,9 @@
             60% {transform: translateY(-10px);}
         }
 
-
-        /* 第二页容器 */
-        .screen-intro {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            background: linear-gradient(135deg, #eeede9 0%, #edece8 100%); /* 土金渐变 */
-            color: #2C3E50; /* 深蓝灰色文字 */
-            padding: 40px;
-            box-sizing: border-box;
-        }
-        
-        /* 内容容器 */
-        .intro-container {
-            display: flex;
-            margin: 0 auto;
-            align-items: center;
-            width: 100%;
-        }
-
-        /* 电脑端显示完整内容 */
-        .full-text { display: block; }
-        .short-text { display: none; }
-
-        /* 手机端显示精简内容 */
-        @media (max-width: 768px) {
-        .full-text { display: none; }
-        .short-text { display: block; }
-        }
-
-
-        @media (min-width: 769px) {
-            .intro-container {
-                margin-left: 10% auto;
-                margin-right: 10% auto;
-            }
-        }
-
-        
-        /* 文字内容 */
-        .intro-content {
-            flex: 1;
-            padding: 0 40px;
-        }
-
-        /* Introduction 标题字体 */
-        .intro-content h2 {
-            font-family: 'Helvetica Neue', 'Times New Roman', serif; /* 更典雅的字体 */
-            font-size: 2.8rem; /* 稍大字号 */
-            letter-spacing: 1px; /* 字间距 */
-            margin-bottom: 2rem; /* 增加下边距 */
-            color: #34495E; /* 深灰色标题 */
-        }
-        
-        .intro-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            max-width: 70ch; /* 从默认约30em增加到38em（约60字符/行） */
-            min-width: 30em;
-        }
-        
-        
-        .intro-image img {
-            max-width: 90%;
-            max-height: 70vh;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            background: transparent;
-        }
-        
-        /* 移动端布局 */
-        @media (max-width: 768px) {
-            .screen-intro {
-                padding: 20px;
-            }
-            
-            .intro-container {
-                flex-direction: column;
-            }
-            
-            .intro-content {
-                order: 2;
-                padding: 0;
-                width: 100%;
-            }
-
-            .intro-content p {
-                width: 100% auto;
-                min-width: 0;
-                max-width: 100%;
-                padding: 0 15px; /* 添加左右内边距 */
-                box-sizing: border-box;
-            }
-            
-            .intro-image img {
-                margin: 0 auto;
-                max-width: 60%; /* 手机端适当缩小图片 */
-                display: table-cell;
-            }
-            
-            .intro-content h2 {
-                font-size: 2rem;
-            }
-        }
-
-        /* 电脑端图文间距 */
-        @media (min-width: 769px) {
-            .intro-container {
-                gap: 60px; /* 新增：图文间距 */
-            }
-            .intro-content {
-                padding-right: 60px; /* 文字区域右间距 */
-            }
-        }
     </style>
+    <style>@import url("css/page2.css");</style>
+    <style>@import url("css/page3.css");</style>
 </head>
 <body>
     <div class="scroll-wrapper">
@@ -230,6 +124,305 @@
             </div>
         </div>
     </section>
+
+    <section class="screen-albums">
+        <div class="albums-title">
+            <h2>The Eras Collection</h2>
+            <p>点击专辑标志查看封面</p>
+        </div>
+        
+        <div class="albums-grid">
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Taylor-Swift.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Taylor Swift</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Taylor-Swift.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Fearless.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Fearless</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Fearless.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Speak-Now.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Speak Now</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Speak-Now.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Red.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Red</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Red.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-1989.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">1989</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-1989.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Reputation.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Reputation</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Reputation.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Lover.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Lover</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Lover.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Folklore.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Folklore</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Folklore.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Evermore.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Evermore</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Evermore.png" 
+                            alt="Taylor Swift"
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Fearless-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Fearless (TV)</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Fearless-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Red-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Red (TV)</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Red-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Midnights.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Midnights</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Midnights.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-Speak-Now-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">Speak Now (TV)</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-Speak-Now-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-1989-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">1989 (TV)</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-1989-TV.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="album-card" data-album="taylor-swift">
+                <div class="album-card-inner">
+                    <div class="album-card-front">
+                        <img src="img/logo-TTPD.png" 
+                            alt="Taylor Swift" 
+                            class="album-logo">
+                        <p class="album-name">TTPD</p>
+                    </div>
+                    <div class="album-card-back">
+                        <img src="img/img-TTPD.png" 
+                            alt="Taylor Swift" 
+                            class="album-cover"
+                            note="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 复制上面的div，替换为其他14个专辑 -->
+        </div>
+    </section>
+
     </div>
+
+    <script>
+        
+    // 添加IntersectionObserver监听
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const scrollHint = document.querySelector('.scroll-hint');
+        if (entry.isIntersecting && (entry.target.classList.contains('screen-intro')||entry.target.classList.contains('screen-albums'))) {
+        scrollHint.style.color = 'black';
+        } else {
+        scrollHint.style.color = 'white';
+        }
+    });
+    }, { threshold: 0.5 });
+
+    // 监听第二页
+    observer.observe(document.querySelector('.screen-intro'));
+    observer.observe(document.querySelector('.screen-albums'));
+    </script>
+
+    <script>
+        // 专辑翻牌效果
+        document.querySelectorAll('.album-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+        });
+    </script>
 </body>
 </html>

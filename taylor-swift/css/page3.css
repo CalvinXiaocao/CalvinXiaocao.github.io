@@ -1,0 +1,135 @@
+/* 第三页 - 翻牌式专辑展示 */
+.screen-albums {
+    background: linear-gradient(135deg, #eeede9 0%, #edece8 100%);
+    padding: 40px;
+    box-sizing: border-box;
+    min-height: 100vh; /* 改为min-height以适应内容高度 */
+}
+
+.albums-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2C3E50;
+}
+
+.albums-title h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 25px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.album-card {
+    aspect-ratio: 712/488;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.album-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border: 3px solid #d4af37; /* 金色边框 */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.album-card.flipped .album-card-inner {
+    transform: rotateY(180deg);
+}
+
+.album-card-front, 
+.album-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 5px;
+    background: white;
+    display: flex;
+    flex-direction: column; /* 改为垂直布局 */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.album-card-back {
+    transform: rotateY(180deg);
+}
+
+.album-cover{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.album-logo{
+max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .albums-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .albums-title h2 {
+        font-size: 2rem;
+    }
+}
+
+.album-name {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #2C3E50;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+@media (max-width: 768px) {
+    .albums-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* 手机端缩小卡片 */
+        gap: 12px; /* 缩小间隙 */
+        max-width: 400px;
+    }
+    
+    .album-card{
+        aspect-ratio: 712/518;
+    }
+    .album-card-front, 
+    .album-card-back {
+        padding: 2.5px; /* 减少内边距 */
+        justify-content: space-between; /* 均匀分布空间 */
+    }
+    
+    .album-card-inner {
+        border-width: 2px; /* 手机端边框变细 */
+    }
+    
+    .album-name {
+        font-size: 0.8rem; /* 手机端字体缩小 */
+        margin-top: 3px; /* 减少间距 */
+        margin-bottom: 0 auto;
+    }
+
+    .album-card {
+        max-width: 120px;
+    }
+}

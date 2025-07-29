@@ -1,0 +1,114 @@
+/* 第二页容器 */
+.screen-intro {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background: linear-gradient(135deg, #eeede9 0%, #edece8 100%); /* 土金渐变 */
+    color: #2C3E50; /* 深蓝灰色文字 */
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* 内容容器 */
+.intro-container {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+}
+
+/* 电脑端显示完整内容 */
+.full-text { display: block; }
+.short-text { display: none; }
+
+/* 手机端显示精简内容 */
+@media (max-width: 768px) {
+.full-text { display: none; }
+.short-text { display: block; }
+}
+
+
+@media (min-width: 769px) {
+    .intro-container {
+        margin-left: 10% auto;
+        margin-right: 10% auto;
+    }
+}
+
+
+/* 文字内容 */
+.intro-content {
+    flex: 1;
+    padding: 0 40px;
+}
+
+/* Introduction 标题字体 */
+.intro-content h2 {
+    font-family: 'Helvetica Neue', 'Times New Roman', serif; /* 更典雅的字体 */
+    font-size: 2.8rem; /* 稍大字号 */
+    letter-spacing: 1px; /* 字间距 */
+    margin-bottom: 2rem; /* 增加下边距 */
+    color: #34495E; /* 深灰色标题 */
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 70ch; /* 从默认约30em增加到38em（约60字符/行） */
+    min-width: 30em;
+}
+
+
+.intro-image img {
+    max-width: 90%;
+    max-height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: transparent;
+}
+
+/* 移动端布局 */
+@media (max-width: 768px) {
+    .screen-intro {
+        padding: 20px;
+    }
+    
+    .intro-container {
+        flex-direction: column;
+    }
+    
+    .intro-content {
+        order: 2;
+        padding: 0;
+        width: 100%;
+    }
+
+    .intro-content p {
+        width: 100% auto;
+        min-width: 0;
+        max-width: 100%;
+        padding: 0 15px; /* 添加左右内边距 */
+        box-sizing: border-box;
+    }
+    
+    .intro-image img {
+        margin: 0 auto;
+        max-width: 60%; /* 手机端适当缩小图片 */
+        display: table-cell;
+    }
+    
+    .intro-content h2 {
+        font-size: 2rem;
+    }
+}
+
+/* 电脑端图文间距 */
+@media (min-width: 769px) {
+    .intro-container {
+        gap: 60px; /* 新增：图文间距 */
+    }
+    .intro-content {
+        padding-right: 60px; /* 文字区域右间距 */
+    }
+}
