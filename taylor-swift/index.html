@@ -825,6 +825,70 @@
 
     </section>
 
+    <!-- Lover 部分 -->
+    <section class="album-section" id="lover-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-Lover.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">Lover</h2>
+                    <p class="album-subtitle">彩虹光谱下的浪漫革命 · 2019年全美音乐奖年度专辑</p>
+                    <p class="album-brief">合成器流行的粉色浪潮，爱与平等的宣言书</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="album-info-page" style="background: linear-gradient(135deg, #8C4F66, #B8396B)">
+            <div class="album-info-container">
+                <div class="album-info-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Taylor_Swift_-_Lover.png" 
+                        alt="Taylor Swift Album Cover">
+                </div>
+                <div class="album-info-text">
+                    <h3 style="color:#8C4F66; border-bottom: 2px solid #B8396B">专辑介绍</h3>
+                        <p>《Lover》是泰勒·斯威夫特第七张录音室专辑，于2019年8月23日发行。这张充满粉色调的专辑标志着她在《reputation》暗黑风格后的华丽转身，18首歌曲涵盖流行、合成器、乡村等多种风格。其中《Cruel Summer》虽初发行未作为单曲推广，却在2023年因巡演效应爆红，成为泰勒流媒体播放量最高的歌曲之一。</p>
+            <p>专辑获得2019年全美音乐奖「年度专辑」，并诞生了《ME!》《You Need To Calm Down》《Lover》三支冠军单曲。特别的是，泰勒通过《The Man》探讨性别不平等，在《Soon You'll Get Better》中首次公开谈论母亲患癌经历，展现了前所未有的创作深度。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三页：词云图 -->
+        <section class="wordcloud-page" style="background: linear-gradient(135deg, #B8396B, #76BAE0)">
+            <div class="wordcloud-container">
+                <h3 style="color:#E7E7E7">歌词词云</h3>
+                <p style="color:#E7E7E7">本专辑高频词汇可视化</p>
+                
+                <div class="wordcloud-image-container">
+                    <!-- 替换为你的词云图路径 -->
+                    <img src="wordclouds/LVR_wordcloud.png" alt="Reputation专辑词云" class="wordcloud-image">
+                </div>
+                
+                <div class="wordcloud-notes">
+                    <p style="color: #E7E7E7">《Lover》中高频的 love、want、know，既是粉色浪漫的直白宣言，也是30岁女性情感表达的成长印记。love既是浪漫告白（《Lover》），也指广义的爱（《The Archer》中自我接纳）。
+</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="topsongs-page" style="background: linear-gradient(135deg, #8C4F66, #B8396B)">
+            <div class="topsongs-container">
+                <h3 style="color: #B8396B">专辑 Top 6 歌曲播放量</h3>
+                <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
+                
+                <div class="chart-container-2">
+                    <svg id="lvr-chart" width="100%" height="400"></svg>
+                </div>
+                
+                <div class="chart-notes">
+                    <p>《Cruel Summer》以26.5亿播放量断层领先，不仅是《Lover》专辑的绝对王者，更成为Taylor职业生涯流媒体表现最强的现象级热单之一。</p>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
     </div>
 
     <script>
@@ -1396,6 +1460,15 @@ document.addEventListener('DOMContentLoaded', function() {
         {name: "Getaway Car", rank: 5, streams: 735114444},
         {name: "Gorgeous", rank: 6, streams: 644571909}
     ];
+
+    const lvrData = [
+        {name: "Cruel Summer", rank: 1, streams: 2651376383},
+        {name: "Lover", rank: 2, streams: 1622204705},
+        {name: "You Need To Calm Down", rank: 3, streams: 1009634809},
+        {name: "Me!", rank: 4, streams: 900157208},
+        {name: "The Man", rank: 5, streams: 861606138},
+        {name: "Paper Rings", rank: 6, streams: 708845737}
+    ];
     
     // 调用函数渲染图表
     renderTopSongsChart("tsw-chart", tsData, "#1D4737");
@@ -1404,6 +1477,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderTopSongsChart("red-chart", redData, "#400303", left=350);
     renderTopSongsChart("nen-chart", nenData, "#5D4E5D", left=250);
     renderTopSongsChart("rep-chart", repData, "#2C2C2C")
+    renderTopSongsChart("lvr-chart", repData, "#8C4F66")
     
     // 其他专辑调用示例 (假设有不同颜色)
     // renderTopSongsChart("fearless-chart", fearlessData, "#D4AF37"); 
