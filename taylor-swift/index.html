@@ -814,11 +814,11 @@
                 <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
                 
                 <div class="chart-container-2">
-                    <svg id="nen-chart" width="100%" height="400"></svg>
+                    <svg id="rep-chart" width="100%" height="400"></svg>
                 </div>
                 
                 <div class="chart-notes">
-                    <p>《Blank Space》以22亿播放量缔造流行神话，前四名均破16亿的恐怖数据，完美诠释何为'时代专辑'！</p>
+                    <p>《Don't Blame Me》以12.8亿播放量险胜《Look What You Made Me Do》，暗黑系三巨头（前3名）集体破10亿，诠释复仇美学的商业威力！</p>
                 </div>
             </div>
         </section>
@@ -1387,6 +1387,15 @@ document.addEventListener('DOMContentLoaded', function() {
         {name: "Bad Blood", rank: 5, streams: 754383719},
         {name: "Out Of The Woods", rank: 6, streams: 503988499}
     ];
+
+    const repData = [
+        {name: "Don't Blame Me", rank: 1, streams: 1282469112},
+        {name: "Look What You Made Me Do", rank: 2, streams: 1247741832},
+        {name: "Delicate", rank: 3, streams: 1083537095},
+        {name: "...Ready For It?", rank: 4, streams: 828328013},
+        {name: "Getaway Car", rank: 5, streams: 735114444},
+        {name: "Gorgeous", rank: 6, streams: 644571909}
+    ];
     
     // 调用函数渲染图表
     renderTopSongsChart("tsw-chart", tsData, "#1D4737");
@@ -1394,6 +1403,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderTopSongsChart("spn-chart", spnData, "#2A122C");
     renderTopSongsChart("red-chart", redData, "#400303", left=350);
     renderTopSongsChart("nen-chart", nenData, "#5D4E5D", left=250);
+    renderTopSongsChart("rep-chart", repData, "#2C2C2C")
     
     // 其他专辑调用示例 (假设有不同颜色)
     // renderTopSongsChart("fearless-chart", fearlessData, "#D4AF37"); 
