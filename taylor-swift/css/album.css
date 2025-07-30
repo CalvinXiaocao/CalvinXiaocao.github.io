@@ -1,9 +1,4 @@
-/* 专辑部分通用样式 */
-.album-section {
-    height: 100vh;
-    width: 100vw;
-    scroll-snap-align: start;
-}
+
 
 /* 专辑封面页样式 */
 .album-cover-page {
@@ -28,7 +23,17 @@
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
 }
+
+@media (max-width: 768px) {
+    .album-title-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
 
 .album-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -138,5 +143,149 @@
     
     .album-info-text p {
         font-size: 1rem;
+    }
+}
+
+
+/* 词云页样式 */
+.wordcloud-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.wordcloud-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 40px;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
+    text-align: center;
+}
+
+.wordcloud-container h3 {
+    font-size: 2rem;
+    color: #1D4737;
+    margin-bottom: 10px;
+}
+
+.wordcloud-container p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.wordcloud-image-container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.wordcloud-image {
+    width: 100%;
+    height: auto;
+    /* 为透明背景的词云添加白色背景 */
+    background-color: white;
+    padding: 10px;
+}
+
+.wordcloud-notes {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+    /* font-style: italic; */
+}
+
+/* 响应式设计 - 手机端 */
+@media (max-width: 768px) {
+    .wordcloud-page {
+        padding: 20px;
+    }
+    
+    .wordcloud-container {
+        padding: 20px;
+    }
+    
+    .wordcloud-container h3 {
+        font-size: 1.5rem;
+    }
+    
+    .wordcloud-container p {
+        font-size: 1rem;
+    }
+    
+    .wordcloud-image-container {
+        padding: 10px;
+    }
+}
+
+/* Top Songs页样式 */
+.topsongs-page {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #1D4737, #81A757);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.topsongs-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.topsongs-container h3 {
+    font-size: 2rem;
+    color: #1D4737;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.topsongs-container p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chart-container-2 {
+    margin: 20px 0;
+}
+
+.chart-notes {
+    font-size: 0.9rem;
+    color: #1D4737;
+    text-align: center;
+    /* font-style: italic; */
+    margin-top: 15px;
+    padding: 0 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .topsongs-container {
+        padding: 20px;
+    }
+    
+    .topsongs-container h3 {
+        font-size: 1.5rem;
+    }
+    
+    #topsongs-chart {
+        height: 350px;
     }
 }

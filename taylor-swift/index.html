@@ -25,7 +25,9 @@
         .screen-overview,
         .screen-streams,
         .album-cover-page,
-        .album-info-page {
+        .album-info-page,
+        .wordcloud-page,
+        .topsongs-page {
             height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
@@ -424,13 +426,13 @@
         <div class="chart-wrapper">
         <svg id="streams-chart"></svg>
         </div>
-        <p class="chart-note">数据来源：Spotify (2025年4月11日统计)，将Taylor's Version与原版合并</p>
+        <p class="chart-note">数据来源：Spotify (2025年4月11日统计)，将Taylor's Version与原版合并。鼠标悬停查看详细信息。</p>
         <div class="chart-analysis">
         <h3>数据解读</h3>
         <ul>
-            <li><strong>1989</strong>：转型流行音乐后的巅峰之作，单日最高播放量达1.2亿次</li>
-            <li><strong>Folklore/Evermore</strong>：疫情期另类风格获得艺术突破</li>
-            <li><strong>Red (TV)</strong>：重录版发行后流量暴涨300%</li>
+            <li><strong>1989</strong>：转型流行音乐后的巅峰之作，原版和重录版播放总量达141.77亿次</li>
+            <li><strong>Lover</strong>：无重录，单张专辑播放总量最高</li>
+            <li><strong>Midnights</strong>：疫情后另类风格获得艺术突破</li>
         </ul>
         </div>
     </div>
@@ -438,42 +440,197 @@
     </section>
 
     <!-- Taylor Swift 同名专辑部分 -->
-<section class="album-section" id="taylor-swift-album">
-    <!-- 第一页：专辑封面背景 + 标题 -->
-    <div class="album-cover-page">
-        <div class="album-cover-background" 
-             style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
-                    url('img/img-Taylor-Swift.png') center/cover no-repeat;">
-            <div class="album-title-container">
-                <h2 class="album-title">Taylor Swift</h2>
-                <p class="album-subtitle">乡村音乐的纯真起点 · 2006年出道专辑</p>
-                <p class="album-brief">16岁的天才少女用吉他谱写的青春诗篇</p>
+    <section class="album-section" id="taylor-swift-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-Taylor-Swift.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">Taylor Swift</h2>
+                    <p class="album-subtitle">乡村音乐的纯真起点 · 2006年出道专辑</p>
+                    <p class="album-brief">16岁的天才少女用吉他谱写的青春诗篇</p>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="album-info-page" style="background: linear-gradient(135deg, #1D4737, #81A757)">
-        <div class="album-info-container">
-            <div class="album-info-image">
-                <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png" 
-                    alt="Taylor Swift Album Cover">
+        <section class="album-info-page" style="background: linear-gradient(135deg, #1D4737, #81A757)">
+            <div class="album-info-container">
+                <div class="album-info-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png" 
+                        alt="Taylor Swift Album Cover">
+                </div>
+                <div class="album-info-text">
+                    <h3>专辑介绍</h3>
+                    <p>《Taylor Swift》是泰勒·斯威夫特（Taylor Swift）的首张录音室专辑，由内森·查普曼和罗伯特·埃利斯·奥拉尔制作，标准版收录了11首歌曲，加曲版收录15首歌曲，于2006年10月24日由大机器唱片公司发行。</p>
+                    <p>2007年，《Taylor Swift》在公告牌乡村乐专辑榜年终夺下季军，在公告牌二百强专辑榜排名第19；2008年，专辑凭借约204万的销量在公告牌二百强专辑榜排名第5；2008年，收录曲《Our Song》获得乡村音乐电视奖"年度女歌手歌曲MV"和"年度歌曲MV"奖项。</p>
+                </div>
             </div>
-            <div class="album-info-text">
-                <h3>专辑介绍</h3>
-                <p>《Taylor Swift》是泰勒·斯威夫特（Taylor Swift）的首张录音室专辑，由内森·查普曼和罗伯特·埃利斯·奥拉尔制作，标准版收录了11首歌曲，加曲版收录15首歌曲，于2006年10月24日由大机器唱片公司发行。</p>
-                <p>2007年，《Taylor Swift》在公告牌乡村乐专辑榜年终夺下季军，在公告牌二百强专辑榜排名第19；2008年，专辑凭借约204万的销量在公告牌二百强专辑榜排名第5；2008年，收录曲《Our Song》获得乡村音乐电视奖"年度女歌手歌曲MV"和"年度歌曲MV"奖项。</p>
+        </section>
+
+        <!-- 第三页：词云图 -->
+        <section class="wordcloud-page" style="background: linear-gradient(135deg, #1D4737, #81A757)">
+            <div class="wordcloud-container">
+                <h3 style="color:#E7DBCC">歌词词云</h3>
+                <p style="color:#E7DBCC">本专辑高频词汇可视化</p>
+                
+                <div class="wordcloud-image-container">
+                    <!-- 替换为你的词云图路径 -->
+                    <img src="wordclouds/TSW_wordcloud.png" alt="Taylor Swift专辑词云" class="wordcloud-image">
+                </div>
+                
+                <div class="wordcloud-notes">
+                    <p style="color: #E7DBCC">早期乡村音乐中，"know"、"back"、"think"等词汇高频出现，这些词能强化故事讲述、情感直白，更依赖认知动词直接表达内心活动。</p>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- 第二页：专辑介绍（我们稍后补充） -->
-    <!-- <div class="album-info-page">
-        ...
-    </div> -->
-    
-    <!-- 其他页面（词云、Top 3歌曲等，我们稍后补充） -->
-    ...
-</section>
+        </section>
+
+        <section class="topsongs-page">
+            <div class="topsongs-container">
+                <h3>专辑 Top 6 歌曲播放量</h3>
+                <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
+                
+                <div class="chart-container-2">
+                    <svg id="tsw-chart" width="100%" height="400"></svg>
+                </div>
+                
+                <div class="chart-notes">
+                    <p>《Our Song》作为本专辑冠军单曲，播放量高达3.8亿次，展现了Taylor早期乡村风格的感染力</p>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- Fearless 部分 -->
+    <section class="album-section" id="Fearless-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-Fearless.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">Fearless</h2>
+                    <p class="album-subtitle">闪耀的乡村流行跨界 · 2008年格莱美年度专辑</p>
+                    <p class="album-brief">金色流苏下的青春宣言，奠定全球巨星地位的突破之作</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="album-info-page" style="background: linear-gradient(135deg, #6E4823, #CBA863)">
+            <div class="album-info-container">
+                <div class="album-info-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/8/86/Taylor_Swift_-_Fearless.png?20230827021325" 
+                        alt="Taylor Swift Album Cover">
+                </div>
+                <div class="album-info-text">
+                    <h3 style="color:#976F34; border-bottom: 2px solid #6E4823">专辑介绍</h3>
+                    <p>《Fearless》是泰勒·斯威夫特的第二张录音室专辑，于2008年11月11日发行。专辑融合乡村与流行元素，诞生了《Love Story》《You Belong with Me》等现象级单曲。它成为21世纪美国最畅销的乡村专辑，并获得第52届格莱美年度专辑奖。</p>
+                    <p>2021年4月9日，泰勒发布重录版《Fearless (Taylor's Version)》，新增6首"From The Vault"未发行曲目。原版专辑已获RIAA钻石认证（1000万张），重录版首周销量达29.1万张，创下乡村专辑最高首周纪录。</p>
+                    <p>专辑名称源自泰勒对音乐创作的信念："真正的恐惧不是失败，而是放弃尝试"。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三页：词云图 -->
+        <section class="wordcloud-page" style="background: linear-gradient(135deg, #6E4823, #CBA863)">
+            <div class="wordcloud-container">
+                <h3 style="color:#E1D4C2">歌词词云</h3>
+                <p style="color:#E1D4C2">本专辑高频词汇可视化</p>
+                
+                <div class="wordcloud-image-container">
+                    <!-- 替换为你的词云图路径 -->
+                    <img src="wordclouds/FER_wordcloud.png" alt="Fearless专辑词云" class="wordcloud-image">
+                </div>
+                
+                <div class="wordcloud-notes">
+                    <p style="color: #E7DBCC">come，know等词高频出现反应了专辑的叙事特质：如，I keep waiting for you, but you never come (Love Story); 
+                        And I don't know how it gets better than this (Fearless)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="topsongs-page" style="background: linear-gradient(135deg, #6E4823, #CBA863)">
+            <div class="topsongs-container">
+                <h3 style="color: #6E4823">专辑 Top 6 歌曲播放量</h3>
+                <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
+                
+                <div class="chart-container-2">
+                    <svg id="fer-chart" width="100%" height="400"></svg>
+                </div>
+                
+                <div class="chart-notes">
+                    <p>《Love Story》和《You Belong With Me》以累计超33亿次的惊人播放量，成为Fearless专辑现象级的双冠王，完美诠释了泰勒乡村流行跨界音乐的全球影响力，几乎家喻户晓。</p>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- Speak Now 部分 -->
+    <section class="album-section" id="Speak-now-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-Speak-Now.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">Speak Now</h2>
+                    <p class="album-subtitle">全创作个人宣言 · 首周销量104万拿到冠砖</p>
+                    <p class="album-brief">紫色梦境中的成长独白，首张100%独立创作的音乐日记</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="album-info-page" style="background: linear-gradient(135deg, #2A122C, #72325F)">
+            <div class="album-info-container">
+                <div class="album-info-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/5/5b/Taylor_Swift_-_Speak_Now_%28Taylor%27s_Version%29.png?20230506105004" 
+                        alt="Taylor Swift Album Cover">
+                </div>
+                <div class="album-info-text">
+                    <h3 style="color:#2A122C; border-bottom: 2px solid #72325F">专辑介绍</h3>
+                    <p>《Fearless》是泰勒·斯威夫特的第二张录音室专辑，于2008年11月11日发行。专辑融合乡村与流行元素，诞生了《Love Story》《You Belong with Me》等现象级单曲。它成为21世纪美国最畅销的乡村专辑，并获得第52届格莱美年度专辑奖。</p>
+                    <p>2021年4月9日，泰勒发布重录版《Fearless (Taylor's Version)》，新增6首"From The Vault"未发行曲目。原版专辑已获RIAA钻石认证（1000万张），重录版首周销量达29.1万张，创下乡村专辑最高首周纪录。</p>
+                    <p>专辑名称源自泰勒对音乐创作的信念："真正的恐惧不是失败，而是放弃尝试"。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三页：词云图 -->
+        <section class="wordcloud-page" style="background: linear-gradient(135deg, #6E4823, #CBA863)">
+            <div class="wordcloud-container">
+                <h3 style="color:#E1D4C2">歌词词云</h3>
+                <p style="color:#E1D4C2">本专辑高频词汇可视化</p>
+                
+                <div class="wordcloud-image-container">
+                    <!-- 替换为你的词云图路径 -->
+                    <img src="wordclouds/FER_wordcloud.png" alt="Fearless专辑词云" class="wordcloud-image">
+                </div>
+                
+                <div class="wordcloud-notes">
+                    <p style="color: #E7DBCC">come，know等词高频出现反应了专辑的叙事特质：如，I keep waiting for you, but you never come (Love Story); 
+                        And I don't know how it gets better than this (Fearless)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="topsongs-page" style="background: linear-gradient(135deg, #6E4823, #CBA863)">
+            <div class="topsongs-container">
+                <h3 style="color: #6E4823">专辑 Top 6 歌曲播放量</h3>
+                <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
+                
+                <div class="chart-container-2">
+                    <svg id="spn-chart" width="100%" height="400"></svg>
+                </div>
+                
+                <div class="chart-notes">
+                    <p>《Love Story》和《You Belong With Me》以累计超33亿次的惊人播放量，成为Fearless专辑现象级的双冠王，完美诠释了泰勒乡村流行跨界音乐的全球影响力，几乎家喻户晓。</p>
+                </div>
+            </div>
+        </section>
+
+    </section>
 
     </div>
 
@@ -906,5 +1063,119 @@ svg.selectAll(".dot")
     });
 }
     </script>
+
+<script>
+// 通用Top Songs柱状图绘制函数
+function renderTopSongsChart(containerId, data, albumColor = "#1D4737") {
+    // 清除容器原有内容
+    d3.select(`#${containerId}`).html("");
+    
+    // 设置边距和尺寸
+    const margin = {top: 30, right: 100, bottom: 50, left: 300},
+          width = document.querySelector(`#${containerId}`).parentElement.clientWidth - margin.left - margin.right,
+          height = 400 - margin.top - margin.bottom;
+
+    // 创建SVG
+    const svg = d3.select(`#${containerId}`)
+        .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // 比例尺
+    const x = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.streams)])
+        .range([0, width])
+        .nice();
+
+    const y = d3.scaleBand()
+        .domain(data.map(d => d.name))
+        .range([0, height])
+        .padding(0.2);
+
+    // 绘制条形
+    svg.selectAll(".bar")
+        .data(data)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("y", d => y(d.name))
+        .attr("width", d => x(d.streams))
+        .attr("height", y.bandwidth())
+        .attr("fill", albumColor)
+        .attr("rx", 4)
+        .attr("ry", 4);
+
+    // 添加歌曲名称标签
+    svg.selectAll(".song-label")
+        .data(data)
+        .enter().append("text")
+        .attr("class", "song-label")
+        .attr("y", d => y(d.name) + y.bandwidth() / 2)
+        .attr("x", -10)
+        .attr("dy", "0.35em")
+        .attr("text-anchor", "end")
+        .text(d => d.name)
+        .style("fill", albumColor)
+        .style("font-size", "18px");
+
+    // 添加播放量数值标签
+    svg.selectAll(".streams-label")
+        .data(data)
+        .enter().append("text")
+        .attr("class", "streams-label")
+        .attr("y", d => y(d.name) + y.bandwidth() / 2)
+        .attr("x", d => x(d.streams) + 10)
+        .attr("dy", "0.35em")
+        .text(d => d3.format(",")(d.streams))
+        .style("fill", "black")
+        .style("font-size", "13px")
+        .style("font-weight", "bold");
+
+    // 添加X轴
+    svg.append("g")
+        .attr("class", "x-axis")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x).ticks(5).tickFormat(d => d3.format(".2s")(d)))
+        .style("color", "#555");
+
+    // 添加轴标题
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", -10)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .style("font-weight", "bold")
+        .text("播放量 (次)");
+}
+
+// 使用示例 (放在DOM加载完成后)
+document.addEventListener('DOMContentLoaded', function() {
+    // Taylor Swift专辑数据
+    const tsData = [
+        {name: "Our Song", rank: 1, streams: 381079025},
+        {name: "Teardrops on My Guitar", rank: 2, streams: 230912121},
+        {name: "Picture to Burn", rank: 3, streams: 214738354},
+        {name: "Tim McGraw", rank: 4, streams: 143295618},
+        {name: "Should've Said No", rank: 5, streams: 133982292},
+        {name: "I'm Only Me When I'm with You", rank: 6, streams: 56984746}
+    ];
+
+    const ferData = [
+        {name: "Love Story", rank: 1, streams: 1846727185},
+        {name: "You Belong With Me", rank: 2, streams: 1477845320},
+        {name: "The Way I Loved You", rank: 3, streams: 533133086},
+        {name: "Fearless", rank: 4, streams: 485048681},
+        {name: "Mr. Perfectly Fine (Vault)", rank: 5, streams: 402348529},
+        {name: "Fifteen", rank: 6, streams: 234159974}
+    ];
+    
+    // 调用函数渲染图表
+    renderTopSongsChart("tsw-chart", tsData, "#1D4737");
+    renderTopSongsChart("fer-chart", ferData, "#6E4823");
+    
+    // 其他专辑调用示例 (假设有不同颜色)
+    // renderTopSongsChart("fearless-chart", fearlessData, "#D4AF37"); 
+    // renderTopSongsChart("red-chart", redData, "#FF0000");
+});
+</script>
 </body>
 </html>

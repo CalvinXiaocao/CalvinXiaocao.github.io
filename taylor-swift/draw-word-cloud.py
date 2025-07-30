@@ -33,14 +33,14 @@ def generate_wordcloud(album_code, text, output_dir='wordclouds', colormap='viri
     # 创建词云对象
     wordcloud = WordCloud(
         width=800,
-        height=600,
+        height=400,
         background_color=None,
         mode='RGBA',
         max_words=200,
         colormap=colormap,
         contour_width=3,
         contour_color='steelblue',
-        stopwords=STOPWORDS.add("Oh")
+        stopwords=STOPWORDS.union({"oh", "dont", "Im", "youre", "youll", "shouldnt"})
     ).generate(text)
     
     
