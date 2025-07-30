@@ -131,7 +131,7 @@
     <section class="screen-albums">
         <div class="albums-title">
             <h2>The Eras Collection</h2>
-            <p>点击专辑标志查看封面</p>
+            <p>点击专辑标志查看封面。注：TV 代表 Taylor's Version。为了夺回原始专辑的版权，Taylor 选择重录旧作。</p>
         </div>
         
         <div class="albums-grid">
@@ -400,8 +400,8 @@
 
     <section class="screen-overview">
         <div class="overview-title">
-            <h2>Overall Glance</h2>
-            <p>专辑歌曲数量分布</p>
+            <h2>Number of Songs</h2>
+            <p>专辑歌曲数量分布。共收录了Taylor Swift 11张专辑的230首歌曲（将Taylor's Version和原曲合并）。2024年 TTPD专辑包含的曲目数量最多。</p>
         </div>
         
         <div class="visualization-container">
@@ -430,7 +430,8 @@
     const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         const scrollHint = document.querySelector('.scroll-hint');
-        if (entry.isIntersecting && (entry.target.classList.contains('screen-intro')||entry.target.classList.contains('screen-albums'))) {
+        if (entry.isIntersecting && (entry.target.classList.contains('screen-intro')||entry.target.classList.contains('screen-albums')
+    ||entry.target.classList.contains('screen-overview'))) {
         scrollHint.style.color = 'black';
         } else {
         scrollHint.style.color = 'white';
@@ -441,6 +442,7 @@
     // 监听第二页
     observer.observe(document.querySelector('.screen-intro'));
     observer.observe(document.querySelector('.screen-albums'));
+    observer.observe(document.querySelector('.screen-overview'));
     </script>
 
     <script>
