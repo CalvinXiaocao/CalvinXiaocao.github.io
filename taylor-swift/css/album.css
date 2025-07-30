@@ -49,3 +49,94 @@
     font-weight: 300;
     /* font-style: italic; */
 }
+
+
+/* 专辑信息页样式 */
+.album-info-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.taylor-swift-album-info {
+    background: linear-gradient(135deg, #1D4737, #81A757);
+}
+
+.album-info-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.album-info-image {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.album-info-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.album-info-text {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.album-info-text h3 {
+    font-size: 2rem;
+    color: #1D4737;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #81A757;
+    padding-bottom: 10px;
+}
+
+.album-info-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* 响应式设计 - 手机端 */
+@media (max-width: 768px) {
+    .album-info-container {
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .album-info-image {
+        padding: 20px;
+        padding-bottom: 0;
+    }
+    
+    .album-info-text {
+        padding: 20px;
+    }
+    
+    .album-info-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .album-info-text p {
+        font-size: 1rem;
+    }
+}
