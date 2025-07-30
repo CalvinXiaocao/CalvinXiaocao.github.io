@@ -23,7 +23,8 @@
         .screen-intro,
         .screen-albums,
         .screen-overview,
-        .screen-streams {
+        .screen-streams,
+        .album-cover-page {
             height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
@@ -98,6 +99,7 @@
     <style>@import url("css/page3.css");</style>
     <style>@import url("css/page4.css");</style>
     <style>@import url("css/page5.css");</style>
+    <style>@import url("css/album.css");</style>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
@@ -417,7 +419,6 @@
     <section class="screen-streams" id="streams-chart-section">
     <div class="chart-container">
         <h2>Streams of Albums</h2>
-        <p>鼠标悬停查看详细数据</p>
         <div class="chart-wrapper">
         <svg id="streams-chart"></svg>
         </div>
@@ -433,6 +434,30 @@
     </div>
     
     </section>
+
+    <!-- Taylor Swift 同名专辑部分 -->
+<section class="album-section" id="taylor-swift-album">
+    <!-- 第一页：专辑封面背景 + 标题 -->
+    <div class="album-cover-page">
+        <div class="album-cover-background" 
+             style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                    url('img/img-Taylor-Swift.png') center/cover no-repeat;">
+            <div class="album-title-container">
+                <h2 class="album-title">Taylor Swift</h2>
+                <p class="album-subtitle">乡村音乐的纯真起点 · 2006年出道专辑</p>
+                <p class="album-brief">16岁的天才少女用吉他谱写的青春诗篇</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 第二页：专辑介绍（我们稍后补充） -->
+    <!-- <div class="album-info-page">
+        ...
+    </div> -->
+    
+    <!-- 其他页面（词云、Top 3歌曲等，我们稍后补充） -->
+    ...
+</section>
 
     </div>
 
