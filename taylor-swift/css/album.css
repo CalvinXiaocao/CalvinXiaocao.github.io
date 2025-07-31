@@ -289,3 +289,103 @@
         height: 350px;
     }
 }
+
+/* 总结页样式 */
+.summary-page {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.summary-background {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.summary-container {
+    max-width: 800px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.analysis-card {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid #E349F6;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.streams-item {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.streams-item span {
+    padding-left: 10px; /* 增加间距 */
+}
+
+.streams-bar {
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.future-card {
+    border-top: 1px dashed rgba(255,255,255,0.3);
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+.highlight {
+    color: #FFD700;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.summary-container h2 {
+    margin-top: 10px;
+}
+
+.countdown {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    color: #FF9BB3;
+    margin-top: 15px;
+}
+
+.analysis-card h3 {
+    margin-top: 10px;
+}
+
+.future-card h3 {
+    margin-top: 10px;
+}
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .summary-container {
+        padding: 15px;
+    }
+    .streams-bar {
+        height: 20px;
+        font-size: 0.8em;
+    }
+}

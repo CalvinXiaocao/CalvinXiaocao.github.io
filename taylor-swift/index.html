@@ -27,7 +27,8 @@
         .album-cover-page,
         .album-info-page,
         .wordcloud-page,
-        .topsongs-page {
+        .topsongs-page,
+        .summary-page {
             height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
@@ -123,8 +124,8 @@
             <div class="intro-content">
                 <h2>Introduction</h2>
                 <p class="full-text">泰勒·斯威夫特 (Taylor Swift) 是21世纪最具影响力的音乐人之一，拥有11张录音室专辑，全球销量超过2亿张。她的音乐跨越乡村、流行、民谣等多种风格，获得12座格莱美奖，创下多项音乐行业纪录。</p>
-                <p class="full-text">2025年5月，Taylor Swift 以3.6亿美元的价格成功回购了她前六张专辑的母带版权，结束了与 Big Machine 公司长达六年的版权斗争。这一举动标志着她重新获得了对自己全部音乐作品的控制权，成为艺术家自主权的里程碑事件。</p>
-                <p class="full-text">她的"Eras Tour"巡演成为史上最成功的商业巡演，总收入超过20.77亿美元，远超此前纪录保持者。最新专辑《The Tortured Poets Department》（苦难诗社）于2024年发行后继续打破多项销售纪录。</p>
+                <p class="full-text">为夺回前六张专辑的母带版权，对抗Scooter Braun和Big Machine Records未经她同意出售她的音乐作品的行为，完全掌控自己的音乐遗产，Taylor Swift于2021年对前6张专辑进行重录，目前已完成四张专辑的Taylor's Version。2025年5月，Taylor Swift 以3.6亿美元的价格成功回购她前六张专辑的母带版权，结束了与 Big Machine 公司长达六年的版权斗争，成为艺术家自主权的里程碑事件。</p>
+                <p class="full-text">她的"Eras Tour"巡演，以不同专辑的时间顺序展开，呈现每张专辑对应Era的试听盛宴。总收入超过20.77亿美元，远超此前纪录保持者。</p>
                 <p class="full-text">下面，让我们一起来走进这场 Eras Tour on Data，探索 Taylor Swift 从乡村音乐少女到流行天后的蜕变历程，用数据揭示她音乐宇宙中的创作密码与时代印记。</p>
                 <p class="short-text">Taylor Swift 是21世纪最具影响力的音乐人之一，拥有11张录音室专辑，全球销量超过2亿张。她的音乐跨越乡村、流行、民谣等多种风格，获得12座格莱美奖，创下多项音乐行业纪录。</p>
                 <p class="short-text">下面，让我们一起来走进这场 Eras Tour on Data，探索 Taylor Swift 从乡村音乐少女到流行天后的蜕变历程，用数据揭示她音乐宇宙中的创作密码与时代印记。</p>
@@ -409,7 +410,7 @@
     <section class="screen-overview">
         <div class="overview-title">
             <h2>Number of Songs</h2>
-            <p>专辑歌曲数量分布。共收录了Taylor Swift 11张专辑的230首歌曲（将Taylor's Version和原曲合并）。2024年 TTPD专辑包含的曲目数量最多。</p>
+            <p>专辑歌曲数量分布。共收录了Taylor Swift 11张专辑的230首歌曲（将Taylor's Version和原曲合并）。鼠标悬停查看详细信息。</p>
         </div>
         
         <div class="visualization-container">
@@ -440,6 +441,22 @@
     </section>
 
     <!-- Taylor Swift 同名专辑部分 -->
+    <section class="album-section" id="eras-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-Eras.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">Let's Start!</h2>
+                    <p class="album-subtitle">让我们从同名专辑到TTPD，开启这场时代之旅吧～</p>
+                    <p class="album-brief">💡提示：开启音量效果更佳</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Taylor Swift 同名专辑部分 -->
     <section class="album-section" id="taylor-swift-album">
         <!-- 第一页：专辑封面背景 + 标题 -->
         <section class="album-cover-page">
@@ -450,6 +467,12 @@
                     <h2 class="album-title">Taylor Swift</h2>
                     <p class="album-subtitle">乡村音乐的纯真起点 · 2006年出道专辑</p>
                     <p class="album-brief">16岁的天才少女用吉他谱写的青春诗篇</p>
+                </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="taylor-swift-audio" src="songs/TSW.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="taylor-swift-audio" style="padding: 10px 20px; font-size: 16px; background-color: #1D4737; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
                 </div>
             </div>
         </section>
@@ -513,6 +536,12 @@
                     <h2 class="album-title">Fearless</h2>
                     <p class="album-subtitle">闪耀的乡村流行跨界 · 2008年格莱美年度专辑</p>
                     <p class="album-brief">金色流苏下的青春宣言，奠定全球巨星地位的突破之作</p>
+                </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="fearless-audio" src="songs/FER.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="fearless-audio" style="padding: 10px 20px; font-size: 16px; background-color: #6E4823; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
                 </div>
             </div>
         </section>
@@ -579,6 +608,12 @@
                     <p class="album-subtitle">全创作个人宣言 · 首周销量104万拿到冠砖</p>
                     <p class="album-brief">紫色梦境中的成长独白，首张100%独立创作的音乐日记</p>
                 </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="speak-now-audio" src="songs/SPN.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="speak-now-audio" style="padding: 10px 20px; font-size: 16px; background-color: #72325F; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -643,6 +678,12 @@
                     <p class="album-subtitle">从乡村到流行的蜕变宣言 · 美国公告牌二百强专辑榜冠军</p>
                     <p class="album-brief">用赤红笔墨书写心碎与成长，缔造《All Too Well》时代经典</p>
                 </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="red-audio" src="songs/RED.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="red-audio" style="padding: 10px 20px; font-size: 16px; background-color: #967862; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -706,6 +747,12 @@
                     <h2 class="album-title">1989</h2>
                     <p class="album-subtitle">流行帝国的加冕礼 · 2014年全球销量冠军专辑</p>
                     <p class="album-brief">合成器浪潮中的完美蜕变，定义2010年代流行音乐的美学革命</p>
+                </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="1989-audio" src="songs/NEN.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="1989-audio" style="padding: 10px 20px; font-size: 16px; background-color: #846578; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
                 </div>
             </div>
         </section>
@@ -772,6 +819,12 @@
                     <p class="album-subtitle">暗黑美学的复仇诗篇 · 2017年全球现象级回归</p>
                     <p class="album-brief">蛇与火焰中的涅槃重生，用电子轰鸣打破所有质疑</p>
                 </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="reputation-audio" src="songs/REP.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="reputation-audio" style="padding: 10px 20px; font-size: 16px; background-color: #2C2C2C; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -837,6 +890,12 @@
                     <p class="album-subtitle">彩虹光谱下的浪漫革命 · 2019年全美音乐奖年度专辑</p>
                     <p class="album-brief">合成器流行的粉色浪潮，爱与平等的宣言书</p>
                 </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="lover-audio" src="songs/LVR.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="lover-audio" style="padding: 10px 20px; font-size: 16px; background-color: #8C4F66; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -900,6 +959,12 @@
                     <h2 class="album-title">Folklore</h2>
                     <p class="album-subtitle">隔离时期的诗意叙事 · 2021年格莱美年度专辑</p>
                     <p class="album-brief">黑白森林里的故事集，16首民谣编织的梦境与回忆</p>
+                </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="folklore-audio" src="songs/FOL.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="folklore-audio" style="padding: 10px 20px; font-size: 16px; background-color: #3E3E3E; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
                 </div>
             </div>
         </section>
@@ -966,6 +1031,12 @@
                     <p class="album-subtitle">冬日续篇的诗意回声 · 格莱美双项提名</p>
                     <p class="album-brief">雪原与威士忌交织的故事集，folklore未说完的余韵</p>
                 </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="evermore-audio" src="songs/EVE.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="evermore-audio" style="padding: 10px 20px; font-size: 16px; background-color: #160E10; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -1018,8 +1089,200 @@
 
     </section>
 
-    </div>
+    <!-- Midnights 部分 -->
+    <section class="album-section" id="midnights-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-Midnights.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">Midnights</h2>
+                    <p class="album-subtitle">不眠夜的电子自白 · 第66届格莱美年度专辑</p>
+                    <p class="album-brief">从冬日沙滩到薰衣草迷雾，用视觉符号解构午夜心事的13种形态</p>
+                </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="midnights-audio" src="songs/MID.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="midnights-audio" style="padding: 10px 20px; font-size: 16px; background-color: #121D27; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
+            </div>
+        </section>
 
+        <section class="album-info-page" style="background: linear-gradient(135deg, #121D27, #5A658B)">
+            <div class="album-info-container">
+                <div class="album-info-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Midnights_-_Taylor_Swift.png" 
+                        alt="Taylor Swift Album Cover">
+                </div>
+                <div class="album-info-text">
+                    <h3 style="color:#121D27; border-bottom: 2px solid #5A658B">专辑介绍</h3>
+                    <p>《Midnights》是泰勒·斯威夫特于2022年10月21日发行的第十张录音室专辑，这张以"13个不眠夜"为概念的专辑标志着她向合成器流行风格的彻底转型。专辑首支单曲《Anti-Hero》以自嘲式歌词打破Spotify单日播放纪录，而《Lavender Haze》则通过迷幻电子音效构建婚姻自由的宣言。特别的是，泰勒首次在《Snow On The Beach》中与Lana Del Rey合作，用飘渺的和声演绎"离奇却美妙"的浪漫。</p>
+                    <p>该专辑成为2022年全球销量冠军，并帮助泰勒成为公告牌历史上首位包揽榜单前十的艺人。从《Mastermind》的精密编曲到《Karma》的玩味反击，13首歌曲如同钟表齿轮般咬合，完整呈现了午夜时分的自我对峙——正如她在《You're On Your Own, Kid》中唱的："Everything you lose is a step you take"。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三页：词云图 -->
+        <section class="wordcloud-page" style="background: linear-gradient(135deg, #5A658B, #6F86A2)">
+            <div class="wordcloud-container">
+                <h3 style="color:#E7E7E7">歌词词云</h3>
+                <p style="color:#E7E7E7">本专辑高频词汇可视化</p>
+                
+                <div class="wordcloud-image-container">
+                    <!-- 替换为你的词云图路径 -->
+                    <img src="wordclouds/MID_wordcloud.png" alt="Midnights专辑词云" class="wordcloud-image">
+                </div>
+                
+                <div class="wordcloud-notes">
+                    <p style="color: #E7E7E7">相比《folklore》的旁观叙事，这些词更“锋利”，服务于《Midnights》“自省与复仇”的双重命题。
+</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="topsongs-page" style="background: linear-gradient(135deg, #121D27, #5A658B)">
+            <div class="topsongs-container">
+                <h3 style="color: #121D27">专辑 Top 6 歌曲播放量</h3>
+                <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
+                
+                <div class="chart-container-2">
+                    <svg id="mid-chart" width="100%" height="400"></svg>
+                </div>
+                
+                <div class="chart-notes">
+                    <p>《Midnights》以《Anti-Hero》17亿播放量断层领跑，整体数据超越《Evermore》，延续了《Lover》的流行统治力，又以午夜电子音色开辟新纪元。</p>
+                </div>
+            </div>
+        </section>
+
+    </section>   
+
+    <!-- TTPD 部分 -->
+    <section class="album-section" id="ttpd-album">
+        <!-- 第一页：专辑封面背景 + 标题 -->
+        <section class="album-cover-page">
+            <div class="album-cover-background" 
+                style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('img/img-TTPD.png') center/cover no-repeat;">
+                <div class="album-title-container">
+                    <h2 class="album-title">The Tortured Poets Department</h2>
+                    <p class="album-subtitle">伤痕诗人的黑色浪漫 · 2024年流媒体破纪录专辑</p>
+                    <p class="album-brief">社交媒体时代的诗性反抗，31首现代诗歌的暴烈与温柔</p>
+                </div>
+                <div class="album-audio-controls" style="text-align: center; padding: 20px;">
+                    <audio id="TTPD-audio" src="songs/TPD.mp3"></audio> 
+                    <button class="play-audio-btn" data-audio-id="TTPD-audio" style="padding: 10px 20px; font-size: 16px; background-color: #1C160F; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 20px">
+                        ▶ 
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="album-info-page" style="background: linear-gradient(135deg, #1C160F, #635B3A)">
+            <div class="album-info-container">
+                <div class="album-info-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/6e/Taylor_Swift_%E2%80%93_The_Tortured_Poets_Department_%28album_cover%29.png" 
+                        alt="Taylor Swift Album Cover">
+                </div>
+                <div class="album-info-text">
+                    <h3 style="color:#1C160F; border-bottom: 2px solid #635B3A">专辑介绍</h3>
+                    <p>《The Tortured Poets Department》(TTPD) 是泰勒·斯威夫特于2024年4月19日发行的第11张录音室专辑，这张双碟专辑包含31首歌曲，被泰勒称为"最赤裸的自我解剖"。专辑与Jack Antonoff、Aaron Dessner合作，在《Fortnight》中实验工业合成器音效，在《So Long, London》回归钢琴叙事，而《Florida!!!》则与Florence Welch的戏剧化声线碰撞出末日狂欢感。特别的是，泰勒首次在《thanK you aIMee》中用隐藏字母拼写反击宿敌，在《The Manuscript》中以小说手稿形式重构分手记忆。</p>
+                    <p>专辑打破Spotify首日3亿播放的全球纪录，并包揽Billboard单曲榜前14名。从打字机敲击声的intro到黑胶独有的《The Black Dog》，每首歌都像诗歌俱乐部的秘密档案——正如她在标题曲中唱的："You're not Dylan Thomas, I'm not Patti Smith... This is the tortured poets department"。</p>
+                    <p>《TTPD》不仅是泰勒最私人化的作品，也是一次音乐与文学的跨界实验。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三页：词云图 -->
+        <section class="wordcloud-page" style="background: linear-gradient(135deg, #635B3A, #3F3824)">
+            <div class="wordcloud-container">
+                <h3 style="color:#E7E7E7">歌词词云</h3>
+                <p style="color:#E7E7E7">本专辑高频词汇可视化</p>
+                
+                <div class="wordcloud-image-container">
+                    <!-- 替换为你的词云图路径 -->
+                    <img src="wordclouds/TPD_wordcloud.png" alt="TTPD专辑词云" class="wordcloud-image">
+                </div>
+                
+                <div class="wordcloud-notes">
+                    <p style="color: #E7E7E7">这些词汇构建了诗人般的独白语境——既是对过往恋情的审判性回溯（'said'），也是对时间（'time'）与因果（'cause'）的文学化解构，最终指向'know'的终极命题：自我认知。
+</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="topsongs-page" style="background: linear-gradient(135deg, #1C160F, #635B3A)">
+            <div class="topsongs-container">
+                <h3 style="color: #121D27">专辑 Top 6 歌曲播放量</h3>
+                <p>本专辑最受欢迎的歌曲排行 (数据来源: Spotify 2024.12.11)</p>
+                
+                <div class="chart-container-2">
+                    <svg id="tpd-chart" width="100%" height="400"></svg>
+                </div>
+                
+                <div class="chart-notes">
+                    <p>《TTPD》更多是写给自己的独白，是音乐风格完全的转变，传播上略逊，印证‘越疼痛的诗歌越难成为流行爆款’的专辑内核矛盾。</p>
+                </div>
+            </div>
+        </section>
+
+    </section>   
+
+    
+
+    <!-- 总结部分 -->
+    <section class="summary-page">
+        <div class="summary-background" 
+            style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                    url('img/img-Eras.png') center/cover no-repeat;">
+            <div class="summary-container">
+                <h2>The Eras Tour on Data - 总结 List</h2>
+                
+                <!-- 风格转型分析 -->
+                <div class="analysis-card">
+                    <h3>🎵 音乐风格进化论</h3>
+                    <ul>
+                        <li><strong>乡村少女</strong>：首专到《Speak Now》的吉他叙事（词频TOP：<em>know, back, think</em>）</li>
+                        <li><strong>流行女王</strong>：《1989》到《Lover》的合成器浪潮（词频TOP：<em>love, now, want</em>）</li>
+                        <li><strong>民谣诗人</strong>：隔离时期的《folklore/evermore》（词频TOP：<em>time, never, one</em>）</li>
+                        <li><strong>暗黑艺术家</strong>：《Midnights》到《TTPD》的电子自白（词频TOP：<em>cause, karma, said</em>）</li>
+                    </ul>
+                </div>
+
+                <!-- 流量数据对比 -->
+                <div class="analysis-card">
+                    <h3>📊 流量密码解码</h3>
+                    <div class="streams-comparison">
+                        <div class="streams-item">
+                            <div class="streams-bar" style="width: 64%; background: #FF9BB3;">26.5亿</div>
+                            <span>Cruel Summer（历史第一）</span>
+                        </div>
+                        <div class="streams-item">
+                            <div class="streams-bar" style="width: 41.5%; background: #1A5276;">17.2亿</div>
+                            <span>Anti-Hero（电子转型巅峰）</span>
+                        </div>
+                        <div class="streams-item">
+                            <div class="streams-bar" style="width: 22.4%; background: #5B7E7A;">9.3亿</div>
+                            <span>willow（民谣天花板）</span>
+                        </div>
+                    </div>
+                    <p class="footnote">* 数据反映：大众接受程度：流行＞电子＞民谣</p>
+                </div>
+
+                <!-- 未来展望 -->
+                <div class="future-card">
+                    <h3>✨ Next Chapter: TS12</h3>
+                    <p>当《TTPD》还在撕裂榜单时，我们已开始期待——<br>
+                    <span class="highlight">"What will Taylor reinvent next?"</span><br>
+                    或许是摇滚歌剧？AI概念专辑？或是回归乡村的轮回？</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
     <script>
         
     const tooltip = d3.select("body").append("div")
@@ -1616,6 +1879,24 @@ document.addEventListener('DOMContentLoaded', function() {
         {name: "gold rush", rank: 5, streams: 312894733},
         {name: "no body, no crime", rank: 6, streams: 301562103}
     ];
+
+    const midnightsData = [
+        {name: "Anti-Hero", rank: 1, streams: 1729600671},
+        {name: "Karma", rank: 2, streams: 868736933},
+        {name: "Lavender Haze", rank: 3, streams: 778883256},
+        {name: "Midnight Rain", rank: 4, streams: 726088047},
+        {name: "You're On Your Own, Kid", rank: 5, streams: 671159165},
+        {name: "Bejeweled", rank: 6, streams: 601815883}
+    ];
+
+    const ttpdData = [
+        {name: "Fortnight", rank: 1, streams: 766421062},
+        {name: "I Can Do It With a Broken Heart", rank: 2, streams: 538166031},
+        {name: "Down Bad", rank: 3, streams: 368720558},
+        {name: "Guilty as Sin?", rank: 4, streams: 343412036},
+        {name: "Who's Afraid of Little Old Me?", rank: 5, streams: 300270639},
+        {name: "So Long, London", rank: 6, streams: 292915849}
+    ];
     
     // 调用函数渲染图表
     renderTopSongsChart("tsw-chart", tsData, "#1D4737");
@@ -1627,11 +1908,60 @@ document.addEventListener('DOMContentLoaded', function() {
     renderTopSongsChart("lvr-chart", lvrData, "#8C4F66");
     renderTopSongsChart("fol-chart", folkloreData, "#3E3E3E", left=250);
     renderTopSongsChart("eve-chart", evermoreData, "#421E18", left=250);
+    renderTopSongsChart("mid-chart", midnightsData, "#121D27");
+    renderTopSongsChart("tpd-chart", ttpdData, "#1C160F");
     
     // 其他专辑调用示例 (假设有不同颜色)
     // renderTopSongsChart("fearless-chart", fearlessData, "#D4AF37"); 
     // renderTopSongsChart("red-chart", redData, "#FF0000");
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const playButtons = document.querySelectorAll(".play-audio-btn");
+    let currentAudio = null;
+    let currentButton = null;
+
+    playButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const audioId = button.getAttribute("data-audio-id");
+            const audio = document.getElementById(audioId);
+
+            // 如果点击的是正在播放的音频，执行暂停
+            if (currentAudio === audio && !audio.paused) {
+                audio.pause();
+                button.textContent = "▶";
+                currentAudio = null;
+                currentButton = null;
+                return;
+            }
+
+            // 如果已有其他音频在播放，先暂停它
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                if (currentButton) {
+                    currentButton.textContent = "▶";
+                }
+            }
+
+            // 播放当前音频
+            audio.play();
+            button.textContent = "⏸";
+            currentAudio = audio;
+            currentButton = button;
+
+            // 当音频播放结束后，重置按钮文字
+            audio.addEventListener("ended", () => {
+                button.textContent = "▶";
+                currentAudio = null;
+                currentButton = null;
+            });
+        });
+    });
+});
+</script>
+
+
 </body>
 </html>
