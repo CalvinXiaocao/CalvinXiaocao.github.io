@@ -15,7 +15,7 @@
             background-color: #ffb6c1; /* 粉色背景作为备用 */
             font-family: 'Arial', sans-serif;
             overflow: hidden;
-            background-image: url('https://example.com/pink-sky.jpg'); /* 替换为您的背景图片URL */
+            background-image: url('background.jpg'); /* 替换为您的背景图片URL */
             background-size: cover;
             background-position: center;
         }
@@ -29,9 +29,9 @@
         }
         
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-family: 'Brush Script MT', cursive;
+            font-size: 6rem;
+            margin-bottom: 50px;
+            font-family: 'Brush Script MT', 'STXingkai', 'KaiTi', cursive; /* 添加中文字体 */
             color: #fff;
             animation: fadeIn 1.5s ease-in-out;
         }
@@ -83,13 +83,34 @@
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
+
+        .music-hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #ff69b4;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+    z-index: 100;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
     </style>
 </head>
 <body>
     <div class="hearts" id="hearts"></div>
     
     <div class="container">
-        <h1 class="birthday-message">To 书瑜:<br>Happy Birthday!</h1>
+        <div class="music-hint">点击屏幕播放音乐 ♪</div>
+        <h1 class="birthday-message">To Shuyu:<br>Happy Birthday!</h1>
         
         <div class="lyric" id="lyric1">
             "This is the golden age of something good and right and real"<br>
@@ -101,6 +122,10 @@
             <span style="font-size: 1rem;">- Teenage Dream, Olivia Rodrigo</span>
         </div>
     </div>
+
+    
+
+    <audio id="myAudio" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/8P2KviyMtwEcBeptgbvyKiYCXjVuUfyaSp8mJcmZ.mp3"></audio>
 
     <script>
         // 歌词切换效果
@@ -123,7 +148,7 @@
         }
         
         // 每5秒切换一次歌词
-        setInterval(switchLyrics, 5000);
+        setInterval(switchLyrics, 10000);
         
         // 创建漂浮的心形
         function createHearts() {
@@ -132,7 +157,7 @@
             
             for (let i = 0; i < heartCount; i++) {
                 const heart = document.createElement('div');
-                heart.innerHTML = '❤';
+                heart.innerHTML = '★';
                 heart.classList.add('heart');
                 
                 // 随机位置
@@ -156,6 +181,28 @@
         
         // 页面加载后创建心形
         window.onload = createHearts;
+    </script>
+
+    <script>
+        // 获取音频元素
+        const audio = document.getElementById('myAudio');
+ 
+        // 定义播放音频的函数
+        function playAudio() {
+            audio.play().then(() => {
+                console.log('音频播放成功！');
+            }).catch(err => {
+                console.error('音频播放失败：', err);
+            });
+        }
+ 
+        // 监听全局点击事件
+        document.addEventListener('click', () => {
+            playAudio();
+            // 移除全局点击事件监听器，避免重复触发
+            document.removeEventListener('click', playAudio);
+            document.querySelector('.music-hint').style.display = 'none';
+        });
     </script>
 </body>
 </html>
