@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐 书瑜!</title>
+    <style>
+        @font-face {
+            font-family: 'webfont';
+            src: url('font.ttf');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffb6c1; /* 粉色背景作为备用 */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background-image: url('background.jpg'); /* 替换为您的背景图片URL */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .container {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            max-width: 80%;
+        }
+        
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 50px;
+            font-family: 'Brush Script MT', 'webfont', 'STXingkai', 'KaiTi', cursive; /* 添加中文字体 */
+            color: #fff;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .lyric {
+            font-size: 1.8rem;
+            margin: 30px 0;
+            opacity: 0;
+            position: absolute;
+            width: 80%;
+            left: 10%;
+            transition: opacity 1s ease-in-out;
+            font-style: italic;
+        }
+        
+        .lyric.active {
+            opacity: 1;
+        }
+        
+        .birthday-message {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: float 4s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .music-hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #ff69b4;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+    z-index: 100;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="music-hint">点击屏幕播放音乐 ♪</div>
+        <h1 class="birthday-message">To 郑周涵予:<br>Happy Birthday!</h1>
+        
+        <div class="lyric" id="lyric1">
+            "It was the end of a decade, but the start of an age."<br>
+            <span style="font-size: 1rem;">- Long Live, Taylor Swift</span>
+        </div>
+        
+        <div class="lyric" id="lyric2">
+            "The scary news is: you're on your own now.<br>But the cool news is: You're on your own now!!"<br>
+            <span style="font-size: 1rem;">- NYU Commencement Speech, Taylor Swift</span>
+        </div>
+    </div>
+
+    
+
+    <audio id="myAudio" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/8P2KviyMtwEcBeptgbvyKiYCXjVuUfyaSp8mJcmZ.mp3"></audio>
+
+    <script>
+        // 歌词切换效果
+        let currentLyric = 1;
+        const lyric1 = document.getElementById('lyric1');
+        const lyric2 = document.getElementById('lyric2');
+        
+        lyric1.classList.add('active');
+        
+        function switchLyrics() {
+            if (currentLyric === 1) {
+                lyric1.classList.remove('active');
+                lyric2.classList.add('active');
+                currentLyric = 2;
+            } else {
+                lyric2.classList.remove('active');
+                lyric1.classList.add('active');
+                currentLyric = 1;
+            }
+        }
+        
+        // 每10秒切换一次歌词
+        setInterval(switchLyrics, 10000);
+        
+        // 创建漂浮的心形
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '★';
+                heart.classList.add('heart');
+                
+                // 随机位置
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                
+                // 随机大小
+                const size = Math.random() * 20 + 10;
+                heart.style.fontSize = size + 'px';
+                
+                // 随机动画持续时间
+                const duration = Math.random() * 3 + 3;
+                heart.style.animationDuration = duration + 's';
+                
+                // 随机延迟
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // 页面加载后创建心形
+        window.onload = createHearts;
+    </script>
+
+    <script>
+        // 获取音频元素
+        const audio = document.getElementById('myAudio');
+ 
+        // 定义播放音频的函数
+        function playAudio() {
+            audio.play().then(() => {
+                console.log('音频播放成功！');
+            }).catch(err => {
+                console.error('音频播放失败：', err);
+            });
+        }
+ 
+        // 监听全局点击事件
+        document.addEventListener('click', () => {
+            playAudio();
+            // 移除全局点击事件监听器，避免重复触发
+            document.removeEventListener('click', playAudio);
+            document.querySelector('.music-hint').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
