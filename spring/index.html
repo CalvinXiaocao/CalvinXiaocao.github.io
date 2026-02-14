@@ -179,12 +179,15 @@
             "社团招新全通过，兴趣技能双开花！",
             "宿舍夜谈不失眠，明日精神倍儿棒！",
             "小黄车出门就有，一路畅通到教室！",
-            "选课系统不崩溃，心爱课程全抢到！",
+            "选课投点全中签，心爱课程都抢到！",
             "实验数据全完美，报告一写就成型！",
             "校园卡余额充足，优惠卷领个不停！",
             "毕业答辩无难题，掌声响彻会议室！",
             "燕园四年皆胜意，前程似锦耀中华！"
         ];
+
+        let touchStartX = 0;
+        let isRealDrag = false; // 新增：是否真实拖拽（而非点击）
         
         // 创建签子正面纹理（深红底+回字纹+马字+上上签+马年大吉）
         function createFrontTexture() {
@@ -514,14 +517,21 @@
                 if (!selectedGroup) {
                     isDragging = true;
                     previousMouseX = event.touches[0].clientX;
+                    touchStartX = event.touches[0].clientX; // 记录起始位置
+                    isRealDrag = false; // 重置
                     document.body.style.cursor = 'grabbing';
-                    event.preventDefault(); // 阻止页面滚动
+                    event.preventDefault();
                 }
             }, { passive: false });
 
 
             // 触摸移动（替代 mousemove）
             document.addEventListener('touchmove', (event) => {
+                const deltaX = event.touches[0].clientX - previousMouseX;
+                // 如果移动超过5像素，才视为拖拽
+                if (Math.abs(deltaX) > 5) {
+                    isRealDrag = true;
+                }
                 mouse.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
                 mouse.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
                 
@@ -529,7 +539,7 @@
                     detectHover();
                 }
                 
-                if (isDragging && !selectedGroup) {
+                if (isDragging && !selectedGroup && isRealDrag) {
                     const deltaX = event.touches[0].clientX - previousMouseX;
                     previousMouseX = event.touches[0].clientX;
                     const rotationSpeed = 0.01;
@@ -550,6 +560,12 @@
             document.addEventListener('touchend', () => {
                 isDragging = false;
                 document.body.style.cursor = 'grab';
+
+                // 如果不是真实拖拽，则视为点击
+                if (!isRealDrag && !selectedGroup && !isAnimating) {
+                    // 手动触发点击检测
+                    detectClick();
+                }
             });
 
             // 鼠标点击事件
@@ -571,7 +587,7 @@
                 if (isAnimating || selectedGroup) return;
                 event.preventDefault();
                 const rotationSpeed = 0.05;
-                const rotationAmount = event.deltaY > 0 ? rotationSpeed : -rotationSpeed;
+                const rotationAmount = event.deltaY < 0 ? rotationSpeed : -rotationSpeed;
                 currentRotation += rotationAmount;
                 
                 gsap.to(ringGroup.rotation, {
