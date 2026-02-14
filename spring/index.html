@@ -508,7 +508,50 @@
                 isDragging = false;
                 document.body.style.cursor = 'default';
             });
+
+            // 触摸开始（替代 mousedown）
+            document.addEventListener('touchstart', (event) => {
+                if (!selectedGroup) {
+                    isDragging = true;
+                    previousMouseX = event.touches[0].clientX;
+                    document.body.style.cursor = 'grabbing';
+                    event.preventDefault(); // 阻止页面滚动
+                }
+            }, { passive: false });
+
+
+            // 触摸移动（替代 mousemove）
+            document.addEventListener('touchmove', (event) => {
+                mouse.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+                
+                if (!isAnimating) {
+                    detectHover();
+                }
+                
+                if (isDragging && !selectedGroup) {
+                    const deltaX = event.touches[0].clientX - previousMouseX;
+                    previousMouseX = event.touches[0].clientX;
+                    const rotationSpeed = 0.01;
+                    const rotationAmount = deltaX * rotationSpeed;
+                    currentRotation += rotationAmount;
+                    
+                    gsap.to(ringGroup.rotation, {
+                        y: currentRotation,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                }
+                
+                event.preventDefault(); // 阻止页面滚动
+            }, { passive: false });
             
+            // 触摸结束（替代 mouseup）
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+                document.body.style.cursor = 'grab';
+            });
+
             // 鼠标点击事件
             document.addEventListener('click', (event) => {
                 if (isDragging) {
