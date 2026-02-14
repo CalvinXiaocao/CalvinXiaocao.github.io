@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D交互环形签筒</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        canvas {
+            display: block;
+        }
+        
+        .instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            z-index: 100;
+            pointer-events: none;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #c5a455;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(197, 164, 85, 0.8);
+            z-index: 100;
+            animation: pulse 2s infinite;
+            font-family: "STXingkai", "KaiTi", serif;
+            letter-spacing: 4px;
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(197, 164, 85, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(197, 164, 85, 1); }
+            100% { text-shadow: 0 0 10px rgba(197, 164, 85, 0.8); }
+        }
+        
+        .status {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 18px;
+            z-index: 100;
+            min-height: 24px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(30, 30, 40, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        .status.visible {
+            opacity: 1;
+        }
+        
+        .hint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 24px;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+            animation: pulseHint 2s infinite;
+            max-width: 80%;
+            font-family: "STXingkai", "KaiTi", serif;
+            line-height: 1.5;
+        }
+        
+        @keyframes pulseHint {
+            0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.95); }
+            50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.05); }
+            100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.95); }
+        }
+        
+        /* 添加加载状态 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #c5a455;
+            font-size: 20px;
+            text-align: center;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(197, 164, 85, 0.5);
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        .loading::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(197, 164, 85, 0.3);
+            border-top-color: #c5a455;
+            border-radius: 50%;
+            margin: 15px auto;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">正在加载3D签筒...</div>
+    <div class="title">✨ 马年祈福签筒 ✨</div>
+    <div class="status" id="status"></div>
+    <div class="instructions">
+        <p>🖱️ 鼠标拖拽左右旋转 | 🖱️ 滚轮缩放旋转 | 👆 点击签子查看详情 | 👆 再次点击返回</p>
+    </div>
+    <div class="hint"></div>
+
+    <script>
+        // 等待所有资源加载完成
+        window.addEventListener('load', init);
+        
+        const fortunes = [
+            "高数期末不挂科，线代高分轻松过！",
+            "编程题道道AC，debug一气呵成！",
+            "自习全程零干扰，专注如入无人境！",
+            "燕南抢座如有神助，麻辣香锅敞开吃！",
+            "未名湖畔散步间，灵感如泉涌不停！",
+            "论文查重一次过，导师点头直夸好！",
+            "科研paper一发就中，学术路上开挂走！",
+            "宿舍楼热水不断供，洗澡不用排队等！",
+            "签到课全勤打卡，期末老师给加分！",
+            "小组作业遇神队友，分工明确效率高！",
+            "实习offer拿到手软，大厂争着要你！",
+            "燕园猫主子蹭腿，今日好运+10086！",
+            "二教空调温度刚好，夏日学习不流汗！",
+            "理教插座空位多，电脑电量满格跑！",
+            "体测轻松过及格线，85公里早拿下！",
+            "学术讲座遇大咖，提问被点名表扬！",
+            "社团招新全通过，兴趣技能双开花！",
+            "宿舍夜谈不失眠，明日精神倍儿棒！",
+            "小黄车出门就有，一路畅通到教室！",
+            "选课系统不崩溃，心爱课程全抢到！",
+            "实验数据全完美，报告一写就成型！",
+            "校园卡余额充足，优惠卷领个不停！",
+            "毕业答辩无难题，掌声响彻会议室！",
+            "燕园四年皆胜意，前程似锦耀中华！"
+        ];
+        
+        // 创建签子正面纹理（深红底+回字纹+马字+上上签+马年大吉）
+        function createFrontTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256 + 32; // 增加宽度以适应装饰性元素
+            canvas.height = 1024;
+            const ctx = canvas.getContext('2d');
+            
+            // 深红色背景
+            ctx.fillStyle = '#8B0000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 绘制金色回字纹边框
+            ctx.strokeStyle = '#D4AF37';
+            ctx.lineWidth = 8;
+            
+            // 外层回字
+            ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+            
+            // 内层回字
+            ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+            
+            // 四角回字纹装饰
+            const cornerSize = 30;
+            // 左上角
+            ctx.strokeRect(30, 30, cornerSize, cornerSize);
+            ctx.strokeRect(40, 40, cornerSize - 20, cornerSize - 20);
+            // 右上角
+            ctx.strokeRect(canvas.width - 30 - cornerSize, 30, cornerSize, cornerSize);
+            ctx.strokeRect(canvas.width - 40 - cornerSize + 20, 40, cornerSize - 20, cornerSize - 20);
+            // 左下角
+            ctx.strokeRect(30, canvas.height - 30 - cornerSize, cornerSize, cornerSize);
+            ctx.strokeRect(40, canvas.height - 40 - cornerSize + 20, cornerSize - 20, cornerSize - 20);
+            // 右下角
+            ctx.strokeRect(canvas.width - 30 - cornerSize, canvas.height - 30 - cornerSize, cornerSize, cornerSize);
+            ctx.strokeRect(canvas.width - 40 - cornerSize + 20, canvas.height - 40 - cornerSize + 20, cornerSize - 20, cornerSize - 20);
+            
+            // 艺术体"马"字
+            ctx.font = 'bold 180px "STXingkai", "KaiTi", serif';
+            ctx.fillStyle = '#D4AF37';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('马', canvas.width / 2, canvas.height / 2 - 80);
+            
+            // "上上签"文字
+            ctx.font = 'bold 60px "STXingkai", "KaiTi", serif';
+            ctx.fillText('上上签', canvas.width / 2, canvas.height / 2 + 60);
+            
+            // 底部"马年大吉"
+            ctx.font = 'bold 40px "STXingkai", "KaiTi", serif';
+            ctx.fillText('马年大吉', canvas.width / 2, canvas.height - 60);
+            
+            // 添加一些装饰性云纹
+            ctx.strokeStyle = '#D4AF37';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(canvas.width/2, 120, 40, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.arc(canvas.width/2, canvas.height - 120, 40, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            return new THREE.CanvasTexture(canvas);
+        }
+        
+        // 创建签子反面纹理（深红底+回字纹+签文+通通好运）
+        function createBackTexture(index) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256 + 32; // 增加宽度以适应装饰性元素
+            canvas.height = 1024;
+            const ctx = canvas.getContext('2d');
+            
+            // 深红色背景
+            ctx.fillStyle = '#8B0000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 绘制金色回字纹边框（同正面）
+            ctx.strokeStyle = '#D4AF37';
+            ctx.lineWidth = 8;
+            ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+            ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+            
+            // 四角回字纹装饰
+            const cornerSize = 30;
+            ctx.strokeRect(30, 30, cornerSize, cornerSize);
+            ctx.strokeRect(40, 40, cornerSize - 20, cornerSize - 20);
+            ctx.strokeRect(canvas.width - 30 - cornerSize, 30, cornerSize, cornerSize);
+            ctx.strokeRect(canvas.width - 40 - cornerSize + 20, 40, cornerSize - 20, cornerSize - 20);
+            ctx.strokeRect(30, canvas.height - 30 - cornerSize, cornerSize, cornerSize);
+            ctx.strokeRect(40, canvas.height - 40 - cornerSize + 20, cornerSize - 20, cornerSize - 20);
+            ctx.strokeRect(canvas.width - 30 - cornerSize, canvas.height - 30 - cornerSize, cornerSize, cornerSize);
+            ctx.strokeRect(canvas.width - 40 - cornerSize + 20, canvas.height - 40 - cornerSize + 20, cornerSize - 20, cornerSize - 20);
+            
+            // 签文内容（自动换行）
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '36px "STXingkai", "KaiTi", serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            const text = fortunes[index];
+            const lineHeight = 50;
+            const maxWidth = canvas.width - 100;
+            let y = canvas.height / 2 - 100;
+            
+            // 简单的自动换行处理
+            const words = text.split('');
+            let line = '';
+            let lines = [];
+            
+            for (let i = 0; i < words.length; i++) {
+                const testLine = line + words[i];
+                const testWidth = ctx.measureText(testLine).width;
+                if (testWidth > maxWidth && i > 0) {
+                    lines.push(line);
+                    line = words[i];
+                } else {
+                    line += words[i];
+                }
+            }
+            lines.push(line);
+            
+            // 绘制所有行
+            for (let i = 0; i < lines.length; i++) {
+                ctx.fillText(lines[i], canvas.width / 2, y + (i * lineHeight));
+            }
+            
+            // 底部"通通好运"
+            ctx.fillStyle = '#D4AF37';
+            ctx.font = 'bold 48px "STXingkai", "KaiTi", serif';
+            ctx.fillText('通通好运', canvas.width / 2, canvas.height - 70);
+            
+            // 添加装饰性祥云
+            ctx.strokeStyle = '#D4AF37';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 60, canvas.height - 150);
+            ctx.quadraticCurveTo(canvas.width/2, canvas.height - 130, canvas.width/2 + 60, canvas.height - 150);
+            ctx.stroke();
+            
+            return new THREE.CanvasTexture(canvas);
+        }
+        
+        function init() {
+            // 移除加载提示
+            document.getElementById('loading').style.display = 'none';
+            
+            // 场景设置
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a0a); // 深灰色背景
+            const textureLoader = new THREE.TextureLoader();
+            const bgTexture = textureLoader.load('image.png'); // ← 改成你的实际文件名
+            scene.background = bgTexture;
+            
+            // 相机设置
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 2, 15);
+            camera.lookAt(0, 0, 0);
+            
+            // 渲染器设置
+            const renderer = new THREE.WebGLRenderer({ 
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setClearColor(0x0a0a0a, 1);
+            document.body.appendChild(renderer.domElement);
+            
+            // 灯光设置
+            const ambientLight = new THREE.AmbientLight(0x666666, 2.5);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+            directionalLight.position.set(10, 15, 10);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+            
+            const fillLight = new THREE.DirectionalLight(0xffffff, 1.5);
+            fillLight.position.set(-10, 5, -10);
+            scene.add(fillLight);
+
+            // 签子高光用的动态点光源（初始关闭）
+            const highlightLight = new THREE.PointLight(0xffddaa, 0, 30); // 暖金色，初始强度为0
+            highlightLight.position.set(0, 0, 0);
+            scene.add(highlightLight);
+            
+            // 创建环形签子组
+            const ringGroup = new THREE.Group();
+            scene.add(ringGroup);
+            
+            // 存储所有签子组和可交互平面
+            const planeGroups = [];
+            const allPlanes = []; // 用于射线检测的所有平面（正反面）
+            let selectedGroup = null;
+            let isAnimating = false;
+            const planeWidth = 1.8;
+            const planeHeight = 6.4;
+            const ringRadius = 16.0;
+            const totalPlanes = 24;
+            
+            // 创建签子正面和反面的共享材质（提升性能）
+            const frontTexture = createFrontTexture();
+            const frontMaterial = new THREE.MeshBasicMaterial({ 
+                map: frontTexture,
+                side: THREE.DoubleSide,
+                transparent: true
+            });
+            
+            // 创建24个签子（每个签子包含正反两个平面）
+            for (let i = 0; i < totalPlanes; i++) {
+                const angle = (i / totalPlanes) * Math.PI * 2;
+                
+                // 创建组并定位到环形位置
+                const group = new THREE.Group();
+                group.position.set(
+                    ringRadius * Math.cos(angle),
+                    0,
+                    ringRadius * Math.sin(angle)
+                );
+                
+                // 设置组的旋转使其面向中心
+                const directionToCenter = new THREE.Vector3(0, 0, 0).sub(group.position).normalize();
+                group.quaternion.setFromUnitVectors(
+                    new THREE.Vector3(0, 0, 1),
+                    directionToCenter
+                );
+                
+                // 创建正面平面（朝向中心）
+                const frontGeometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                const frontPlane = new THREE.Mesh(frontGeometry, frontMaterial);
+                frontPlane.position.z = 0.01; // 微调避免深度冲突
+                
+                // 创建反面平面（背对中心）
+                const backTexture = createBackTexture(i);
+                const backMaterial = new THREE.MeshBasicMaterial({ 
+                    map: backTexture,
+                    side: THREE.DoubleSide,
+                    transparent: true
+                });
+                const backPlane = new THREE.Mesh(frontGeometry, backMaterial);
+                backPlane.position.z = -0.01; // 微调避免深度冲突
+                backPlane.rotation.y = Math.PI; // 旋转180度使正面背对中心
+                
+                // 将两个平面添加到组
+                group.add(frontPlane);
+                group.add(backPlane);
+                ringGroup.add(group);
+                
+                // 存储组引用
+                planeGroups.push(group);
+                
+                // 为两个平面设置userData，包含签子索引和组引用
+                frontPlane.userData = { index: i, group: group };
+                backPlane.userData = { index: i, group: group };
+                
+                // 添加到射线检测数组
+                allPlanes.push(frontPlane);
+                allPlanes.push(backPlane);
+                
+                // 保存组的原始状态
+                group.userData = { 
+                    originalPosition: group.position.clone(),
+                    originalRotation: group.quaternion.clone(),
+                    index: i
+                };
+            }
+            
+            // Raycaster用于鼠标交互
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+            let isDragging = false;
+            let previousMouseX = 0;
+            let currentRotation = 0;
+            let hoveredGroup = null;
+            let hoverAnimation = null;
+            const statusElement = document.getElementById('status');
+            
+            // 鼠标移动事件
+            document.addEventListener('mousemove', (event) => {
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                
+                if (!isAnimating) {
+                    detectHover();
+                }
+                
+                // 处理拖拽旋转
+                if (isDragging && !selectedGroup) {
+                    const deltaX = event.clientX - previousMouseX;
+                    previousMouseX = event.clientX;
+                    const rotationSpeed = 0.01;
+                    const rotationAmount = deltaX * rotationSpeed;
+                    currentRotation += rotationAmount;
+                    
+                    gsap.to(ringGroup.rotation, {
+                        y: currentRotation,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                }
+            });
+            
+            // 鼠标按下事件
+            document.addEventListener('mousedown', (event) => {
+                if (event.button === 0 && !selectedGroup) {
+                    isDragging = true;
+                    previousMouseX = event.clientX;
+                    document.body.style.cursor = 'grabbing';
+                }
+            });
+            
+            // 鼠标释放事件
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                document.body.style.cursor = 'grab';
+            });
+            
+            // 鼠标离开窗口
+            document.addEventListener('mouseleave', () => {
+                isDragging = false;
+                document.body.style.cursor = 'default';
+            });
+            
+            // 鼠标点击事件
+            document.addEventListener('click', (event) => {
+                if (isDragging) {
+                    isDragging = false;
+                    return;
+                }
+                
+                if (isAnimating) return;
+                
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                detectClick();
+            });
+            
+            // 鼠标滚轮事件
+            document.addEventListener('wheel', (event) => {
+                if (isAnimating || selectedGroup) return;
+                event.preventDefault();
+                const rotationSpeed = 0.05;
+                const rotationAmount = event.deltaY > 0 ? rotationSpeed : -rotationSpeed;
+                currentRotation += rotationAmount;
+                
+                gsap.to(ringGroup.rotation, {
+                    y: currentRotation,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+            
+            // 检测悬停的签子
+            function detectHover() {
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(allPlanes, false);
+                
+                if (intersects.length > 0) {
+                    const intersectedPlane = intersects[0].object;
+                    const group = intersectedPlane.userData.group;
+                    
+                    if (hoveredGroup !== group) {
+                        if (hoverAnimation) {
+                            hoverAnimation.kill();
+                            hoverAnimation = null;
+                        }
+                        
+                        document.querySelector('.hint').style.display = 'none';
+                        hoveredGroup = group;
+                        
+                        if (!selectedGroup) {
+                            const startY = group.position.y;
+                            hoverAnimation = gsap.to(group.position, {
+                                y: startY + 0.3,
+                                duration: 0.5,
+                                repeat: -1,
+                                yoyo: true,
+                                ease: "sine.inOut"
+                            });
+                            
+                            // statusElement.textContent = `悬停在签子 #${group.userData.index + 1}`;
+                            statusElement.classList.add('visible');
+                        }
+                    }
+                } else {
+                    if (hoveredGroup && hoverAnimation) {
+                        hoverAnimation.kill();
+                        hoverAnimation = null;
+                        
+                        gsap.to(hoveredGroup.position, {
+                            y: hoveredGroup.userData.originalPosition.y,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    }
+                    
+                    hoveredGroup = null;
+                    statusElement.classList.remove('visible');
+                    
+                    if (!selectedGroup) {
+                        document.querySelector('.hint').style.display = 'block';
+                    }
+                }
+            }
+            
+            // 检测点击的签子
+            function detectClick() {
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(allPlanes, false);
+                
+                if (intersects.length > 0) {
+                    const clickedPlane = intersects[0].object;
+                    const group = clickedPlane.userData.group;
+                    
+                    if (selectedGroup === group) {
+                        resetPlanes();
+                    } else if (!selectedGroup) {
+                        selectPlane(group);
+                    }
+                }
+            }
+            
+            // 选中签子
+            function selectPlane(group) {
+                isAnimating = true;
+                selectedGroup = group;
+                
+                statusElement.classList.remove('visible');
+                statusElement.textContent = `已选中签子 #${group.userData.index + 1} - 再次点击返回`;
+                statusElement.classList.add('visible');
+                
+                // 隐藏其他签子
+                planeGroups.forEach((g) => {
+                    if (g !== group) {
+                        gsap.to(g.scale, {
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                            duration: 0.6,
+                            ease: "power2.in"
+                        });
+                    }
+                });
+
+                // 激活高光
+                highlightLight.intensity = 2;
+                highlightLight.position.copy(group.position);
+                
+                // 移动选中签子到中心并翻转
+                const originalPosition = group.userData.originalPosition.clone();
+                const originalRotation = group.userData.originalRotation.clone();
+                
+                gsap.to(group.position, {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                // 放大签子
+                gsap.to(group.scale, {
+                    x: 1.5,
+                    y: 1.5,
+                    z: 1.5,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                // 翻转签子（180度）
+                const targetQuaternion = new THREE.Quaternion().setFromAxisAngle(
+                    new THREE.Vector3(0, 1, 0), 
+                    Math.PI
+                ).multiply(originalRotation);
+                
+                gsap.to(group.quaternion, {
+                    x: targetQuaternion.x,
+                    y: targetQuaternion.y,
+                    z: targetQuaternion.z,
+                    w: targetQuaternion.w,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    onUpdate: function() {
+                        group.quaternion.normalize();
+                        highlightLight.position.copy(group.position);
+                    },
+                    onComplete: () => {
+                        isAnimating = false;
+                    }
+                });
+            }
+            
+            // 恢复所有签子
+            function resetPlanes() {
+                highlightLight.intensity = 0;
+                isAnimating = true;
+                statusElement.classList.remove('visible');
+                
+                // 恢复其他签子
+                planeGroups.forEach((g) => {
+                    if (g !== selectedGroup) {
+                        gsap.to(g.scale, {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            duration: 0.6,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+                
+                // 恢复选中签子
+                const originalPosition = selectedGroup.userData.originalPosition;
+                const originalRotation = selectedGroup.userData.originalRotation;
+                
+                gsap.to(selectedGroup.position, {
+                    x: originalPosition.x,
+                    y: originalPosition.y,
+                    z: originalPosition.z,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                gsap.to(selectedGroup.scale, {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                gsap.to(selectedGroup.quaternion, {
+                    x: originalRotation.x,
+                    y: originalRotation.y,
+                    z: originalRotation.z,
+                    w: originalRotation.w,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    onUpdate: function() {
+                        selectedGroup.quaternion.normalize();
+                    },
+                    onComplete: () => {
+                        selectedGroup = null;
+                        isAnimating = false;
+                        document.querySelector('.hint').style.display = 'block';
+                    }
+                });
+            }
+            
+            // 处理窗口大小调整
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+            
+            // 动画循环
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                if (!isDragging && !selectedGroup && Math.abs(ringGroup.rotation.y - currentRotation) > 0.01) {
+                    gsap.to(ringGroup.rotation, {
+                        y: currentRotation,
+                        duration: 0.5,
+                        ease: "power1.out"
+                    });
+                }
+                
+                renderer.render(scene, camera);
+            }
+            
+            // 启动动画循环
+            animate();
+            
+            // 初始设置鼠标样式
+            document.body.style.cursor = 'grab';
+            
+            // 添加场景初始化成功提示
+            setTimeout(() => {
+                statusElement.textContent = "✅ 签筒加载成功！悬停查看签子，点击抽取";
+                statusElement.classList.add('visible');
+                setTimeout(() => {
+                    if (!selectedGroup) {
+                        statusElement.classList.remove('visible');
+                    }
+                }, 3000);
+            }, 500);
+        }
+    </script>
+</body>
+</html>

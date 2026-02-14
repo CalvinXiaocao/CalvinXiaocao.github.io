@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D交互环形界面</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        canvas {
+            display: block;
+        }
+        
+        .instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            z-index: 100;
+            pointer-events: none;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ff4d4d;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(255, 77, 77, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(255, 77, 77, 1); }
+            100% { text-shadow: 0 0 10px rgba(255, 77, 77, 0.8); }
+        }
+        
+        .status {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 18px;
+            z-index: 100;
+            min-height: 24px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(30, 30, 40, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .status.visible {
+            opacity: 1;
+        }
+        
+        .hint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 24px;
+            text-align: center;
+            pointer-events: none;
+            z-index: 10;
+            animation: pulseHint 2s infinite;
+            max-width: 80%;
+        }
+        
+        @keyframes pulseHint {
+            0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.95); }
+            50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.05); }
+            100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.95); }
+        }
+        
+        /* 添加加载状态 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff4d4d;
+            font-size: 20px;
+            text-align: center;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
+        }
+        
+        .loading::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 77, 77, 0.3);
+            border-top-color: #ff4d4d;
+            border-radius: 50%;
+            margin: 15px auto;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">正在加载3D场景...</div>
+    <div class="title">3D交互环形界面</div>
+    <div class="status" id="status"></div>
+    <div class="instructions">
+        <p>🖱️ 鼠标拖拽左右旋转 | 🖱️ 滚轮缩放旋转 | 👆 点击平面查看详情 | 👆 再次点击返回</p>
+    </div>
+    <div class="hint">将鼠标悬停在红色平面上查看浮动效果，点击选择一个平面</div>
+
+    <script>
+        // 等待所有资源加载完成
+        window.addEventListener('load', init);
+        
+        function init() {
+            // 移除加载提示
+            document.getElementById('loading').style.display = 'none';
+            
+            // 场景设置
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a0a); // 深灰色背景，比纯黑更易看到物体
+            
+            // 注释：要更换为PNG背景，取消下面三行的注释并替换图片路径
+            // const textureLoader = new THREE.TextureLoader();
+            // const bgTexture = textureLoader.load('your-background.png');
+            // scene.background = bgTexture;
+            
+            // 相机设置 - 修改：将相机放到合适的位置，从外部观察环形
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 2, 15); // 放在Z轴正方向，稍微抬高一点
+            camera.lookAt(0, 0, 0); // 看向原点
+            
+            // 渲染器设置
+            const renderer = new THREE.WebGLRenderer({ 
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setClearColor(0x0a0a0a, 1);
+            document.body.appendChild(renderer.domElement);
+            
+            // 灯光设置 - 增加强度确保平面可见
+            const ambientLight = new THREE.AmbientLight(0x666666, 2.5); // 增强环境光
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 3); // 增强平行光
+            directionalLight.position.set(10, 15, 10);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+            
+            // 添加补光灯确保背面可见
+            const fillLight = new THREE.DirectionalLight(0xffffff, 1.5);
+            fillLight.position.set(-10, 5, -10);
+            scene.add(fillLight);
+            
+            // 添加辅助线（调试用，可以注释掉）
+            // const axesHelper = new THREE.AxesHelper(5);
+            // scene.add(axesHelper);
+            
+            // 创建环形平面组
+            const ringGroup = new THREE.Group();
+            scene.add(ringGroup);
+            
+            // 存储所有平面和它们的组
+            const planes = [];
+            const planeGroups = [];
+            let selectedPlane = null;
+            let selectedGroup = null;
+            let isAnimating = false;
+            const planeWidth = 1.4;
+            const planeHeight = 6.4;
+            const ringRadius = 16.0;
+            const totalPlanes = 24;
+            
+            // 创建24个红色平面
+            for (let i = 0; i < totalPlanes; i++) {
+                const angle = (i / totalPlanes) * Math.PI * 2;
+                
+                // 创建组并定位到环形位置
+                const group = new THREE.Group();
+                group.position.set(
+                    ringRadius * Math.cos(angle),
+                    0,
+                    ringRadius * Math.sin(angle)
+                );
+                
+                // 关键修复1：不要使用lookAt(0,0,0)，因为这会改变组的旋转
+                // 我们通过设置组的旋转来使其面向中心
+                
+                // 创建平面
+                const geometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                const material = new THREE.MeshPhongMaterial({ 
+                    color: 0xff3333,
+                    side: THREE.DoubleSide, // 双面渲染确保从各个角度可见
+                    shininess: 50,
+                    specular: 0x111111,
+                    emissive: 0x220000 // 添加微弱的自发光，增加可见度
+                });
+                const plane = new THREE.Mesh(geometry, material);
+                
+                // 关键修复2：正确设置平面的朝向，使其指向圆心
+                // 平面的默认朝向是Z轴正方向
+                // 我们需要让平面指向圆心，即从平面位置指向原点
+                
+                // 计算从平面指向圆心的方向
+                const directionToCenter = new THREE.Vector3(0, 0, 0).sub(group.position).normalize();
+                
+                // 方法1：通过旋转组来使平面指向圆心
+                group.quaternion.setFromUnitVectors(
+                    new THREE.Vector3(0, 0, 1), // 平面的默认朝向（未旋转时）
+                    directionToCenter
+                );
+                
+                // 将平面添加到组中
+                group.add(plane);
+                ringGroup.add(group);
+                
+                // 存储引用
+                planes.push(plane);
+                planeGroups.push(group);
+                
+                // 添加平面索引作为userData，用于识别
+                plane.userData = { 
+                    index: i, 
+                    originalPosition: group.position.clone(), 
+                    originalRotation: group.rotation.y,
+                    originalScale: new THREE.Vector3(1, 1, 1)
+                };
+                
+                // 保存组的原始旋转
+                group.userData = { originalRotation: group.rotation.y };
+            }
+            
+            // 添加中心参考点（可选，用于调试）
+            // const centerSphere = new THREE.Mesh(
+            //     new THREE.SphereGeometry(0.2, 16, 16),
+            //     new THREE.MeshBasicMaterial({ color: 0xffff00 })
+            // );
+            // scene.add(centerSphere);
+            
+            // Raycaster用于鼠标交互
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+            let isDragging = false;
+            let previousMouseX = 0;
+            let currentRotation = 0;
+            let hoveredPlane = null;
+            let hoverAnimation = null;
+            const statusElement = document.getElementById('status');
+            
+            // 鼠标移动事件 - 用于悬停检测和拖拽
+            document.addEventListener('mousemove', (event) => {
+                // 计算鼠标位置（归一化设备坐标）
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                
+                // 检测悬停
+                if (!isAnimating) {
+                    detectHover();
+                }
+                
+                // 处理拖拽旋转
+                if (isDragging && !selectedPlane) {
+                    const deltaX = event.clientX - previousMouseX;
+                    previousMouseX = event.clientX;
+                    
+                    // 计算旋转量（根据鼠标移动距离）
+                    const rotationSpeed = 0.01;
+                    const rotationAmount = deltaX * rotationSpeed;
+                    
+                    // 更新旋转角度
+                    currentRotation += rotationAmount;
+                    
+                    // 应用旋转到环形组
+                    gsap.to(ringGroup.rotation, {
+                        y: currentRotation,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                }
+            });
+            
+            // 鼠标按下事件 - 开始拖拽
+            document.addEventListener('mousedown', (event) => {
+                if (event.button === 0 && !selectedPlane) { // 左键
+                    isDragging = true;
+                    previousMouseX = event.clientX;
+                    document.body.style.cursor = 'grabbing';
+                }
+            });
+            
+            // 鼠标释放事件 - 结束拖拽
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                document.body.style.cursor = 'grab';
+            });
+            
+            // 鼠标离开窗口 - 结束拖拽
+            document.addEventListener('mouseleave', () => {
+                isDragging = false;
+                document.body.style.cursor = 'default';
+            });
+            
+            // 鼠标点击事件 - 用于平面选择
+            document.addEventListener('click', (event) => {
+                if (isDragging) {
+                    isDragging = false;
+                    return;
+                }
+                
+                if (isAnimating) return;
+                
+                // 更新鼠标位置
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                
+                // 检测点击
+                detectClick();
+            });
+            
+            // 鼠标滚轮事件 - 用于旋转
+            document.addEventListener('wheel', (event) => {
+                if (isAnimating || selectedPlane) return;
+                
+                event.preventDefault();
+                
+                // 根据滚轮方向计算旋转量
+                const rotationSpeed = 0.05;
+                const rotationAmount = event.deltaY > 0 ? rotationSpeed : -rotationSpeed;
+                
+                // 更新旋转角度
+                currentRotation += rotationAmount;
+                
+                // 应用旋转到环形组（使用GSAP动画）
+                gsap.to(ringGroup.rotation, {
+                    y: currentRotation,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+            
+            // 检测悬停的平面
+            function detectHover() {
+                // 更新raycaster
+                raycaster.setFromCamera(mouse, camera);
+                
+                // 检测与平面的相交
+                const intersects = raycaster.intersectObjects(planes, false);
+                
+                // 处理悬停效果
+                if (intersects.length > 0) {
+                    const intersectedPlane = intersects[0].object;
+                    
+                    // 如果悬停的平面发生变化
+                    if (hoveredPlane !== intersectedPlane) {
+                        // 清除之前的悬停动画
+                        if (hoverAnimation) {
+                            hoverAnimation.kill();
+                            hoverAnimation = null;
+                        }
+                        
+                        // 隐藏提示文字
+                        document.querySelector('.hint').style.display = 'none';
+                        
+                        // 更新悬停平面
+                        hoveredPlane = intersectedPlane;
+                        
+                        // 仅在未选中状态下应用悬停效果
+                        if (!selectedPlane) {
+                            // 开始正弦波浮动动画
+                            const startY = hoveredPlane.position.y;
+                            
+                            hoverAnimation = gsap.to(hoveredPlane.position, {
+                                y: startY + 0.3,
+                                duration: 0.5,
+                                repeat: -1,
+                                yoyo: true,
+                                ease: "sine.inOut"
+                            });
+                            
+                            // 显示状态
+                            statusElement.textContent = `悬停在平面 #${hoveredPlane.userData.index + 1}`;
+                            statusElement.classList.add('visible');
+                        }
+                    }
+                } else {
+                    // 没有悬停在任何平面上
+                    if (hoveredPlane && hoverAnimation) {
+                        hoverAnimation.kill();
+                        hoverAnimation = null;
+                        
+                        // 重置Y位置
+                        gsap.to(hoveredPlane.position, {
+                            y: 0,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    }
+                    
+                    hoveredPlane = null;
+                    statusElement.classList.remove('visible');
+                    
+                    // 恢复提示文字（如果没有选中平面）
+                    if (!selectedPlane) {
+                        document.querySelector('.hint').style.display = 'block';
+                    }
+                }
+            }
+            
+            // 检测点击的平面
+            function detectClick() {
+                // 更新raycaster
+                raycaster.setFromCamera(mouse, camera);
+                
+                // 检测与平面的相交
+                const intersects = raycaster.intersectObjects(planes, false);
+                
+                if (intersects.length > 0) {
+                    const clickedPlane = intersects[0].object;
+                    
+                    // 如果点击的是已选中的平面
+                    if (selectedPlane === clickedPlane) {
+                        // 恢复所有平面
+                        resetPlanes();
+                    } 
+                    // 如果点击的是新平面
+                    else if (!selectedPlane) {
+                        // 选中该平面
+                        selectPlane(clickedPlane);
+                    }
+                }
+            }
+            
+            // 选中平面
+            function selectPlane(plane) {
+                isAnimating = true;
+                selectedPlane = plane;
+                
+                // 获取平面所在的组
+                selectedGroup = plane.parent;
+                
+                // 隐藏状态提示
+                statusElement.classList.remove('visible');
+                
+                // 显示选中状态
+                statusElement.textContent = `已选中平面 #${plane.userData.index + 1} - 再次点击返回`;
+                statusElement.classList.add('visible');
+                
+                // 对其他平面执行消失动画
+                planes.forEach((p, index) => {
+                    if (p !== plane) {
+                        gsap.to(p.scale, {
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                            duration: 0.6,
+                            ease: "power2.in"
+                        });
+                    }
+                });
+                
+                // 移动选中平面到新位置 (5.8, 0, 0)
+                const targetPosition = new THREE.Vector3(0, 0, 0);
+                const originalPosition = selectedGroup.position.clone();
+                const originalRotation = selectedGroup.rotation.y;
+                
+                // 执行选中平面的动画
+                gsap.to(selectedGroup.position, {
+                    x: targetPosition.x,
+                    y: targetPosition.y,
+                    z: targetPosition.z,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                // 缩放选中平面到1.5倍
+                gsap.to(plane.scale, {
+                    x: 1.5,
+                    y: 1.5,
+                    z: 1.5,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                // 翻转选中平面（绕Y轴180度）
+                gsap.to(selectedGroup.rotation, {
+                    y: originalRotation + Math.PI,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        isAnimating = false;
+                    }
+                });
+            }
+            
+            // 恢复所有平面
+            function resetPlanes() {
+                isAnimating = true;
+                
+                // 隐藏状态提示
+                statusElement.classList.remove('visible');
+                
+                // 恢复其他平面
+                planes.forEach((p) => {
+                    if (p !== selectedPlane) {
+                        gsap.to(p.scale, {
+                            x: 1,
+                            y: 1,
+                            z: 1,
+                            duration: 0.6,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+                
+                // 恢复选中平面到原始位置
+                const originalPosition = selectedPlane.userData.originalPosition;
+                const originalRotation = selectedPlane.parent.userData.originalRotation;
+                
+                gsap.to(selectedGroup.position, {
+                    x: originalPosition.x,
+                    y: originalPosition.y,
+                    z: originalPosition.z,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                // 恢复选中平面缩放
+                gsap.to(selectedPlane.scale, {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+                
+                // 恢复选中平面旋转
+                gsap.to(selectedGroup.rotation, {
+                    y: originalRotation,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        // 重置状态
+                        selectedPlane = null;
+                        selectedGroup = null;
+                        isAnimating = false;
+                        
+                        // 显示提示
+                        document.querySelector('.hint').style.display = 'block';
+                    }
+                });
+            }
+            
+            // 处理窗口大小调整
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+            
+            // 动画循环
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // 如果没有拖拽且没有选中平面，缓慢减速旋转
+                if (!isDragging && !selectedPlane && Math.abs(ringGroup.rotation.y - currentRotation) > 0.01) {
+                    gsap.to(ringGroup.rotation, {
+                        y: currentRotation,
+                        duration: 0.5,
+                        ease: "power1.out"
+                    });
+                }
+                
+                renderer.render(scene, camera);
+            }
+            
+            // 启动动画循环
+            animate();
+            
+            // 初始设置鼠标样式
+            document.body.style.cursor = 'grab';
+            
+            // 添加场景初始化成功提示
+            setTimeout(() => {
+                statusElement.textContent = "✅ 场景加载成功！尝试悬停或点击平面";
+                statusElement.classList.add('visible');
+                setTimeout(() => {
+                    if (!selectedPlane) {
+                        statusElement.classList.remove('visible');
+                    }
+                }, 3000);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
