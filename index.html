@@ -2,32 +2,629 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Calvin's World</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//fastly.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-</head>
-<body>
-  <div id="app"></div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yu (Calvin) Cao, undergraduate researcher in low-level vision, compression, and generative coding">
+  <title>Yu (Calvin) Cao</title>
   <script>
-    window.$docsify = {
-      name: '',
-      repo: ''
+    if (window.location.hash && window.location.hash.startsWith("#/")) {
+      window.location.replace("docs.html" + window.location.hash);
     }
   </script>
-  <!-- Docsify v4 -->
-  <script src="//fastly.jsdelivr.net/npm/docsify@4"></script>
+  <style>
+    :root {
+      --ink: #172026;
+      --muted: #60717d;
+      --line: #dde5e8;
+      --paper: #fbfaf6;
+      --panel: rgba(255, 255, 255, 0.82);
+      --green: #0f766e;
+      --blue: #2563eb;
+      --coral: #d95d39;
+      --gold: #a16207;
+    }
 
-<!-- docsify-tabs (latest v1.x.x) -->
-<script src="https://fastly.jsdelivr.net/npm/docsify-tabs@1"></script>
+    * {
+      box-sizing: border-box;
+    }
 
-<!-- KaTex -->
+    html {
+      scroll-behavior: smooth;
+    }
 
-<script src="https://fastly.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-<link rel="stylesheet" href="//fastly.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(251, 250, 246, 0.96), rgba(246, 248, 248, 0.98)),
+        url("me2024.jpg") center 12% / 560px auto no-repeat fixed;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
 
-<script src="//fastly.jsdelivr.net/npm/docsify-latex@0"></script>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
+    .site-shell {
+      min-height: 100vh;
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(221, 229, 232, 0.78);
+      background: rgba(251, 250, 246, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner,
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.15;
+      font-weight: 760;
+      letter-spacing: 0;
+      font-size: 1.08rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 38px;
+      padding: 0 11px;
+      border-radius: 999px;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      background: rgba(15, 118, 110, 0.08);
+    }
+
+    .github-mark {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      color: currentColor;
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
+      gap: 52px;
+      align-items: center;
+      padding: 72px 0 54px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 760;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(2.35rem, 4.2vw, 3.9rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      margin: 26px 0 0;
+      color: #34424d;
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions,
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink);
+      font-weight: 720;
+      box-shadow: 0 12px 28px rgba(23, 32, 38, 0.08);
+    }
+
+    .button.primary {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .portrait-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .portrait {
+      width: min(100%, 360px);
+      aspect-ratio: 301 / 409.44;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 28px 70px rgba(23, 32, 38, 0.24);
+    }
+
+    .section {
+      padding: 62px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 14px;
+      font-size: 1.08rem;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      max-width: 470px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .panel,
+    .contact-band {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 18px 46px rgba(23, 32, 38, 0.07);
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .panel p {
+      margin: 0;
+      color: #34424d;
+    }
+
+    .list {
+      display: grid;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 14px;
+      align-items: baseline;
+    }
+
+    .fact time,
+    .fact strong {
+      color: var(--green);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .fact p {
+      margin: 0;
+      color: #34424d;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .research-tags span {
+      padding: 7px 11px;
+      border: 1px solid rgba(15, 118, 110, 0.18);
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.08);
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 760;
+    }
+
+    .entry-list {
+      display: grid;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: item;
+    }
+
+    .entry {
+      position: relative;
+      padding-left: 34px;
+      color: #34424d;
+    }
+
+    .entry::before {
+      counter-increment: item;
+      content: "[" counter(item) "]";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 850;
+    }
+
+    .entry-title {
+      color: var(--ink);
+      font-weight: 760;
+    }
+
+    .entry-meta {
+      color: var(--muted);
+    }
+
+    .compact-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 18px;
+      color: #34424d;
+    }
+
+    .contact-band {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 26px;
+      margin-bottom: 64px;
+    }
+
+    .contact-band p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      justify-content: flex-end;
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 0;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 48px;
+      }
+
+      .portrait-wrap {
+        justify-content: flex-start;
+      }
+
+      .portrait {
+        max-width: 280px;
+      }
+
+      .section-heading,
+      .contact-band {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .topbar-inner,
+      main {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        gap: 34px;
+      }
+
+      .fact {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">
+          <span>Yu Cao</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+          <a href="docs.html">Archive</a>
+          <a href="index-zh.html">中文</a>
+          <a href="https://github.com/CalvinXiaocao" aria-label="GitHub profile">
+            <svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true">
+              <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+            </svg>
+            GitHub
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div>
+          <p class="eyebrow">STRUCT Group · Peking University</p>
+          <h1>Yu (Calvin) Cao</h1>
+          <p class="hero-copy">
+            I am an undergraduate student in Intelligence Science and Technology at Peking University, advised by Prof. Jiaying Liu in the STRUCT group at the Wangxuan Institute of Computer Technology. My research interests mainly lie in low-level vision tasks, including image compression, deraining, super-resolution, and generative coding.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:calvincao@stu.pku.edu.cn">Email</a>
+            <a class="button" href="https://github.com/CalvinXiaocao">
+              <svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div class="portrait-wrap" aria-label="Portrait">
+          <img class="portrait" src="me2024.jpg" width="301" height="409" alt="Yu (Calvin) Cao">
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <h2>About Me</h2>
+          <p class="section-note">I study computer vision and enjoy building tools that are useful in practice.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Education</h3>
+            <ul class="list">
+              <li class="fact">
+                <time>2023-</time>
+                <p>B.S. student, School of Electronics Engineering and Computer Science, Peking University</p>
+              </li>
+              <li class="fact">
+                <time>2020-2023</time>
+                <p>High School Attached to Northeast Normal University</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>Honors and Awards</h3>
+            <ul class="list">
+              <li class="fact">
+                <strong>2024-2025</strong>
+                <p>National Scholarship</p>
+              </li>
+              <li class="fact">
+                <strong>2023-2025</strong>
+                <p>Peking University Merit Student, awarded for two consecutive academic years</p>
+              </li>
+              <li class="fact">
+                <strong>2023-2024</strong>
+                <p>Peking University BYD Scholarship</p>
+              </li>
+              <li class="fact">
+                <strong>2024-2025</strong>
+                <p>Third Prize, Peking University Jiukun Cup Programming Contest</p>
+              </li>
+              <li class="fact">
+                <strong>2023-2024</strong>
+                <p>Peking University Freshman Third-Class Scholarship</p>
+              </li>
+              <li class="fact">
+                <strong>2023-2024</strong>
+                <p>Outstanding Admissions Volunteer, Peking University</p>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading">
+          <h2>Research</h2>
+          <p class="section-note">My current work focuses on representation, restoration, and compression for visual signals.</p>
+        </div>
+
+        <article class="panel">
+          <p>
+            I am a member of the STRUCT group, which studies theoretical foundations and practical applications of image/video processing, multimedia communications, and computer vision. My current interests focus on low-level vision tasks where image quality, compact representation, and semantic understanding meet. Recent directions include image compression, video deraining, super-resolution, and generative coding with semantic guidance.
+          </p>
+          <div class="research-tags" aria-label="Research interests">
+            <span>Image Compression</span>
+            <span>Deraining</span>
+            <span>Super-Resolution</span>
+            <span>Generative Coding</span>
+            <span>Low-Level Vision</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="publications">
+        <div class="section-heading">
+          <h2>Publications and Patents</h2>
+          <p class="section-note">Accepted paper, patent applications, and standardization proposals.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Paper</h3>
+            <ol class="entry-list">
+              <li class="entry">
+                <span class="entry-meta">Haowei Kuang, </span><strong>Yu Cao</strong><span class="entry-meta">, Wenhan Yang, Zongming Guo and Jiaying Liu.</span>
+                <span class="entry-title"> "Connecting Generation with Compression: Unified Generative Coding with Semantic Guidance",</span>
+                <span class="entry-meta"> Accepted by IEEE ICME, 2026.</span>
+              </li>
+            </ol>
+          </article>
+
+          <article class="panel">
+            <h3>PCT Patent Application</h3>
+            <ol class="entry-list">
+              <li class="entry">
+                <span class="entry-title">一种基于掩码补偿的跨粒度在线图像压缩方法及系统。</span>
+                <span class="entry-meta"> 专利申请人：刘家瑛、匡浩玮、<strong>曹彧</strong>、郭宗明。专利申请号：PCT/CN2025/135826，申请时间：2025年11月。</span>
+              </li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px;">
+          <article class="panel">
+            <h3>Chinese Patent Applications</h3>
+            <ol class="entry-list">
+              <li class="entry">
+                <span class="entry-title">一种基于掩码补偿的跨粒度在线图像压缩方法及系统。</span>
+                <span class="entry-meta"> 专利申请人：刘家瑛、匡浩玮、<strong>曹彧</strong>、郭宗明。专利申请号：202511168749.1，申请时间：2025年8月。</span>
+              </li>
+              <li class="entry">
+                <span class="entry-title">一种基于内容-外观解耦的图像簇压缩方法及系统。</span>
+                <span class="entry-meta"> 专利申请人：刘家瑛、<strong>曹彧</strong>、匡浩玮、杨文瀚。专利申请号：202610707025.8，申请时间：2026年5月。</span>
+              </li>
+              <li class="entry">
+                <span class="entry-title">一种基于持续学习与自监督学习的视频去雨方法及系统。</span>
+                <span class="entry-meta"> 专利申请人：刘家瑛、张语菲、刘明昊、<strong>曹彧</strong>、杨文瀚。专利申请号：202610852175.8，申请时间：2026年6月。</span>
+              </li>
+              <li class="entry">
+                <span class="entry-title">一种基于语义引导的统一生成式图像压缩方法及系统。</span>
+                <span class="entry-meta"> 专利申请人：刘家瑛、董一凡、匡浩玮、<strong>曹彧</strong>、杨文瀚。专利申请号：202610835226.6，申请时间：2026年6月。</span>
+              </li>
+            </ol>
+          </article>
+
+          <article class="panel">
+            <h3>Standardization Proposals</h3>
+            <ol class="entry-list">
+              <li class="entry">
+                <span class="entry-title">AITISA (AI M2382)：基于视频-特征联合编码的高效适配编码框架技术进展。</span>
+                <span class="entry-meta"> 杨文瀚，<strong>曹彧</strong>，孙少凡，刘家瑛，段凌宇。</span>
+              </li>
+              <li class="entry">
+                <span class="entry-title">AITISA (AI M2377)：面向大模型的多用途视频编码-参考软件开发进展。</span>
+                <span class="entry-meta"> 冯冬辉，高博，凌清悦，程正雪，宋利，王琪，谷群山，胡洪卫，张乐天，<strong>曹彧</strong>，孙少凡，刘家瑛，段凌宇，杨文瀚，司航。</span>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-band" id="contact">
+        <div>
+          <h2>Contact</h2>
+          <p>I am happy to discuss research, coursework, coding, and music.</p>
+        </div>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:calvincao@stu.pku.edu.cn">calvincao@stu.pku.edu.cn</a>
+          <a class="button" href="https://github.com/CalvinXiaocao">
+            <svg class="github-mark" viewBox="0 0 16 16" aria-hidden="true">
+              <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+            </svg>
+            CalvinXiaocao
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 Yu (Calvin) Cao
+    </footer>
+  </div>
 </body>
 </html>

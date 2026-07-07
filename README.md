@@ -5,7 +5,7 @@
 ?> 目前网页正在更新中……
 
 ## About Me
-### 曹彧 · Yu (Calvin) Cao
+### Yu (Calvin) Cao
 **北京大学信息科学技术学院 本科生**
 
 <div style="display: flex;">
