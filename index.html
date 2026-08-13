@@ -169,6 +169,13 @@
       color: var(--ink);
       font-weight: 720;
       box-shadow: 0 12px 28px rgba(23, 32, 38, 0.08);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(15, 118, 110, 0.28);
+      box-shadow: 0 14px 30px rgba(23, 32, 38, 0.11);
     }
 
     .button.primary {
@@ -189,6 +196,14 @@
       border-radius: 28px;
       border: 1px solid rgba(255, 255, 255, 0.7);
       box-shadow: 0 28px 70px rgba(23, 32, 38, 0.24);
+      filter: saturate(0.96);
+      transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+    }
+
+    .portrait:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.02);
+      box-shadow: 0 30px 74px rgba(23, 32, 38, 0.27);
     }
 
     .section {
@@ -235,6 +250,14 @@
       border-radius: 8px;
       background: var(--panel);
       box-shadow: 0 18px 46px rgba(23, 32, 38, 0.07);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .panel:hover,
+    .contact-band:hover {
+      border-color: rgba(15, 118, 110, 0.2);
+      box-shadow: 0 20px 50px rgba(23, 32, 38, 0.09);
+      transform: translateY(-1px);
     }
 
     .panel {
@@ -413,6 +436,22 @@
       .fact {
         grid-template-columns: 1fr;
         gap: 2px;
+      }
+    }
+
+    @media (hover: none), (prefers-reduced-motion: reduce) {
+      .button,
+      .portrait,
+      .panel,
+      .contact-band {
+        transition: none;
+      }
+
+      .button:hover,
+      .portrait:hover,
+      .panel:hover,
+      .contact-band:hover {
+        transform: none;
       }
     }
   </style>
