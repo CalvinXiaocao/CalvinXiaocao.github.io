@@ -15,9 +15,22 @@
             background-color: #ffb6c1; /* 粉色背景作为备用 */
             font-family: 'Arial', sans-serif;
             overflow: hidden;
+            position: relative;
+            isolation: isolate;
             background-image: url('background.jpg'); /* 替换为您的背景图片URL */
             background-size: cover;
             background-position: center;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 26%, rgba(22, 12, 34, 0.04), rgba(16, 12, 22, 0.28) 70%),
+                rgba(12, 9, 18, 0.12);
+            pointer-events: none;
+            z-index: 0;
         }
         
         .container {
@@ -26,6 +39,8 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             padding: 20px;
             max-width: 80%;
+            position: relative;
+            z-index: 2;
         }
         
         h1 {
@@ -65,23 +80,58 @@
             50% { transform: scale(1.05); }
         }
         
-        .hearts {
-            position: absolute;
+        .fireworks {
+            position: fixed;
+            inset: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 1;
         }
-        
-        .heart {
+
+        .star-dust {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .dust {
             position: absolute;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.7);
-            animation: float 4s linear infinite;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            color: rgba(255, 242, 176, 0.95);
+            opacity: var(--opacity);
+            transform: translate3d(0, 0, 0) rotate(var(--rotate));
+            animation: driftDust var(--duration) ease-in-out var(--delay) infinite alternate;
+            will-change: transform, opacity;
         }
-        
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+
+        .dust::before {
+            content: "★";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-size: var(--size);
+            line-height: 1;
+            transform: translate(-50%, -50%);
+            text-shadow:
+                0 0 6px rgba(255, 232, 151, 0.56),
+                0 0 12px rgba(255, 195, 120, 0.24);
+        }
+
+        @keyframes driftDust {
+            0% {
+                opacity: calc(var(--opacity) * 0.58);
+                transform: translate3d(0, 0, 0) rotate(var(--rotate)) scale(0.84);
+            }
+            100% {
+                opacity: var(--opacity);
+                transform: translate3d(var(--drift-x), var(--drift-y), 0) rotate(calc(var(--rotate) + 16deg)) scale(1.08);
+            }
         }
 
         .music-hint {
@@ -98,15 +148,38 @@
     z-index: 100;
 }
 
+        .click-hint {
+            position: fixed;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.66);
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+            z-index: 3;
+            pointer-events: none;
+        }
+
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .dust,
+    .birthday-message,
+    .music-hint {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+    }
+}
     </style>
 </head>
 <body>
-    <div class="hearts" id="hearts"></div>
+    <div class="star-dust" id="starDust" aria-hidden="true"></div>
+    <canvas class="fireworks" id="fireworks" aria-hidden="true"></canvas>
     
     <div class="container">
         <div class="music-hint">点击屏幕播放音乐 ♪</div>
@@ -118,10 +191,12 @@
         </div>
         
         <div class="lyric" id="lyric2">
-            "Got your whole life ahead of you, you're only nineteen"<br>
-            <span style="font-size: 1rem;">- Teenage Dream, Olivia Rodrigo</span>
+            "It was the end of a decade, but the start of an age"<br>
+            <span style="font-size: 1rem;">- Long Live, Taylor Swift</span>
         </div>
     </div>
+
+    <div class="click-hint">鼠标点击可以放烟花哦～</div>
 
     
 
@@ -150,37 +225,175 @@
         // 每10秒切换一次歌词
         setInterval(switchLyrics, 10000);
         
-        // 创建漂浮的心形
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const heartCount = 20;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '★';
-                heart.classList.add('heart');
-                
-                // 随机位置
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                
-                // 随机大小
-                const size = Math.random() * 20 + 10;
-                heart.style.fontSize = size + 'px';
-                
-                // 随机动画持续时间
-                const duration = Math.random() * 3 + 3;
-                heart.style.animationDuration = duration + 's';
-                
-                // 随机延迟
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                
-                heartsContainer.appendChild(heart);
+        const canvas = document.getElementById('fireworks');
+        const ctx = canvas.getContext('2d');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const palette = ['#fff1a8', '#ffd166', '#ff5d8f', '#8be9fd', '#cdb4ff'];
+        const particles = [];
+        const flashes = [];
+        let width = 0;
+        let height = 0;
+        let nextBurstAt = 800;
+
+        function createStarDust() {
+            const dustLayer = document.getElementById('starDust');
+            const dustCount = 22;
+
+            for (let i = 0; i < dustCount; i++) {
+                const dust = document.createElement('span');
+                const size = 12 + Math.random() * 11;
+
+                dust.className = 'dust';
+                dust.style.setProperty('--x', `${Math.random() * 100}%`);
+                dust.style.setProperty('--y', `${Math.random() * 100}%`);
+                dust.style.setProperty('--size', `${size}px`);
+                dust.style.setProperty('--opacity', `${0.36 + Math.random() * 0.3}`);
+                dust.style.setProperty('--rotate', `${Math.random() * 45}deg`);
+                dust.style.setProperty('--duration', `${7 + Math.random() * 7}s`);
+                dust.style.setProperty('--delay', `${Math.random() * -8}s`);
+                dust.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 42}px`);
+                dust.style.setProperty('--drift-y', `${-18 - Math.random() * 36}px`);
+
+                dustLayer.appendChild(dust);
             }
         }
-        
-        // 页面加载后创建心形
-        window.onload = createHearts;
+
+        function resizeCanvas() {
+            const ratio = Math.min(window.devicePixelRatio || 1, 1.35);
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = Math.floor(width * ratio);
+            canvas.height = Math.floor(height * ratio);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        }
+
+        function createFirework(x = Math.random() * width, y = height * (0.16 + Math.random() * 0.42)) {
+            const color = palette[Math.floor(Math.random() * palette.length)];
+            const count = 58 + Math.floor(Math.random() * 20);
+
+            flashes.push({
+                x,
+                y,
+                color,
+                life: 0,
+                maxLife: 22
+            });
+
+            for (let i = 0; i < count; i++) {
+                const angle = (Math.PI * 2 * i) / count + Math.random() * 0.12;
+                const speed = 2 + Math.random() * 4.1;
+                particles.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    life: 0,
+                    maxLife: 60 + Math.random() * 26,
+                    size: 1.35 + Math.random() * 2.05,
+                    color,
+                    drift: (Math.random() - 0.5) * 0.012
+                });
+            }
+
+            if (particles.length > 560) {
+                particles.splice(0, particles.length - 560);
+            }
+        }
+
+        function drawFireworks(time) {
+            ctx.clearRect(0, 0, width, height);
+
+            if (!prefersReducedMotion && time > nextBurstAt) {
+                createFirework();
+                nextBurstAt = time + 920 + Math.random() * 680;
+            }
+
+            ctx.globalCompositeOperation = 'lighter';
+
+            for (let i = flashes.length - 1; i >= 0; i--) {
+                const flash = flashes[i];
+                flash.life += 1;
+
+                const progress = flash.life / flash.maxLife;
+                const alpha = Math.max(0, 1 - progress);
+                const radius = 8 + progress * 46;
+
+                ctx.strokeStyle = flash.color;
+                ctx.globalAlpha = alpha * 0.72;
+                ctx.lineWidth = 2.4;
+                ctx.shadowColor = flash.color;
+                ctx.shadowBlur = 10;
+                ctx.beginPath();
+                ctx.arc(flash.x, flash.y, radius, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.globalAlpha = alpha * 0.9;
+                ctx.beginPath();
+                ctx.arc(flash.x, flash.y, 3.5 + progress * 2, 0, Math.PI * 2);
+                ctx.fillStyle = flash.color;
+                ctx.fill();
+
+                if (flash.life >= flash.maxLife) {
+                    flashes.splice(i, 1);
+                }
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.life += 1;
+                p.vy += 0.018;
+                p.vx += p.drift;
+                p.x += p.vx;
+                p.y += p.vy;
+
+                const progress = p.life / p.maxLife;
+                const alpha = Math.max(0, 1 - progress);
+                const trailX = p.x - p.vx * 4.8;
+                const trailY = p.y - p.vy * 4.8;
+
+                ctx.strokeStyle = p.color;
+                ctx.globalAlpha = alpha * 0.68;
+                ctx.lineWidth = p.size * 1.05;
+                ctx.shadowBlur = 0;
+                ctx.beginPath();
+                ctx.moveTo(trailX, trailY);
+                ctx.lineTo(p.x, p.y);
+                ctx.stroke();
+
+                ctx.globalAlpha = alpha;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size * (1 - progress * 0.35), 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+
+                if (p.life >= p.maxLife) {
+                    particles.splice(i, 1);
+                }
+            }
+
+            ctx.globalAlpha = 1;
+            ctx.shadowBlur = 0;
+            ctx.globalCompositeOperation = 'source-over';
+            requestAnimationFrame(drawFireworks);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('pointerdown', (event) => {
+            if (!prefersReducedMotion) {
+                createFirework(event.clientX, event.clientY);
+            }
+        });
+
+        window.onload = () => {
+            createStarDust();
+            resizeCanvas();
+            if (!prefersReducedMotion) {
+                createFirework(width * 0.5, height * 0.32);
+            }
+            requestAnimationFrame(drawFireworks);
+        };
     </script>
 
     <script>
@@ -196,13 +409,15 @@
             });
         }
  
-        // 监听全局点击事件
-        document.addEventListener('click', () => {
+        // 监听首次点击事件
+        function handleFirstClick() {
             playAudio();
-            // 移除全局点击事件监听器，避免重复触发
-            document.removeEventListener('click', playAudio);
+            // 移除首次点击事件监听器，避免重复触发
+            document.removeEventListener('click', handleFirstClick);
             document.querySelector('.music-hint').style.display = 'none';
-        });
+        }
+
+        document.addEventListener('click', handleFirstClick);
     </script>
 </body>
 </html>
