@@ -1,0 +1,6 @@
+Font: MaokenAssortedSans-Lite / 猫啃什锦黑 精简版
+Version: 1.70
+Author project: https://github.com/maoken-fonts/MaokenAssortedSans
+Download: https://github.com/maoken-fonts/MaokenAssortedSans/releases/download/v1.70/MaokenAssortedSans-Lite.ttf
+License: SIL Open Font License 1.1 (see OFL.txt)
+Used locally by birthday.css for Chinese and Latin text.
